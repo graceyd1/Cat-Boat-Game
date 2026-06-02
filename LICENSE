@@ -1,6 +1,10 @@
 MIT License
 
+<<<<<<< HEAD
 Copyright (c) 2016-2023 The Godot Engine community
+=======
+Copyright (c) 2024 Bartosz Budnik (BudzioT)
+>>>>>>> fe37d7e8e63872b9d9c7cd2e60daa5ffbd2b4a3b
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

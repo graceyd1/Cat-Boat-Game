@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <a id="readme-top"></a>
 
 <!-- SHIELDS -->
@@ -150,3 +151,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [Ouch-shield]: https://img.shields.io/badge/Ouch!-tool-blue?label=Ouch!
 [Ouch-url]: https://github.com/ouch-org/ouch
 [time-screenshot]: https://cloud-l88kldf50-hack-club-bot.vercel.app/0image.png
+=======
+An adventure/rpg game about cats and boba
+>>>>>>> fe37d7e8e63872b9d9c7cd2e60daa5ffbd2b4a3b

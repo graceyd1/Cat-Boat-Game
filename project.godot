@@ -23,6 +23,10 @@ project/assembly_name="boba boat cat gato game thing title"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
