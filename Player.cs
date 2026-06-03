@@ -35,12 +35,13 @@ public partial class Player : CharacterBody2D
 			velocity.Y -= 1;
 		}
 
-		velocity += velocityModifier;
+		velocity = velocity.Normalized() + velocityModifier;
+	
 
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		if (velocity.Length() > 0) {
-			velocity = velocity * Speed;
-			// velocity = velocity.Normalized() * Speed;
+			//velocity = velocity * Speed;
+			 velocity = velocity * Speed;
 			//normalizing the velocity makes it so that the tube coral doesn't affect vertical movement
 			//todo: fix fast diagonal movement
 			
