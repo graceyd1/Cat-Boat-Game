@@ -27,7 +27,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_rirma")
 }],
-"loop": false,
+"loop": true,
 "name": &"off",
 "speed": 5.0
 }, {
@@ -102,7 +102,7 @@ wait_time = 2.0
 texture_filter = 1
 position = Vector2(0, -45)
 sprite_frames = SubResource("SpriteFrames_w5l88")
-animation = &"on"
+animation = &"off"
 
 [connection signal="body_entered" from="AOE" to="." method="OnAOEBodyEntered"]
 [connection signal="body_exited" from="AOE" to="." method="OnAOEBodyExited"]

@@ -1,13 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://coy7ulbpfcrfe"]
+[gd_scene load_steps=8 format=3 uid="uid://coy7ulbpfcrfe"]
 
 [ext_resource type="Script" path="res://UnderwaterLevel.cs" id="1_kc0kg"]
 [ext_resource type="Script" path="res://TubesArea.cs" id="2_dijet"]
+[ext_resource type="Texture2D" uid="uid://c5aconv8x8617" path="res://assets/backgrounds/first_room_background.png" id="2_slafd"]
 [ext_resource type="PackedScene" uid="uid://bp4jat81a6c5d" path="res://tube_coral.tscn" id="3_wtt4d"]
-[ext_resource type="PackedScene" uid="uid://tldupjugnwfm" path="res://walls.tscn" id="5_5la65"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://walls.tscn" id="5_5la65"]
+[ext_resource type="Texture2D" uid="uid://b6qt7sngx5gkb" path="res://assets/backgrounds/first_room_rocks.png" id="5_7nn3c"]
 [ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://underwater_player.tscn" id="6_21hq5"]
 
 [node name="Underwater_Level" type="Node"]
 script = ExtResource("1_kc0kg")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(300, 90)
+texture = ExtResource("2_slafd")
 
 [node name="TubesArea" type="Node2D" parent="."]
 script = ExtResource("2_dijet")
@@ -15,8 +22,13 @@ script = ExtResource("2_dijet")
 [node name="UnderwaterPlayer" parent="TubesArea" instance=ExtResource("6_21hq5")]
 position = Vector2(45, 123)
 
+[node name="Rocks" type="Sprite2D" parent="TubesArea"]
+texture_filter = 1
+position = Vector2(300, 90)
+texture = ExtResource("5_7nn3c")
+
 [node name="TubeCoral" parent="TubesArea" instance=ExtResource("3_wtt4d")]
-position = Vector2(107, 146)
+position = Vector2(109, 129)
 
 [node name="TubeCoral2" parent="TubesArea" instance=ExtResource("3_wtt4d")]
 position = Vector2(196, 145)
@@ -24,8 +36,9 @@ position = Vector2(196, 145)
 [node name="TubeCoral3" parent="TubesArea" instance=ExtResource("3_wtt4d")]
 position = Vector2(276, 146)
 
-[node name="Walls" parent="TubesArea" instance=ExtResource("5_5la65")]
-position = Vector2(-80, 39)
+[node name="Floor" parent="TubesArea" instance=ExtResource("5_5la65")]
+position = Vector2(304, 158)
+scale = Vector2(30, 1)
 
 [connection signal="Pull" from="TubesArea/TubeCoral" to="TubesArea/UnderwaterPlayer" method="OnTubeCoralPull"]
 [connection signal="Unpull" from="TubesArea/TubeCoral" to="TubesArea/UnderwaterPlayer" method="OnTubeCoralUnpull"]

@@ -1,7 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6tcj5pauo27d"]
+[gd_scene load_steps=8 format=3 uid="uid://b6tcj5pauo27d"]
 
 [ext_resource type="Script" path="res://FishEnemy.cs" id="1_02u7h"]
 [ext_resource type="PackedScene" uid="uid://dxgrd8fkvpx6l" path="res://hitbox.tscn" id="1_5jcnu"]
+[ext_resource type="Texture2D" uid="uid://bife1sckjbq83" path="res://assets/enemy_sprites/orange_fish1.png" id="3_y5c67"]
+[ext_resource type="Texture2D" uid="uid://ca184rag7uawm" path="res://assets/enemy_sprites/orange_fish2.png" id="4_1n0dc"]
+[ext_resource type="Texture2D" uid="uid://x73r0q32j1qk" path="res://assets/enemy_sprites/pink_fish1.png" id="5_y2x11"]
+[ext_resource type="Texture2D" uid="uid://dedsd4liy61o1" path="res://assets/enemy_sprites/pink_fish2.png" id="6_feiwa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7egm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y5c67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1n0dc")
+}],
+"loop": true,
+"name": &"orange",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_y2x11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_feiwa")
+}],
+"loop": true,
+"name": &"pink",
+"speed": 5.0
+}]
 
 [node name="FishEnemy" type="Node2D"]
 position = Vector2(68, 86)
@@ -9,8 +38,14 @@ script = ExtResource("1_02u7h")
 metadata/_edit_group_ = true
 
 [node name="Hitbox" parent="." instance=ExtResource("1_5jcnu")]
+scale = Vector2(0.6, 0.3)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w7egm")
+animation = &"pink"
 
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

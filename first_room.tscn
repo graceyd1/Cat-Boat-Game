@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwbctyyj4cviq"]
+
+[ext_resource type="Texture2D" uid="uid://c5aconv8x8617" path="res://assets/backgrounds/first_room_background.png" id="1_u5hov"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://underwater_player.tscn" id="2_toxl5"]
+[ext_resource type="Texture2D" uid="uid://b6qt7sngx5gkb" path="res://assets/backgrounds/first_room_rocks.png" id="3_f3kxf"]
+[ext_resource type="PackedScene" uid="uid://b6tcj5pauo27d" path="res://fish_enemy.tscn" id="5_50yi7"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://walls.tscn" id="6_pleqk"]
+
+[node name="FirstRoom" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(300, 90)
+texture = ExtResource("1_u5hov")
+
+[node name="UnderwaterPlayer" parent="." instance=ExtResource("2_toxl5")]
+position = Vector2(84, 100)
+
+[node name="Rocks" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(300, 90)
+texture = ExtResource("3_f3kxf")
+
+[node name="OrangeFishEnemy" parent="." instance=ExtResource("5_50yi7")]
+position = Vector2(251, 68)
+
+[node name="PinkFishEnemy" parent="." instance=ExtResource("5_50yi7")]
+position = Vector2(219, 119)
+isOrange = false
+
+[node name="Floor" parent="." instance=ExtResource("6_pleqk")]
+position = Vector2(253, 157)
+scale = Vector2(25, 1)
+
+[node name="FloorThatOneRock" parent="." instance=ExtResource("6_pleqk")]
+position = Vector2(129, 144)
+scale = Vector2(3, 1)
+
+[node name="Ceiling" parent="." instance=ExtResource("6_pleqk")]
+position = Vector2(253, 22)
+scale = Vector2(25, 1)
+
+[node name="LeftWall" parent="." instance=ExtResource("6_pleqk")]
+position = Vector2(6, -1013)
+scale = Vector2(1, 10)
