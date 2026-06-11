@@ -1,5 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://bi2pjfm4ck8l2"]
+[gd_scene load_steps=33 format=3 uid="uid://bi2pjfm4ck8l2"]
 
+[ext_resource type="Script" path="res://GrowableVine.cs" id="1_kw4dj"]
 [ext_resource type="Texture2D" uid="uid://b4ndm47l55f2h" path="res://assets/growable_vine_sprites/growable_vine0.png" id="1_kx0em"]
 [ext_resource type="Texture2D" uid="uid://cq3lnutic6oh" path="res://assets/growable_vine_sprites/growable_vine1.png" id="2_7gutf"]
 [ext_resource type="Texture2D" uid="uid://cakao3c5cqvbk" path="res://assets/growable_vine_sprites/growable_vine2.png" id="3_ojjs3"]
@@ -116,7 +117,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_3bchc")
 }],
-"loop": true,
+"loop": false,
 "name": &"growing",
 "speed": 5.0
 }, {
@@ -137,9 +138,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="GrowableVine" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7sfdp"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufvff"]
+radius = 4.0
+height = 80.0
+
+[node name="GrowableVine" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_kw4dj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_i804w")
-animation = &"grown"
+animation = &"growing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -37)
+shape = SubResource("CapsuleShape2D_7sfdp")
+
+[node name="GrownCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_ufvff")

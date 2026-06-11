@@ -1,15 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://thntib0y0eip"]
+[gd_scene load_steps=6 format=3 uid="uid://b2eu1rt08rowb"]
 
 [ext_resource type="PackedScene" uid="uid://djy0cxmipcbm6" path="res://player.tscn" id="1_sasn5"]
 [ext_resource type="Script" path="res://GroundPlayer.cs" id="2_dj4o3"]
-[ext_resource type="PackedScene" uid="uid://codqx6yrl1246" path="res://flashlight.tscn" id="3_5kkuc"]
+[ext_resource type="PackedScene" path="res://flashlight.tscn" id="3_5kkuc"]
 [ext_resource type="Texture2D" uid="uid://cqch0hxn04p2f" path="res://assets/player_glow.png" id="4_es348"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wa6o"]
+size = Vector2(151, 64)
 
 [node name="GroundPlayer" instance=ExtResource("1_sasn5")]
 position = Vector2(0, 0)
 script = ExtResource("2_dj4o3")
 
 [node name="Flashlight" parent="." index="5" instance=ExtResource("3_5kkuc")]
+
+[node name="Area2D" type="Area2D" parent="Flashlight" index="0"]
+z_index = 4000
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flashlight/Area2D" index="0"]
+position = Vector2(65.5, 1)
+shape = SubResource("RectangleShape2D_2wa6o")
 
 [node name="PlayerGlow" type="PointLight2D" parent="." index="6"]
 texture_filter = 1

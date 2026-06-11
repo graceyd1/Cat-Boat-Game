@@ -8,7 +8,6 @@ public partial class Camera2d : Camera2D
 	public override void _Ready()
 	{
 		if (GetParent()?.GetParent().Name == "FirstRoom") {
-			Enabled = true;
 			SetLimit(Side.Left, 0);
 			SetLimit(Side.Right, 500);
 			SetLimit(Side.Top, 0);
@@ -17,7 +16,6 @@ public partial class Camera2d : Camera2D
 
 		//temporary
 		if (GetParent()?.GetParent().Name == "TestingRoom") {
-			Enabled = true;
 			SetLimit(Side.Left, 0);
 			SetLimit(Side.Right, 500);
 			SetLimit(Side.Top, 0);
@@ -26,7 +24,10 @@ public partial class Camera2d : Camera2D
 
 		if (GetParent()?.GetParent().Name == "EnterCaveRoom")
 		{
-			Enabled = false; //todo - fix this (heart is not on top of screen)
+			SetLimit(Side.Left, 0);
+			SetLimit(Side.Right, 320);
+			SetLimit(Side.Top, 0);
+			SetLimit(Side.Bottom, 180);
 		}
 	}
 

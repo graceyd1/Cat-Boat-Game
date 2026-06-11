@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpeok7pnapo65" path="res://assets/player-sprites/player_swim_right1.png" id="5_n7ghd"]
 [ext_resource type="Texture2D" uid="uid://dr4xlluyikbwx" path="res://assets/player-sprites/player_swim_right2.png" id="6_nvl01"]
 [ext_resource type="Script" path="res://Camera2d.cs" id="8_6m7sy"]
-[ext_resource type="PackedScene" uid="uid://7106o3opoex1" path="res://player_health.tscn" id="8_pkvse"]
+[ext_resource type="PackedScene" path="res://player_health.tscn" id="8_pkvse"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_maa7k"]
 animations = [{
