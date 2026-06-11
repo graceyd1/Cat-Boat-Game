@@ -23,19 +23,19 @@ texture = ExtResource("3_jxtuf")
 position = Vector2(79, 100)
 
 [node name="Floor" parent="." instance=ExtResource("5_y4j0h")]
-position = Vector2(253, 157)
+position = Vector2(0, 147)
 scale = Vector2(25, 1)
 
 [node name="FloorThatOneRock" parent="." instance=ExtResource("5_y4j0h")]
-position = Vector2(129, 144)
+position = Vector2(98, 133)
 scale = Vector2(3, 1)
 
 [node name="Ceiling" parent="." instance=ExtResource("5_y4j0h")]
-position = Vector2(253, 22)
+position = Vector2(0, 11)
 scale = Vector2(25, 1)
 
 [node name="LeftWall" parent="." instance=ExtResource("5_y4j0h")]
-position = Vector2(-10, 90)
+position = Vector2(-15, 0)
 scale = Vector2(1, 10)
 
 [node name="Darkness" parent="." instance=ExtResource("5_o7pc6")]

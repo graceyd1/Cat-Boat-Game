@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqch0hxn04p2f" path="res://assets/player_glow.png" id="4_es348"]
 
 [node name="GroundPlayer" instance=ExtResource("1_sasn5")]
+position = Vector2(0, 0)
 script = ExtResource("2_dj4o3")
 
 [node name="Flashlight" parent="." index="5" instance=ExtResource("3_5kkuc")]

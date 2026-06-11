@@ -1,0 +1,145 @@
+[gd_scene load_steps=30 format=3 uid="uid://bi2pjfm4ck8l2"]
+
+[ext_resource type="Texture2D" uid="uid://b4ndm47l55f2h" path="res://assets/growable_vine_sprites/growable_vine0.png" id="1_kx0em"]
+[ext_resource type="Texture2D" uid="uid://cq3lnutic6oh" path="res://assets/growable_vine_sprites/growable_vine1.png" id="2_7gutf"]
+[ext_resource type="Texture2D" uid="uid://cakao3c5cqvbk" path="res://assets/growable_vine_sprites/growable_vine2.png" id="3_ojjs3"]
+[ext_resource type="Texture2D" uid="uid://slqfx0dqbwgo" path="res://assets/growable_vine_sprites/growable_vine3.png" id="4_imksl"]
+[ext_resource type="Texture2D" uid="uid://v6j45ac6gtr" path="res://assets/growable_vine_sprites/growable_vine4.png" id="5_13c1i"]
+[ext_resource type="Texture2D" uid="uid://ksvl8ujq60yo" path="res://assets/growable_vine_sprites/growable_vine5.png" id="6_b0eec"]
+[ext_resource type="Texture2D" uid="uid://bxuyy1gunbq8r" path="res://assets/growable_vine_sprites/growable_vine6.png" id="7_vy8v7"]
+[ext_resource type="Texture2D" uid="uid://bf8ene3sia3v8" path="res://assets/growable_vine_sprites/growable_vine7.png" id="8_vmp2x"]
+[ext_resource type="Texture2D" uid="uid://dh6k5610yh4qg" path="res://assets/growable_vine_sprites/growable_vine8.png" id="9_8g50d"]
+[ext_resource type="Texture2D" uid="uid://cooahuro027rt" path="res://assets/growable_vine_sprites/growable_vine9.png" id="10_xbus0"]
+[ext_resource type="Texture2D" uid="uid://ccebnx85oblqv" path="res://assets/growable_vine_sprites/growable_vine10.png" id="11_nfwg1"]
+[ext_resource type="Texture2D" uid="uid://dfjnwcp5vtsg5" path="res://assets/growable_vine_sprites/growable_vine11.png" id="12_414ag"]
+[ext_resource type="Texture2D" uid="uid://ccd8tc0hwca43" path="res://assets/growable_vine_sprites/growable_vine12.png" id="13_lm07l"]
+[ext_resource type="Texture2D" uid="uid://b23gau776qukp" path="res://assets/growable_vine_sprites/growable_vine13.png" id="14_aaxed"]
+[ext_resource type="Texture2D" uid="uid://cptvj3wrnlme6" path="res://assets/growable_vine_sprites/growable_vine14.png" id="15_ll2x7"]
+[ext_resource type="Texture2D" uid="uid://kbkkuc1yqc6w" path="res://assets/growable_vine_sprites/growable_vine15.png" id="16_if3ag"]
+[ext_resource type="Texture2D" uid="uid://dprfjeel37gpr" path="res://assets/growable_vine_sprites/growable_vine16.png" id="17_ck5qv"]
+[ext_resource type="Texture2D" uid="uid://v71fhc2l0xpe" path="res://assets/growable_vine_sprites/growable_vine17.png" id="18_7golv"]
+[ext_resource type="Texture2D" uid="uid://blufoo4xruk8x" path="res://assets/growable_vine_sprites/growable_vine18.png" id="19_3jluq"]
+[ext_resource type="Texture2D" uid="uid://b3ngmbodh1cbc" path="res://assets/growable_vine_sprites/growable_vine19.png" id="20_w31ao"]
+[ext_resource type="Texture2D" uid="uid://blma7gej3ikd4" path="res://assets/growable_vine_sprites/growable_vine20.png" id="21_o8yh8"]
+[ext_resource type="Texture2D" uid="uid://de0s24nxvtngi" path="res://assets/growable_vine_sprites/growable_vine21.png" id="22_4hayk"]
+[ext_resource type="Texture2D" uid="uid://dmi7a0x5w2fbx" path="res://assets/growable_vine_sprites/growable_vine22.png" id="23_bpbhu"]
+[ext_resource type="Texture2D" uid="uid://73of24wbib0t" path="res://assets/growable_vine_sprites/growable_vine23.png" id="24_npfls"]
+[ext_resource type="Texture2D" uid="uid://dmjd4quu1p5vc" path="res://assets/growable_vine_sprites/growable_vine24.png" id="25_3a7bg"]
+[ext_resource type="Texture2D" uid="uid://ddqjo5jvbfvxe" path="res://assets/growable_vine_sprites/growable_vine25.png" id="26_ihfkw"]
+[ext_resource type="Texture2D" uid="uid://b71yo18py6qfq" path="res://assets/growable_vine_sprites/growable_vine26.png" id="27_8kcgl"]
+[ext_resource type="Texture2D" uid="uid://bhx2s6busshm8" path="res://assets/growable_vine_sprites/growable_vine27.png" id="28_3bchc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i804w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kx0em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7gutf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ojjs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_imksl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_13c1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b0eec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vy8v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vmp2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8g50d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xbus0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_nfwg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_414ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lm07l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_aaxed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ll2x7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_if3ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ck5qv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7golv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3jluq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_w31ao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_o8yh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_4hayk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_bpbhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_npfls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_3a7bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ihfkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_8kcgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_3bchc")
+}],
+"loop": true,
+"name": &"growing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_3bchc")
+}],
+"loop": true,
+"name": &"grown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kx0em")
+}],
+"loop": true,
+"name": &"ungrown",
+"speed": 5.0
+}]
+
+[node name="GrowableVine" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_i804w")
+animation = &"grown"

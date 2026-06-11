@@ -6,4 +6,5 @@ size = Vector2(20.25, 20)
 [node name="Walls" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_nno24")

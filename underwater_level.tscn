@@ -25,7 +25,8 @@ position = Vector2(196, 145)
 position = Vector2(276, 146)
 
 [node name="Walls" parent="TubesArea" instance=ExtResource("5_5la65")]
-position = Vector2(-80, 39)
+position = Vector2(-13, 133)
+scale = Vector2(5, 1)
 
 [connection signal="Pull" from="TubesArea/TubeCoral" to="TubesArea/UnderwaterPlayer" method="OnTubeCoralPull"]
 [connection signal="Unpull" from="TubesArea/TubeCoral" to="TubesArea/UnderwaterPlayer" method="OnTubeCoralUnpull"]

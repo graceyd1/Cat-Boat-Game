@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://walls.tscn" id="6_pleqk"]
 
 [node name="FirstRoom" type="Node2D"]
-metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -30,17 +29,17 @@ position = Vector2(219, 119)
 isOrange = false
 
 [node name="Floor" parent="." instance=ExtResource("6_pleqk")]
-position = Vector2(253, 157)
+position = Vector2(0, 147)
 scale = Vector2(25, 1)
 
 [node name="FloorThatOneRock" parent="." instance=ExtResource("6_pleqk")]
-position = Vector2(129, 144)
+position = Vector2(98, 133)
 scale = Vector2(3, 1)
 
 [node name="Ceiling" parent="." instance=ExtResource("6_pleqk")]
-position = Vector2(253, 22)
+position = Vector2(0, 11)
 scale = Vector2(25, 1)
 
 [node name="LeftWall" parent="." instance=ExtResource("6_pleqk")]
-position = Vector2(-10, 90)
+position = Vector2(-15, 0)
 scale = Vector2(1, 10)

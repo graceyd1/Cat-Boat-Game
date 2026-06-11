@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://ra84q8jhmttx"]
+
+[ext_resource type="Texture2D" uid="uid://dy3c3o2uql7to" path="res://assets/backgrounds/enter_cave_background.png" id="1_l1657"]
+[ext_resource type="Texture2D" uid="uid://t1cyin18px4o" path="res://assets/backgrounds/enter_cave_water1.png" id="2_8hl4k"]
+[ext_resource type="Texture2D" uid="uid://bxqhx7psdxcfe" path="res://assets/backgrounds/enter_cave_water2.png" id="3_ydmdq"]
+[ext_resource type="PackedScene" uid="uid://thntib0y0eip" path="res://ground_player.tscn" id="4_recxf"]
+[ext_resource type="Texture2D" uid="uid://b1y6i4bvlfvbv" path="res://assets/backgrounds/enter_cave_ground.png" id="5_363r7"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://walls.tscn" id="6_urne7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlgra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8hl4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ydmdq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnterCaveRoom" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_l1657")
+centered = false
+
+[node name="Water" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nlgra")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0783265
+centered = false
+
+[node name="GroundPlayer" parent="." instance=ExtResource("4_recxf")]
+position = Vector2(156, 119)
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("5_363r7")
+centered = false
+
+[node name="Floor1" parent="." instance=ExtResource("6_urne7")]
+position = Vector2(206, 59)
+scale = Vector2(6, 5)
+
+[node name="Floor2" parent="." instance=ExtResource("6_urne7")]
+position = Vector2(103, 128)
+scale = Vector2(5.5, 2.5)
+
+[node name="Ceiling" parent="." instance=ExtResource("6_urne7")]
+scale = Vector2(16, 1)
