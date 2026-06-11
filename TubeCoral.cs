@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Net;
 
 public partial class TubeCoral : Node2D
 {
@@ -11,6 +12,20 @@ public partial class TubeCoral : Node2D
 	//signal for when the player should stop getting pulled
 	[Signal]
 	public delegate void UnpullEventHandler();
+
+	//possible directions
+	public enum Direction
+	{
+		UP, DOWN, LEFT, RIGHT
+	}
+
+	//(change in gui) the direction of the tube coral's pull
+	[Export]
+	public Direction PullDirection {get; set;} = Direction.DOWN;
+
+	//how strong the pull is
+	[Export]
+	public float Strength {get; set;} = 0.9f;
    
 	private bool tubesOn = true;
    
@@ -34,7 +49,23 @@ public partial class TubeCoral : Node2D
 		//do we need to check if the body is the player? idk
 		//add later - multiple directions of corals
 		if (tubesOn) {
-			Vector2 velocity = new Vector2(0, (float).9);
+			Vector2 velocity = Vector2.Zero;
+			switch (PullDirection)
+			{
+				case Direction.DOWN:
+					velocity.Y = Strength;
+					break;
+				case Direction.RIGHT:
+					velocity.X = Strength;
+					break;
+				case Direction.LEFT:
+					velocity.X = -Strength;
+					break;
+				default:
+					velocity.Y = -Strength;
+					break;
+			}
+			
 			EmitSignal(SignalName.Pull, velocity);
 		}
 	}

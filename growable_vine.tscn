@@ -119,23 +119,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"growing",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("28_3bchc")
 }],
-"loop": true,
+"loop": false,
 "name": &"grown",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_kx0em")
 }],
-"loop": true,
+"loop": false,
 "name": &"ungrown",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7sfdp"]
@@ -154,6 +154,8 @@ script = ExtResource("1_kw4dj")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_i804w")
 animation = &"growing"
+frame = 27
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -37)

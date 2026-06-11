@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs8lm72sbi1k8"]
+[gd_scene load_steps=7 format=3 uid="uid://cs8lm72sbi1k8"]
 
 [ext_resource type="Texture2D" uid="uid://c5aconv8x8617" path="res://assets/backgrounds/first_room_background.png" id="1_3xtj5"]
 [ext_resource type="Texture2D" uid="uid://b6qt7sngx5gkb" path="res://assets/backgrounds/first_room_rocks.png" id="3_jxtuf"]
-[ext_resource type="PackedScene" uid="uid://b2eu1rt08rowb" path="res://ground_player.tscn" id="3_lm6kq"]
-[ext_resource type="PackedScene" path="res://darkness.tscn" id="5_o7pc6"]
+[ext_resource type="PackedScene" uid="uid://dhctxpw3i8rpf" path="res://darkness.tscn" id="5_o7pc6"]
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://walls.tscn" id="5_y4j0h"]
+[ext_resource type="PackedScene" uid="uid://bp4jat81a6c5d" path="res://tube_coral.tscn" id="6_3bk1b"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://underwater_player.tscn" id="7_glu6j"]
 
 [node name="TestingRoom" type="Node2D"]
-metadata/_edit_group_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -18,9 +18,6 @@ texture = ExtResource("1_3xtj5")
 texture_filter = 1
 position = Vector2(300, 90)
 texture = ExtResource("3_jxtuf")
-
-[node name="GroundPlayer" parent="." instance=ExtResource("3_lm6kq")]
-position = Vector2(79, 100)
 
 [node name="Floor" parent="." instance=ExtResource("5_y4j0h")]
 position = Vector2(0, 147)
@@ -39,4 +36,21 @@ position = Vector2(-15, 0)
 scale = Vector2(1, 10)
 
 [node name="Darkness" parent="." instance=ExtResource("5_o7pc6")]
+visible = false
 z_as_relative = false
+
+[node name="TubeCoral" parent="." instance=ExtResource("6_3bk1b")]
+position = Vector2(371, 115)
+rotation = 4.71239
+PullDirection = 3
+
+[node name="TubeCoral2" parent="." instance=ExtResource("6_3bk1b")]
+position = Vector2(217, 142)
+
+[node name="UnderwaterPlayer" parent="." instance=ExtResource("7_glu6j")]
+position = Vector2(128, 115)
+
+[connection signal="Pull" from="TubeCoral" to="UnderwaterPlayer" method="OnTubeCoralPull"]
+[connection signal="Unpull" from="TubeCoral" to="UnderwaterPlayer" method="OnTubeCoralUnpull"]
+[connection signal="Pull" from="TubeCoral2" to="UnderwaterPlayer" method="OnTubeCoralPull"]
+[connection signal="Unpull" from="TubeCoral2" to="UnderwaterPlayer" method="OnTubeCoralUnpull"]

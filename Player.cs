@@ -121,22 +121,16 @@ public partial class Player : CharacterBody2D
 		{
 			GetHit();
 		}
-		//
-		else
-		{
-			GD.Print("oops");
-		}
 	}
 
 	//get hit
 	private void GetHit()
 	{
 		hp --;
-		GD.Print("HP: " + hp); //
 		if (hp <= 0)
 		{
-			//todo - add death code
-			GD.Print("You died! HP resetting to 2."); //
+			GD.Print("You died!"); //
+			//Position = Vector2.Zero;
 			hp = 2;
 		}
 

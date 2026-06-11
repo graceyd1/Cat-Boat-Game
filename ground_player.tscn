@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2eu1rt08rowb"]
+[gd_scene load_steps=6 format=3 uid="uid://thntib0y0eip"]
 
 [ext_resource type="PackedScene" uid="uid://djy0cxmipcbm6" path="res://player.tscn" id="1_sasn5"]
 [ext_resource type="Script" path="res://GroundPlayer.cs" id="2_dj4o3"]
-[ext_resource type="PackedScene" path="res://flashlight.tscn" id="3_5kkuc"]
+[ext_resource type="PackedScene" uid="uid://codqx6yrl1246" path="res://flashlight.tscn" id="3_5kkuc"]
 [ext_resource type="Texture2D" uid="uid://cqch0hxn04p2f" path="res://assets/player_glow.png" id="4_es348"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wa6o"]

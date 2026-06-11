@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b80srp1p4d8sr"]
+[gd_scene load_steps=9 format=3 uid="uid://ra84q8jhmttx"]
 
 [ext_resource type="Texture2D" uid="uid://dy3c3o2uql7to" path="res://assets/backgrounds/enter_cave_background.png" id="1_l1657"]
 [ext_resource type="Texture2D" uid="uid://t1cyin18px4o" path="res://assets/backgrounds/enter_cave_water1.png" id="2_8hl4k"]
 [ext_resource type="Texture2D" uid="uid://bxqhx7psdxcfe" path="res://assets/backgrounds/enter_cave_water2.png" id="3_ydmdq"]
-[ext_resource type="PackedScene" uid="uid://b2eu1rt08rowb" path="res://ground_player.tscn" id="4_recxf"]
+[ext_resource type="PackedScene" uid="uid://thntib0y0eip" path="res://ground_player.tscn" id="4_recxf"]
 [ext_resource type="Texture2D" uid="uid://b1y6i4bvlfvbv" path="res://assets/backgrounds/enter_cave_ground.png" id="5_363r7"]
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://walls.tscn" id="6_urne7"]
 [ext_resource type="PackedScene" uid="uid://bi2pjfm4ck8l2" path="res://growable_vine.tscn" id="7_pcuo8"]
@@ -58,7 +58,7 @@ scale = Vector2(16, 1)
 
 [node name="GrowableVine" parent="." instance=ExtResource("7_pcuo8")]
 z_index = 4000
-position = Vector2(199, 52)
+position = Vector2(194, 52)
 
 [connection signal="area_entered" from="GrowableVine" to="GrowableVine" method="OnAreaEntered"]
 [connection signal="body_entered" from="GrowableVine" to="GrowableVine" method="OnBodyEntered"]
