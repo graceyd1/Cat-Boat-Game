@@ -94,6 +94,7 @@ public partial class Player : CharacterBody2D
 			}
 			
 		}
+		
 
 		//flashing
 		var hurtTimer = GetNode<Godot.Timer>("HurtTimer");
@@ -147,7 +148,9 @@ public partial class Player : CharacterBody2D
 	private async void Respawn() {
 		var fader = GetNode<CanvasLayer>("/root/Fader");
 		if (fader is Fader transition) {
-			await transition.FadeIn(1.0f);
+			await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
+			await transition.FadeIn(2.0f);
+			
 			Vector2 respawnPoint = Vector2.Zero;
 			var room = GetParent().Name;
 			if (room == "EnterCaveRoom") {
@@ -161,7 +164,8 @@ public partial class Player : CharacterBody2D
 				respawnPoint = new Vector2(84, 100);
 			}
 			GlobalPosition = respawnPoint;
-			await transition.FadeOut(1.0f);
+			
+			await transition.FadeOut(2.0f);
 		}
 		
 		

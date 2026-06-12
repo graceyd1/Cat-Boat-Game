@@ -28,7 +28,7 @@ public partial class PlayerHealth : AnimatedSprite2D
 		}
 
 		Play();
-		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+		await ToSignal(GetTree().CreateTimer(2.7f), SceneTreeTimer.SignalName.Timeout);
 		if (hp == 2) {
 			ResetHP();
 		}
