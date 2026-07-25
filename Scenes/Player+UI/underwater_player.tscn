@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://qj5ya1dmxy7r"]
+
+[ext_resource type="PackedScene" uid="uid://djy0cxmipcbm6" path="res://Scenes/Player+UI/player.tscn" id="1_12ot0"]
+[ext_resource type="Script" uid="uid://ct0oyjrf452bx" path="res://CS Scripts/Player+UI/UnderwaterPlayer.cs" id="2_yid0k"]
+[ext_resource type="Texture2D" uid="uid://djsmeqlk64jeo" path="res://assets/player/helmet_player_dead.png" id="3_h4u2s"]
+[ext_resource type="Texture2D" uid="uid://olhbc16xn3b0" path="res://assets/player/player_left_sit.png" id="3_m66xq"]
+[ext_resource type="Texture2D" uid="uid://bgw8wor80bqch" path="res://assets/player/player_sit_helmet.png" id="4_kurkv"]
+[ext_resource type="Texture2D" uid="uid://b6jyn37imgoa8" path="res://assets/player/player_swim_left1.png" id="5_x2ilh"]
+[ext_resource type="Texture2D" uid="uid://ce6rt5bjbyxej" path="res://assets/player/player_swim_left2.png" id="6_jiapf"]
+[ext_resource type="Texture2D" uid="uid://bpeok7pnapo65" path="res://assets/player/player_swim_right1.png" id="7_2j33e"]
+[ext_resource type="Texture2D" uid="uid://dr4xlluyikbwx" path="res://assets/player/player_swim_right2.png" id="8_2uq65"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8vcf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h4u2s")
+}],
+"loop": true,
+"name": &"died",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_m66xq")
+}],
+"loop": false,
+"name": &"left_sit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kurkv")
+}],
+"loop": false,
+"name": &"sit-helmet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x2ilh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jiapf")
+}],
+"loop": true,
+"name": &"swim-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_2j33e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2uq65")
+}],
+"loop": true,
+"name": &"swim-right",
+"speed": 5.0
+}]
+
+[node name="UnderwaterPlayer" instance=ExtResource("1_12ot0")]
+position = Vector2(84, 36)
+script = ExtResource("2_yid0k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4"]
+light_mask = 0
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_i8vcf")
+animation = &"died"
+
+[connection signal="Died" from="." to="." method="OnPlayerDied"]

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b80srp1p4d8sr"]
+
+[ext_resource type="Script" uid="uid://cwshonwuoff7k" path="res://CS Scripts/World 1/EnterCaveRoom.cs" id="1_348vi"]
+[ext_resource type="Texture2D" uid="uid://dy3c3o2uql7to" path="res://assets/backgrounds/enter_cave_room/enter_cave_background.png" id="1_l1657"]
+[ext_resource type="Texture2D" uid="uid://t1cyin18px4o" path="res://assets/backgrounds/enter_cave_room/enter_cave_water1.png" id="2_8hl4k"]
+[ext_resource type="Texture2D" uid="uid://bxqhx7psdxcfe" path="res://assets/backgrounds/enter_cave_room/enter_cave_water2.png" id="3_ydmdq"]
+[ext_resource type="PackedScene" uid="uid://b2eu1rt08rowb" path="res://Scenes/Player+UI/ground_player.tscn" id="4_recxf"]
+[ext_resource type="Texture2D" uid="uid://b1y6i4bvlfvbv" path="res://assets/backgrounds/enter_cave_room/enter_cave_ground.png" id="5_363r7"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="6_urne7"]
+[ext_resource type="PackedScene" uid="uid://bi2pjfm4ck8l2" path="res://Scenes/World 1/growable_vine.tscn" id="7_pcuo8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlgra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8hl4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ydmdq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="EnterCaveRoom" type="Node2D" unique_id=887055822]
+script = ExtResource("1_348vi")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1176082624]
+texture_filter = 1
+texture = ExtResource("1_l1657")
+centered = false
+
+[node name="Water" type="AnimatedSprite2D" parent="." unique_id=712212476]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nlgra")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0783265
+centered = false
+
+[node name="GrowableVine" parent="." unique_id=122829506 instance=ExtResource("7_pcuo8")]
+z_index = 4000
+position = Vector2(193, 57)
+
+[node name="GroundPlayer" parent="." unique_id=277490598 instance=ExtResource("4_recxf")]
+position = Vector2(124, 119)
+metadata/_edit_group_ = true
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=175110136]
+texture_filter = 1
+texture = ExtResource("5_363r7")
+centered = false
+
+[node name="Floor1" parent="." unique_id=1241380848 instance=ExtResource("6_urne7")]
+position = Vector2(205, 59)
+scale = Vector2(7, 5)
+
+[node name="Floor2" parent="." unique_id=857718148 instance=ExtResource("6_urne7")]
+position = Vector2(103, 127)
+scale = Vector2(5.5, 2.5)
+
+[node name="Ceiling" parent="." unique_id=971830309 instance=ExtResource("6_urne7")]
+position = Vector2(0, -9)
+scale = Vector2(17, 1)
+
+[node name="Right" parent="." unique_id=477152014 instance=ExtResource("6_urne7")]
+position = Vector2(335, 0)
+scale = Vector2(1, 10)
+
+[node name="Left" parent="." unique_id=615918319 instance=ExtResource("6_urne7")]
+position = Vector2(-20, 0)
+scale = Vector2(1, 10)
+
+[node name="Label" type="Label" parent="." unique_id=1418346849]
+offset_left = 49.0
+offset_top = 65.0
+offset_right = 218.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 10
+text = "Jump on vines and move up or down 
+to climb
+Move left or right to exit a vine"

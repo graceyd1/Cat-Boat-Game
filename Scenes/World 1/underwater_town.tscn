@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://bnxy61ndssuqj"]
+
+[ext_resource type="Texture2D" uid="uid://bb3cxky1vqp5r" path="res://assets/backgrounds/underwater_town/underwater_town0.png" id="1_0clrj"]
+[ext_resource type="Script" uid="uid://d1jj5bspt0bog" path="res://CS Scripts/World 1/UnderwaterTown.cs" id="1_0v88i"]
+[ext_resource type="Texture2D" uid="uid://da5epgeeq6swo" path="res://assets/backgrounds/underwater_town/underwater_town1.png" id="1_1neqj"]
+[ext_resource type="Texture2D" uid="uid://b87hsmpc7kwkg" path="res://assets/backgrounds/underwater_town/underwater_town9.png" id="3_mwr5y"]
+[ext_resource type="Texture2D" uid="uid://mob2pl5glpwj" path="res://assets/backgrounds/underwater_town/underwater_town2.png" id="3_vrvpg"]
+[ext_resource type="Texture2D" uid="uid://bufmhkknt8k8f" path="res://assets/backgrounds/underwater_town/underwater_town3.png" id="4_7clim"]
+[ext_resource type="Texture2D" uid="uid://dwi5gc2t1vydw" path="res://assets/backgrounds/underwater_town/underwater_town4.png" id="5_7jlk8"]
+[ext_resource type="Texture2D" uid="uid://dva6vgnb3kslu" path="res://assets/backgrounds/underwater_town/underwater_town5.png" id="7_6t1cc"]
+[ext_resource type="Texture2D" uid="uid://cub3ng5mqgjma" path="res://assets/backgrounds/underwater_town/underwater_town6.png" id="8_ha7v3"]
+[ext_resource type="Texture2D" uid="uid://ctoxq66h45lol" path="res://assets/backgrounds/underwater_town/underwater_town8.png" id="8_wu3mq"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="9_1c834"]
+[ext_resource type="Texture2D" uid="uid://ckcnxn3ixjw0m" path="res://assets/npcs/carsava_blue.png" id="11_3h4m0"]
+[ext_resource type="Texture2D" uid="uid://b7muoisjewej2" path="res://assets/npcs/carsava.png" id="11_qdg2w"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="11_y5y2r"]
+[ext_resource type="PackedScene" uid="uid://bnpd4i7iptaot" path="res://Scenes/General/up_wall.tscn" id="12_f8bqc"]
+[ext_resource type="PackedScene" uid="uid://b28lwwf0dhiu6" path="res://Scenes/General/text_box.tscn" id="12_xkquh"]
+[ext_resource type="PackedScene" uid="uid://cajcbse43dl4y" path="res://Scenes/General/interact_area.tscn" id="14_48yht"]
+[ext_resource type="PackedScene" uid="uid://ygrr56bstc00" path="res://Scenes/General/interact_label.tscn" id="15_hl72r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_liute"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3h4m0")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qdg2w")
+}],
+"loop": true,
+"name": &"red",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf36o"]
+size = Vector2(74.5, 39.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rjh8"]
+size = Vector2(9, 532)
+
+[node name="UnderwaterTown" type="Node2D"]
+script = ExtResource("1_0v88i")
+
+[node name="Backgrounds" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Background0" type="Sprite2D" parent="Backgrounds"]
+texture_filter = 1
+texture = ExtResource("1_0clrj")
+centered = false
+
+[node name="Parallax2D1" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.3, 1)
+
+[node name="Background1" type="Sprite2D" parent="Backgrounds/Parallax2D1"]
+texture_filter = 1
+texture = ExtResource("1_1neqj")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.4, 1)
+
+[node name="Background2" type="Sprite2D" parent="Backgrounds/Parallax2D2"]
+texture_filter = 1
+texture = ExtResource("3_vrvpg")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="Background3" type="Sprite2D" parent="Backgrounds/Parallax2D3"]
+texture_filter = 1
+texture = ExtResource("4_7clim")
+centered = false
+
+[node name="Parallax2D4" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Rocks1" type="Sprite2D" parent="Backgrounds/Parallax2D4"]
+texture_filter = 1
+texture = ExtResource("5_7jlk8")
+centered = false
+
+[node name="Parallax2D5" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.8, 1)
+
+[node name="Rocks2" type="Sprite2D" parent="Backgrounds/Parallax2D5"]
+texture_filter = 1
+texture = ExtResource("7_6t1cc")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.9, 1)
+
+[node name="Rocks3AndShopsBack" type="Sprite2D" parent="Backgrounds/Parallax2D"]
+texture_filter = 1
+texture = ExtResource("8_ha7v3")
+centered = false
+
+[node name="ShopsSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("8_wu3mq")
+centered = false
+
+[node name="UnderwaterPlayer" parent="." instance=ExtResource("9_1c834")]
+position = Vector2(100, 517)
+collision_mask = 5
+
+[node name="TextBox" parent="UnderwaterPlayer" instance=ExtResource("12_xkquh")]
+
+[node name="Carsava" type="AnimatedSprite2D" parent="."]
+position = Vector2(470, 511)
+sprite_frames = SubResource("SpriteFrames_liute")
+animation = &"red"
+
+[node name="TextBox" parent="Carsava" instance=ExtResource("12_xkquh")]
+position = Vector2(-30, -10)
+
+[node name="RightExitWall" parent="." instance=ExtResource("11_y5y2r")]
+position = Vector2(495, 400)
+scale = Vector2(0.649, 7)
+
+[node name="GroundSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_mwr5y")
+centered = false
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Ground" parent="Walls" instance=ExtResource("11_y5y2r")]
+position = Vector2(-50, 525)
+scale = Vector2(30, 1)
+
+[node name="Left" parent="Walls" instance=ExtResource("11_y5y2r")]
+position = Vector2(-10, 0)
+scale = Vector2(0.889, 24)
+
+[node name="Right" parent="Walls" instance=ExtResource("11_y5y2r")]
+position = Vector2(495, 0)
+scale = Vector2(0.649, 20)
+
+[node name="Top" parent="Walls" instance=ExtResource("11_y5y2r")]
+position = Vector2(0, -20)
+scale = Vector2(25, 1)
+
+[node name="LeftRockUpWall" parent="Walls" instance=ExtResource("12_f8bqc")]
+position = Vector2(2, 329)
+scale = Vector2(10, 1)
+
+[node name="RightRockUpWall" parent="Walls" instance=ExtResource("12_f8bqc")]
+position = Vector2(324, 181)
+scale = Vector2(9, 1)
+
+[node name="PlantShopRoof1" parent="Walls" instance=ExtResource("12_f8bqc")]
+position = Vector2(5, 222)
+rotation = 0.0855211
+scale = Vector2(3.7, 0.7)
+
+[node name="PlantShopRoof2" parent="Walls" instance=ExtResource("12_f8bqc")]
+position = Vector2(78, 186)
+rotation = 0.0855211
+scale = Vector2(5.4, 0.7)
+
+[node name="BobaShopRoof" parent="Walls" instance=ExtResource("12_f8bqc")]
+position = Vector2(360, 48)
+rotation = -0.0872665
+scale = Vector2(5.5, 0.7)
+
+[node name="SubShopRoof1" parent="Walls" instance=ExtResource("12_f8bqc")]
+position = Vector2(175, 388)
+rotation = -0.0872665
+scale = Vector2(5.8, 0.7)
+
+[node name="SubShopRoof2" parent="Walls" instance=ExtResource("12_f8bqc")]
+position = Vector2(275, 389)
+rotation = -0.0872665
+scale = Vector2(5.1, 0.7)
+
+[node name="SubShopRoof3" parent="Walls" instance=ExtResource("12_f8bqc")]
+position = Vector2(374, 421)
+rotation = -0.0872665
+scale = Vector2(4.3, 0.7)
+
+[node name="SubShopDoor" parent="." instance=ExtResource("14_48yht")]
+position = Vector2(230, 525)
+
+[node name="SubShopDoor2" parent="." instance=ExtResource("14_48yht")]
+position = Vector2(326, 526)
+
+[node name="PlantShopDoor" parent="." instance=ExtResource("14_48yht")]
+position = Vector2(41, 329)
+
+[node name="BobaShopDoor" parent="." instance=ExtResource("14_48yht")]
+position = Vector2(456, 181)
+
+[node name="InteractLabel" parent="." instance=ExtResource("15_hl72r")]
+
+[node name="CarsavaInteract" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarsavaInteract"]
+position = Vector2(459.25, 504.875)
+shape = SubResource("RectangleShape2D_sf36o")
+
+[node name="IsThatMyBoatTrigger" type="Area2D" parent="."]
+position = Vector2(172, 438)
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IsThatMyBoatTrigger"]
+position = Vector2(0, -178)
+shape = SubResource("RectangleShape2D_5rjh8")
+
+[connection signal="PromptUser" from="UnderwaterPlayer/TextBox" to="UnderwaterPlayer" method="OnPromptUser"]
+[connection signal="PromptUser" from="Carsava/TextBox" to="UnderwaterPlayer" method="OnPromptUser"]
+[connection signal="InteractReturnAreaName" from="SubShopDoor" to="." method="OnEnterRoom"]
+[connection signal="InteractReturnAreaName" from="SubShopDoor2" to="." method="OnEnterRoom"]
+[connection signal="InteractReturnAreaName" from="PlantShopDoor" to="." method="OnEnterRoom"]
+[connection signal="InteractReturnAreaName" from="BobaShopDoor" to="." method="OnEnterRoom"]
+[connection signal="body_entered" from="CarsavaInteract" to="." method="PlayerMeetCarsava"]
+[connection signal="body_entered" from="IsThatMyBoatTrigger" to="." method="OnIsThatMyBoatTriggerBodyEntered"]

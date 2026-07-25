@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bwbctyyj4cviq"]
+
+[ext_resource type="Texture2D" uid="uid://c5aconv8x8617" path="res://assets/backgrounds/first_room/first_room_background.png" id="1_u5hov"]
+[ext_resource type="Script" uid="uid://cdxyt2wxbunaf" path="res://CS Scripts/World 1/FirstRoom.cs" id="1_whgh3"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="2_toxl5"]
+[ext_resource type="Texture2D" uid="uid://deuh6yxss78yy" path="res://assets/backgrounds/first_room/first_room_background1.png" id="2_v8dv8"]
+[ext_resource type="Texture2D" uid="uid://b6qt7sngx5gkb" path="res://assets/backgrounds/first_room/first_room_rocks.png" id="3_f3kxf"]
+[ext_resource type="Texture2D" uid="uid://cnwqjfpmekg7b" path="res://assets/background_items/broken_boat.png" id="4_rlr2y"]
+[ext_resource type="PackedScene" uid="uid://b6tcj5pauo27d" path="res://Scenes/World 1/fish_enemy.tscn" id="5_50yi7"]
+[ext_resource type="PackedScene" uid="uid://davrf0y245h67" path="res://Scenes/General/gate.tscn" id="5_hbhji"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="6_pleqk"]
+
+[node name="FirstRoom" type="Node2D" unique_id=1814939452]
+script = ExtResource("1_whgh3")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1010969898]
+texture_filter = 1
+position = Vector2(300, 90)
+texture = ExtResource("1_u5hov")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=779842468]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Background1" type="Sprite2D" parent="Parallax2D" unique_id=1274926452]
+texture_filter = 1
+texture = ExtResource("2_v8dv8")
+centered = false
+
+[node name="BrokenBoat" type="Sprite2D" parent="." unique_id=636648577]
+position = Vector2(143, 89)
+texture = ExtResource("4_rlr2y")
+
+[node name="Label" type="Label" parent="." unique_id=1126810820]
+offset_left = 11.0
+offset_top = 85.0
+offset_right = 132.0
+offset_bottom = 101.333
+theme_override_font_sizes/font_size = 10
+text = "Use WASD or arrow keys to move"
+
+[node name="Label2" type="Label" parent="." unique_id=554943321]
+offset_left = 174.0
+offset_top = 85.0
+offset_right = 272.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 10
+text = "Avoid touching the fish!"
+
+[node name="Label3" type="Label" parent="." unique_id=1215513801]
+offset_left = 302.0
+offset_top = 77.0
+offset_right = 407.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 10
+text = "Some actions require 
+using the mouse"
+horizontal_alignment = 1
+
+[node name="UnderwaterPlayer" parent="." unique_id=820082958 instance=ExtResource("2_toxl5")]
+position = Vector2(10, 140)
+
+[node name="Gate" parent="." unique_id=1497304419 instance=ExtResource("5_hbhji")]
+position = Vector2(422, 91)
+
+[node name="Rocks" type="Sprite2D" parent="." unique_id=1422208621]
+texture_filter = 1
+texture = ExtResource("3_f3kxf")
+centered = false
+
+[node name="OrangeFishEnemy" parent="." unique_id=155892096 instance=ExtResource("5_50yi7")]
+position = Vector2(246, 68)
+
+[node name="PinkFishEnemy" parent="." unique_id=2092849181 instance=ExtResource("5_50yi7")]
+position = Vector2(214, 119)
+isOrange = false
+
+[node name="Floor" parent="." unique_id=1407401437 instance=ExtResource("6_pleqk")]
+position = Vector2(0, 147)
+scale = Vector2(25, 1)
+
+[node name="FloorThatOneRock" parent="." unique_id=1818609433 instance=ExtResource("6_pleqk")]
+position = Vector2(98, 133)
+scale = Vector2(3, 1)
+
+[node name="Ceiling" parent="." unique_id=963944445 instance=ExtResource("6_pleqk")]
+position = Vector2(0, 11)
+scale = Vector2(25, 1)
+
+[node name="LeftWall" parent="." unique_id=46462713 instance=ExtResource("6_pleqk")]
+position = Vector2(-15, 0)
+scale = Vector2(1, 10)

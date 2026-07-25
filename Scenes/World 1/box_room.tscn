@@ -1,0 +1,281 @@
+[gd_scene format=3 uid="uid://dflvchrpqg7qo"]
+
+[ext_resource type="Script" uid="uid://g41af47kka7t" path="res://CS Scripts/World 1/BoxRoom.cs" id="1_f6xss"]
+[ext_resource type="Texture2D" uid="uid://bu1s2q5m3aj17" path="res://assets/backgrounds/box_room/box_room0.png" id="2_aj7sx"]
+[ext_resource type="Texture2D" uid="uid://qog2naajank2" path="res://assets/backgrounds/box_room/box_room1.png" id="3_2n2oi"]
+[ext_resource type="Texture2D" uid="uid://kv1s5jsmg3bm" path="res://assets/backgrounds/box_room/box_room2.png" id="4_04an6"]
+[ext_resource type="Texture2D" uid="uid://dqkf7nggx4syl" path="res://assets/backgrounds/box_room/box_room3.png" id="5_pp303"]
+[ext_resource type="Texture2D" uid="uid://cbtg2oj0pxgj" path="res://assets/objects/big_jellyfish_bottom/big_jellyfish_bottom0.png" id="6_oy5e2"]
+[ext_resource type="Texture2D" uid="uid://c80tkm5epr51m" path="res://assets/objects/big_jellyfish_bottom/big_jellyfish_bottom1.png" id="7_oodv0"]
+[ext_resource type="PackedScene" uid="uid://dxgrd8fkvpx6l" path="res://Scenes/General/hitbox.tscn" id="8_vuk6g"]
+[ext_resource type="Texture2D" uid="uid://c055oi0yraxg2" path="res://assets/backgrounds/box_room/box_room4.png" id="9_4mvhg"]
+[ext_resource type="Texture2D" uid="uid://dtyops8tvved6" path="res://assets/background_items/bg_bigbox.png" id="10_10s1p"]
+[ext_resource type="Texture2D" uid="uid://h71edpmrf1mi" path="res://assets/background_items/bg_medbox.png" id="11_h2wfp"]
+[ext_resource type="Texture2D" uid="uid://b8ytxur36hotg" path="res://assets/objects/bigbox.png" id="12_cr5yu"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="13_8udc5"]
+[ext_resource type="Texture2D" uid="uid://6f02ja61limd" path="res://assets/objects/medbox.png" id="14_myyoo"]
+[ext_resource type="Texture2D" uid="uid://feaaex1jlf6i" path="res://assets/objects/smallbox.png" id="15_1170l"]
+[ext_resource type="PackedScene" uid="uid://dreu42hj60gc6" path="res://Scenes/World 1/lantern.tscn" id="16_ut668"]
+[ext_resource type="PackedScene" uid="uid://i5wpk3ynqacf" path="res://Scenes/General/coin.tscn" id="17_41d3m"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="18_fkra8"]
+[ext_resource type="Texture2D" uid="uid://bekphjfbgb21g" path="res://assets/background_items/pure_vine.png" id="19_4fcfg"]
+[ext_resource type="Texture2D" uid="uid://40edb5bwdnk0" path="res://assets/backgrounds/box_room/box_room5.png" id="20_o7jr4"]
+[ext_resource type="Texture2D" uid="uid://5txp0r25uqf7" path="res://assets/backgrounds/box_room/box_room6.png" id="21_i6hwf"]
+[ext_resource type="Script" uid="uid://b7xd8usshxmo" path="res://CS Scripts/World 1/RollingBomb.cs" id="22_3mgmj"]
+[ext_resource type="Texture2D" uid="uid://vxeeag75b113" path="res://assets/objects/bomb.png" id="23_0cudt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i07pw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_oy5e2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oodv0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twqg6"]
+radius = 6.08276
+
+[node name="BoxRoom" type="Node2D" unique_id=1449529084]
+script = ExtResource("1_f6xss")
+
+[node name="BackgroundStuff" type="Node2D" parent="." unique_id=562982904]
+
+[node name="Background0" type="Sprite2D" parent="BackgroundStuff" unique_id=1105931176]
+texture_filter = 1
+texture = ExtResource("2_aj7sx")
+centered = false
+
+[node name="Parallax2D1" type="Parallax2D" parent="BackgroundStuff" unique_id=1530271927]
+scroll_scale = Vector2(0.4, 1)
+
+[node name="Background1" type="Sprite2D" parent="BackgroundStuff/Parallax2D1" unique_id=925257554]
+texture_filter = 1
+texture = ExtResource("3_2n2oi")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="BackgroundStuff" unique_id=1321484245]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="Background2" type="Sprite2D" parent="BackgroundStuff/Parallax2D2" unique_id=1036043192]
+texture_filter = 1
+texture = ExtResource("4_04an6")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="BackgroundStuff" unique_id=1941762429]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Background3" type="Sprite2D" parent="BackgroundStuff/Parallax2D3" unique_id=860283410]
+texture_filter = 1
+texture = ExtResource("5_pp303")
+centered = false
+
+[node name="BigJellyfishBottom" type="AnimatedSprite2D" parent="BackgroundStuff" unique_id=941811669]
+texture_filter = 1
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_i07pw")
+autoplay = "default"
+centered = false
+
+[node name="Hitbox" parent="BackgroundStuff/BigJellyfishBottom" unique_id=155716531 instance=ExtResource("8_vuk6g")]
+position = Vector2(245, 45)
+scale = Vector2(3.5, 2.5)
+
+[node name="Parallax2D4" type="Parallax2D" parent="BackgroundStuff" unique_id=2038546387]
+scroll_scale = Vector2(0.8, 1)
+
+[node name="Background4" type="Sprite2D" parent="BackgroundStuff/Parallax2D4" unique_id=113955208]
+texture_filter = 1
+texture = ExtResource("9_4mvhg")
+centered = false
+
+[node name="FakeBoxesFolder" type="Node2D" parent="BackgroundStuff" unique_id=1309586881]
+position = Vector2(174, 136)
+
+[node name="BigBox" type="Sprite2D" parent="BackgroundStuff/FakeBoxesFolder" unique_id=1144581957]
+texture_filter = 1
+position = Vector2(-21, 1)
+texture = ExtResource("10_10s1p")
+
+[node name="BigBox2" type="Sprite2D" parent="BackgroundStuff/FakeBoxesFolder" unique_id=1307103869]
+texture_filter = 1
+position = Vector2(131, -5)
+texture = ExtResource("10_10s1p")
+
+[node name="MedBox" type="Sprite2D" parent="BackgroundStuff/FakeBoxesFolder" unique_id=924990501]
+texture_filter = 1
+position = Vector2(-70, 0)
+texture = ExtResource("11_h2wfp")
+
+[node name="MedBox2" type="Sprite2D" parent="BackgroundStuff/FakeBoxesFolder" unique_id=1535912577]
+texture_filter = 1
+position = Vector2(229, -6)
+texture = ExtResource("11_h2wfp")
+
+[node name="BoxesFolder" type="Node2D" parent="BackgroundStuff" unique_id=961087644]
+position = Vector2(0, -3)
+
+[node name="BigBox" type="Sprite2D" parent="BackgroundStuff/BoxesFolder" unique_id=1265812883]
+texture_filter = 1
+position = Vector2(360, 124)
+texture = ExtResource("12_cr5yu")
+metadata/_edit_group_ = true
+
+[node name="Walls" parent="BackgroundStuff/BoxesFolder/BigBox" unique_id=1821351897 instance=ExtResource("13_8udc5")]
+position = Vector2(-32, -32)
+scale = Vector2(3.2, 3.2)
+
+[node name="MedBox" type="Sprite2D" parent="BackgroundStuff/BoxesFolder" unique_id=170535697]
+texture_filter = 1
+position = Vector2(312, 140)
+texture = ExtResource("14_myyoo")
+metadata/_edit_group_ = true
+
+[node name="Walls" parent="BackgroundStuff/BoxesFolder/MedBox" unique_id=1656756587 instance=ExtResource("13_8udc5")]
+position = Vector2(-16, -16)
+scale = Vector2(1.6, 1.6)
+
+[node name="MedBox2" type="Sprite2D" parent="BackgroundStuff/BoxesFolder" unique_id=1886337510]
+texture_filter = 1
+position = Vector2(135, 134)
+texture = ExtResource("14_myyoo")
+metadata/_edit_group_ = true
+
+[node name="Walls" parent="BackgroundStuff/BoxesFolder/MedBox2" unique_id=1081857082 instance=ExtResource("13_8udc5")]
+position = Vector2(-16, -16)
+scale = Vector2(1.6, 1.6)
+
+[node name="MedBox3" type="Sprite2D" parent="BackgroundStuff/BoxesFolder" unique_id=1344382313]
+texture_filter = 1
+position = Vector2(206, 146)
+texture = ExtResource("14_myyoo")
+metadata/_edit_group_ = true
+
+[node name="Walls" parent="BackgroundStuff/BoxesFolder/MedBox3" unique_id=163354232 instance=ExtResource("13_8udc5")]
+position = Vector2(-16, -16)
+scale = Vector2(1.6, 1.6)
+
+[node name="SmallBox" type="Sprite2D" parent="BackgroundStuff/BoxesFolder" unique_id=697379723]
+texture_filter = 1
+position = Vector2(141, 110)
+texture = ExtResource("15_1170l")
+metadata/_edit_group_ = true
+
+[node name="Walls" parent="BackgroundStuff/BoxesFolder/SmallBox" unique_id=2011720675 instance=ExtResource("13_8udc5")]
+position = Vector2(-8, -8)
+scale = Vector2(0.8, 0.8)
+
+[node name="SmallBox2" type="Sprite2D" parent="BackgroundStuff/BoxesFolder" unique_id=1607284487]
+texture_filter = 1
+position = Vector2(106, 143)
+texture = ExtResource("15_1170l")
+metadata/_edit_group_ = true
+
+[node name="Walls" parent="BackgroundStuff/BoxesFolder/SmallBox2" unique_id=831358137 instance=ExtResource("13_8udc5")]
+position = Vector2(-8, -8)
+scale = Vector2(0.8, 0.8)
+
+[node name="SmallBox3" type="Sprite2D" parent="BackgroundStuff/BoxesFolder" unique_id=1701218325]
+texture_filter = 1
+position = Vector2(417, 143)
+texture = ExtResource("15_1170l")
+metadata/_edit_group_ = true
+
+[node name="Walls" parent="BackgroundStuff/BoxesFolder/SmallBox3" unique_id=440063933 instance=ExtResource("13_8udc5")]
+position = Vector2(-8, -8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Lantern" parent="BackgroundStuff" unique_id=325972095 instance=ExtResource("16_ut668")]
+position = Vector2(341, 28)
+
+[node name="Coins" type="Node2D" parent="." unique_id=203395667]
+
+[node name="Coin1" parent="Coins" unique_id=1805312570 instance=ExtResource("17_41d3m")]
+position = Vector2(126, 108)
+
+[node name="Coin2" parent="Coins" unique_id=674658380 instance=ExtResource("17_41d3m")]
+position = Vector2(141, 92)
+
+[node name="Coin3" parent="Coins" unique_id=1387079876 instance=ExtResource("17_41d3m")]
+position = Vector2(339, 82)
+
+[node name="Coin4" parent="Coins" unique_id=522337825 instance=ExtResource("17_41d3m")]
+position = Vector2(353, 82)
+
+[node name="Coin5" parent="Coins" unique_id=2126528465 instance=ExtResource("17_41d3m")]
+position = Vector2(367, 82)
+
+[node name="Coin6" parent="Coins" unique_id=67098638 instance=ExtResource("17_41d3m")]
+position = Vector2(380, 82)
+
+[node name="UnderwaterPlayer" parent="." unique_id=890235373 instance=ExtResource("18_fkra8")]
+position = Vector2(10, 140)
+
+[node name="VinesFolder" type="Node2D" parent="." unique_id=1626312691]
+
+[node name="Vine" type="Sprite2D" parent="VinesFolder" unique_id=1345136510]
+texture_filter = 1
+position = Vector2(45, 88)
+texture = ExtResource("19_4fcfg")
+
+[node name="Vine2" type="Sprite2D" parent="VinesFolder" unique_id=210197549]
+texture_filter = 1
+position = Vector2(68, 55)
+texture = ExtResource("19_4fcfg")
+
+[node name="Vine3" type="Sprite2D" parent="VinesFolder" unique_id=1617356935]
+texture_filter = 1
+position = Vector2(427, 53)
+texture = ExtResource("19_4fcfg")
+
+[node name="Background5" type="Sprite2D" parent="." unique_id=1143178374]
+texture_filter = 1
+texture = ExtResource("20_o7jr4")
+centered = false
+
+[node name="Background6" type="Sprite2D" parent="." unique_id=658558508]
+texture_filter = 1
+texture = ExtResource("21_i6hwf")
+centered = false
+
+[node name="WallsFolder" type="Node" parent="." unique_id=1624810759]
+
+[node name="Floor" parent="WallsFolder" unique_id=1636062184 instance=ExtResource("13_8udc5")]
+position = Vector2(0, 147)
+scale = Vector2(25, 1)
+
+[node name="CeilingLeft" parent="WallsFolder" unique_id=1896239098 instance=ExtResource("13_8udc5")]
+position = Vector2(-11, 56)
+rotation = -0.349066
+scale = Vector2(11, 1)
+
+[node name="CeilingMiddle" parent="WallsFolder" unique_id=139456185 instance=ExtResource("13_8udc5")]
+position = Vector2(190, -15)
+scale = Vector2(7, 1)
+
+[node name="CeilingRight" parent="WallsFolder" unique_id=1762149986 instance=ExtResource("13_8udc5")]
+position = Vector2(291, -25)
+rotation = 0.349066
+scale = Vector2(12, 1)
+
+[node name="LeftWall" parent="WallsFolder" unique_id=1048764367 instance=ExtResource("13_8udc5")]
+position = Vector2(-5, 0)
+scale = Vector2(0.4, 4)
+
+[node name="RollingBomb" type="RigidBody2D" parent="." unique_id=100613738]
+collision_mask = 3
+script = ExtResource("22_3mgmj")
+
+[node name="Bomb" type="Sprite2D" parent="RollingBomb" unique_id=1063297670]
+texture_filter = 1
+position = Vector2(205, 119)
+texture = ExtResource("23_0cudt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RollingBomb" unique_id=1346917591]
+position = Vector2(205, 121)
+shape = SubResource("CircleShape2D_twqg6")

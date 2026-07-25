@@ -24,7 +24,7 @@ public partial class BoxRoom : Node2D
 		if (pos.X < 0) {
 			transitioning = true;
 			if (FaderNode is Fader fader) {
-				await fader.FadeIn(1.5f);
+				await fader.FadeIn(.7f);
 			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(478, 499), "underwater_town", false);
 		}

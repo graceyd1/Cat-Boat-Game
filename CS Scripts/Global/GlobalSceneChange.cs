@@ -70,7 +70,8 @@ public partial class GlobalSceneChange : Node2D
 
 	
 	public async Task ChangeRoom(Vector2 pos, String room, bool right) {
-		GetTree().ChangeSceneToFile("res://Scenes/" + room + ".tscn");
+		GetTree().ChangeSceneToFile(
+			"res://Scenes/World " + GlobalScript.WorldNum + "/" + room + ".tscn");
 		GlobalScript.CurrentRoom = room;
 		await ToSignal(this, GlobalSceneChange.SignalName.SceneReady);
 		string roomName = GetTree().CurrentScene.Name;

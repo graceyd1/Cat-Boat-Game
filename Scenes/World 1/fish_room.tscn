@@ -1,0 +1,393 @@
+[gd_scene format=3 uid="uid://pqierol8hgv6"]
+
+[ext_resource type="Texture2D" uid="uid://nck8mm6r3ac2" path="res://assets/backgrounds/fish_room/fish_room0.png" id="1_g8guc"]
+[ext_resource type="Script" uid="uid://bntmi7yrdcr6w" path="res://CS Scripts/World 1/FishRoom.cs" id="1_wpdrc"]
+[ext_resource type="Texture2D" uid="uid://dxpjfw2i36bwi" path="res://assets/backgrounds/fish_room/fish_room1.png" id="2_dbuyh"]
+[ext_resource type="Texture2D" uid="uid://b1itb3n2e3a34" path="res://assets/backgrounds/fish_room/fish_room2.png" id="3_v0c04"]
+[ext_resource type="Texture2D" uid="uid://be6ds2edpmttm" path="res://assets/backgrounds/fish_room/fish_room_3.1.png" id="4_r66pw"]
+[ext_resource type="Texture2D" uid="uid://dotoarb5btxvp" path="res://assets/backgrounds/fish_room/fish_room_3.2.png" id="5_wbxys"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="6_rhgjf"]
+[ext_resource type="Texture2D" uid="uid://bekphjfbgb21g" path="res://assets/background_items/pure_vine.png" id="7_hue35"]
+[ext_resource type="Texture2D" uid="uid://b2q5ie1c6ypvu" path="res://assets/background_items/background_vine.png" id="7_rx2ad"]
+[ext_resource type="Texture2D" uid="uid://cwrrfwa67yvkk" path="res://assets/backgrounds/fish_room/fish_room4.png" id="7_stmwa"]
+[ext_resource type="Texture2D" uid="uid://c24b6mn04sgh6" path="res://assets/backgrounds/fish_room/fish_room5.png" id="8_i00v6"]
+[ext_resource type="PackedScene" uid="uid://cajcbse43dl4y" path="res://Scenes/General/interact_area.tscn" id="8_xnsu6"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="9_fslp5"]
+[ext_resource type="PackedScene" uid="uid://b28lwwf0dhiu6" path="res://Scenes/General/text_box.tscn" id="9_gclb7"]
+[ext_resource type="Script" uid="uid://cpowamgec5cx3" path="res://CS Scripts/World 1/MinigameTime.cs" id="11_hplhg"]
+[ext_resource type="FontFile" uid="uid://cpdnqe1jl0cys" path="res://assets/Geo_Font/Geo-Regular.ttf" id="11_y2cam"]
+[ext_resource type="PackedScene" uid="uid://b6tcj5pauo27d" path="res://Scenes/World 1/fish_enemy.tscn" id="12_on3ij"]
+[ext_resource type="PackedScene" uid="uid://ygrr56bstc00" path="res://Scenes/General/interact_label.tscn" id="16_c1s60"]
+[ext_resource type="Texture2D" uid="uid://c0xu6ei7nj4a0" path="res://assets/background_items/cute_vine.png" id="16_joskc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yuaek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_r66pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wbxys")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="FishRoom" type="Node2D"]
+script = ExtResource("1_wpdrc")
+numCollectableFish = 11
+
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="Background0" type="Sprite2D" parent="Backgrounds"]
+texture_filter = 1
+texture = ExtResource("1_g8guc")
+centered = false
+
+[node name="Parallax2D1" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="BackgroundVines" type="Node2D" parent="Backgrounds/Parallax2D1"]
+
+[node name="BackgroundVine" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(88, 50)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine2" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(112, 38)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine3" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(121, 56)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine4" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(121, 36)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine5" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(148, 21)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine6" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(231, 25)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine8" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(320, 34)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine9" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(331, 22)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine10" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(357, 28)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine11" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(430, 40)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine12" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(415, 25)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine13" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(392, 22)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine14" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(505, 25)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine15" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(476, 13)
+texture = ExtResource("7_rx2ad")
+
+[node name="BackgroundVine7" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines"]
+position = Vector2(218, 35)
+texture = ExtResource("7_rx2ad")
+
+[node name="Background1" type="Sprite2D" parent="Backgrounds/Parallax2D1"]
+texture_filter = 1
+texture = ExtResource("2_dbuyh")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Background2" type="Sprite2D" parent="Backgrounds/Parallax2D2"]
+texture_filter = 1
+texture = ExtResource("3_v0c04")
+centered = false
+
+[node name="Grass" type="AnimatedSprite2D" parent="Backgrounds/Parallax2D2"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_yuaek")
+autoplay = "default"
+frame_progress = 0.436158
+centered = false
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Ceiling" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(0, -10)
+scale = Vector2(28, 1)
+
+[node name="Ceiling3" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(-17, 45)
+rotation = -0.567232
+scale = Vector2(6, 1.5)
+
+[node name="LeftGround" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(0, 135)
+scale = Vector2(24.7, 3)
+
+[node name="LeftGround2" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(22, 130)
+scale = Vector2(5, 3)
+
+[node name="RightTopGround" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(477, 58)
+scale = Vector2(9, 1)
+
+[node name="RightTopWall" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(626, -37)
+scale = Vector2(1, 5)
+
+[node name="CaveCeiling" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(495, 78)
+scale = Vector2(8, 1.1)
+
+[node name="CaveGround" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(494, 180)
+scale = Vector2(8, 1)
+
+[node name="LeftRock" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(123, 85)
+scale = Vector2(3.6, 2.5)
+
+[node name="LeftRock2" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(110, 110)
+scale = Vector2(0.7, 2)
+
+[node name="LeftRock3" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(130, 69)
+scale = Vector2(2.7, 1)
+
+[node name="RightRock" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(296, 76)
+scale = Vector2(4, 3)
+
+[node name="RightRock2" parent="Walls" instance=ExtResource("9_fslp5")]
+position = Vector2(374, 110)
+scale = Vector2(1.2, 1.3)
+
+[node name="IceCreamAreaSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("7_stmwa")
+centered = false
+
+[node name="InteractArea" parent="IceCreamAreaSprite" instance=ExtResource("8_xnsu6")]
+position = Vector2(602, 180)
+scale = Vector2(1.5, 1)
+LabelHeight = 50
+
+[node name="TextBox" parent="IceCreamAreaSprite/InteractArea" instance=ExtResource("9_gclb7")]
+position = Vector2(-14.6667, -60)
+scale = Vector2(0.666667, 1)
+
+[node name="UnderwaterPlayer" parent="." instance=ExtResource("6_rhgjf")]
+material = null
+position = Vector2(524, 172)
+collision_mask = 5
+
+[node name="MinigameTime" type="Label" parent="UnderwaterPlayer"]
+offset_left = -52.0
+offset_top = -32.0
+offset_right = 52.0
+offset_bottom = -9.66666
+theme_override_fonts/font = ExtResource("11_y2cam")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+script = ExtResource("11_hplhg")
+
+[node name="TextBox" parent="UnderwaterPlayer" instance=ExtResource("9_gclb7")]
+
+[node name="RegularFish" type="Node2D" parent="."]
+
+[node name="FishEnemy" parent="RegularFish" instance=ExtResource("12_on3ij")]
+position = Vector2(44, 87)
+
+[node name="FishEnemy2" parent="RegularFish" instance=ExtResource("12_on3ij")]
+position = Vector2(220, 112)
+
+[node name="FishEnemy3" parent="RegularFish" instance=ExtResource("12_on3ij")]
+position = Vector2(120, 46)
+
+[node name="FishEnemy4" parent="RegularFish" instance=ExtResource("12_on3ij")]
+position = Vector2(298, 50)
+
+[node name="CollectableFish" type="Node2D" parent="."]
+visible = false
+
+[node name="CollectableFish1" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(420, 117)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish1" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish2" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(408, 56)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish2" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish3" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(538, 40)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish3" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish4" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(332, 53)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish4" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish5" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(379, 17)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish5" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish6" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(230, 82)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish6" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish7" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(230, 118)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish7" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish8" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(230, 46)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish8" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish9" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(130, 48)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish9" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish10" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(61, 118)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish10" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="CollectableFish11" parent="CollectableFish" instance=ExtResource("12_on3ij")]
+position = Vector2(46, 84)
+isOrange = false
+
+[node name="InteractArea" parent="CollectableFish/CollectableFish11" instance=ExtResource("8_xnsu6")]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.6)
+
+[node name="Vines" type="Node2D" parent="."]
+
+[node name="PureVine" type="Sprite2D" parent="Vines"]
+position = Vector2(70, 45)
+texture = ExtResource("7_hue35")
+
+[node name="PureVine2" type="Sprite2D" parent="Vines"]
+position = Vector2(170, 5)
+texture = ExtResource("7_hue35")
+
+[node name="PureVine3" type="Sprite2D" parent="Vines"]
+position = Vector2(180, 15)
+texture = ExtResource("7_hue35")
+
+[node name="PureVine4" type="Sprite2D" parent="Vines"]
+position = Vector2(264, 28)
+texture = ExtResource("7_hue35")
+
+[node name="PureVine5" type="Sprite2D" parent="Vines"]
+position = Vector2(421, 52)
+texture = ExtResource("7_hue35")
+
+[node name="PureVine6" type="Sprite2D" parent="Vines"]
+position = Vector2(443, 29)
+texture = ExtResource("7_hue35")
+
+[node name="CuteVine" type="Sprite2D" parent="Vines"]
+position = Vector2(57, 54)
+texture = ExtResource("16_joskc")
+
+[node name="CuteVine2" type="Sprite2D" parent="Vines"]
+position = Vector2(303, 38)
+texture = ExtResource("16_joskc")
+
+[node name="CuteVine3" type="Sprite2D" parent="Vines"]
+position = Vector2(487, 27)
+texture = ExtResource("16_joskc")
+
+[node name="RocksSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("8_i00v6")
+centered = false
+
+[node name="InteractLabel" parent="." instance=ExtResource("16_c1s60")]
+
+[connection signal="Interact" from="IceCreamAreaSprite/InteractArea" to="." method="StartDialogue"]
+[connection signal="Hit" from="UnderwaterPlayer" to="." method="OnPlayerHit"]
+[connection signal="TimesUp" from="UnderwaterPlayer/MinigameTime" to="." method="OnTimesUp"]
+[connection signal="Interact" from="CollectableFish/CollectableFish1/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish1/InteractArea" to="CollectableFish/CollectableFish1" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish2/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish2/InteractArea" to="CollectableFish/CollectableFish2" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish3/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish3/InteractArea" to="CollectableFish/CollectableFish3" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish4/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish4/InteractArea" to="CollectableFish/CollectableFish4" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish5/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish5/InteractArea" to="CollectableFish/CollectableFish5" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish6/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish6/InteractArea" to="CollectableFish/CollectableFish6" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish7/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish7/InteractArea" to="CollectableFish/CollectableFish7" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish8/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish8/InteractArea" to="CollectableFish/CollectableFish8" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish9/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish9/InteractArea" to="CollectableFish/CollectableFish9" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish10/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish10/InteractArea" to="CollectableFish/CollectableFish10" method="Disable"]
+[connection signal="Interact" from="CollectableFish/CollectableFish11/InteractArea" to="." method="OnFishInteract"]
+[connection signal="Interact" from="CollectableFish/CollectableFish11/InteractArea" to="CollectableFish/CollectableFish11" method="Disable"]

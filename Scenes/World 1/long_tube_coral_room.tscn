@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bkgkxl73kwvrd"]
+
+[ext_resource type="Script" uid="uid://ba6j6wou6nwxa" path="res://CS Scripts/World 1/LongTubeCoralRoom.cs" id="1_l6dog"]
+[ext_resource type="Texture2D" uid="uid://bfj7qacu8hneg" path="res://assets/backgrounds/long_tube_coral_room/long_tube_coral_room0.png" id="2_ygffm"]
+[ext_resource type="Texture2D" uid="uid://5ftg5ckcuhx2" path="res://assets/backgrounds/long_tube_coral_room/long_tube_coral_room1.png" id="3_yer5y"]
+[ext_resource type="Texture2D" uid="uid://b2q5ie1c6ypvu" path="res://assets/background_items/background_vine.png" id="4_rv7gv"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="5_bn0g0"]
+[ext_resource type="Texture2D" uid="uid://bekphjfbgb21g" path="res://assets/background_items/pure_vine.png" id="6_e5414"]
+[ext_resource type="Texture2D" uid="uid://bntdsoopj31wc" path="res://assets/backgrounds/long_tube_coral_room/long_tube_coral_room2.png" id="7_l67bo"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="8_c074t"]
+[ext_resource type="PackedScene" uid="uid://bp4jat81a6c5d" path="res://Scenes/World 1/tube_coral.tscn" id="9_5affo"]
+
+[node name="LongTubeCoralRoom" type="Node2D" unique_id=923029895]
+script = ExtResource("1_l6dog")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=706098552]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="Background0" type="Sprite2D" parent="Parallax2D" unique_id=299069975]
+texture_filter = 1
+texture = ExtResource("2_ygffm")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1871094800]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Background1" type="Sprite2D" parent="Parallax2D2" unique_id=1559400156]
+texture_filter = 1
+texture = ExtResource("3_yer5y")
+centered = false
+
+[node name="BakgroundVines" type="Node2D" parent="Parallax2D2" unique_id=967644426]
+
+[node name="BackgroundVine" type="Sprite2D" parent="Parallax2D2/BakgroundVines" unique_id=774482204]
+position = Vector2(298, 40)
+texture = ExtResource("4_rv7gv")
+
+[node name="BackgroundVine2" type="Sprite2D" parent="Parallax2D2/BakgroundVines" unique_id=1821794957]
+position = Vector2(280, 54)
+texture = ExtResource("4_rv7gv")
+
+[node name="BackgroundVine3" type="Sprite2D" parent="Parallax2D2/BakgroundVines" unique_id=1070594142]
+position = Vector2(241, 51)
+texture = ExtResource("4_rv7gv")
+
+[node name="BackgroundVine4" type="Sprite2D" parent="Parallax2D2/BakgroundVines" unique_id=1098552906]
+position = Vector2(136, 59)
+texture = ExtResource("4_rv7gv")
+
+[node name="BackgroundVine5" type="Sprite2D" parent="Parallax2D2/BakgroundVines" unique_id=1813843298]
+position = Vector2(36, 30)
+texture = ExtResource("4_rv7gv")
+
+[node name="UnderwaterPlayer" parent="." unique_id=773346705 instance=ExtResource("5_bn0g0")]
+position = Vector2(276, 138)
+metadata/_edit_group_ = true
+
+[node name="Vines" type="Node2D" parent="." unique_id=1289269772]
+
+[node name="PureVine" type="Sprite2D" parent="Vines" unique_id=988217219]
+position = Vector2(293, 61)
+texture = ExtResource("6_e5414")
+
+[node name="PureVine2" type="Sprite2D" parent="Vines" unique_id=1198565287]
+position = Vector2(309, 47)
+texture = ExtResource("6_e5414")
+
+[node name="PureVine3" type="Sprite2D" parent="Vines" unique_id=1039855484]
+position = Vector2(309, 47)
+texture = ExtResource("6_e5414")
+
+[node name="PureVine4" type="Sprite2D" parent="Vines" unique_id=1392667160]
+position = Vector2(150, 52)
+texture = ExtResource("6_e5414")
+
+[node name="PureVine5" type="Sprite2D" parent="Vines" unique_id=1488297533]
+position = Vector2(15, 56)
+texture = ExtResource("6_e5414")
+
+[node name="Frontground" type="Sprite2D" parent="." unique_id=1076561185]
+texture_filter = 1
+texture = ExtResource("7_l67bo")
+centered = false
+
+[node name="WallsFolder" type="Node" parent="." unique_id=1097308080]
+
+[node name="Ceiling" parent="WallsFolder" unique_id=1242650201 instance=ExtResource("8_c074t")]
+position = Vector2(-18, 13)
+scale = Vector2(25, 1)
+
+[node name="Ground" parent="WallsFolder" unique_id=264685929 instance=ExtResource("8_c074t")]
+position = Vector2(-8, 147)
+scale = Vector2(17, 1)
+
+[node name="Right" parent="WallsFolder" unique_id=993289133 instance=ExtResource("8_c074t")]
+position = Vector2(380, 0)
+scale = Vector2(1, 10)
+
+[node name="TubeCoral" parent="." unique_id=1154713772 instance=ExtResource("9_5affo")]
+position = Vector2(218, 142)
+
+[node name="TubeCoral2" parent="." unique_id=193744596 instance=ExtResource("9_5affo")]
+position = Vector2(100, 142)
+
+[connection signal="Pull" from="TubeCoral" to="UnderwaterPlayer" method="OnTubeCoralPull"]
+[connection signal="Unpull" from="TubeCoral" to="UnderwaterPlayer" method="OnTubeCoralUnpull"]
+[connection signal="Pull" from="TubeCoral2" to="UnderwaterPlayer" method="OnTubeCoralPull"]
+[connection signal="Unpull" from="TubeCoral2" to="UnderwaterPlayer" method="OnTubeCoralUnpull"]

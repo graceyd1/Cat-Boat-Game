@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://uohoeh0qhd8u"]
+
+[ext_resource type="Script" uid="uid://7ibx44k030bq" path="res://CS Scripts/World 1/TallTubeCoralRoom.cs" id="1_8u050"]
+[ext_resource type="Texture2D" uid="uid://bigp75om7gk0r" path="res://assets/backgrounds/tall_tube_coral_room/tall_tube_coral_room0.png" id="1_bh2g0"]
+[ext_resource type="Texture2D" uid="uid://ctf104x1u28yl" path="res://assets/backgrounds/tall_tube_coral_room/tall_tube_coral_room1.png" id="2_l4ftt"]
+[ext_resource type="Texture2D" uid="uid://bok5shsdta8wu" path="res://assets/backgrounds/tall_tube_coral_room/tall_tube_coral_room2.png" id="3_g5kwh"]
+[ext_resource type="Texture2D" uid="uid://dgotutjvmmwgm" path="res://assets/backgrounds/tall_tube_coral_room/tall_tube_coral_room3.png" id="4_0exos"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="4_nyxsb"]
+[ext_resource type="Texture2D" uid="uid://d4mb3q01m1fso" path="res://assets/backgrounds/tall_tube_coral_room/tall_tube_coral_room4.png" id="5_dpdiw"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="6_r36hx"]
+[ext_resource type="PackedScene" uid="uid://bp4jat81a6c5d" path="res://Scenes/World 1/tube_coral.tscn" id="7_38iee"]
+
+[node name="TallTubeCoralRoom" type="Node2D"]
+script = ExtResource("1_8u050")
+
+[node name="Parallax2D0" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1, 0.5)
+
+[node name="Background0" type="Sprite2D" parent="Parallax2D0"]
+texture_filter = 1
+texture = ExtResource("1_bh2g0")
+centered = false
+
+[node name="Parallax2D1" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1, 0.7)
+
+[node name="Background1" type="Sprite2D" parent="Parallax2D1"]
+texture_filter = 1
+texture = ExtResource("2_l4ftt")
+centered = false
+
+[node name="Background2" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_g5kwh")
+centered = false
+
+[node name="UnderwaterPlayer" parent="." instance=ExtResource("4_nyxsb")]
+position = Vector2(40, 558)
+metadata/_edit_group_ = true
+
+[node name="Middleground" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("4_0exos")
+centered = false
+
+[node name="Foreground" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("5_dpdiw")
+centered = false
+
+[node name="WallsFolder" type="Node" parent="."]
+
+[node name="Left" parent="WallsFolder" instance=ExtResource("6_r36hx")]
+position = Vector2(11, 0)
+scale = Vector2(1, 25)
+
+[node name="Ground" parent="WallsFolder" instance=ExtResource("6_r36hx")]
+position = Vector2(-8, 566)
+scale = Vector2(17, 1)
+
+[node name="Right" parent="WallsFolder" instance=ExtResource("6_r36hx")]
+position = Vector2(288, 80)
+scale = Vector2(5, 25)
+
+[node name="RightTop" parent="WallsFolder" instance=ExtResource("6_r36hx")]
+position = Vector2(263, 0)
+scale = Vector2(5, 0.7)
+
+[node name="TubeCoralFolder" type="Node" parent="."]
+
+[node name="LeftWallTubeCoral" parent="TubeCoralFolder" instance=ExtResource("7_38iee")]
+position = Vector2(35, 250)
+rotation = 1.5708
+PullDirection = 2
+
+[node name="LeftWallTubeCoral2" parent="TubeCoralFolder" instance=ExtResource("7_38iee")]
+position = Vector2(35, 449)
+rotation = 1.5708
+PullDirection = 2
+
+[node name="RightWallTubeCoral" parent="TubeCoralFolder" instance=ExtResource("7_38iee")]
+position = Vector2(282, 150)
+rotation = -1.5708
+PullDirection = 3
+
+[node name="RightWallTubeCoral2" parent="TubeCoralFolder" instance=ExtResource("7_38iee")]
+position = Vector2(282, 350)
+rotation = -1.5708
+PullDirection = 3
+
+[connection signal="Pull" from="TubeCoralFolder/LeftWallTubeCoral" to="UnderwaterPlayer" method="OnTubeCoralPull"]
+[connection signal="Unpull" from="TubeCoralFolder/LeftWallTubeCoral" to="UnderwaterPlayer" method="OnTubeCoralUnpull"]
+[connection signal="Pull" from="TubeCoralFolder/LeftWallTubeCoral2" to="UnderwaterPlayer" method="OnTubeCoralPull"]
+[connection signal="Unpull" from="TubeCoralFolder/LeftWallTubeCoral2" to="UnderwaterPlayer" method="OnTubeCoralUnpull"]
+[connection signal="Pull" from="TubeCoralFolder/RightWallTubeCoral" to="UnderwaterPlayer" method="OnTubeCoralPull"]
+[connection signal="Unpull" from="TubeCoralFolder/RightWallTubeCoral" to="UnderwaterPlayer" method="OnTubeCoralUnpull"]
+[connection signal="Pull" from="TubeCoralFolder/RightWallTubeCoral2" to="UnderwaterPlayer" method="OnTubeCoralPull"]
+[connection signal="Unpull" from="TubeCoralFolder/RightWallTubeCoral2" to="UnderwaterPlayer" method="OnTubeCoralUnpull"]

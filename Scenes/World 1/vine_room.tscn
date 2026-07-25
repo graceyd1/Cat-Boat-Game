@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://cxqenrqvkst2p"]
+
+[ext_resource type="Script" uid="uid://dtjh6h2kl2dad" path="res://CS Scripts/World 1/VineRoom.cs" id="1_kati2"]
+[ext_resource type="Texture2D" uid="uid://bssf1t6h00vgc" path="res://assets/backgrounds/vine_room/vine_room0.png" id="1_u4t6g"]
+[ext_resource type="Texture2D" uid="uid://bbwdb6a0fq2l3" path="res://assets/backgrounds/vine_room/vine_room1.png" id="2_tgunx"]
+[ext_resource type="Texture2D" uid="uid://p517i2ejxmlc" path="res://assets/backgrounds/vine_room/vine_room2.png" id="3_7q7yd"]
+[ext_resource type="Texture2D" uid="uid://7ur7wyeb52ix" path="res://assets/backgrounds/vine_room/vine_room3.png" id="4_057pk"]
+[ext_resource type="Texture2D" uid="uid://v7mme846qn06" path="res://assets/backgrounds/vine_room/vine_room4.png" id="5_mp620"]
+[ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="5_ms63o"]
+[ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="7_4jsbx"]
+[ext_resource type="Texture2D" uid="uid://bekphjfbgb21g" path="res://assets/background_items/pure_vine.png" id="9_crn45"]
+[ext_resource type="Texture2D" uid="uid://3whn4ji4p7m0" path="res://assets/background_items/evil_vine.png" id="9_cx53t"]
+[ext_resource type="Texture2D" uid="uid://c0xu6ei7nj4a0" path="res://assets/background_items/cute_vine.png" id="10_3ce3x"]
+[ext_resource type="PackedScene" uid="uid://dxgrd8fkvpx6l" path="res://Scenes/General/hitbox.tscn" id="10_t07xr"]
+[ext_resource type="PackedScene" uid="uid://bi2pjfm4ck8l2" path="res://Scenes/World 1/growable_vine.tscn" id="11_8d6ni"]
+[ext_resource type="PackedScene" uid="uid://c2paeopskk52q" path="res://Scenes/World 1/big_jellyfish.tscn" id="14_veyjg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82qcm"]
+atlas = ExtResource("2_tgunx")
+region = Rect2(0, 0, 500, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlqq2"]
+atlas = ExtResource("2_tgunx")
+region = Rect2(0, 180, 500, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kaobk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82qcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlqq2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="VineRoom" type="Node2D"]
+script = ExtResource("1_kati2")
+
+[node name="Backgrounds" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Parallax2D" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="Background0" type="Sprite2D" parent="Backgrounds/Parallax2D"]
+texture_filter = 1
+texture = ExtResource("1_u4t6g")
+centered = false
+
+[node name="Parallax2D1" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.7, 1)
+
+[node name="Seagrass" type="AnimatedSprite2D" parent="Backgrounds/Parallax2D1"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_kaobk")
+autoplay = "default"
+frame_progress = 0.434695
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.8, 1)
+
+[node name="Background2" type="Sprite2D" parent="Backgrounds/Parallax2D2"]
+texture_filter = 1
+texture = ExtResource("3_7q7yd")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0.9, 1)
+
+[node name="Background3" type="Sprite2D" parent="Backgrounds/Parallax2D3"]
+texture_filter = 1
+texture = ExtResource("4_057pk")
+centered = false
+metadata/_edit_group_ = true
+
+[node name="UnderwaterPlayer" parent="." instance=ExtResource("5_ms63o")]
+position = Vector2(163, 126)
+
+[node name="Vines" type="Node2D" parent="."]
+
+[node name="EvilVine" type="Sprite2D" parent="Vines"]
+position = Vector2(62, 47)
+texture = ExtResource("9_cx53t")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine" instance=ExtResource("10_t07xr")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine2" type="Sprite2D" parent="Vines"]
+position = Vector2(21, 57)
+texture = ExtResource("9_cx53t")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine2" instance=ExtResource("10_t07xr")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine3" type="Sprite2D" parent="Vines"]
+position = Vector2(336, 35)
+texture = ExtResource("9_cx53t")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine3" instance=ExtResource("10_t07xr")]
+scale = Vector2(0.3, 2)
+
+[node name="PureVine" type="Sprite2D" parent="Vines"]
+position = Vector2(51, 52)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine2" type="Sprite2D" parent="Vines"]
+position = Vector2(32, 39)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine3" type="Sprite2D" parent="Vines"]
+position = Vector2(113, 31)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine6" type="Sprite2D" parent="Vines"]
+position = Vector2(106, 21)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine7" type="Sprite2D" parent="Vines"]
+position = Vector2(179, 40)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine8" type="Sprite2D" parent="Vines"]
+position = Vector2(320, 23)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine9" type="Sprite2D" parent="Vines"]
+position = Vector2(466, 60)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine13" type="Sprite2D" parent="Vines"]
+position = Vector2(496, 72)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine14" type="Sprite2D" parent="Vines"]
+position = Vector2(485, 50)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine10" type="Sprite2D" parent="Vines"]
+position = Vector2(453, 39)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine11" type="Sprite2D" parent="Vines"]
+position = Vector2(446, 64)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine12" type="Sprite2D" parent="Vines"]
+position = Vector2(410, 45)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine4" type="Sprite2D" parent="Vines"]
+position = Vector2(12, 38)
+texture = ExtResource("9_crn45")
+
+[node name="PureVine5" type="Sprite2D" parent="Vines"]
+position = Vector2(5, 49)
+texture = ExtResource("9_crn45")
+
+[node name="CuteVine" type="Sprite2D" parent="Vines"]
+position = Vector2(164, 25)
+texture = ExtResource("10_3ce3x")
+
+[node name="CuteVine2" type="Sprite2D" parent="Vines"]
+position = Vector2(424, 55)
+texture = ExtResource("10_3ce3x")
+
+[node name="GrowableVine" parent="Vines" instance=ExtResource("11_8d6ni")]
+position = Vector2(371, 40)
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("5_mp620")
+centered = false
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Left" parent="Walls" instance=ExtResource("7_4jsbx")]
+scale = Vector2(1, 10)
+
+[node name="Top" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(0, -5)
+scale = Vector2(18, 1)
+
+[node name="Top2" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(383, -5)
+scale = Vector2(6, 1)
+
+[node name="SecretDoor" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(360, -5)
+scale = Vector2(1.2, 1)
+
+[node name="Top3" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(398, 15)
+scale = Vector2(6, 0.75)
+
+[node name="Bottom" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(118, 135)
+scale = Vector2(20, 3)
+
+[node name="Rock" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(283, 108)
+scale = Vector2(3.7, 2)
+
+[node name="Rock2" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(277, 112)
+scale = Vector2(0.4, 2)
+
+[node name="Rock3" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(357, 126)
+scale = Vector2(0.4, 1)
+
+[node name="Rock4" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(313, 98)
+scale = Vector2(2, 1)
+
+[node name="Rock5" parent="Walls" instance=ExtResource("7_4jsbx")]
+position = Vector2(322, 88)
+scale = Vector2(1.2, 1)
+
+[node name="BigJellyfish" parent="." instance=ExtResource("14_veyjg")]
+position = Vector2(240, 111)
+
+[connection signal="area_entered" from="Vines/GrowableVine" to="." method="OnGrowableVineAreaLit"]
