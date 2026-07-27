@@ -29,24 +29,8 @@ public partial class SeaBunnyRoom : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override async void _Process(double delta)
 	{
-
 		//MOVED: see OnPlayerRespawn()
-		// //reset position when player respawns
-		// if (Player.respawnFadingIn && SeaBunny.InFight)
-		// {
-		// 	if (!waitingForRespawn) {
-		// 		waitingForRespawn = true;
-		// 	}
-			
-		// }
-		// if (!Player.respawnFadingIn && waitingForRespawn) {
-		// 	waitingForRespawn = false;
-		// 	SeaBunny.InFight = false;
-		// 	SeaBunny.Position = SeaBunny.StartPos;
-		// 	var camera1 = Player.GetNode<Camera2D>("Camera2D");
-		// 	camera1.Position = Vector2.Zero;
-		// 	AnimationP.Play("gate_open");
-		// }
+		//deleted stuff
 
 		if (!transitioning)
 		{
@@ -67,6 +51,8 @@ public partial class SeaBunnyRoom : Node2D
 
 	private void OnVineTimerTimeout()
 	{
+		GD.Print("APPEAR");
+		GetNode<AnimatedSprite2D>("Sparkle").Show();
 		var anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		anim.Play("vine_appear");	
 	}
@@ -86,15 +72,11 @@ public partial class SeaBunnyRoom : Node2D
 				cameraGliding = true;
 				camera.GlobalPosition = new Vector2(470, camera.GlobalPosition.Y);
 				AnimationP.Play("gate_close");
+				GetNode<AnimatedSprite2D>("Sparkle").Show();
 				//camera.SetLimit(Side.Left, 320);
 					
 				SeaBunny.StartFight();
 			}
-			/*else {
-				var camera = player.GetNode<Camera2D>("Camera2D");
-				camera.Position = Vector2.Zero;
-				SeaBunny.InFight = false;
-			}*/
 		}
 
 	}
@@ -113,6 +95,9 @@ public partial class SeaBunnyRoom : Node2D
 
 	public async void OnLeftVineTriggerEntered(Node2D player)
 	{
+		var sparkle = GetNode<AnimatedSprite2D>("Sparkle");
+		sparkle.Hide();
+		sparkle.Position = new Vector2(572, 130);
 		if (SeaBunny.Hp == 2)
 		{
 			await SeaBunny.EatLeftVine();
@@ -123,6 +108,7 @@ public partial class SeaBunnyRoom : Node2D
 	{
 		if (GlobalScript.CQ("short") == "Seabunny")
 		{
+			GetNode<AnimatedSprite2D>("Sparkle").Hide();
 			player.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Stop();
 
 			if (!Player.respawning)

@@ -19,7 +19,7 @@ public partial class Player : CharacterBody2D
 	
 	public float Mass = 4.54f; //in kg
 
-	private int hp;
+	public int hp;
 
 	public bool respawning;
 	
@@ -163,7 +163,7 @@ public partial class Player : CharacterBody2D
 			}
 			else if (room == "FishRoom")
 			{
-				respawnPoint = new Vector2(522, 122);
+				respawnPoint = new Vector2(35, 122);
 			}
 			else if (room == "LongTubeCoralRoom")
 			{

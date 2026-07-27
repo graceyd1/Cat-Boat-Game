@@ -75,10 +75,10 @@ texture = ExtResource("3_l32e4")
 [node name="Expanded" type="Panel" parent="." unique_id=389428939]
 visible = false
 use_parent_material = true
-offset_left = -87.0
+offset_left = -103.33332
 offset_top = 30.0
 offset_right = 7.0
-offset_bottom = 120.0
+offset_bottom = 123.33333
 theme_override_styles/panel = SubResource("StyleBoxFlat_a8ss1")
 
 [node name="MarginContainer" type="MarginContainer" parent="Expanded" unique_id=248711261]
@@ -105,12 +105,13 @@ autowrap_mode = 3
 unique_name_in_owner = true
 
 [node name="ItemNamePanel" type="Panel" parent="Expanded/ItemsUI" unique_id=959569336]
-offset_left = 15.0
-offset_top = 13.0
-offset_right = 105.0
-offset_bottom = 26.0
+offset_left = 23.333326
+offset_top = 13.333335
+offset_right = 113.33333
+offset_bottom = 26.333336
 scale = Vector2(0.7, 0.7)
 theme_override_styles/panel = SubResource("StyleBoxFlat_db6rr")
+metadata/_edit_group_ = true
 
 [node name="ItemName" type="Label" parent="Expanded/ItemsUI/ItemNamePanel" unique_id=1887590461]
 unique_name_in_owner = true
@@ -126,7 +127,7 @@ vertical_alignment = 1
 [node name="DescriptionPanel" type="Panel" parent="Expanded/ItemsUI" unique_id=550246314]
 offset_left = 7.0
 offset_top = 25.0
-offset_right = 121.0
+offset_right = 144.61902
 offset_bottom = 46.0
 scale = Vector2(0.7, 0.7)
 theme_override_styles/panel = SubResource("StyleBoxFlat_jrpdj")
@@ -134,7 +135,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jrpdj")
 [node name="Description" type="Label" parent="Expanded/ItemsUI/DescriptionPanel" unique_id=1980947839]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 286.0
+offset_right = 344.04755
 offset_bottom = 54.0
 scale = Vector2(0.4, 0.4)
 theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
@@ -144,24 +145,60 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="ItemIcons1" parent="Expanded/ItemsUI" unique_id=335687124 instance=ExtResource("3_h2a03")]
-offset_left = 10.3333
-offset_top = 43.3333
-offset_right = 30.3333
-offset_bottom = 61.3333
+offset_left = 6.6666718
+offset_top = 43.333332
+offset_right = 26.666672
+offset_bottom = 63.333332
 
 [node name="ItemIcons2" parent="Expanded/ItemsUI" unique_id=671277105 instance=ExtResource("3_h2a03")]
-offset_left = 37.0
-offset_top = 43.3333
-offset_right = 57.0
-offset_bottom = 61.3333
+offset_left = 31.666672
+offset_top = 43.333664
+offset_right = 51.66667
+offset_bottom = 63.333664
+
+[node name="ItemIcons3" parent="Expanded/ItemsUI" unique_id=554236532 instance=ExtResource("3_h2a03")]
+offset_left = 56.66667
+offset_top = 43.333332
+offset_right = 76.66667
+offset_bottom = 63.333332
+
+[node name="ItemIcons4" parent="Expanded/ItemsUI" unique_id=504831661 instance=ExtResource("3_h2a03")]
+offset_left = 81.66667
+offset_top = 43.333664
+offset_right = 101.66667
+offset_bottom = 63.333664
+
+[node name="ItemIcons5" parent="Expanded/ItemsUI" unique_id=541551373 instance=ExtResource("3_h2a03")]
+offset_left = 6.666659
+offset_top = 66.666664
+offset_right = 26.666658
+offset_bottom = 86.666664
+
+[node name="ItemIcons6" parent="Expanded/ItemsUI" unique_id=1810545588 instance=ExtResource("3_h2a03")]
+offset_left = 31.666658
+offset_top = 66.66699
+offset_right = 51.666656
+offset_bottom = 86.66699
+
+[node name="ItemIcons7" parent="Expanded/ItemsUI" unique_id=1853045998 instance=ExtResource("3_h2a03")]
+offset_left = 56.66666
+offset_top = 66.666664
+offset_right = 76.66666
+offset_bottom = 86.666664
+
+[node name="ItemIcons8" parent="Expanded/ItemsUI" unique_id=395949462 instance=ExtResource("3_h2a03")]
+offset_left = 81.66666
+offset_top = 66.66699
+offset_right = 101.66666
+offset_bottom = 86.66699
 
 [node name="InventoryTab" type="Button" parent="." unique_id=546525511]
 visible = false
 use_parent_material = true
-offset_left = -50.0
-offset_top = 33.3333
-offset_right = -27.0
-offset_bottom = 41.3333
+offset_left = -59.999996
+offset_top = 33.333332
+offset_right = -36.999996
+offset_bottom = 41.333332
 theme_override_colors/font_color = Color(0.4696, 0.400508, 0.239824, 1)
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
@@ -174,10 +211,10 @@ script = ExtResource("4_cjqpt")
 [node name="QuestsTab" type="Button" parent="." unique_id=1210510889]
 visible = false
 use_parent_material = true
-offset_left = -20.0
-offset_top = 33.3333
-offset_right = 3.0
-offset_bottom = 41.3333
+offset_left = -26.666666
+offset_top = 33.333332
+offset_right = -3.666666
+offset_bottom = 41.333332
 theme_override_colors/font_color = Color(0.4696, 0.400508, 0.239824, 1)
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
@@ -191,10 +228,10 @@ script = ExtResource("4_s05c4")
 [node name="ControlsTab" type="Button" parent="." unique_id=1492932275]
 visible = false
 use_parent_material = true
-offset_left = -80.0
-offset_top = 33.0
-offset_right = -57.0
-offset_bottom = 41.0
+offset_left = -93.333336
+offset_top = 33.333332
+offset_right = -70.333336
+offset_bottom = 41.333332
 theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")

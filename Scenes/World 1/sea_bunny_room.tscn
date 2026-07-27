@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqifmai727qw" path="res://assets/backgrounds/sea_bunny_room/sea_bunny_room2.png" id="4_kpnq0"]
 [ext_resource type="PackedScene" uid="uid://bi2pjfm4ck8l2" path="res://Scenes/World 1/growable_vine.tscn" id="5_n7so6"]
 [ext_resource type="Texture2D" uid="uid://todgqw1v8vut" path="res://assets/background_items/pile_of_boba.png" id="6_i4ps6"]
+[ext_resource type="Texture2D" uid="uid://b6vmbwbfbmmo4" path="res://assets/background_items/sparkles.png" id="6_uwppl"]
 [ext_resource type="Texture2D" uid="uid://c6sjgcysf8i6y" path="res://assets/npcs/azucat.png" id="7_xn1cr"]
 [ext_resource type="PackedScene" uid="uid://b28lwwf0dhiu6" path="res://Scenes/General/text_box.tscn" id="8_7j8h3"]
 [ext_resource type="Texture2D" uid="uid://tmjmnsrn2br" path="res://assets/player/new_boat.png" id="9_5y8xs"]
@@ -15,8 +16,30 @@
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="13_6v2lf"]
 [ext_resource type="Texture2D" uid="uid://bwuqpqfb6eom3" path="res://assets/backgrounds/sea_bunny_room/sea_bunny_room3.png" id="14_j4xpj"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfohd"]
+atlas = ExtResource("6_uwppl")
+region = Rect2(0, 0, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noy3e"]
+atlas = ExtResource("6_uwppl")
+region = Rect2(12, 0, 12, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jif1a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfohd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noy3e")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycnjo"]
-size = Vector2(20, 80.5)
+size = Vector2(20, 45.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqlvw"]
 size = Vector2(90, 34.2266)
@@ -377,6 +400,13 @@ position = Vector2(572, 0)
 [node name="GrowableVineLeft" parent="." unique_id=936320858 instance=ExtResource("5_n7so6")]
 position = Vector2(380, 144)
 
+[node name="Sparkle" type="AnimatedSprite2D" parent="." unique_id=1450418953]
+visible = false
+position = Vector2(380, 130)
+sprite_frames = SubResource("SpriteFrames_jif1a")
+autoplay = "default"
+frame_progress = 0.8933795
+
 [node name="BOBA" type="Sprite2D" parent="." unique_id=1294010377]
 position = Vector2(-317, 75)
 texture = ExtResource("6_i4ps6")
@@ -460,13 +490,13 @@ position = Vector2(588, 134)
 scale = Vector2(3, 0.5)
 
 [node name="LeftVineTrigger" type="Area2D" parent="." unique_id=1247712180]
-position = Vector2(380, 125)
+position = Vector2(380, 126)
 collision_layer = 0
 collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftVineTrigger" unique_id=1172765020]
-position = Vector2(0, 12.75)
+position = Vector2(0, -4.75)
 shape = SubResource("RectangleShape2D_ycnjo")
 debug_color = Color(1, 1, 0, 0.419608)
 

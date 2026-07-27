@@ -49,6 +49,19 @@ public partial class JellyfishRoom : Node2D
 			camera.SetLimit(Side.Bottom, 180);
 		}
 	}
+
+	private void OnSecretWallTriggerBodyEntered(Node2D player)
+	{
+		var wall = GetNode<Sprite2D>("SecretWall");
+		if (wall.Visible)
+		{
+			wall.Hide();
+		}
+		else
+		{
+			wall.Show();
+		}
+	}
 	
 	private void OnBreakAOEEntered(Node2D player)
 	{

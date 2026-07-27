@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cf4276i8ovba8"]
+
+[ext_resource type="Texture2D" uid="uid://88dct4j2nhi7" path="res://assets/objects/clam.png" id="1_42ms5"]
+[ext_resource type="Script" uid="uid://cqnseaoy4db6i" path="res://CS Scripts/General/Clam.cs" id="2_ukif5"]
+[ext_resource type="PackedScene" uid="uid://cajcbse43dl4y" path="res://Scenes/General/interact_area.tscn" id="3_8yfec"]
+
+[node name="Clam" type="Sprite2D" unique_id=1881731813]
+texture = ExtResource("1_42ms5")
+hframes = 2
+frame = 1
+script = ExtResource("2_ukif5")
+
+[node name="InteractArea" parent="." unique_id=1569145805 instance=ExtResource("3_8yfec")]
+position = Vector2(0, 14)
+scale = Vector2(1, 0.5)
+LabelHeight = 35
+
+[connection signal="Interact" from="InteractArea" to="." method="OnInteract"]

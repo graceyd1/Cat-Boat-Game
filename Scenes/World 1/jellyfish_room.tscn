@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cc3aglk6j3bag"]
 
 [ext_resource type="Script" uid="uid://dhge5wwqnrtqx" path="res://CS Scripts/World 1/JellyfishRoom.cs" id="1_geocv"]
-[ext_resource type="Texture2D" uid="uid://cysadwqvf1xw3" path="res://assets/backgrounds/jellyfish_room/jellyfish_room0.png" id="2_pmqrb"]
+[ext_resource type="Texture2D" uid="uid://bihiucp1w0is6" path="res://assets/backgrounds/jellyfish_room/jellyfish_room0.png" id="2_pmqrb"]
 [ext_resource type="Texture2D" uid="uid://dxoik5vb5ive3" path="res://assets/backgrounds/jellyfish_room/jellyfish_room1.png" id="3_fpgpe"]
 [ext_resource type="Texture2D" uid="uid://cjjrwo4fwt4hp" path="res://assets/backgrounds/jellyfish_room/jellyfish_room2.png" id="4_dih5l"]
 [ext_resource type="Texture2D" uid="uid://v1adb3yc3dot" path="res://assets/backgrounds/jellyfish_room/jellyfish_room3.png" id="5_lpsdy"]
@@ -13,9 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://banst1obngkel" path="res://assets/backgrounds/jellyfish_room/jellyfish_room_breakable_rock.png" id="11_76hbb"]
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="12_q5v5y"]
 [ext_resource type="PackedScene" uid="uid://c2paeopskk52q" path="res://Scenes/World 1/big_jellyfish.tscn" id="13_mmv0g"]
-[ext_resource type="Texture2D" uid="uid://deehqiktfevun" path="res://assets/backgrounds/jellyfish_room/jellyfish_room4.png" id="14_qsleg"]
+[ext_resource type="Texture2D" uid="uid://cngd0i0j1e4xu" path="res://assets/backgrounds/jellyfish_room/jellyfish_room4.png" id="14_qsleg"]
+[ext_resource type="Texture2D" uid="uid://bwukki0i2gpup" path="res://assets/backgrounds/jellyfish_room/jellyfish_room_secret_wall.png" id="15_1pu46"]
 [ext_resource type="PackedScene" uid="uid://dewawah7lpsl6" path="res://Scenes/World 1/bouncy_jellyfish.tscn" id="15_b6tet"]
 [ext_resource type="PackedScene" uid="uid://ygrr56bstc00" path="res://Scenes/General/interact_label.tscn" id="16_2u7sr"]
+[ext_resource type="PackedScene" uid="uid://cf4276i8ovba8" path="res://Scenes/General/clam.tscn" id="16_evaiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywtf6"]
 size = Vector2(20, 1)
@@ -24,6 +26,9 @@ size = Vector2(20, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w8jo"]
 size = Vector2(64, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jif1a"]
+size = Vector2(1, 20)
 
 [node name="JellyfishRoom" type="Node2D" unique_id=1267353195]
 script = ExtResource("1_geocv")
@@ -40,12 +45,12 @@ centered = false
 
 [node name="Parallax2D1" type="Parallax2D" parent="BackgroundFolder" unique_id=1284993620]
 scroll_scale = Vector2(0.6, 1)
-scroll_offset = Vector2(-217, 0)
 
 [node name="Background1" type="Sprite2D" parent="BackgroundFolder/Parallax2D1" unique_id=1919703523]
 texture_filter = 1
 texture = ExtResource("3_fpgpe")
 centered = false
+offset = Vector2(0, -2)
 
 [node name="Parallax2D2" type="Parallax2D" parent="BackgroundFolder" unique_id=1205928725]
 scroll_scale = Vector2(0.8, 1)
@@ -107,6 +112,7 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveCameraTrigger" unique_id=1588427850]
 position = Vector2(401, 132.5)
 shape = SubResource("RectangleShape2D_ywtf6")
+debug_color = Color(1, 1, 0, 0.41960785)
 
 [node name="CaveCameraTrigger2" type="Area2D" parent="." unique_id=1083019787]
 position = Vector2(503, 124)
@@ -117,6 +123,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveCameraTrigger2" unique_id=760084291]
 shape = SubResource("RectangleShape2D_7g0ps")
+debug_color = Color(1, 1, 0, 0.41960785)
 
 [node name="BlueCat" type="Sprite2D" parent="." unique_id=132823741]
 position = Vector2(536, 201)
@@ -129,6 +136,9 @@ scale = Vector2(1, 0.3)
 [node name="TextBox" parent="BlueCat/InteractArea" unique_id=1301904286 instance=ExtResource("9_4ljap")]
 position = Vector2(0, -73.3334)
 scale = Vector2(1, 3.33333)
+
+[node name="Clam1" parent="." unique_id=1881731813 instance=ExtResource("16_evaiq")]
+position = Vector2(675, 198)
 
 [node name="UnderwaterPlayer" parent="." unique_id=356920852 instance=ExtResource("10_0fdjf")]
 position = Vector2(690, 139)
@@ -163,6 +173,22 @@ position = Vector2(287, 122)
 texture_filter = 1
 texture = ExtResource("14_qsleg")
 centered = false
+
+[node name="SecretWall" type="Sprite2D" parent="." unique_id=1416686080]
+texture_filter = 1
+texture = ExtResource("15_1pu46")
+centered = false
+
+[node name="SecretWallTrigger" type="Area2D" parent="SecretWall" unique_id=1503443039]
+position = Vector2(573, 201)
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretWall/SecretWallTrigger" unique_id=1084610267]
+position = Vector2(-9.5, 0)
+shape = SubResource("RectangleShape2D_jif1a")
+debug_color = Color(1, 1, 0, 0.41960785)
 
 [node name="BouncyJellyfish" parent="." unique_id=1464884539 instance=ExtResource("15_b6tet")]
 position = Vector2(94, 156)
@@ -199,8 +225,8 @@ position = Vector2(154, 146)
 scale = Vector2(10.6, 4)
 
 [node name="MiddleGround2" parent="WallsFolder" unique_id=1554159252 instance=ExtResource("12_q5v5y")]
-position = Vector2(365, 213)
-scale = Vector2(9.1, 1)
+position = Vector2(366, 212)
+scale = Vector2(20, 1)
 
 [node name="MiddleGround3" parent="WallsFolder" unique_id=1590845531 instance=ExtResource("12_q5v5y")]
 position = Vector2(364, 144)
@@ -222,9 +248,9 @@ scale = Vector2(8, 0.8)
 position = Vector2(410, 147)
 scale = Vector2(17, 2.1)
 
-[node name="RightGround2" parent="WallsFolder" unique_id=6280712 instance=ExtResource("12_q5v5y")]
-position = Vector2(546, 189)
-scale = Vector2(10, 2.1)
+[node name="RightWall" parent="WallsFolder" unique_id=6280712 instance=ExtResource("12_q5v5y")]
+position = Vector2(695, 189)
+scale = Vector2(2, 1.2)
 
 [node name="InteractLabel" parent="." unique_id=1583186606 instance=ExtResource("16_2u7sr")]
 
@@ -232,3 +258,4 @@ scale = Vector2(10, 2.1)
 [connection signal="body_entered" from="CaveCameraTrigger2" to="." method="OnCaveCameraTrigger2Entered"]
 [connection signal="Interact" from="BlueCat/InteractArea" to="." method="OnBlueCatInteract"]
 [connection signal="body_entered" from="BreakableRock/BreakAOE" to="." method="OnBreakAOEEntered"]
+[connection signal="body_entered" from="SecretWall/SecretWallTrigger" to="." method="OnSecretWallTriggerBodyEntered"]

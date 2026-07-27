@@ -10,7 +10,8 @@ public partial class InventoryTab : Button
 	
 	public static Dictionary<string, string> Descriptions = new Dictionary<string, string> {
 		{"Flashlight", "Useful for seeing in the dark and growing vines! Press F to toggle, Use mouse to point"},
-		{"Town Pass", "Lets you exit the town"}
+		{"Town Pass", "Lets you exit the town"},
+		{"Pearl", "Very shiny and round. Maybe some of the townspeople would be interested in something like this..."}
 	};
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

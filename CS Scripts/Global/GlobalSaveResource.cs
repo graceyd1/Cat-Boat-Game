@@ -22,7 +22,7 @@ public partial class GlobalSaveResource : Resource
 	public Godot.Collections.Array<String> Inventory {get; set;} = new Array<String>(); 
 
 	[Export]
-	public int QuestNum{get; set;} = 2; //0;
+	public int QuestNum{get; set;} = 4; //0;
 
 	[Export]
 	public string CurrentRoom{get; set;} = "first_room";
@@ -34,10 +34,16 @@ public partial class GlobalSaveResource : Resource
 	public Godot.Collections.Array<bool> CoinsCollected {get; set;} = new Array<bool>(); //true if collected
 
 	[Export]
+	public Godot.Collections.Array<bool> ClamsCollected {get; set;} = new Array<bool>(); //true if collected
+
+	[Export]
 	public int OliveVisitNum{get; set;} = 0;
 	[Export]
 	public bool GeyserOpened{get; set;} = false;
 
+	[Export]
+	public int FishGameHighScore{get; set;} = 0;
+	
 	[Export]
 	public bool Azulcat{get; set;} = false;
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bihiucp1w0is6"
-path="res://.godot/imported/jellyfish_room0.png-eee05ad5792a148df403232ac78805fc.ctex"
+uid="uid://c4ejgx1g6cy25"
+path="res://.godot/imported/pearl.png-873fdb782f3ccfb10805300505fcf720.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/jellyfish_room/jellyfish_room0.png"
-dest_files=["res://.godot/imported/jellyfish_room0.png-eee05ad5792a148df403232ac78805fc.ctex"]
+source_file="res://assets/icons/pearl.png"
+dest_files=["res://.godot/imported/pearl.png-873fdb782f3ccfb10805300505fcf720.ctex"]
 
 [params]
 

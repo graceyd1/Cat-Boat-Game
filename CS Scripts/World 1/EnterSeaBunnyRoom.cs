@@ -14,6 +14,12 @@ public partial class EnterSeaBunnyRoom : Node2D
 	{
 		dashT = GetNode<TextBox>("GroundPlayer/TextBox");
 		parvaT = GetNode<TextBox>("Parva/TextBox");
+
+		if (GlobalScript.QuestNum <= GlobalScript.MainQuests.IndexOf("ReturnBoba")) //number
+		{
+			GetNode<Sprite2D>("Ladder").Position = new Vector2(0, 250); //offscreen
+		}
+
 		//Quest before escape from the sea bunny
 		//note: alternatively could do GlobalScript.MainQuests[QuestNum] == quest name
 		if (GlobalScript.CQ("short") == "Trapdoor") {
@@ -22,11 +28,6 @@ public partial class EnterSeaBunnyRoom : Node2D
 		}
 		else {
 			GetNode<AnimatedSprite2D>("Parva").Hide();
-		}
-
-		if (GlobalScript.QuestNum <= GlobalScript.MainQuests.IndexOf("ReturnBoba")) //number
-		{
-			GetNode<Sprite2D>("Ladder").Position = new Vector2(0, 250); //offscreen
 		}
 	}
 
@@ -50,7 +51,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 		await dashT.ShowText("...");
 		await parvaT.ShowText("No need to stare like that, it wasn't that hard. They keep their doors open at night, pfft.");
 		
-		var choice = await dashT.Ask("1. Stealing is wrong! I have to stop Parva.\n2. I need that boba to get my fixed boat! I have to stop Parva.");
+		var choice = await dashT.Ask("1. Stealing is wrong! I have to stop Parva.\n2. I need that boba to get my boat! I have to stop Parva.");
 		if (choice == "1") {
 			await dashT.ShowText("I'm not staring because I'm [i]impressed[/i]! I'm staring because it's [i]wrong[/i] to steal like that!");
 		}

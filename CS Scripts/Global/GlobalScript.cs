@@ -59,6 +59,15 @@ public partial class GlobalScript : Node2D
 		}
 	}
 
+	public static Godot.Collections.Array<bool> ClamsCollected
+	{
+		get => GameData.ClamsCollected;
+		set {
+			GameData.ClamsCollected = value;
+			SaveGame();
+		}
+	}
+
 	public static int OliveVisitNum
 	{
 		get => GameData.OliveVisitNum;
@@ -88,6 +97,14 @@ public partial class GlobalScript : Node2D
 		get => GameData.Azulcat;
 		set {
 			GameData.Azulcat = value;
+			SaveGame();
+		}
+	}
+
+	public static int FishGameHighScore {
+		get => GameData.FishGameHighScore;
+		set {
+			GameData.FishGameHighScore = value;
 			SaveGame();
 		}
 	}
@@ -132,6 +149,9 @@ public partial class GlobalScript : Node2D
 		//did I do this in the right spot
 		CoinsCollected.Resize(100);
 		CoinsCollected.Fill(false);
+
+		ClamsCollected.Resize(6);
+		ClamsCollected.Fill(false);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

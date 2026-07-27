@@ -8,11 +8,11 @@ public partial class FishRoom : Node2D
 	public int numCollectableFish {get; set;} = 1;
 	private bool transitioning = false;
 	private bool playingMinigame = false;
-
 	private Node2D playerTextNode;
 	private Node2D iceCreamTextNode;
-
 	private int fishCollected;
+	private Godot.Collections.Array<Node> CollectableFish;
+	private Node2D Clam;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -20,17 +20,30 @@ public partial class FishRoom : Node2D
 		GetNode<Label>("UnderwaterPlayer/MinigameTime").Visible = false;
 		playerTextNode = GetNode<Node2D>("UnderwaterPlayer/TextBox");
 		iceCreamTextNode = GetNode<Node2D>("IceCreamAreaSprite/InteractArea/TextBox");
+		CollectableFish = GetNode<Node2D>("CollectableFish").GetChildren();
 		fishCollected = 0;
 
-		//disable collectable fish
-		var collectableFish = GetNode<Node2D>("CollectableFish").GetChildren();
-		for (int i = 0; i < collectableFish.Count; i ++)
+		Clam = GetNode<Node2D>("Clam0");
+		Clam.GetNode<InteractArea>("InteractArea").Interactable(false);
+		if (GlobalScript.FishGameHighScore > CollectableFish.Count)
 		{
-			if (collectableFish[i] is FishEnemy fish)
+			Clam.Show();
+		}
+		else
+		{
+			Clam.Hide();
+		}
+
+		//disable collectable fish
+		for (int i = 0; i < CollectableFish.Count; i ++)
+		{
+			if (CollectableFish[i] is FishEnemy fish)
 			{
 				fish.Disable();
 			}
 		}
+
+		UpdateHighScore();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,10 +93,9 @@ public partial class FishRoom : Node2D
 		}
 
 		//enable collectable fish
-		var collectableFish = GetNode<Node2D>("CollectableFish").GetChildren();
-		for (int i = 0; i < collectableFish.Count; i ++)
+		for (int i = 0; i < CollectableFish.Count; i ++)
 		{
-			if (collectableFish[i] is FishEnemy fish)
+			if (CollectableFish[i] is FishEnemy fish)
 			{
 				fish.Enable();
 			}
@@ -99,15 +111,32 @@ public partial class FishRoom : Node2D
 
 	private async void EndMinigame()
 	{
+		GetNode<CharacterBody2D>("UnderwaterPlayer").Position = new Vector2(535, 172);
 		if (playerTextNode is TextBox pText && iceCreamTextNode is TextBox iText)
 		{
 			await iText.ShowText("game over!");
 			await iText.ShowText("you got : " + fishCollected + " fish");
 			await iText.ShowText("you get: " + fishCollected + " coins");
+			GlobalScript.Coins += fishCollected;
+			
+			if (fishCollected > GlobalScript.FishGameHighScore)
+			{
+				await iText.ShowText("that's a new high score!");
+				GlobalScript.FishGameHighScore = fishCollected;
+				UpdateHighScore();
+			}
+
+			var player = playerTextNode.GetParent();
+			if (fishCollected >= CollectableFish.Count 
+				&& !GlobalScript.ClamsCollected[0]
+				&& player is Player p && p.hp > 1)
+			{
+				await iText.ShowText("nice game! congratulations! you unlocked an extra prize!");
+				Clam.Show();
+				Clam.GetNode<InteractArea>("InteractArea").Interactable(true);
+			}
 			GetNode<Label>("UnderwaterPlayer/MinigameTime").Hide();
 			
-			GlobalScript.Coins += fishCollected;
-
 			iText.EnableInteractArea();
 		}
 		
@@ -124,10 +153,9 @@ public partial class FishRoom : Node2D
 		}
 
 		//disable collectable fish
-		var collectableFish = GetNode<Node2D>("CollectableFish").GetChildren();
-		for (int i = 0; i < collectableFish.Count; i ++)
+		for (int i = 0; i < CollectableFish.Count; i ++)
 		{
-			if (collectableFish[i] is FishEnemy fish)
+			if (CollectableFish[i] is FishEnemy fish)
 			{
 				fish.Disable();
 			}
@@ -136,7 +164,6 @@ public partial class FishRoom : Node2D
 	//ways to end minigame
 	private async void OnTimesUp()
 	{
-		GetNode<CharacterBody2D>("UnderwaterPlayer").Position = new Vector2(522, 122);
 		EndMinigame();
 	}
 
@@ -152,21 +179,20 @@ public partial class FishRoom : Node2D
 			if (timer is MinigameTime mTimer)
 			{
 				mTimer.EndGame();
-				GetNode<CharacterBody2D>("UnderwaterPlayer").Position = new Vector2(522, 122);
 				EndMinigame();
 			}
 		}
 	}
 
 	//end minigame if player dies
-	private void OnPlayerHit(int hp)
+	private void OnPlayerRespawn()
 	{
-		if ((hp < 1 || hp == 2) && playingMinigame)
+		if (playingMinigame)
 		{
-			var FaderNode = GetNode<CanvasLayer>("/root/Fader");
-			if (FaderNode is Fader fader) {
-				fader.Hide();
-			}
+			// var FaderNode = GetNode<CanvasLayer>("/root/Fader");
+			// if (FaderNode is Fader fader) {
+			// 	fader.Hide();
+			// }
 
 			var timer = GetNode<Label>("UnderwaterPlayer/MinigameTime");
 			if (timer is MinigameTime mTimer)
@@ -175,6 +201,11 @@ public partial class FishRoom : Node2D
 				EndMinigame();
 			}
 		}
+	}
+
+	private void UpdateHighScore()
+	{
+		GetNode<Label>("%HighScore").Text = "" + GlobalScript.FishGameHighScore;
 	}
 	
 	private async Task NextRoomCheck() {

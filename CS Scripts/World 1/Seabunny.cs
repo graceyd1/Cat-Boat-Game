@@ -24,7 +24,7 @@ public partial class Seabunny : CharacterBody2D
 		StartPos = new Vector2(485, 205);
 		facingLeft = true;
 		Velocity = Vector2.Zero;
-		bullet = GD.Load<PackedScene>("res://Scenes/seabunnybullet.tscn");
+		bullet = GD.Load<PackedScene>("res://Scenes/World 1/seabunnybullet.tscn");
 		GD.Randomize();
 		
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
