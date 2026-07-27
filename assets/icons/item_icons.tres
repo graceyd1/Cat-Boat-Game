@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bh8v1wbk2fneh"]
+
+[ext_resource type="Texture2D" uid="uid://hn2tiy74qia0" path="res://assets/icons/flashlight.png" id="1_n8xd0"]
+[ext_resource type="Texture2D" uid="uid://cj28lfga1jmux" path="res://assets/icons/town_pass.png" id="2_aai7j"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n8xd0")
+}],
+"loop": 1,
+"name": &"Flashlight",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aai7j")
+}],
+"loop": 1,
+"name": &"Town Pass",
+"speed": 1.0
+}]

@@ -39,7 +39,7 @@ public partial class BobaShop : Node2D
 		if (GlobalScript.CQ("short") == "MeetCatssava") {
 			player.InputEnabled = false;
 			await catssavaT.ShowText("Oh hi there, I’m Catssava, the shopkeeper here. What can I help you with?");
-			await dashT.ShowText("I need some tapioca boba, that’s all!");
+			await dashT.ShowText("I need some milk tea with tapioca boba, that’s all!");
 			await catssavaT.ShowText("Oh dear, t-tapioca boba?!");
 			await dashT.ShowText("That's right, Azucat told me it was fairly easy to get.");
 			await catssavaT.ShowText("I-I-I'm really sorry, dear, but -");
@@ -51,11 +51,12 @@ public partial class BobaShop : Node2D
 			await dashT.ShowText("Is there...a way to get more?");
 			await catssavaT.ShowText("I get monthly shipments from the surface, but it's only the second of the month and it's all vanished!");
 			await catssavaT.ShowText("Oh, if only I knew where it all went...");
+
+			var choice = await dashT.Ask("1. I should help Catssava!\n2. Well, I need my boat fixed...");
+
 			await dashT.ShowText("Catssava, let me help you find the tapioca pearls.");
 			csAnimation.Animation = "sit";
 			await catssavaT.ShowText("Really?! You'd do that for me? I'd be soo grateful- what's your name?");
-			
-			var choice = await dashT.Ask("1. Do it for Catssava\n2. Do it to get your boat fixed");
 
 			if (choice == "1") {
 				await dashT.ShowText("My name is Dash. And I'd be happy to help; I can tell you love this shop and it certainly needs some boba!");
@@ -64,7 +65,7 @@ public partial class BobaShop : Node2D
 				await dashT.ShowText("My name is Dash. Azucat won't give me a new boat until I get him tapioca, so it's only right for me to do this.");
 			}
 			await catssavaT.ShowText("In that case, you'll need a pass to leave town. I'll give you mine.");
-			GlobalScript.AddItem("Town Pass");
+			player.GetItem("Town Pass");
 			GlobalScript.QuestNum++;
 			player.InputEnabled = true;
 		}

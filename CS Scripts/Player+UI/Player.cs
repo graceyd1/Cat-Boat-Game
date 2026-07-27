@@ -230,5 +230,10 @@ public partial class Player : CharacterBody2D
 		return disableMovement;
 	}
 	
-
+	public void GetItem(string item)
+	{
+		GetNode<AnimatedSprite2D>("Camera2D/Controls/ItemIcon").Animation = item;
+		GetNode<AnimationPlayer>("Camera2D/Controls/AnimationPlayer").Play("item_get");
+		GlobalScript.AddItem(item);
+	}
 }

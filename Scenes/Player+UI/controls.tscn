@@ -41,6 +41,13 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f04i"]
+bg_color = Color(0.776365, 0.6709, 0.568389, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpg6r"]
 bg_color = Color(0.776471, 0.670588, 0.568627, 1)
 border_width_left = 1
@@ -53,26 +60,19 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f04i"]
-bg_color = Color(0.776365, 0.6709, 0.568389, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
 [sub_resource type="ButtonGroup" id="ButtonGroup_017sx"]
 
-[node name="Controls" type="Node2D"]
+[node name="Controls" type="Node2D" unique_id=1796098707]
 material = SubResource("CanvasItemMaterial_ah2n4")
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_weoqj")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="." unique_id=1850521818]
 use_parent_material = true
 position = Vector2(0, 13.3333)
 texture = ExtResource("3_l32e4")
 
-[node name="Expanded" type="Panel" parent="."]
+[node name="Expanded" type="Panel" parent="." unique_id=389428939]
 visible = false
 use_parent_material = true
 offset_left = -87.0
@@ -81,9 +81,9 @@ offset_right = 7.0
 offset_bottom = 120.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_a8ss1")
 
-[node name="MarginContainer" type="MarginContainer" parent="Expanded"]
+[node name="MarginContainer" type="MarginContainer" parent="Expanded" unique_id=248711261]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 offset_right = 87.0
 offset_bottom = 90.0
 theme_override_constants/margin_left = 5
@@ -91,20 +91,20 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Expanded/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Expanded/MarginContainer" unique_id=1064870802]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Expanded/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Expanded/MarginContainer/VBoxContainer" unique_id=1925746656]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.643137, 0.45098, 0.172549, 1)
 theme_override_font_sizes/font_size = 8
 autowrap_mode = 3
 
-[node name="ItemsUI" type="Node2D" parent="Expanded"]
+[node name="ItemsUI" type="Node2D" parent="Expanded" unique_id=2051523345]
 unique_name_in_owner = true
 
-[node name="ItemNamePanel" type="Panel" parent="Expanded/ItemsUI"]
+[node name="ItemNamePanel" type="Panel" parent="Expanded/ItemsUI" unique_id=959569336]
 offset_left = 15.0
 offset_top = 13.0
 offset_right = 105.0
@@ -112,7 +112,7 @@ offset_bottom = 26.0
 scale = Vector2(0.7, 0.7)
 theme_override_styles/panel = SubResource("StyleBoxFlat_db6rr")
 
-[node name="ItemName" type="Label" parent="Expanded/ItemsUI/ItemNamePanel"]
+[node name="ItemName" type="Label" parent="Expanded/ItemsUI/ItemNamePanel" unique_id=1887590461]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 148.0
@@ -123,7 +123,7 @@ text = "Select Item"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DescriptionPanel" type="Panel" parent="Expanded/ItemsUI"]
+[node name="DescriptionPanel" type="Panel" parent="Expanded/ItemsUI" unique_id=550246314]
 offset_left = 7.0
 offset_top = 25.0
 offset_right = 121.0
@@ -131,7 +131,7 @@ offset_bottom = 46.0
 scale = Vector2(0.7, 0.7)
 theme_override_styles/panel = SubResource("StyleBoxFlat_jrpdj")
 
-[node name="Description" type="Label" parent="Expanded/ItemsUI/DescriptionPanel"]
+[node name="Description" type="Label" parent="Expanded/ItemsUI/DescriptionPanel" unique_id=1980947839]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 286.0
@@ -143,19 +143,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="ItemIcons1" parent="Expanded/ItemsUI" instance=ExtResource("3_h2a03")]
+[node name="ItemIcons1" parent="Expanded/ItemsUI" unique_id=335687124 instance=ExtResource("3_h2a03")]
 offset_left = 10.3333
 offset_top = 43.3333
 offset_right = 30.3333
 offset_bottom = 61.3333
 
-[node name="ItemIcons2" parent="Expanded/ItemsUI" instance=ExtResource("3_h2a03")]
+[node name="ItemIcons2" parent="Expanded/ItemsUI" unique_id=671277105 instance=ExtResource("3_h2a03")]
 offset_left = 37.0
 offset_top = 43.3333
 offset_right = 57.0
 offset_bottom = 61.3333
 
-[node name="InventoryTab" type="Button" parent="."]
+[node name="InventoryTab" type="Button" parent="." unique_id=546525511]
 visible = false
 use_parent_material = true
 offset_left = -50.0
@@ -164,14 +164,14 @@ offset_right = -27.0
 offset_bottom = 41.3333
 theme_override_colors/font_color = Color(0.4696, 0.400508, 0.239824, 1)
 theme_override_font_sizes/font_size = 5
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_017sx")
 text = "Items"
 script = ExtResource("4_cjqpt")
 
-[node name="QuestsTab" type="Button" parent="."]
+[node name="QuestsTab" type="Button" parent="." unique_id=1210510889]
 visible = false
 use_parent_material = true
 offset_left = -20.0
@@ -180,15 +180,15 @@ offset_right = 3.0
 offset_bottom = 41.3333
 theme_override_colors/font_color = Color(0.4696, 0.400508, 0.239824, 1)
 theme_override_font_sizes/font_size = 5
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_017sx")
 text = "Quests
 "
 script = ExtResource("4_s05c4")
 
-[node name="ControlsTab" type="Button" parent="."]
+[node name="ControlsTab" type="Button" parent="." unique_id=1492932275]
 visible = false
 use_parent_material = true
 offset_left = -80.0
@@ -197,8 +197,8 @@ offset_right = -57.0
 offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 theme_override_font_sizes/font_size = 5
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_017sx")
 text = "Ctrls"

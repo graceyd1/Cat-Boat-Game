@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dlmh7jpc3ln7j"]
 
 [ext_resource type="Script" uid="uid://cpurpuxnw3oey" path="res://CS Scripts/Player+UI/ItemIcons.cs" id="1_7bvsw"]
-[ext_resource type="Texture2D" uid="uid://hn2tiy74qia0" path="res://assets/icons/flashlight.png" id="1_atoiq"]
-[ext_resource type="Texture2D" uid="uid://cj28lfga1jmux" path="res://assets/icons/town_pass.png" id="2_ngotl"]
+[ext_resource type="SpriteFrames" uid="uid://bh8v1wbk2fneh" path="res://assets/icons/item_icons.tres" id="2_7igos"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyrmj"]
 bg_color = Color(0.776471, 0.670588, 0.568627, 1)
@@ -11,26 +10,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_um4kn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_atoiq")
-}],
-"loop": true,
-"name": &"Flashlight",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ngotl")
-}],
-"loop": true,
-"name": &"Town Pass",
-"speed": 5.0
-}]
-
-[node name="ItemIcons" type="Button"]
+[node name="ItemIcons" type="Button" unique_id=554236532]
 offset_left = -10.0
 offset_top = -8.0
 offset_right = 10.0
@@ -39,7 +19,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tyrmj")
 script = ExtResource("1_7bvsw")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1120463431]
 position = Vector2(10, 9)
-sprite_frames = SubResource("SpriteFrames_um4kn")
+sprite_frames = ExtResource("2_7igos")
 animation = &"Flashlight"

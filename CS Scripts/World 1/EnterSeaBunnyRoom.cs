@@ -50,12 +50,12 @@ public partial class EnterSeaBunnyRoom : Node2D
 		await dashT.ShowText("...");
 		await parvaT.ShowText("No need to stare like that, it wasn't that hard. They keep their doors open at night, pfft.");
 		
-		var choice = await dashT.Ask("1. Stop Parva because stealing is wrong.\n2. Stop Parva so the town cats can get you a new boat");
+		var choice = await dashT.Ask("1. Stealing is wrong! I have to stop Parva.\n2. I need that boba to get my fixed boat! I have to stop Parva.");
 		if (choice == "1") {
 			await dashT.ShowText("I'm not staring because I'm [i]impressed[/i]! I'm staring because it's [i]wrong[/i] to steal like that!");
 		}
 		else {
-			await dashT.ShowText("I may not be a 'town cat', but I've already made deals with them to fix my boat.");
+			await dashT.ShowText("I may not be a 'town cat', but I've already made deals with them to get me a fixed boat.");
 			}
 
 		await dashT.ShowText("Sorry, Parva, but I'm going to have to stop you.");

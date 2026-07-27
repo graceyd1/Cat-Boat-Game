@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cvrh7g0x5av68" path="res://CS Scripts/General/CoinDisplayNode.cs" id="6_vqqmd"]
 [ext_resource type="Script" uid="uid://dw47xxihsafap" path="res://CS Scripts/Player+UI/Camera2d.cs" id="8_6m7sy"]
 [ext_resource type="PackedScene" uid="uid://7106o3opoex1" path="res://Scenes/Player+UI/player_health.tscn" id="8_pkvse"]
+[ext_resource type="SpriteFrames" uid="uid://bh8v1wbk2fneh" path="res://assets/icons/item_icons.tres" id="9_vajrb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_peka7"]
 light_mode = 1
@@ -23,6 +24,68 @@ size = Vector2(12, 13)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_riri1"]
 light_mode = 1
+
+[sub_resource type="Animation" id="Animation_g0rqn"]
+resource_name = "RESET"
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_vajrb"]
+resource_name = "item_get"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Controls/ItemIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4000001, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(0, 4), Vector2(4, 4), Vector2(0, 4), Vector2(4, 4), Vector2(0, 4), Vector2(4, 4), Vector2(0, 4), Vector2(2.5, 2.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Controls/ItemIcon:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Controls/ItemIcon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-140, 85), Vector2(-140, 85), Vector2(0, 13)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Controls/ItemIcon:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0rqn"]
+_data = {
+&"RESET": SubResource("Animation_g0rqn"),
+&"item_get": SubResource("Animation_vajrb")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3rue"]
 bg_color = Color(0.679911, 0.620564, 0.223553, 1)
@@ -84,6 +147,16 @@ centered = false
 z_index = 4096
 position = Vector2(140, -85)
 scale = Vector2(1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Controls" unique_id=41903184]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_g0rqn")
+
+[node name="ItemIcon" type="AnimatedSprite2D" parent="Camera2D/Controls" unique_id=953076555]
+visible = false
+position = Vector2(0, 13)
+sprite_frames = ExtResource("9_vajrb")
+animation = &"Flashlight"
 
 [node name="TextEnterLabel" parent="Camera2D" unique_id=42633071 instance=ExtResource("5_sg0de")]
 
