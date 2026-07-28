@@ -23,3 +23,13 @@ metadata/_edit_group_ = true
 position = Vector2(10, 10)
 sprite_frames = ExtResource("2_7igos")
 animation = &"Pearl"
+
+[node name="Count" type="Label" parent="." unique_id=343382491]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -4.0
+offset_right = 61.0
+offset_bottom = 13.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.47058824, 0.4, 0.23921569, 1)
+text = "1x"

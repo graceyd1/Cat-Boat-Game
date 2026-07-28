@@ -39,6 +39,12 @@ public partial class InventoryTab : Button
 				icon.SetAnimation(item);
 				icon.ItemName = item;
 				icon.ThisIconPressed += OnIconPressed;
+				if (GlobalScript.NumItems.TryGetValue(item, out var count)) {
+					icon.SetItemCount(count());
+				}
+				else {
+					icon.HideCount();
+				}
 				icon.Show();
 				IconNum++;
 			}

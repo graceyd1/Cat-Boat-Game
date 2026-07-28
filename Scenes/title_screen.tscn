@@ -249,7 +249,7 @@ animations = [{
 "duration": 40.0,
 "texture": SubResource("AtlasTexture_pdr7p")
 }],
-"loop": false,
+"loop": 0,
 "name": &"opening",
 "speed": 20.0
 }, {
@@ -260,20 +260,20 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l1mln")
 }],
-"loop": true,
+"loop": 1,
 "name": &"title_screen",
 "speed": 2.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ua1qk"]
-bg_color = Color(0.6, 0.54, 0.42, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y4fl"]
+bg_color = Color(1, 0.964706, 0.894118, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y4fl"]
-bg_color = Color(1, 0.964706, 0.894118, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ua1qk"]
+bg_color = Color(0.6, 0.54, 0.42, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -302,16 +302,16 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="TitleScreen" type="Node2D"]
+[node name="TitleScreen" type="Node2D" unique_id=708045175]
 script = ExtResource("1_vix8s")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406709693]
 sprite_frames = SubResource("SpriteFrames_817w4")
 animation = &"opening"
 autoplay = "title_screen"
 centered = false
 
-[node name="Buttons" type="Control" parent="."]
+[node name="Buttons" type="Control" parent="." unique_id=1155073518]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 148.0
@@ -319,44 +319,44 @@ offset_top = 105.0
 offset_right = 287.0
 offset_bottom = 180.0
 
-[node name="PlayButton" type="Button" parent="Buttons"]
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=1141223872]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 11.0
 offset_right = 99.0
 offset_bottom = 36.0
-theme_override_colors/font_hover_color = Color(0.2, 0.149333, 0.04, 1)
 theme_override_colors/font_color = Color(0.643137, 0.494118, 0.172549, 1)
-theme_override_styles/hover = SubResource("StyleBoxFlat_ua1qk")
+theme_override_colors/font_hover_color = Color(0.2, 0.149333, 0.04, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1y4fl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ua1qk")
 text = "Play"
 
-[node name="FilePicker" type="CanvasLayer" parent="."]
+[node name="FilePicker" type="CanvasLayer" parent="." unique_id=1424512890]
 visible = false
 
-[node name="Panel" type="Panel" parent="FilePicker"]
+[node name="Panel" type="Panel" parent="FilePicker" unique_id=1390332825]
 offset_left = 52.0
 offset_top = 2.0
 offset_right = 265.0
 offset_bottom = 172.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4krqg")
 
-[node name="SaveSlot" parent="FilePicker" instance=ExtResource("4_33ky6")]
+[node name="SaveSlot" parent="FilePicker" unique_id=1676048537 instance=ExtResource("4_33ky6")]
 position = Vector2(69, 22)
 scale = Vector2(0.8, 0.8)
 SlotNum = 1
 
-[node name="SaveSlot2" parent="FilePicker" instance=ExtResource("4_33ky6")]
+[node name="SaveSlot2" parent="FilePicker" unique_id=1618722967 instance=ExtResource("4_33ky6")]
 position = Vector2(70, 67)
 scale = Vector2(0.8, 0.8)
 SlotNum = 2
 
-[node name="SaveSlot3" parent="FilePicker" instance=ExtResource("4_33ky6")]
+[node name="SaveSlot3" parent="FilePicker" unique_id=1953542694 instance=ExtResource("4_33ky6")]
 position = Vector2(70, 113)
 scale = Vector2(0.8, 0.8)
 SlotNum = 3
 
-[node name="X" type="Button" parent="FilePicker"]
+[node name="X" type="Button" parent="FilePicker" unique_id=1783857594]
 offset_left = 252.0
 offset_top = 5.0
 offset_right = 268.0
@@ -365,7 +365,7 @@ scale = Vector2(0.6, 0.6)
 theme_override_styles/normal = SubResource("StyleBoxFlat_b0s1a")
 text = "X"
 
-[node name="Title" type="Label" parent="FilePicker"]
+[node name="Title" type="Label" parent="FilePicker" unique_id=1031219327]
 offset_left = 69.0
 offset_top = 2.0
 offset_right = 247.0
@@ -374,7 +374,7 @@ theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 text = "Save Files"
 horizontal_alignment = 1
 
-[node name="Don\'tSave" type="Button" parent="FilePicker"]
+[node name="Don\'tSave" type="Button" parent="FilePicker" unique_id=959883338]
 offset_left = 137.0
 offset_top = 153.0
 offset_right = 210.0

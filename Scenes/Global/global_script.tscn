@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwja6btbyhcmv"]
+[gd_scene format=3 uid="uid://bwja6btbyhcmv"]
 
-[ext_resource type="Script" path="res://CS Scripts/Global/GlobalScript.cs" id="1_fywcs"]
+[ext_resource type="Script" uid="uid://dfdk2ecsspy35" path="res://CS Scripts/Global/GlobalScript.cs" id="1_fywcs"]
 
-[node name="GlobalScript" type="Node2D"]
+[node name="GlobalScript" type="Node2D" unique_id=350592977]
 script = ExtResource("1_fywcs")

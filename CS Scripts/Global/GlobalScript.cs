@@ -67,6 +67,14 @@ public partial class GlobalScript : Node2D
 			SaveGame();
 		}
 	}
+	
+	public static int NumPearls {
+		get => GameData.NumPearls;
+		set {
+			GameData.NumPearls = value;
+			SaveGame();
+		}
+	}
 
 	public static int OliveVisitNum
 	{
@@ -135,6 +143,10 @@ public partial class GlobalScript : Node2D
 		{"ReturnBoba", "Return the boba to Azucat and Catssava"}, //7
 		{"GetBoat", "Get your new boat from Azucat"}, //8
 		{"Surface", "Head up to the surface"} //9
+	};
+	
+	public static System.Collections.Generic.Dictionary<string, Func<int>> NumItems = new System.Collections.Generic.Dictionary<string, Func<int>> {
+		{"Pearl", () => GameData.NumPearls}
 	};
 
 

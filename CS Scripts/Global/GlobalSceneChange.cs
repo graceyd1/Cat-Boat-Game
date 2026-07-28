@@ -96,6 +96,7 @@ public partial class GlobalSceneChange : Node2D
 			else {
 				currPlayer.FacingRight = false;
 			}
+			currPlayer.SetCameraDrag(roomName);
 		}
 		
 		var FaderNode = GetNode<CanvasLayer>("/root/Fader");

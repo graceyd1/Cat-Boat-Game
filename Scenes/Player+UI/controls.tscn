@@ -73,7 +73,6 @@ position = Vector2(0, 13.3333)
 texture = ExtResource("3_l32e4")
 
 [node name="Expanded" type="Panel" parent="." unique_id=389428939]
-visible = false
 use_parent_material = true
 offset_left = -103.33332
 offset_top = 30.0

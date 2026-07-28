@@ -25,6 +25,7 @@ public partial class Clam : Sprite2D
 
 	private void OnInteract()
 	{
+		GlobalScript.NumPearls++;
 		GetNode<InteractArea>("InteractArea").Interactable(false);
 		Frame = 0;
 		GetParent().GetNode<Player>("UnderwaterPlayer").GetItem("Pearl");

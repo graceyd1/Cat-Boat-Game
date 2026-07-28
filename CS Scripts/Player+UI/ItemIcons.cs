@@ -29,5 +29,13 @@ public partial class ItemIcons : Button
 		}
 	}
 	
+	public void SetItemCount(int count) {
+		GetNode<Label>("Count").Show();
+		GetNode<Label>("Count").Text = count + "x";
+	}
+	
+	public void HideCount() {
+		GetNode<Label>("Count").Hide();
+	}
 	
 }

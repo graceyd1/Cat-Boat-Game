@@ -37,6 +37,9 @@ public partial class GlobalSaveResource : Resource
 	public Godot.Collections.Array<bool> ClamsCollected {get; set;} = new Array<bool>(); //true if collected
 
 	[Export]
+	public int NumPearls = 0;
+
+	[Export]
 	public int OliveVisitNum{get; set;} = 0;
 	[Export]
 	public bool GeyserOpened{get; set;} = false;
@@ -49,6 +52,7 @@ public partial class GlobalSaveResource : Resource
 
 	[Export]
 	public bool ViewedDarnCutscene{get; set;} = false;
+	
 	// [Export]
 	// [Export]
 	// [Export]

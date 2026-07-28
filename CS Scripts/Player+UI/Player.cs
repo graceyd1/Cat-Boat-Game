@@ -58,9 +58,6 @@ public partial class Player : CharacterBody2D
 		//gravity = Gravity.Underwater; //todo - change to update based on the player's room
 	}
 	
-	/*public Vector2 GetScreenGlobalPos() {
-		return GetNode<Camera2D>("Camera2D").GetScreenCenterPosition();
-	}*/
 	
 	public void OnPromptUser(TextBox box, string prompt) {
 		GetNode<TextEnterLabel>("Camera2D/TextEnterLabel").FadeIn(box, prompt);
@@ -234,6 +231,24 @@ public partial class Player : CharacterBody2D
 	{
 		GetNode<AnimatedSprite2D>("Camera2D/Controls/ItemIcon").Animation = item;
 		GetNode<AnimationPlayer>("Camera2D/Controls/AnimationPlayer").Play("item_get");
-		GlobalScript.AddItem(item);
+		if (!GlobalScript.Inventory.Contains(item)) {
+			GlobalScript.AddItem(item);
+		}
+	}
+	
+	public void SetCameraDrag(string room) {
+		var cam = GetNode<Camera2D>("Camera2D");
+		if (room == "TallTubeCoralRoom") {
+			GD.Print("HI");
+			cam.DragVerticalEnabled = true;
+			cam.SetDragMargin(Side.Top, 0.5f);
+			cam.SetDragMargin(Side.Bottom, 0.5f);
+		}
+		else {
+			cam.SetDragMargin(Side.Left, 0);
+			cam.SetDragMargin(Side.Top, 0);
+			cam.SetDragMargin(Side.Bottom, 0);
+			cam.SetDragMargin(Side.Right, 0);
+		}
 	}
 }
