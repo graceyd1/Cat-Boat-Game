@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://b4a2tpq26qeqg"]
 
-[node name="WorldEndScreen" type="Control"]
+[node name="WorldEndScreen" type="Control" unique_id=1625653200]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=994982858]
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0.2, 0.2, 0.2, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=367449327]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 320.0

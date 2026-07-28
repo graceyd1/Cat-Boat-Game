@@ -56,14 +56,9 @@ public partial class GlobalSceneChange : Node2D
 			GD.Print("Room not found in list: " + GetTree().CurrentScene.Name);
 		}
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
 	
 	public void checkNode(Node n) {
-		if (n is Player) {
+		if (n is Player || (n == GetTree().CurrentScene && NoPlayerRooms.Contains(GetTree().CurrentScene.Name))) {
 			EmitSignal(SignalName.SceneReady);
 		}
 	}
@@ -75,7 +70,8 @@ public partial class GlobalSceneChange : Node2D
 		GlobalScript.CurrentRoom = room;
 		await ToSignal(this, GlobalSceneChange.SignalName.SceneReady);
 		string roomName = GetTree().CurrentScene.Name;
-		
+		GD.Print("HELLO");
+		GD.Print(NoPlayerRooms.Contains(roomName));
 		if (!NoPlayerRooms.Contains(roomName))
 		{
 			if (UnderwaterRooms.Contains(roomName)) {

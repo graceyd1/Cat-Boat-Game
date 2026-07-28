@@ -179,6 +179,7 @@ public partial class SeaBunnyRoom : Node2D
 			if (FaderNode is Fader fader) {
 				await fader.FadeIn(.7f);
 			}
+			GD.Print("scene change");
 			await GlobalSceneChange.ChangeRoom(Vector2.Zero, "world_end_screen", true);
 		}
 
