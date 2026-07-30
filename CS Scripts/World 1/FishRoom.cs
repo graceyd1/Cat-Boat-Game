@@ -52,6 +52,9 @@ public partial class FishRoom : Node2D
 		if (!transitioning) {
 			await NextRoomCheck();
 		}
+		var temp = GetNode<Control>("InteractLabel");
+		GD.Print(temp.Visible);//=
+		GD.Print(temp.Position);//=
 	}
 
 	//triggered by interact area signal

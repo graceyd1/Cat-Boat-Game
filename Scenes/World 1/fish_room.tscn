@@ -192,7 +192,7 @@ texture = ExtResource("7_stmwa")
 centered = false
 
 [node name="InteractArea" parent="IceCreamAreaSprite" unique_id=2057010122 instance=ExtResource("8_xnsu6")]
-position = Vector2(602, 180)
+position = Vector2(604, 180)
 scale = Vector2(1.5, 1)
 LabelHeight = 50
 

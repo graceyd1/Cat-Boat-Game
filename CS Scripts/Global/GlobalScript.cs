@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Godot.Collections;
 
-public partial class GlobalScript : Node2D
+public partial class GlobalScript : Node //=changed this to a node from node2d hope that's ok
 {
 	
 	public static GlobalSaveResource GameData{get; set;} = new GlobalSaveResource();

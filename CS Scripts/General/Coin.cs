@@ -8,8 +8,8 @@ public partial class Coin : Node2D
 	/// The index of this coin in GlobalScript
 	/// </summary>
 	private int CoinIdx;
-
 	private bool Disabled;
+	private GlobalSound globalSound;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -17,6 +17,7 @@ public partial class Coin : Node2D
 		Disabled = false;
 		var name = Name.ToString();
 		CoinIdx = name[^1] - '0'; //get the last char of the name as a number
+		globalSound = GetNode<GlobalSound>("/root/GlobalSound");
 
 		if (GlobalScript.CoinsCollected[CoinIdx])
 		{
@@ -41,6 +42,7 @@ public partial class Coin : Node2D
 			var anim = GetNode<AnimatedSprite2D>("AnimatedCoin/AnimatedSprite2D");
 			anim.Animation = "pickup";
 			anim.Play();
+			globalSound.PlaySound("collect_coin");
 			GlobalScript.Coins ++;
 			GlobalScript.CoinsCollected[CoinIdx] = true;
 			Disabled = true;

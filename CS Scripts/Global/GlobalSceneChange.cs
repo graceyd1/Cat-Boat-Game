@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-public partial class GlobalSceneChange : Node2D
+public partial class GlobalSceneChange : Node //=changed this to a node from node2d hope that's ok
 {
 	public static Player currPlayer;
 	

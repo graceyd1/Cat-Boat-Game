@@ -143,6 +143,7 @@ public partial class GroundPlayer : Player
 					//how high up it can go
 					//Position += new Vector2(0, -70);
 					SetDisableControl(true);
+					globalSound.PlaySound("bounce");
 					TimeBounce();
 					break;
 				}

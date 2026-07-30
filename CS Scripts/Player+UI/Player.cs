@@ -41,6 +41,7 @@ public partial class Player : CharacterBody2D
 	public Vector2 VelocityModifier{get; set;}
 	
 	public bool InputEnabled{get;set;} = true;
+	public GlobalSound globalSound;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -52,6 +53,8 @@ public partial class Player : CharacterBody2D
 		invulnerable = false;
 		Flash = false;
 		
+		globalSound = GetNode<GlobalSound>("/root/GlobalSound");
+
 		var devMode = GetNode<DevMode>("/root/DevMode");
 		//connect signal
 		devMode.ChangeHP += DevChangeHP;
@@ -88,6 +91,7 @@ public partial class Player : CharacterBody2D
 	{
 		hp --;
 		Flash = true;
+		globalSound.PlaySound("hurt");
 		var hurtTimer = GetNode<Godot.Timer>("HurtTimer");
 		hurtTimer.Start();
 

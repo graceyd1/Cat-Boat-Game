@@ -22,7 +22,7 @@ public partial class InteractArea : Area2D
 
 	public bool playerNear;
 	
-	private bool allowInteraction;
+	public bool allowInteraction;
 
 	private Control interactLabel;
 	

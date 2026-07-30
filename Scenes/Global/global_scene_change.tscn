@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://lh818fqxsigg"]
+[gd_scene format=3 uid="uid://lh818fqxsigg"]
 
-[ext_resource type="Script" path="res://CS Scripts/Global/GlobalSceneChange.cs" id="1_28kbo"]
+[ext_resource type="Script" uid="uid://dusswq20oclr1" path="res://CS Scripts/Global/GlobalSceneChange.cs" id="1_28kbo"]
 
-[node name="GlobalSceneChange" type="Node2D"]
+[node name="GlobalSceneChange" type="Node" unique_id=407560084]
 script = ExtResource("1_28kbo")

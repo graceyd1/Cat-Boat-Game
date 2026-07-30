@@ -131,7 +131,8 @@ public partial class UnderwaterPlayer : Player
 					bomb.ApplyCentralImpulse(impulse);
 				}
 			}
-			else if (collider is RigidBody2D jellyfish) {
+			else if (collider is RigidBody2D jellyfish) { //bouncy jellyfish bounce
+				globalSound.PlaySound("bounce");
 				Velocity = collisionInfo.GetNormal() * new Vector2(300, 300);
 				
 				//glances off and goes right if x of normal vector >= 0
