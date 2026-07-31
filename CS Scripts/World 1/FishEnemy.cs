@@ -88,12 +88,14 @@ public partial class FishEnemy : Node2D
 	public void Disable()
 	{
 		Visible = false;
+		GetNode<Timer>("Timer").Stop();
 		GetNode<CollisionShape2D>("Hitbox/HitboxShape").Disabled = true;
-		var interactArea = GetNodeOrNull<Area2D>("InteractArea");
-		if (interactArea != null && interactArea is InteractArea area)
+		var area = GetNodeOrNull<InteractArea>("InteractArea");
+		if (area != null)
 		{
 			area.Interactable(false);
 		}
+		
 	}
 
 	public void Enable()
@@ -101,6 +103,7 @@ public partial class FishEnemy : Node2D
 		idx = 0;
 		Position = StartPos;
 		Visible = true;
+		GetNode<Timer>("Timer").Start();
 		GetNode<CollisionShape2D>("Hitbox/HitboxShape").Disabled = false;
 		var interactArea = GetNodeOrNull<Area2D>("InteractArea");
 		if (interactArea != null && interactArea is InteractArea area)
