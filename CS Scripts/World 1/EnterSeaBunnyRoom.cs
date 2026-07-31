@@ -51,28 +51,98 @@ public partial class EnterSeaBunnyRoom : Node2D
 		await dashT.ShowText("...");
 		await parvaT.ShowText("No need to stare like that, it wasn't that hard. They keep their doors open at night, pfft.");
 		
-		var choice = await dashT.Ask("1. Stealing is wrong! I have to stop Parva.\n2. I need that boba to get my boat! I have to stop Parva.");
+		var choice = await dashT.Ask("1. Why steal? It's selfish. 2. Parva is impressive!");
 		if (choice == "1") {
-			await dashT.ShowText("I'm not staring because I'm [i]impressed[/i]! I'm staring because it's [i]wrong[/i] to steal like that!");
-		}
-		else {
-			await dashT.ShowText("I may not be a 'town cat', but I've already made deals with them to get me a fixed boat.");
+			await dashT.ShowText("You stole from them? Couldn't you just buy boba from the town's shop?");
+			await dashT.ShowText("I don't see how one cat like you needs all this boba. There are many townscats who love boba, and they can't even get their paws on any because of you!");
+			await dashT.ShowText("What have the cats of Bubbly Town ever done to you?");
+			await parvaT.ShowText("Why in the world would I buy some when I could get all of it for free?");
+			await parvaT.ShowText("What have the town cats ever done to deserve my customership?");
+			await parvaT.ShowText("But you...I could afford sharing some with you, given you help me steal boba each month. What do you say?");
+			choice = await dashT.Ask("1. There's something you're hiding. 2. I'm loyal to the cats of Bubbly Town!");
+			if (choice == "1") {
+				await dashT.ShowText("It doesn't make sense. There must be something you're not telling me.");
+				await dashT.ShowText("You have something against the cats of Bubbly Town, don't you.");
+				parvaAni.Animation = "mad";
+				await parvaT.ShowText("What would YOU know! There's NOTHING, you hear, NOTHING! You think you can waltz in and try and dig up my past -");
+				await parvaT.ShowText("It's NOT HAPPENING! NOT HAPPENING!");
+				await dashT.ShowText("...");
+				choice = await dashT.Ask("1. Dig deeper 2. Back off");
+				if (choice == "1") {
+					await dashT.ShowText("Parva, I can't help unless you tell me the truth.");
+					await parvaT.ShowText("HOW YOU CAN HELP ME IS BY STEALING MORE BOBA FOR ME!");
+					await parvaT.ShowText("BUT IT SEEMS YOU'D RATHER DECIEVE ME INTO BECOMING WEAK!");
+					await parvaT.ShowText("I'M LEAVING. YOU CAN ROT HERE FOR ALL I CARE. YOU'LL REGRET THIS!");
+				}
+				else {
+					await dashT.ShowText("Okay, okay! I suppose it's not my business.");
+					await parvaT.ShowText("You're right. It isn't. And for that, you'll be staying here for the rest of your short life.");
+					await dashT.ShowText("...!");
+				}
 			}
-
-		await dashT.ShowText("Sorry, Parva, but I'm going to have to stop you.");
-		parvaAni.Animation = "mad";
-		await parvaT.ShowText("[i]HA![/i] Getting across the vines was one thing, but you [i]seriously[/i] think you can stop me?");
-
-		if (choice == "1") {
-			await parvaT.ShowText("Think again, goody-two-shoes! Let's see if your bite's up to your talk!");
+			else {
+				await dashT.ShowText("I've already promised to help the cats of Bubbly Town get their boba back.");
+				await dashT.ShowText("A sailor never goes back on his word.");
+				parvaAni.Animation = "mad";
+				await parvaT.ShowText("You think you can act all heroic, don't you!");
+				await parvaT.ShowText("Well, you're alone now. The town cats are lazing back at their cozy homes.");
+				await parvaT.ShowText("They never cared about you! They were USING YOU!");
+				choice = await dashT.Ask("1. They would never do that 2. It is an exchange");
+				if (choice == "1") {
+					await dashT.ShowText("In the short time I've spent with the cats of Bubbly Town, I can tell they aren't like that.");
+					await dashT.ShowText("It was my own choice to help them, and I will stand by it.");
+					await parvaT.ShowText("You FOOL! Those rotten town cats don't deserve your loyalty.");
+					await parvaT.ShowText("I've earned everything I have! Including the boba! While those town cats get everything for nothing!");
+					await dashT.ShowText("Perhaps it's because they have each other. Don't you think that by relying solely on yourself, you've made things harder for youself?");
+					await parvaT.ShowText("How dare you! You have NO IDEA what I've been through.");
+					await parvaT.ShowText("I can't stand you anymore. You can stay down here and prepare to meet your end!");
+				}
+				else {
+					await dashT.ShowText("They aren't using me. I agreed to help them in exchange for a new boat.");
+					await parvaT.ShowText("AND I'M OFFERING YOU BOBA IN EXCHANGE FOR HELPING ME STEAL IT!");
+					await dashT.ShowText("I'm sorry, but I need a new boat more than I need boba right now.");
+					await dashT.ShowText("And I won't ever steal or help anyone steal.");
+					await parvaT.ShowText("AARGHH why are you cats all so annoying?! Fine, rot down here for all I care!");
+				}
+			}
 		}
 		else {
-			await parvaT.ShowText("Think again, town-smoocher! You're going to regret this!");
+			await dashT.ShowText("Wow, traveling all the way to the town and stealing their boba is impressive, I must admit.");
+			await dashT.ShowText("After my journey through the ocean, I know from exprience it's not easy!");
+			await parvaT.ShowText("I'm pleased you think so. I have something to propose.");
+			await parvaT.ShowText("If you help me steal boba from the town each month, I'll let you share some of my stash!");
+			choice = await dashT.Ask("1. Can I also get a new boat? 2. I've already agreed to help the cats of Bubbly Town");
+			if (choice == "1") {
+				await dashT.ShowText("Was that a submarine diagram I saw in your house? Perhaps you could make me a new boat as well?");
+				await parvaT.ShowText("My offer was generous enough. I'm afraid I can't extend it further.");
+				await dashT.ShowText("I can't take it, then.");
+				parvaAni.Animation = "mad";
+				await parvaT.ShowText("Then I'm sorry for what comes next.");
+			}
+			else {
+				await dashT.ShowText("What I need is a new boat. The cats of Bubbly Town have promised me one given I find their boba.");
+				parvaAni.Animation = "mad";
+				await parvaT.ShowText("So you're their lackey? You disgust me.");
+				choice = await dashT.Ask("1. I like them. 2. I'm independent.");
+				if (choice == "1") {
+					await dashT.ShowText("I like the cats of Bubbly Town, and decided to help them on my own accord.");
+					await dashT.ShowText("I can't say the same about you.");
+					await parvaT.ShowText("Those blasted town cats get everything just for being and looking nice!");
+					await parvaT.ShowText("You've fallen into their trap. And now you've fallen into mine.");
+				}
+				else {
+					await dashT.ShowText("I help whom I please. And I'm in desperate need of a new boat.");
+					await dashT.ShowText("And once I get it, I won't have the time to help you steal boba.");
+					await parvaT.ShowText("That's unfortunate. But what you might not know - I'm the same way.");
+					parvaAni.Animation = "mad";
+					await parvaT.ShowText("And right now I'm thinking trapping you down here is the way to go.");
+				}
+			}
 		}
+		
 
 		var parva = GetNode<AnimatedSprite2D>("Parva");
 		parva.Hide();
-		await dashT.ShowText("...where did he go?");
 		await dashT.ShowText("Seems like I'm stuck here. Maybe the boba here somewhere?");
 		player.InputEnabled = true;
 		//Next quest: investigate the cave
