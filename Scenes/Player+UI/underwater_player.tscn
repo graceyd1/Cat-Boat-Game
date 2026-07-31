@@ -16,7 +16,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_h4u2s")
 }],
-"loop": true,
+"loop": 1,
 "name": &"died",
 "speed": 5.0
 }, {
@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_m66xq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"left_sit",
 "speed": 5.0
 }, {
@@ -32,7 +32,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_kurkv")
 }],
-"loop": false,
+"loop": 0,
 "name": &"sit-helmet",
 "speed": 5.0
 }, {
@@ -43,7 +43,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_jiapf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"swim-left",
 "speed": 5.0
 }, {
@@ -54,19 +54,19 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_2uq65")
 }],
-"loop": true,
+"loop": 1,
 "name": &"swim-right",
 "speed": 5.0
 }]
 
-[node name="UnderwaterPlayer" instance=ExtResource("1_12ot0")]
+[node name="UnderwaterPlayer" unique_id=241887213 instance=ExtResource("1_12ot0")]
 position = Vector2(84, 36)
 script = ExtResource("2_yid0k")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4" unique_id=316087153]
 light_mask = 0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_i8vcf")
-animation = &"died"
+animation = &"swim-right"
 
 [connection signal="Died" from="." to="." method="OnPlayerDied"]

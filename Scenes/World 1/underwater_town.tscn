@@ -25,7 +25,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_3h4m0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"blue",
 "speed": 1.0
 }, {
@@ -33,7 +33,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_qdg2w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"red",
 "speed": 1.0
 }]
@@ -44,178 +44,178 @@ size = Vector2(74.5, 39.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rjh8"]
 size = Vector2(9, 532)
 
-[node name="UnderwaterTown" type="Node2D"]
+[node name="UnderwaterTown" type="Node2D" unique_id=1356884978]
 script = ExtResource("1_0v88i")
 
-[node name="Backgrounds" type="Node2D" parent="."]
+[node name="Backgrounds" type="Node2D" parent="." unique_id=1803808114]
 metadata/_edit_group_ = true
 
-[node name="Background0" type="Sprite2D" parent="Backgrounds"]
+[node name="Background0" type="Sprite2D" parent="Backgrounds" unique_id=175407000]
 texture_filter = 1
 texture = ExtResource("1_0clrj")
 centered = false
 
-[node name="Parallax2D1" type="Parallax2D" parent="Backgrounds"]
+[node name="Parallax2D1" type="Parallax2D" parent="Backgrounds" unique_id=654621850]
 scroll_scale = Vector2(0.3, 1)
 
-[node name="Background1" type="Sprite2D" parent="Backgrounds/Parallax2D1"]
+[node name="Background1" type="Sprite2D" parent="Backgrounds/Parallax2D1" unique_id=698641313]
 texture_filter = 1
 texture = ExtResource("1_1neqj")
 centered = false
 
-[node name="Parallax2D2" type="Parallax2D" parent="Backgrounds"]
+[node name="Parallax2D2" type="Parallax2D" parent="Backgrounds" unique_id=1388918249]
 scroll_scale = Vector2(0.4, 1)
 
-[node name="Background2" type="Sprite2D" parent="Backgrounds/Parallax2D2"]
+[node name="Background2" type="Sprite2D" parent="Backgrounds/Parallax2D2" unique_id=426641240]
 texture_filter = 1
 texture = ExtResource("3_vrvpg")
 centered = false
 
-[node name="Parallax2D3" type="Parallax2D" parent="Backgrounds"]
+[node name="Parallax2D3" type="Parallax2D" parent="Backgrounds" unique_id=236074677]
 scroll_scale = Vector2(0.5, 1)
 
-[node name="Background3" type="Sprite2D" parent="Backgrounds/Parallax2D3"]
+[node name="Background3" type="Sprite2D" parent="Backgrounds/Parallax2D3" unique_id=2143342432]
 texture_filter = 1
 texture = ExtResource("4_7clim")
 centered = false
 
-[node name="Parallax2D4" type="Parallax2D" parent="Backgrounds"]
+[node name="Parallax2D4" type="Parallax2D" parent="Backgrounds" unique_id=1593558443]
 scroll_scale = Vector2(0.7, 1)
 
-[node name="Rocks1" type="Sprite2D" parent="Backgrounds/Parallax2D4"]
+[node name="Rocks1" type="Sprite2D" parent="Backgrounds/Parallax2D4" unique_id=230463289]
 texture_filter = 1
 texture = ExtResource("5_7jlk8")
 centered = false
 
-[node name="Parallax2D5" type="Parallax2D" parent="Backgrounds"]
+[node name="Parallax2D5" type="Parallax2D" parent="Backgrounds" unique_id=492151052]
 scroll_scale = Vector2(0.8, 1)
 
-[node name="Rocks2" type="Sprite2D" parent="Backgrounds/Parallax2D5"]
+[node name="Rocks2" type="Sprite2D" parent="Backgrounds/Parallax2D5" unique_id=198728140]
 texture_filter = 1
 texture = ExtResource("7_6t1cc")
 centered = false
 
-[node name="Parallax2D" type="Parallax2D" parent="Backgrounds"]
+[node name="Parallax2D" type="Parallax2D" parent="Backgrounds" unique_id=1475117369]
 scroll_scale = Vector2(0.9, 1)
 
-[node name="Rocks3AndShopsBack" type="Sprite2D" parent="Backgrounds/Parallax2D"]
+[node name="Rocks3AndShopsBack" type="Sprite2D" parent="Backgrounds/Parallax2D" unique_id=2023038347]
 texture_filter = 1
 texture = ExtResource("8_ha7v3")
 centered = false
 
-[node name="ShopsSprite" type="Sprite2D" parent="."]
+[node name="ShopsSprite" type="Sprite2D" parent="." unique_id=124022570]
 texture_filter = 1
 texture = ExtResource("8_wu3mq")
 centered = false
 
-[node name="UnderwaterPlayer" parent="." instance=ExtResource("9_1c834")]
+[node name="UnderwaterPlayer" parent="." unique_id=1077486064 instance=ExtResource("9_1c834")]
 position = Vector2(100, 517)
 collision_mask = 5
 
-[node name="TextBox" parent="UnderwaterPlayer" instance=ExtResource("12_xkquh")]
+[node name="TextBox" parent="UnderwaterPlayer" unique_id=1479438014 instance=ExtResource("12_xkquh")]
 
-[node name="Carsava" type="AnimatedSprite2D" parent="."]
+[node name="Carsava" type="AnimatedSprite2D" parent="." unique_id=355463053]
 position = Vector2(470, 511)
 sprite_frames = SubResource("SpriteFrames_liute")
 animation = &"red"
 
-[node name="TextBox" parent="Carsava" instance=ExtResource("12_xkquh")]
+[node name="TextBox" parent="Carsava" unique_id=342485661 instance=ExtResource("12_xkquh")]
 position = Vector2(-30, -10)
 
-[node name="RightExitWall" parent="." instance=ExtResource("11_y5y2r")]
+[node name="RightExitWall" parent="." unique_id=325455339 instance=ExtResource("11_y5y2r")]
 position = Vector2(495, 400)
 scale = Vector2(0.649, 7)
 
-[node name="GroundSprite" type="Sprite2D" parent="."]
+[node name="GroundSprite" type="Sprite2D" parent="." unique_id=2052030300]
 texture_filter = 1
 texture = ExtResource("3_mwr5y")
 centered = false
 
-[node name="Walls" type="Node" parent="."]
+[node name="Walls" type="Node" parent="." unique_id=1944599985]
 
-[node name="Ground" parent="Walls" instance=ExtResource("11_y5y2r")]
+[node name="Ground" parent="Walls" unique_id=1725636815 instance=ExtResource("11_y5y2r")]
 position = Vector2(-50, 525)
 scale = Vector2(30, 1)
 
-[node name="Left" parent="Walls" instance=ExtResource("11_y5y2r")]
+[node name="Left" parent="Walls" unique_id=267201919 instance=ExtResource("11_y5y2r")]
 position = Vector2(-10, 0)
 scale = Vector2(0.889, 24)
 
-[node name="Right" parent="Walls" instance=ExtResource("11_y5y2r")]
+[node name="Right" parent="Walls" unique_id=1205599663 instance=ExtResource("11_y5y2r")]
 position = Vector2(495, 0)
 scale = Vector2(0.649, 20)
 
-[node name="Top" parent="Walls" instance=ExtResource("11_y5y2r")]
+[node name="Top" parent="Walls" unique_id=1438744266 instance=ExtResource("11_y5y2r")]
 position = Vector2(0, -20)
 scale = Vector2(25, 1)
 
-[node name="LeftRockUpWall" parent="Walls" instance=ExtResource("12_f8bqc")]
+[node name="LeftRockUpWall" parent="Walls" unique_id=1710284933 instance=ExtResource("12_f8bqc")]
 position = Vector2(2, 329)
 scale = Vector2(10, 1)
 
-[node name="RightRockUpWall" parent="Walls" instance=ExtResource("12_f8bqc")]
+[node name="RightRockUpWall" parent="Walls" unique_id=125102439 instance=ExtResource("12_f8bqc")]
 position = Vector2(324, 181)
 scale = Vector2(9, 1)
 
-[node name="PlantShopRoof1" parent="Walls" instance=ExtResource("12_f8bqc")]
+[node name="PlantShopRoof1" parent="Walls" unique_id=2145784826 instance=ExtResource("12_f8bqc")]
 position = Vector2(5, 222)
 rotation = 0.0855211
 scale = Vector2(3.7, 0.7)
 
-[node name="PlantShopRoof2" parent="Walls" instance=ExtResource("12_f8bqc")]
+[node name="PlantShopRoof2" parent="Walls" unique_id=996225562 instance=ExtResource("12_f8bqc")]
 position = Vector2(78, 186)
 rotation = 0.0855211
 scale = Vector2(5.4, 0.7)
 
-[node name="BobaShopRoof" parent="Walls" instance=ExtResource("12_f8bqc")]
+[node name="BobaShopRoof" parent="Walls" unique_id=754389184 instance=ExtResource("12_f8bqc")]
 position = Vector2(360, 48)
 rotation = -0.0872665
 scale = Vector2(5.5, 0.7)
 
-[node name="SubShopRoof1" parent="Walls" instance=ExtResource("12_f8bqc")]
+[node name="SubShopRoof1" parent="Walls" unique_id=129600063 instance=ExtResource("12_f8bqc")]
 position = Vector2(175, 388)
 rotation = -0.0872665
 scale = Vector2(5.8, 0.7)
 
-[node name="SubShopRoof2" parent="Walls" instance=ExtResource("12_f8bqc")]
+[node name="SubShopRoof2" parent="Walls" unique_id=643988296 instance=ExtResource("12_f8bqc")]
 position = Vector2(275, 389)
 rotation = -0.0872665
 scale = Vector2(5.1, 0.7)
 
-[node name="SubShopRoof3" parent="Walls" instance=ExtResource("12_f8bqc")]
+[node name="SubShopRoof3" parent="Walls" unique_id=1589128566 instance=ExtResource("12_f8bqc")]
 position = Vector2(374, 421)
 rotation = -0.0872665
 scale = Vector2(4.3, 0.7)
 
-[node name="SubShopDoor" parent="." instance=ExtResource("14_48yht")]
+[node name="SubShopDoor" parent="." unique_id=1922535571 instance=ExtResource("14_48yht")]
 position = Vector2(230, 525)
 
-[node name="SubShopDoor2" parent="." instance=ExtResource("14_48yht")]
+[node name="SubShopDoor2" parent="." unique_id=1452247865 instance=ExtResource("14_48yht")]
 position = Vector2(326, 526)
 
-[node name="PlantShopDoor" parent="." instance=ExtResource("14_48yht")]
+[node name="PlantShopDoor" parent="." unique_id=684748620 instance=ExtResource("14_48yht")]
 position = Vector2(41, 329)
 
-[node name="BobaShopDoor" parent="." instance=ExtResource("14_48yht")]
+[node name="BobaShopDoor" parent="." unique_id=1760003502 instance=ExtResource("14_48yht")]
 position = Vector2(456, 181)
 
-[node name="InteractLabel" parent="." instance=ExtResource("15_hl72r")]
+[node name="InteractLabel" parent="." unique_id=1497295369 instance=ExtResource("15_hl72r")]
 
-[node name="CarsavaInteract" type="Area2D" parent="."]
+[node name="CarsavaInteract" type="Area2D" parent="." unique_id=652101087]
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarsavaInteract"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarsavaInteract" unique_id=1743215162]
 position = Vector2(459.25, 504.875)
 shape = SubResource("RectangleShape2D_sf36o")
 
-[node name="IsThatMyBoatTrigger" type="Area2D" parent="."]
+[node name="IsThatMyBoatTrigger" type="Area2D" parent="." unique_id=880639312]
 position = Vector2(172, 438)
 collision_layer = 0
 collision_mask = 2
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IsThatMyBoatTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IsThatMyBoatTrigger" unique_id=377093417]
 position = Vector2(0, -178)
 shape = SubResource("RectangleShape2D_5rjh8")
 

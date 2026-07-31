@@ -117,6 +117,22 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 		}
 	}
 	
+	public static double CatssavaStoryNum {
+		get => GameData.CatssavaStoryNum;
+		set {
+			GameData.CatssavaStoryNum = value;
+			SaveGame();
+		}
+	}
+	
+	public static double AzucatStoryNum {
+		get => GameData.AzucatStoryNum;
+		set {
+			GameData.AzucatStoryNum = value;
+			SaveGame();
+		}
+	}
+	
 	//set because maybe we can change name of quest based on player choices
 	public static List<string> MainQuests{get; set;} = new List<string> {
 		"GoToTown", //0
@@ -148,6 +164,7 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 	public static System.Collections.Generic.Dictionary<string, Func<int>> NumItems = new System.Collections.Generic.Dictionary<string, Func<int>> {
 		{"Pearl", () => GameData.NumPearls}
 	};
+	
 
 
 	public static String savePath{get; set;} //= "user://save_data/tres";
@@ -164,11 +181,6 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 
 		ClamsCollected.Resize(6);
 		ClamsCollected.Fill(false);
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
 	}
 	
 	public static void LoadGame() {

@@ -32,7 +32,14 @@ public partial class UnderwaterTown : Node2D
 			if (player is Player p)
 			{
 				p.SetDisableMovement(true);
-				player.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "sit-helmet";
+				var ani = player.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+				if (player.Position.Y >= 510) {
+					ani.Animation = "sit-helmet";
+				}
+				else {
+					ani.Animation = "swim-right";
+					ani.Play();
+				}
 				await dashT.ShowText("Hang on a minute...");
 		
 				var camera = GetNode<Camera2D>("UnderwaterPlayer/Camera2D");

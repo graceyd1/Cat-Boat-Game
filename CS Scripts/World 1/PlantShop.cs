@@ -19,16 +19,32 @@ public partial class PlantShop : Node2D
 		}
 		else
 		{
-			///todo - something else?
+			if (GlobalScript.CatssavaStoryNum == 2.5) {
+				ClearMisunderstanding();
+				GlobalScript.CatssavaStoryNum += 0.5;
+			}
 		}
 
 		GetNode<Hitbox>("Olive/Laser/Hitbox").SetDisabled(true);
 		GetNode<CollisionShape2D>("Olive/Flashlight/Area2D/CollisionShape2D").Disabled = true;
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+	
+	private async void ClearMisunderstanding() {
+		await dText.ShowText("Olive -");
+		await oText.ShowText("What is it? I will say you seem to be making good use of your flashlight.");
+		await oText.ShowText("Now that's not saying much since it's a [i]flashlight[/i]. So I don't think you're quite ready for a plant yet.");
+		await dText.ShowText("*mumbles* That's because...it's all you've given me...");
+		await oText.ShowText("What was that?");
+		await dText.ShowText("Oh nothing. I was actually here to tell you something.");
+		await oText.ShowText("Well? Speak up! It had better not be a complaint about the flashlight.");
+		await dText.ShowText("It's actually about Catssava.");
+		await oText.ShowText("I'm telling you, that cat is not as nice as she seems. She tried to steal my customers before!");
+		await dText.ShowText("That's the thing. You think that's what happened, but it's not.");
+		await dText.ShowText("Catssava was trying to help your business. She told me so. She actually really cares about how you feel.");
+		await oText.ShowText("She RUINED things! I was the talk of the town after everyone's plants ROTTED within days!");
+		await dText.ShowText("She didn't know they would mold. Cats sometimes make mistakes. But everyone deserves a second chance.");
+		await oText.ShowText("Okay, enough with the wise-talk. Now get out, you're holding up the line.");
+		await dText.ShowText("*quietly* I don't see a line...");
 	}
 	
 	

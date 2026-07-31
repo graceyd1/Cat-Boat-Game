@@ -53,8 +53,11 @@ public partial class GlobalSaveResource : Resource
 	[Export]
 	public bool ViewedDarnCutscene{get; set;} = false;
 	
-	// [Export]
-	// [Export]
+	[Export]
+	public double CatssavaStoryNum = 0;
+	
+	[Export]
+	public double AzucatStoryNum = 0;
 	// [Export]
 	// [Export]
 	// [Export]
