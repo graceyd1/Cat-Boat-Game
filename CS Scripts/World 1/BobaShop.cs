@@ -10,6 +10,7 @@ public partial class BobaShop : Node2D
 	private GroundPlayer player;
 	private AnimationPlayer AniPlayer;
 	private Sprite2D Pearl;
+	private const int MAX_STORY_NUM = 2;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -70,24 +71,24 @@ public partial class BobaShop : Node2D
 			GlobalScript.QuestNum++;
 		}
 		//already finished quest 1: Visit the boba shop and ask for brown sugar boba
-		else if (GlobalScript.IsAfterQuest("GetBoat")) {
-			if (GlobalScript.CatssavaStoryNum == 0 && GlobalScript.NumPearls > 0) {
-				var choice = await dashT.Ask("Should I present a pearl to Catssava? 1. Yes 2. No");
-				if (choice == "1") {
-					GlobalScript.NumPearls--;
-					if (GlobalScript.NumPearls == 0) {
-						GlobalScript.Inventory.Remove("Pearl");
-					}
-					await dashT.ShowText("I found a pearl while exploring the ocean! I thought you might be interested in it.");
-					await catssavaT.ShowText("M-Me? Why that's very kind of you to think of me! May I see it? What flavor is it?");
-					Pearl.Show();
-					AniPlayer.Play("give_pearl");
-					await ToSignal(AniPlayer, AnimationPlayer.SignalName.AnimationFinished);
-					await catssavaT.ShowText("Dash...that's...not a tapioca pearl...");
-					await catssavaT.ShowText("But it's beautiful. I love it.");
-					await dashT.ShowText("Then you should have it.");
-					await catssavaT.ShowText("Really? Wow, thank you so much Dash!");
-					await catssavaT.ShowText("I feel like I've thanked you so many times recently.");
+		else if (GlobalScript.CatssavaStoryNum == 0 && GlobalScript.NumPearls > 0) {
+			var choice = await dashT.Ask("Should I present a pearl to Catssava? 1. Yes 2. No");
+			if (choice == "1") {
+				GlobalScript.NumPearls--;
+				if (GlobalScript.NumPearls == 0) {
+					GlobalScript.Inventory.Remove("Pearl");
+				}
+				await dashT.ShowText("I found a pearl while exploring the ocean! I thought you might be interested in it.");
+				await catssavaT.ShowText("M-Me? Why that's very kind of you to think of me! May I see it? What flavor is it?");
+				Pearl.Show();
+				AniPlayer.Play("give_pearl");
+				await ToSignal(AniPlayer, AnimationPlayer.SignalName.AnimationFinished);
+				await catssavaT.ShowText("Dash...that's...not a tapioca pearl...");
+				await catssavaT.ShowText("But it's beautiful. I love it.");
+				await dashT.ShowText("Then you should have it.");
+				await catssavaT.ShowText("Really? Wow, thank you so much Dash!");
+				await catssavaT.ShowText("I feel like I've thanked you so many times recently.");
+				if (GlobalScript.IsAfterQuest("GetBoat")) {
 					await catssavaT.ShowText("You really are a true hero.");
 					choice = await dashT.Ask("1. The townspeople are the true heroes 2. I should accept the praise");
 					if (choice == "1") {
@@ -107,10 +108,16 @@ public partial class BobaShop : Node2D
 						await catssavaT.ShowText("I'd love to hang out and tell you some town stories!");
 						await dashT.ShowText("I'd love that. Thanks, Catssava!");
 					}
-					GlobalScript.CatssavaStoryNum++;
 				}
+				else {
+					await catssavaT.ShowText("You can always drop by and I can tell you some town stories!");
+					await dashT.ShowText("I can't sit around too much if I'm going to find your boba! But I'll definitely drop by afterwards!");
+				}
+				GlobalScript.CatssavaStoryNum++;
 			}
-			else if (GlobalScript.CatssavaStoryNum > 0 && GlobalScript.CatssavaStoryNum % 1 == 0) {
+		}
+		else if (GlobalScript.CatssavaStoryNum > 0 && GlobalScript.CatssavaStoryNum % 1 == 0 && GlobalScript.IsAfterQuest("GetBoat")) {
+			if (GlobalScript.CatssavaStoryNum <= MAX_STORY_NUM) {
 				var choice = await catssavaT.Ask("Would you like to hear a story? 1. Yes 2. No");
 				if (choice == "1") {
 					await dashT.ShowText("Sure!");
@@ -119,7 +126,7 @@ public partial class BobaShop : Node2D
 				else {
 					await dashT.ShowText("Maybe another time!");
 				}
-			}
+			}	
 		}
 		else if (GlobalScript.IsAfterQuest("MeetCatssava"))
 		{
@@ -176,5 +183,6 @@ public partial class BobaShop : Node2D
 		await catssavaT.ShowText("There are strange dangers on the surface, Dash. Just make sure to be careful, ok?");
 		await catssavaT.ShowText("Some of the cats might not be as nice as the cats here at Bubbly Town.");
 		await dashT.ShowText("Don't worry, Catssava! I've faced Parva. I can handle lychee popping boba thieves!");
+		GlobalScript.CatssavaStoryNum++;
 	}
 }

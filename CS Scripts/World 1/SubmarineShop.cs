@@ -76,8 +76,9 @@ public partial class SubmarineShop : Node2D
 				await aText.ShowText("How ‘bout let’s make a deal. You get some boba milk tea for me, and I’ll see what I can do ‘bout getting you a new boat.");
 				await aText.ShowText("And make sure to get it with tapioca pearls! You can't go without the tapioca!");
 				await aText.ShowText("Don’t worry, it’s pretty easy to get. Best deal you’ll get ‘round here.");
-				
-				//Variant stores any data type (not used here anymore)
+				await pText.ShowText("Where is...here?");
+				await aText.ShowText("You're in Bubbly Town, our lively little town under the ocean! I'm the mechanic here. The name's Azucat.");
+		
 				string choice = await pText.Ask("Accept deal?\n1. Yes \n2. No");
 				if (choice == "2") {
 					await pText.ShowText("I don't know if I can trust you.");
