@@ -15,6 +15,121 @@
 [ext_resource type="Texture2D" uid="uid://todgqw1v8vut" path="res://assets/background_items/pile_of_boba.png" id="12_ap5pc"]
 [ext_resource type="Texture2D" uid="uid://c6sjgcysf8i6y" path="res://assets/npcs/azucat.png" id="13_ijhwr"]
 
+[sub_resource type="Animation" id="Animation_3ij2s"]
+resource_name = "Azucat_Catssava_run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BOBA:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, -25), Vector2(-150, -25), Vector2(-150, -30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BOBA/Azucat:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BOBA/Catssava:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BOBA/Catssava:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BOBA:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Parva:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(200, 129), Vector2(200, 129), Vector2(200, 110), Vector2(198, 132)]
+}
+
+[sub_resource type="Animation" id="Animation_0el3g"]
+resource_name = "Parva_chase"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Parva:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(198, 132), Vector2(25, 132), Vector2(25, 132)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Parva:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Parva:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 12.5664]
+}
+
 [sub_resource type="Animation" id="Animation_pf4bv"]
 length = 0.001
 tracks/0/type = "value"
@@ -168,128 +283,13 @@ tracks/0/keys = {
 "values": [Vector2(77, 132), Vector2(119.533, 132), Vector2(121, 129)]
 }
 
-[sub_resource type="Animation" id="Animation_3ij2s"]
-resource_name = "Azucat_Catssava_run"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BOBA:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-20, -25), Vector2(-150, -25), Vector2(-150, -30)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BOBA/Azucat:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BOBA/Catssava:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BOBA/Catssava:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BOBA:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Parva:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(200, 129), Vector2(200, 129), Vector2(200, 110), Vector2(198, 132)]
-}
-
-[sub_resource type="Animation" id="Animation_0el3g"]
-resource_name = "Parva_chase"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Parva:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(198, 132), Vector2(25, 132), Vector2(25, 132)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Parva:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.566667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Parva:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 6.28319, 12.5664]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jf6cr"]
 _data = {
-"Azucat_Catssava_run": SubResource("Animation_3ij2s"),
-"Parva_chase": SubResource("Animation_0el3g"),
-"RESET": SubResource("Animation_pf4bv"),
-"open_trapdoor": SubResource("Animation_1mmkj"),
-"sit_down": SubResource("Animation_a8e0l")
+&"Azucat_Catssava_run": SubResource("Animation_3ij2s"),
+&"Parva_chase": SubResource("Animation_0el3g"),
+&"RESET": SubResource("Animation_pf4bv"),
+&"open_trapdoor": SubResource("Animation_1mmkj"),
+&"sit_down": SubResource("Animation_a8e0l")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pg3t3"]
@@ -298,7 +298,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_6j6vd")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -306,7 +306,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_wd4c4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"mad",
 "speed": 5.0
 }]
@@ -332,7 +332,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rqfgk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"closed",
 "speed": 1.0
 }, {
@@ -340,7 +340,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u7jmm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"open",
 "speed": 1.0
 }]
@@ -348,93 +348,91 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gc57o"]
 size = Vector2(20, 146)
 
-[node name="ParvaHouse" type="Node2D"]
+[node name="ParvaHouse" type="Node2D" unique_id=1058441839]
 script = ExtResource("1_8ffew")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1952788808]
 z_index = -2
 texture_filter = 1
 texture = ExtResource("1_xd8vd")
 centered = false
 
-[node name="Door" parent="." instance=ExtResource("9_8nfr4")]
+[node name="Door" parent="." unique_id=1446025776 instance=ExtResource("9_8nfr4")]
 z_index = -1
 offset_left = 8.0
 offset_top = 109.0
 offset_bottom = 141.0
 
-[node name="InteractArea" parent="Door" instance=ExtResource("10_kgtfd")]
+[node name="InteractArea" parent="Door" unique_id=1939149274 instance=ExtResource("10_kgtfd")]
 position = Vector2(16, 31)
 scale = Vector2(0.6, 0.6)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_jf6cr")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2105384819]
+libraries/ = SubResource("AnimationLibrary_jf6cr")
 
-[node name="Parva" type="AnimatedSprite2D" parent="."]
+[node name="Parva" type="AnimatedSprite2D" parent="." unique_id=1292173221]
 position = Vector2(200, 129)
 sprite_frames = SubResource("SpriteFrames_pg3t3")
 
-[node name="TextBox" parent="Parva" instance=ExtResource("8_ou3kr")]
+[node name="TextBox" parent="Parva" unique_id=1313748371 instance=ExtResource("8_ou3kr")]
 
-[node name="BOBA" type="Sprite2D" parent="."]
+[node name="BOBA" type="Sprite2D" parent="." unique_id=1718211944]
 position = Vector2(-350, -25)
 texture = ExtResource("12_ap5pc")
 centered = false
 flip_h = true
 
-[node name="Azucat" type="Sprite2D" parent="BOBA"]
+[node name="Azucat" type="Sprite2D" parent="BOBA" unique_id=1085608924]
 position = Vector2(180, 157)
 texture = ExtResource("13_ijhwr")
 flip_h = true
 
-[node name="TextBox" parent="BOBA/Azucat" instance=ExtResource("8_ou3kr")]
+[node name="TextBox" parent="BOBA/Azucat" unique_id=2048208950 instance=ExtResource("8_ou3kr")]
 
-[node name="Catssava" type="Sprite2D" parent="BOBA"]
+[node name="Catssava" type="Sprite2D" parent="BOBA" unique_id=68810121]
 position = Vector2(132, 157)
 texture = ExtResource("8_xbc5g")
 
-[node name="GroundPlayer" parent="." instance=ExtResource("2_rt8xu")]
+[node name="GroundPlayer" parent="." unique_id=1878109273 instance=ExtResource("2_rt8xu")]
 position = Vector2(77, 132)
 
-[node name="TextBox" parent="GroundPlayer" instance=ExtResource("8_ou3kr")]
+[node name="TextBox" parent="GroundPlayer" unique_id=719534339 instance=ExtResource("8_ou3kr")]
 
-[node name="Left" parent="." instance=ExtResource("3_nw7ai")]
+[node name="Left" parent="." unique_id=904800865 instance=ExtResource("3_nw7ai")]
 position = Vector2(-20, 0)
 scale = Vector2(1, 100)
 
-[node name="Right" parent="." instance=ExtResource("3_nw7ai")]
+[node name="Right" parent="." unique_id=639008765 instance=ExtResource("3_nw7ai")]
 position = Vector2(320, 0)
 scale = Vector2(1, 10)
 
-[node name="LeftFloor" parent="." instance=ExtResource("3_nw7ai")]
+[node name="LeftFloor" parent="." unique_id=1183256692 instance=ExtResource("3_nw7ai")]
 position = Vector2(-38, 140)
 scale = Vector2(13, 3)
 
-[node name="RightFloor" parent="." instance=ExtResource("3_nw7ai")]
+[node name="RightFloor" parent="." unique_id=1440311030 instance=ExtResource("3_nw7ai")]
 position = Vector2(242, 140)
 scale = Vector2(5, 3)
 
-[node name="Trapdoor" type="AnimatedSprite2D" parent="."]
+[node name="Trapdoor" type="AnimatedSprite2D" parent="." unique_id=2053856428]
 texture_filter = 1
 position = Vector2(222, 122)
 sprite_frames = SubResource("SpriteFrames_w5giy")
 animation = &"closed"
 centered = false
 
-[node name="Door" parent="Trapdoor" instance=ExtResource("3_nw7ai")]
+[node name="Door" parent="Trapdoor" unique_id=2080905958 instance=ExtResource("3_nw7ai")]
 position = Vector2(0, 18)
 
-[node name="TriggerDialogue" type="Area2D" parent="."]
+[node name="TriggerDialogue" type="Area2D" parent="." unique_id=549346512]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDialogue"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDialogue" unique_id=1683622295]
 position = Vector2(92, 67)
 shape = SubResource("RectangleShape2D_gc57o")
 
-[node name="InteractLabel" parent="." instance=ExtResource("11_2rh7x")]
+[node name="InteractLabel" parent="." unique_id=78190744 instance=ExtResource("11_2rh7x")]
 
 [connection signal="Interact" from="Door/InteractArea" to="." method="OnExitRoom"]
 [connection signal="PromptUser" from="Parva/TextBox" to="GroundPlayer" method="OnPromptUser"]
