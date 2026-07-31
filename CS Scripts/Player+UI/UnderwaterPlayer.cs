@@ -155,8 +155,9 @@ public partial class UnderwaterPlayer : Player
 	}
 
 	//change player back to normal after flashing animation
-	public void OnHurtTimerTimeout()
+	new public void OnHurtTimerTimeout()
 	{
+		base.OnHurtTimerTimeout();
 		animatedSprite.Modulate = new Color(1, 1, 1, 1);
 
 	}

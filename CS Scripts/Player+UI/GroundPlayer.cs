@@ -159,8 +159,9 @@ public partial class GroundPlayer : Player
 	}
 
 	//change player back to normal after flashing animation
-	private void OnHurtTimerTimeout()
+	new private void OnHurtTimerTimeout()
 	{
+		base.OnHurtTimerTimeout();
 		animatedSprite.Modulate = new Color(1, 1, 1, 1);
 	}
 

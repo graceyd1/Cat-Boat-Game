@@ -122,7 +122,6 @@ shape = SubResource("RectangleShape2D_1jxqw")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="HurtTimer" type="Timer" parent="." unique_id=756891535]
-wait_time = 0.6
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1272989560]
@@ -136,7 +135,8 @@ drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 script = ExtResource("8_6m7sy")
 
-[node name="Player_Health" parent="Camera2D" unique_id=1093790354 instance=ExtResource("8_pkvse")]
+[node name="PlayerHealth" parent="Camera2D" unique_id=1093790354 instance=ExtResource("8_pkvse")]
+unique_name_in_owner = true
 z_index = 4096
 z_as_relative = false
 material = SubResource("CanvasItemMaterial_riri1")
@@ -198,6 +198,6 @@ horizontal_alignment = 1
 
 [node name="Flashlight" parent="." unique_id=1225167653 instance=ExtResource("4_u4d4c")]
 
-[connection signal="Hit" from="." to="Camera2D/Player_Health" method="OnPlayerHit"]
+[connection signal="Hit" from="." to="Camera2D/PlayerHealth" method="OnPlayerHit"]
 [connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]
 [connection signal="timeout" from="HurtTimer" to="." method="OnHurtTimerTimeout"]

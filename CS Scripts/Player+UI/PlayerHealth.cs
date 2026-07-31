@@ -40,4 +40,16 @@ public partial class PlayerHealth : AnimatedSprite2D
 	{
 		Animation = "full_hp";
 	}
+
+	public void ResetHPSprite(int hp)
+	{
+		if (hp == 2)
+		{
+			Animation = "full_hp";
+		}
+		else
+		{
+			Animation = "one_hp";
+		}
+	}
 }

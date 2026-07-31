@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://7106o3opoex1"]
+[gd_scene format=3 uid="uid://7106o3opoex1"]
 
 [ext_resource type="Texture2D" uid="uid://dma51o25mr3o5" path="res://assets/player/player_health_frames/full_health.png" id="1_7nchu"]
 [ext_resource type="Texture2D" uid="uid://b1v40jxemtv6s" path="res://assets/player/player_health_frames/first_hit.png" id="2_kk37x"]
 [ext_resource type="Texture2D" uid="uid://dgewu1mrc4b08" path="res://assets/player/player_health_frames/one_health.png" id="3_gpatv"]
 [ext_resource type="Texture2D" uid="uid://qo2t7opelx8f" path="res://assets/player/player_health_frames/second_hit.png" id="4_nddjw"]
 [ext_resource type="Texture2D" uid="uid://cd7q3hqww53m7" path="res://assets/player/player_health_frames/no_health.png" id="5_wumgj"]
-[ext_resource type="Script" path="res://CS Scripts/Player+UI/PlayerHealth.cs" id="6_lrmhr"]
+[ext_resource type="Script" uid="uid://gk5fdwy5c7c3" path="res://CS Scripts/Player+UI/PlayerHealth.cs" id="6_lrmhr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dv6w5"]
 animations = [{
@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_7nchu")
 }],
-"loop": false,
+"loop": 0,
 "name": &"full_hp",
 "speed": 5.0
 }, {
@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_gpatv")
 }],
-"loop": false,
+"loop": 0,
 "name": &"full_hp_hit",
 "speed": 10.0
 }, {
@@ -32,7 +32,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_gpatv")
 }],
-"loop": false,
+"loop": 0,
 "name": &"one_hp",
 "speed": 5.0
 }, {
@@ -43,12 +43,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_wumgj")
 }],
-"loop": false,
+"loop": 0,
 "name": &"one_hp_hit",
 "speed": 10.0
 }]
 
-[node name="Player_Health" type="AnimatedSprite2D"]
+[node name="Player_Health" type="AnimatedSprite2D" unique_id=596566438]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dv6w5")
 animation = &"full_hp"

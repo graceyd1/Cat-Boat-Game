@@ -10,18 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bsaeo1x6edvmm" path="res://assets/npcs/blue_red_eyes.png" id="7_t5w6m"]
 [ext_resource type="PackedScene" uid="uid://c2paeopskk52q" path="res://Scenes/World 1/big_jellyfish.tscn" id="7_y6awn"]
 [ext_resource type="PackedScene" uid="uid://b28lwwf0dhiu6" path="res://Scenes/General/text_box.tscn" id="8_t6dhv"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin0.png" id="9_k7vu8"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin1.png" id="10_x2u2a"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin2.png" id="11_03erj"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin3.png" id="12_irrfj"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin4.png" id="13_ltvwe"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin5.png" id="14_66wp5"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin6.png" id="15_x81wl"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin7.png" id="16_snpy2"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin8.png" id="17_pqwmg"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin9.png" id="18_llp6h"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin10.png" id="19_65rke"]
-[ext_resource type="Texture2D" path="res://assets/enemy_sprites/seabunny/seabunny_spin/seabunny_spin11.png" id="20_qwjqk"]
 [ext_resource type="PackedScene" uid="uid://dewawah7lpsl6" path="res://Scenes/World 1/bouncy_jellyfish.tscn" id="24_a8way"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tc7ap"]
@@ -30,7 +18,7 @@ animations = [{
 "duration": 20.0,
 "texture": ExtResource("6_y3mtk")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 1.0
 }, {
@@ -38,7 +26,7 @@ animations = [{
 "duration": 20.0,
 "texture": ExtResource("7_t5w6m")
 }],
-"loop": false,
+"loop": 0,
 "name": &"red_eyes",
 "speed": 1.0
 }]
@@ -47,103 +35,103 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_k7vu8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_x2u2a")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_03erj")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_irrfj")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_ltvwe")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_66wp5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_x81wl")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_snpy2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_pqwmg")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_llp6h")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_65rke")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_qwjqk")
+"texture": null
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 7.0
 }]
 
-[node name="TestingRoom" type="Node2D"]
+[node name="TestingRoom" type="Node2D" unique_id=326915958]
 script = ExtResource("1_wl4xn")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=252467531]
 texture_filter = 1
 position = Vector2(300, 90)
 texture = ExtResource("1_3xtj5")
 
-[node name="UnderwaterPlayer" parent="." instance=ExtResource("7_glu6j")]
+[node name="UnderwaterPlayer" parent="." unique_id=625242297 instance=ExtResource("7_glu6j")]
 position = Vector2(149, 125)
 collision_mask = 5
 
-[node name="TextBox" parent="UnderwaterPlayer" instance=ExtResource("8_t6dhv")]
+[node name="TextBox" parent="UnderwaterPlayer" unique_id=1308791873 instance=ExtResource("8_t6dhv")]
 
-[node name="Blue" type="AnimatedSprite2D" parent="."]
+[node name="Blue" type="AnimatedSprite2D" parent="." unique_id=30332667]
 texture_filter = 1
 position = Vector2(258, 138)
 sprite_frames = SubResource("SpriteFrames_tc7ap")
 autoplay = "default"
 
-[node name="TextBox" parent="Blue" instance=ExtResource("8_t6dhv")]
+[node name="TextBox" parent="Blue" unique_id=1800157105 instance=ExtResource("8_t6dhv")]
 
-[node name="Rocks" type="Sprite2D" parent="."]
+[node name="Rocks" type="Sprite2D" parent="." unique_id=909938666]
 texture_filter = 1
 position = Vector2(300, 90)
 texture = ExtResource("3_jxtuf")
 
-[node name="BigJellyfish" parent="." instance=ExtResource("7_y6awn")]
+[node name="BigJellyfish" parent="." unique_id=678924416 instance=ExtResource("7_y6awn")]
 position = Vector2(46, 122)
 
-[node name="SPIN" type="AnimatedSprite2D" parent="."]
+[node name="SPIN" type="AnimatedSprite2D" parent="." unique_id=1526518078]
 texture_filter = 1
 position = Vector2(211, 40)
 sprite_frames = SubResource("SpriteFrames_p5e3t")
 autoplay = "default"
 
-[node name="WallsFolder" type="Node" parent="."]
+[node name="WallsFolder" type="Node" parent="." unique_id=698181138]
 
-[node name="Floor" parent="WallsFolder" instance=ExtResource("5_y4j0h")]
+[node name="Floor" parent="WallsFolder" unique_id=617636658 instance=ExtResource("5_y4j0h")]
 position = Vector2(0, 147)
 scale = Vector2(25, 1)
 
-[node name="FloorThatOneRock" parent="WallsFolder" instance=ExtResource("5_y4j0h")]
+[node name="FloorThatOneRock" parent="WallsFolder" unique_id=141420813 instance=ExtResource("5_y4j0h")]
 position = Vector2(98, 133)
 scale = Vector2(3, 1)
 
-[node name="Ceiling" parent="WallsFolder" instance=ExtResource("5_y4j0h")]
+[node name="Ceiling" parent="WallsFolder" unique_id=1184055385 instance=ExtResource("5_y4j0h")]
 position = Vector2(0, 11)
 scale = Vector2(25, 1)
 
-[node name="LeftWall" parent="WallsFolder" instance=ExtResource("5_y4j0h")]
+[node name="LeftWall" parent="WallsFolder" unique_id=689806928 instance=ExtResource("5_y4j0h")]
 position = Vector2(-15, 0)
 scale = Vector2(1, 10)
 
-[node name="Darkness" parent="." instance=ExtResource("5_o7pc6")]
+[node name="Darkness" parent="." unique_id=1541900777 instance=ExtResource("5_o7pc6")]
 visible = false
 z_as_relative = false
 
-[node name="BouncyJellyfish" parent="." instance=ExtResource("24_a8way")]
+[node name="BouncyJellyfish" parent="." unique_id=232320775 instance=ExtResource("24_a8way")]
 position = Vector2(352, 149)

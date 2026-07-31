@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Data.SqlTypes;
+using System.Threading.Tasks;
 
 public partial class Player : CharacterBody2D
 {
@@ -31,6 +32,9 @@ public partial class Player : CharacterBody2D
 	//used in cutscenes (implemented in the GroundPlayer and UnderwaterPlayer classes)
 	private bool disableMovement;
 
+	//true if respawnOverride is taking over respawning
+	private bool respawnOverride;
+
 	//player flashing animation (when hit)
 	public bool Flash{get; set;}
 	
@@ -47,6 +51,7 @@ public partial class Player : CharacterBody2D
 	public override void _Ready()
 	{
 		respawning = false;
+		respawnOverride = false;
 		//ScreenSize = GetViewportRect().Size;
 		VelocityModifier = Vector2.Zero;
 		hp = 2; //2;
@@ -66,11 +71,17 @@ public partial class Player : CharacterBody2D
 		GetNode<TextEnterLabel>("Camera2D/TextEnterLabel").FadeIn(box, prompt);
 	}
 	
-	
+	//= hey julia if you somehow see this can you get rid of this method and use the one below
+	//= i didn't want to get rid of it because idk how to fix the signal
 	private void DevChangeHP(int newHP) {
 		hp = newHP;
 		GD.Print(hp);
 		GD.Print(newHP);
+	}
+
+	public void SetHP(int newHP) {
+		hp = newHP;
+		GetNode<PlayerHealth>("%PlayerHealth").ResetHPSprite(hp);
 	}
 	
 	//player enteres hitbox
@@ -113,14 +124,13 @@ public partial class Player : CharacterBody2D
 	
 	//when invulnerablility ends
 	//I don't know why but this method doesn't ever run for me
-
-	private void OnHurtTimerTimeout()
+	public void OnHurtTimerTimeout()
 	{
-		GD.Print("Timeout");///
+		GD.Print("Timeout");//
 		invulnerable = false;
 		Flash = false;
 
-		var insideHurtbox =  GetNode<Area2D>("Hurtbox").GetOverlappingBodies();
+		var insideHurtbox =  GetNode<Area2D>("Hurtbox").GetOverlappingAreas();
 
 		//if player is in hitbox when invulnerability ends
 		if (insideHurtbox.Count > 0)
@@ -129,82 +139,111 @@ public partial class Player : CharacterBody2D
 		}
 	}
 	
+	//Todo - reduce spawn points to: first room, underwater town, cave, 
+	// seabunny, enter cave room (when backtracking)
 	//we need to make a list
-	public async void Respawn() {
+	public Vector2 GetSpawnPoint()
+	{
+		Vector2 respawnPoint = Vector2.Zero;
+		var room = GetParent().Name;
+		if (room == "EnterCaveRoom") {
+			//coorinates might change if room coordinates change
+			respawnPoint = new Vector2(113, 122);
+		}
+		else if (room == "TubesArea") {
+			respawnPoint = new Vector2(45, 123);
+		} 
+		else if (room == "FirstRoom" || room == "BoxRoom") {
+			respawnPoint = new Vector2(10, 140);
+		}
+		else if (room == "SeabunnyBossRoom") {
+			respawnPoint = new Vector2(100, 144);
+		}
+		else if (room == "UnderwaterTown") {
+			respawnPoint = new Vector2(10, 518);
+		}
+		else if (room == "BoxRoom")
+		{
+			respawnPoint = new Vector2(10, 140);
+		}
+		else if (room == "FishRoom")
+		{
+			respawnPoint = new Vector2(35, 122);
+		}
+		else if (room == "LongTubeCoralRoom")
+		{
+			respawnPoint = new Vector2(276, 138);
+		}
+		else if (room == "JellyfishRoom")
+		{
+			respawnPoint = new Vector2(690, 138);
+		}
+		else if (room == "VineRoom")
+		{
+			respawnPoint = new Vector2(163, 126);
+		}
+		else if (room == "TallTubeCoralRoom")
+		{
+			respawnPoint = new Vector2(160, 557);
+		}
+		else if (room == "CaveRoom")
+		{
+			respawnPoint = new Vector2(25, 90);
+		}
+		else if (room == "SeaBunnyRoom")
+		{
+			respawnPoint = new Vector2(50, 232);
+		}
+		else
+		{
+			respawnPoint = new Vector2(20, 90);//default
+		}
+		return respawnPoint;
+	}
+
+	//Todo - do a scene change instead if the spawn point is in another room
+	public async void Respawn() 
+	{
+		if (!respawnOverride)
+		{
+			await RespawnToPoint(GetSpawnPoint());
+		}
+	}
+
+	/// <summary>
+	/// Overrides the player's normal respawn to respawn at a specific point
+	/// </summary>
+	/// <param name="pos"></param>
+	/// <returns></returns>
+	public async Task RespawnOverride(Vector2 pos)
+	{
+		respawnOverride = true;
+		await RespawnToPoint(pos);
+		respawnOverride = false;
+	}
+
+	public async Task RespawnToPoint(Vector2 pos)
+	{
 		respawning = true;
 		respawnFadingIn = true;
 		invulnerable = true;
 		SetDisableMovement(true);
-		var fader = GetNode<CanvasLayer>("/root/Fader");
-		if (fader is Fader transition) {
-			await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
-			await transition.FadeIn(1.0f);
-			
-			Vector2 respawnPoint = Vector2.Zero;
-			var room = GetParent().Name;
-			if (room == "EnterCaveRoom") {
-				//coorinates might change if room coordinates change
-				respawnPoint = new Vector2(113, 122);
-			}
-			else if (room == "TubesArea") {
-				respawnPoint = new Vector2(45, 123);
-			} 
-			else if (room == "FirstRoom" || room == "BoxRoom") {
-				respawnPoint = new Vector2(10, 140);
-			}
-			else if (room == "SeabunnyBossRoom") {
-				respawnPoint = new Vector2(100, 144);
-			}
-			else if (room == "UnderwaterTown") {
-				respawnPoint = new Vector2(10, 518);
-			}
-			else if (room == "BoxRoom")
-			{
-				respawnPoint = new Vector2(10, 140);
-			}
-			else if (room == "FishRoom")
-			{
-				respawnPoint = new Vector2(35, 122);
-			}
-			else if (room == "LongTubeCoralRoom")
-			{
-				respawnPoint = new Vector2(276, 138);
-			}
-			else if (room == "JellyfishRoom")
-			{
-				respawnPoint = new Vector2(690, 138);
-			}
-			else if (room == "VineRoom")
-			{
-				respawnPoint = new Vector2(163, 126);
-			}
-			else if (room == "TallTubeCoralRoom")
-			{
-				respawnPoint = new Vector2(160, 557);
-			}
-			else if (room == "CaveRoom")
-			{
-				respawnPoint = new Vector2(25, 90);
-			}
-			else if (room == "SeaBunnyRoom")
-			{
-				respawnPoint = new Vector2(50, 232);
-			}
-			else
-			{
-				respawnPoint = new Vector2(20, 90);//default
-			}
+		var transition = GetNode<Fader>("/root/Fader");
+		await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
+		await transition.FadeIn(1.0f);
 
-			GlobalPosition = respawnPoint;
-			respawnFadingIn = false;
-			FacingRight = true;
-			await transition.FadeOut(1.0f);
-		}
+		GlobalPosition = pos;
+		
+		respawnFadingIn = false;
+		FacingRight = true;
+		await transition.FadeOut(1.0f);
+
 		invulnerable = false;
 		respawning = false;
 		disableMovement = false;
 		EmitSignal(SignalName.Respawned);
 	}
+
 	public void SetVelocityModifier(Vector2 vel)
 	{
 		VelocityModifier = vel;
@@ -243,7 +282,6 @@ public partial class Player : CharacterBody2D
 	public void SetCameraDrag(string room) {
 		var cam = GetNode<Camera2D>("Camera2D");
 		if (room == "TallTubeCoralRoom") {
-			GD.Print("HI");
 			cam.DragVerticalEnabled = true;
 			cam.SetDragMargin(Side.Top, 0.5f);
 			cam.SetDragMargin(Side.Bottom, 0.5f);

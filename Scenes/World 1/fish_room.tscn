@@ -192,8 +192,8 @@ texture = ExtResource("7_stmwa")
 centered = false
 
 [node name="InteractArea" parent="IceCreamAreaSprite" unique_id=2057010122 instance=ExtResource("8_xnsu6")]
-position = Vector2(604, 180)
-scale = Vector2(1.5, 1)
+position = Vector2(600, 180)
+scale = Vector2(1.4, 1)
 LabelHeight = 50
 
 [node name="TextBox" parent="IceCreamAreaSprite/InteractArea" unique_id=739966688 instance=ExtResource("9_gclb7")]
@@ -263,7 +263,7 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish3" parent="CollectableFish" unique_id=1302168304 instance=ExtResource("12_on3ij")]
-position = Vector2(538, 40)
+position = Vector2(511, 40)
 isOrange = false
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish3" unique_id=999956966 instance=ExtResource("8_xnsu6")]
@@ -279,7 +279,7 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish5" parent="CollectableFish" unique_id=2130325794 instance=ExtResource("12_on3ij")]
-position = Vector2(379, 17)
+position = Vector2(357, 17)
 isOrange = false
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish5" unique_id=1457044102 instance=ExtResource("8_xnsu6")]
@@ -287,7 +287,7 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish6" parent="CollectableFish" unique_id=180084222 instance=ExtResource("12_on3ij")]
-position = Vector2(230, 82)
+position = Vector2(224, 82)
 isOrange = false
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish6" unique_id=238758787 instance=ExtResource("8_xnsu6")]
@@ -295,7 +295,7 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish7" parent="CollectableFish" unique_id=1118728694 instance=ExtResource("12_on3ij")]
-position = Vector2(230, 118)
+position = Vector2(224, 118)
 isOrange = false
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish7" unique_id=273407563 instance=ExtResource("8_xnsu6")]
@@ -303,7 +303,7 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish8" parent="CollectableFish" unique_id=1981416677 instance=ExtResource("12_on3ij")]
-position = Vector2(230, 46)
+position = Vector2(224, 46)
 isOrange = false
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish8" unique_id=1201157582 instance=ExtResource("8_xnsu6")]
@@ -380,7 +380,8 @@ centered = false
 [node name="InteractLabel" parent="." unique_id=1987104363 instance=ExtResource("16_c1s60")]
 
 [connection signal="Interact" from="IceCreamAreaSprite/InteractArea" to="." method="StartDialogue"]
-[connection signal="Respawned" from="UnderwaterPlayer" to="." method="OnPlayerRespawn"]
+[connection signal="Died" from="UnderwaterPlayer" to="." method="OnPlayerDied"]
+[connection signal="Hit" from="UnderwaterPlayer" to="UnderwaterPlayer/Camera2D/Player_Health" method="OnPlayerHit"]
 [connection signal="TimesUp" from="UnderwaterPlayer/MinigameTime" to="." method="OnTimesUp"]
 [connection signal="Interact" from="CollectableFish/CollectableFish1/InteractArea" to="." method="OnFishInteract"]
 [connection signal="Interact" from="CollectableFish/CollectableFish1/InteractArea" to="CollectableFish/CollectableFish1" method="Disable"]
