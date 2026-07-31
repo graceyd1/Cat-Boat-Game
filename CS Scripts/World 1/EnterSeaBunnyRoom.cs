@@ -51,15 +51,16 @@ public partial class EnterSeaBunnyRoom : Node2D
 		await dashT.ShowText("...");
 		await parvaT.ShowText("No need to stare like that, it wasn't that hard. They keep their doors open at night, pfft.");
 		
-		var choice = await dashT.Ask("1. Why steal? It's selfish. 2. Parva is impressive!");
+		var choice = await dashT.Ask("1. Why steal? It's selfish.\n2. Parva is impressive!");
 		if (choice == "1") {
-			await dashT.ShowText("You stole from them? Couldn't you just buy boba from the town's shop?");
-			await dashT.ShowText("I don't see how one cat like you needs all this boba. There are many townscats who love boba, and they can't even get their paws on any because of you!");
-			await dashT.ShowText("What have the cats of Bubbly Town ever done to you?");
+			await dashT.ShowText("You stole from them? Couldn't you just buy boba from the town's shop? Now the towncats can't even get their paws on any because of you!");
+			//await dashT.ShowText("I don't see how one cat like you needs all this boba. Many townscats love boba, and now they can't even get their paws on any because of you!");
+			//await dashT.ShowText("What have the cats of Bubbly Town ever done to you?");
 			await parvaT.ShowText("Why in the world would I buy some when I could get all of it for free?");
 			await parvaT.ShowText("What have the town cats ever done to deserve my customership?");
-			await parvaT.ShowText("But you...I could afford sharing some with you, given you help me steal boba each month. What do you say?");
-			choice = await dashT.Ask("1. There's something you're hiding. 2. I'm loyal to the cats of Bubbly Town!");
+			await parvaT.ShowText("But you... your looking for brown sugar boba too, right? You could help me steal boba each month for my experiments. What do you say?");
+			await parvaT.ShowText("But you...I could afford sharing some with you if you help me steal boba each month. What do you say?");
+			choice = await dashT.Ask("1. There's something you're hiding.\n2. I'm loyal to the cats of Bubbly Town!");
 			if (choice == "1") {
 				await dashT.ShowText("It doesn't make sense. There must be something you're not telling me.");
 				await dashT.ShowText("You have something against the cats of Bubbly Town, don't you.");
@@ -67,15 +68,15 @@ public partial class EnterSeaBunnyRoom : Node2D
 				await parvaT.ShowText("What would YOU know! There's NOTHING, you hear, NOTHING! You think you can waltz in and try and dig up my past -");
 				await parvaT.ShowText("It's NOT HAPPENING! NOT HAPPENING!");
 				await dashT.ShowText("...");
-				choice = await dashT.Ask("1. Dig deeper 2. Back off");
+				choice = await dashT.Ask("1. Dig deeper\n2. Back off");
 				if (choice == "1") {
-					await dashT.ShowText("Parva, I can't help unless you tell me the truth.");
+					await dashT.ShowText("Parva, I won't help if you don't tell me the truth.");
 					await parvaT.ShowText("HOW YOU CAN HELP ME IS BY STEALING MORE BOBA FOR ME!");
-					await parvaT.ShowText("BUT IT SEEMS YOU'D RATHER DECIEVE ME INTO BECOMING WEAK!");
+					await parvaT.ShowText("BUT IT SEEMS YOU'D RATHER DECEIVE ME INTO BECOMING WEAK!");
 					await parvaT.ShowText("I'M LEAVING. YOU CAN ROT HERE FOR ALL I CARE. YOU'LL REGRET THIS!");
 				}
 				else {
-					await dashT.ShowText("Okay, okay! I suppose it's not my business.");
+					await dashT.ShowText("Okay, okay! I suppose it's not my business. Still, I'm not helping you.");
 					await parvaT.ShowText("You're right. It isn't. And for that, you'll be staying here for the rest of your short life.");
 					await dashT.ShowText("...!");
 				}
@@ -87,7 +88,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 				await parvaT.ShowText("You think you can act all heroic, don't you!");
 				await parvaT.ShowText("Well, you're alone now. The town cats are lazing back at their cozy homes.");
 				await parvaT.ShowText("They never cared about you! They were USING YOU!");
-				choice = await dashT.Ask("1. They would never do that 2. It is an exchange");
+				choice = await dashT.Ask("1. They would never do that\n2. It is an exchange");
 				if (choice == "1") {
 					await dashT.ShowText("In the short time I've spent with the cats of Bubbly Town, I can tell they aren't like that.");
 					await dashT.ShowText("It was my own choice to help them, and I will stand by it.");
@@ -111,7 +112,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 			await dashT.ShowText("After my journey through the ocean, I know from exprience it's not easy!");
 			await parvaT.ShowText("I'm pleased you think so. I have something to propose.");
 			await parvaT.ShowText("If you help me steal boba from the town each month, I'll let you share some of my stash!");
-			choice = await dashT.Ask("1. Can I also get a new boat? 2. I've already agreed to help the cats of Bubbly Town");
+			choice = await dashT.Ask("1. Can I also get a new boat?\n2. I've already agreed to help the cats of Bubbly Town");
 			if (choice == "1") {
 				await dashT.ShowText("Was that a submarine diagram I saw in your house? Perhaps you could make me a new boat as well?");
 				await parvaT.ShowText("My offer was generous enough. I'm afraid I can't extend it further.");
@@ -123,7 +124,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 				await dashT.ShowText("What I need is a new boat. The cats of Bubbly Town have promised me one given I find their boba.");
 				parvaAni.Animation = "mad";
 				await parvaT.ShowText("So you're their lackey? You disgust me.");
-				choice = await dashT.Ask("1. I like them. 2. I'm independent.");
+				choice = await dashT.Ask("1. I like them.\n2. I'm independent.");
 				if (choice == "1") {
 					await dashT.ShowText("I like the cats of Bubbly Town, and decided to help them on my own accord.");
 					await dashT.ShowText("I can't say the same about you.");
@@ -133,9 +134,14 @@ public partial class EnterSeaBunnyRoom : Node2D
 				else {
 					await dashT.ShowText("I help whom I please. And I'm in desperate need of a new boat.");
 					await dashT.ShowText("And once I get it, I won't have the time to help you steal boba.");
-					await parvaT.ShowText("That's unfortunate. But what you might not know - I'm the same way.");
+					// await parvaT.ShowText("That's unfortunate. But what you might not know - I'm the same way."); 
+					// //=confusing-does same way mean he wants a boat too??
+					// (I know he's responding to "I help whom I please" but when you have multiple Dash statements 
+					// it becomes confusing what he's responding to)
+
 					parvaAni.Animation = "mad";
-					await parvaT.ShowText("And right now I'm thinking trapping you down here is the way to go.");
+					await parvaT.ShowText("That's unfortunate, since right now I'm thinking trapping you down here is the way to go.");
+					// await parvaT.ShowText("And right now I'm thinking trapping you down here is the way to go.");
 				}
 			}
 		}
@@ -143,7 +149,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 
 		var parva = GetNode<AnimatedSprite2D>("Parva");
 		parva.Hide();
-		await dashT.ShowText("Seems like I'm stuck here. Maybe the boba here somewhere?");
+		await dashT.ShowText("Where did he go? Seems like I'm stuck here...");
 		player.InputEnabled = true;
 		//Next quest: investigate the cave
 		GlobalScript.QuestNum++;

@@ -381,7 +381,6 @@ centered = false
 
 [connection signal="Interact" from="IceCreamAreaSprite/InteractArea" to="." method="StartDialogue"]
 [connection signal="Died" from="UnderwaterPlayer" to="." method="OnPlayerDied"]
-[connection signal="Hit" from="UnderwaterPlayer" to="UnderwaterPlayer/Camera2D/Player_Health" method="OnPlayerHit"]
 [connection signal="TimesUp" from="UnderwaterPlayer/MinigameTime" to="." method="OnTimesUp"]
 [connection signal="Interact" from="CollectableFish/CollectableFish1/InteractArea" to="." method="OnFishInteract"]
 [connection signal="Interact" from="CollectableFish/CollectableFish1/InteractArea" to="CollectableFish/CollectableFish1" method="Disable"]
