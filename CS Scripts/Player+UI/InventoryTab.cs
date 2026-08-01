@@ -21,6 +21,7 @@ public partial class InventoryTab : Button
 	
 	public void OnButtonPressed() {
 		GetNode<MarginContainer>("%MarginContainer").Hide();
+		GetNode<Node2D>("%QuitOptions").Hide();
 		GetNode<Node2D>("%ItemsUI").Show();
 		if (GlobalScript.Inventory.Count > 0) {
 			GetNode<Label>("%ItemName").Text = "Select an Item";

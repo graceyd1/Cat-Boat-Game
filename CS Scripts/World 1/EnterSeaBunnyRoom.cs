@@ -60,7 +60,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 			choice = await dashT.Ask("1. There's something you're hiding.\n2. I'm loyal to the cats of Bubbly Town!");
 			if (choice == "1") {
 				await dashT.ShowText("It doesn't make sense. There must be something you're not telling me.");
-				await dashT.ShowText("You have something against the cats of Bubbly Town, don't you.");
+				await dashT.ShowText("You have something against the cats of Bubbly Town, don't you...");
 				parvaAni.Animation = "mad";
 				await parvaT.ShowText("What would YOU know! There's NOTHING, you hear, NOTHING! You think you can waltz in and try and dig up my past -");
 				await parvaT.ShowText("It's NOT HAPPENING! NOT HAPPENING!");
@@ -70,7 +70,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 					await dashT.ShowText("Parva, I can't help if you don't tell me the truth.");
 					await parvaT.ShowText("YOU CAN HELP ME BY STEALING MORE BOBA FOR ME!");
 					await parvaT.ShowText("BUT IT SEEMS YOU'D RATHER DECEIVE ME INTO BECOMING WEAK!");
-					await dashT.ShowText("No, you're hurting and you can't heal until you accept what happened-");
+					//await dashT.ShowText("No, you're hurting and you can't heal until you accept what happened-");
 					await parvaT.ShowText("I'M LEAVING. YOU CAN ROT HERE FOR ALL I CARE.");
 				}
 				else {
@@ -103,7 +103,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 		}
 		else {
 			await dashT.ShowText("Wow, traveling all the way to the town and stealing their boba is impressive, I must admit.");
-			await dashT.ShowText("After my journey through the ocean, I know from exprience it's not easy!");
+			await dashT.ShowText("After my journey through the ocean, I know from experience it's not easy!");
 			await parvaT.ShowText("I'm pleased you think so. I have something to propose.");
 			await parvaT.ShowText("If you help me steal boba from the town each month, I'll let you share some of my stash!");
 			choice = await dashT.Ask("1. Can I also get a new boat?\n2. I've already agreed to help the cats of Bubbly Town");

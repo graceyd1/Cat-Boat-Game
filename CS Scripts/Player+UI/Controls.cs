@@ -5,6 +5,7 @@ public partial class Controls : Node2D
 {
 	private ControlsTab cT;
 	private QuestsTab qT;
+	private QuitTab quitT;
 	private Vector2 pos;
 	private bool MenuOpen = false;
 	// Called when the node enters the scene tree for the first time.
@@ -18,6 +19,8 @@ public partial class Controls : Node2D
 		GetNode<Button>("InventoryTab").Hide();
 		qT = GetNode<QuestsTab>("QuestsTab");
 		qT.Hide();
+		quitT = GetNode<QuitTab>("QuitTab");
+		quitT.Hide();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,12 +36,14 @@ public partial class Controls : Node2D
 				expanded.Hide();
 				cT.Hide();
 				qT.Hide();
+				quitT.Hide();
 				GetNode<Button>("InventoryTab").Hide();
 			}
 			else {
 				expanded.Show();
 				cT.Show();
 				qT.Show();
+				quitT.Show();
 				GetNode<Button>("InventoryTab").Show();
 				//default open controls tab
 				cT.ButtonPressed = true;

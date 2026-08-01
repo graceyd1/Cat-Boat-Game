@@ -17,6 +17,7 @@ public partial class QuestsTab : Button
 	
 	public void OnButtonPressed() {
 		GetNode<MarginContainer>("%MarginContainer").Show();
+		GetNode<Node2D>("%QuitOptions").Hide();
 		GetNode<Node2D>("%ItemsUI").Hide();
 		text.Text = "\n";
 		string curQuest = GlobalScript.CQ("long");

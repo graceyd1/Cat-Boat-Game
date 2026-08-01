@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://csyir0wlb3anh" path="res://assets/player/menu_icon.png" id="3_l32e4"]
 [ext_resource type="Script" uid="uid://cj4ueacns40py" path="res://CS Scripts/Player+UI/InventoryTab.cs" id="4_cjqpt"]
 [ext_resource type="Script" uid="uid://drshf6dbosa44" path="res://CS Scripts/Player+UI/QuestsTab.cs" id="4_s05c4"]
+[ext_resource type="Script" uid="uid://cqfisidg7l7t7" path="res://CS Scripts/Player+UI/QuitTab.cs" id="7_ctukg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ah2n4"]
 light_mode = 1
@@ -41,6 +42,13 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3s0oq"]
+bg_color = Color(0.7764706, 0.67058825, 0.5686275, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f04i"]
 bg_color = Color(0.776365, 0.6709, 0.568389, 1)
 corner_radius_top_left = 2
@@ -69,16 +77,15 @@ script = ExtResource("1_weoqj")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1850521818]
 use_parent_material = true
-position = Vector2(0, 13.3333)
+position = Vector2(0, 13)
 texture = ExtResource("3_l32e4")
 
 [node name="Expanded" type="Panel" parent="." unique_id=389428939]
-visible = false
 use_parent_material = true
-offset_left = -103.33332
+offset_left = -107.0
 offset_top = 30.0
 offset_right = 7.0
-offset_bottom = 123.33333
+offset_bottom = 122.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_a8ss1")
 
 [node name="MarginContainer" type="MarginContainer" parent="Expanded" unique_id=248711261]
@@ -105,10 +112,10 @@ autowrap_mode = 3
 unique_name_in_owner = true
 
 [node name="ItemNamePanel" type="Panel" parent="Expanded/ItemsUI" unique_id=959569336]
-offset_left = 23.333326
-offset_top = 13.333335
-offset_right = 113.33333
-offset_bottom = 26.333336
+offset_left = 27.0
+offset_top = 13.5
+offset_right = 117.0
+offset_bottom = 26.5
 scale = Vector2(0.7, 0.7)
 theme_override_styles/panel = SubResource("StyleBoxFlat_db6rr")
 metadata/_edit_group_ = true
@@ -119,7 +126,7 @@ layout_mode = 0
 offset_right = 148.0
 offset_bottom = 20.0
 scale = Vector2(0.6, 0.6)
-theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
+theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
 text = "Select Item"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -127,10 +134,11 @@ vertical_alignment = 1
 [node name="DescriptionPanel" type="Panel" parent="Expanded/ItemsUI" unique_id=550246314]
 offset_left = 7.0
 offset_top = 25.0
-offset_right = 144.61902
+offset_right = 149.38092
 offset_bottom = 46.0
 scale = Vector2(0.7, 0.7)
 theme_override_styles/panel = SubResource("StyleBoxFlat_jrpdj")
+metadata/_edit_group_ = true
 
 [node name="Description" type="Label" parent="Expanded/ItemsUI/DescriptionPanel" unique_id=1980947839]
 unique_name_in_owner = true
@@ -138,68 +146,105 @@ layout_mode = 0
 offset_right = 344.04755
 offset_bottom = 54.0
 scale = Vector2(0.4, 0.4)
-theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
+theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
 text = "Description appears here"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="ItemIcons1" parent="Expanded/ItemsUI" unique_id=335687124 instance=ExtResource("3_h2a03")]
-offset_left = 6.6666718
+offset_left = 8.333351
 offset_top = 43.333332
-offset_right = 26.666672
+offset_right = 28.333351
 offset_bottom = 63.333332
 
 [node name="ItemIcons2" parent="Expanded/ItemsUI" unique_id=671277105 instance=ExtResource("3_h2a03")]
-offset_left = 31.666672
+offset_left = 33.33335
 offset_top = 43.333664
-offset_right = 51.66667
+offset_right = 53.33335
 offset_bottom = 63.333664
 
 [node name="ItemIcons3" parent="Expanded/ItemsUI" unique_id=554236532 instance=ExtResource("3_h2a03")]
-offset_left = 56.66667
+offset_left = 58.33335
 offset_top = 43.333332
-offset_right = 76.66667
+offset_right = 78.33335
 offset_bottom = 63.333332
 
 [node name="ItemIcons4" parent="Expanded/ItemsUI" unique_id=504831661 instance=ExtResource("3_h2a03")]
-offset_left = 81.66667
+offset_left = 83.33335
 offset_top = 43.333664
-offset_right = 101.66667
+offset_right = 103.33335
 offset_bottom = 63.333664
 
 [node name="ItemIcons5" parent="Expanded/ItemsUI" unique_id=541551373 instance=ExtResource("3_h2a03")]
-offset_left = 6.666659
+offset_left = 8.333338
 offset_top = 66.666664
-offset_right = 26.666658
+offset_right = 28.333338
 offset_bottom = 86.666664
 
 [node name="ItemIcons6" parent="Expanded/ItemsUI" unique_id=1810545588 instance=ExtResource("3_h2a03")]
-offset_left = 31.666658
+offset_left = 33.333336
 offset_top = 66.66699
-offset_right = 51.666656
+offset_right = 53.333336
 offset_bottom = 86.66699
 
 [node name="ItemIcons7" parent="Expanded/ItemsUI" unique_id=1853045998 instance=ExtResource("3_h2a03")]
-offset_left = 56.66666
+offset_left = 58.33334
 offset_top = 66.666664
-offset_right = 76.66666
+offset_right = 78.333336
 offset_bottom = 86.666664
 
 [node name="ItemIcons8" parent="Expanded/ItemsUI" unique_id=395949462 instance=ExtResource("3_h2a03")]
-offset_left = 81.66666
+offset_left = 83.333336
 offset_top = 66.66699
-offset_right = 101.66666
+offset_right = 103.333336
 offset_bottom = 86.66699
 
-[node name="InventoryTab" type="Button" parent="." unique_id=546525511]
-visible = false
+[node name="QuitOptions" type="Node2D" parent="Expanded" unique_id=1993349784]
+unique_name_in_owner = true
+
+[node name="MainMenuButton" type="Button" parent="Expanded/QuitOptions" unique_id=2051606613]
+offset_left = 13.666672
+offset_top = 26.666666
+offset_right = 103.666664
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_3s0oq")
+text = "Return to Main Menu"
+
+[node name="CloseGameButton" type="Button" parent="Expanded/QuitOptions" unique_id=517177661]
+offset_left = 30.33334
+offset_top = 49.999996
+offset_right = 83.66667
+offset_bottom = 63.333324
+theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_3s0oq")
+text = "Close Game"
+
+[node name="ControlsTab" type="Button" parent="." unique_id=1492932275]
 use_parent_material = true
-offset_left = -59.999996
-offset_top = 33.333332
-offset_right = -36.999996
-offset_bottom = 41.333332
-theme_override_colors/font_color = Color(0.4696, 0.400508, 0.239824, 1)
+offset_left = -102.0
+offset_top = 33.0
+offset_right = -79.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.23, 0.17533667, 0.124199994, 1)
+theme_override_font_sizes/font_size = 5
+theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_017sx")
+text = "Ctrls"
+script = ExtResource("3_auoow")
+
+[node name="InventoryTab" type="Button" parent="." unique_id=546525511]
+use_parent_material = true
+offset_left = -75.0
+offset_top = 33.0
+offset_right = -52.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
@@ -209,13 +254,12 @@ text = "Items"
 script = ExtResource("4_cjqpt")
 
 [node name="QuestsTab" type="Button" parent="." unique_id=1210510889]
-visible = false
 use_parent_material = true
-offset_left = -26.666666
-offset_top = 33.333332
-offset_right = -3.666666
-offset_bottom = 41.333332
-theme_override_colors/font_color = Color(0.4696, 0.400508, 0.239824, 1)
+offset_left = -48.0
+offset_top = 33.0
+offset_right = -25.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
@@ -225,22 +269,24 @@ text = "Quests
 "
 script = ExtResource("4_s05c4")
 
-[node name="ControlsTab" type="Button" parent="." unique_id=1492932275]
-visible = false
+[node name="QuitTab" type="Button" parent="." unique_id=86379206]
 use_parent_material = true
-offset_left = -93.333336
-offset_top = 33.333332
-offset_right = -70.333336
-offset_bottom = 41.333332
-theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
+offset_left = -21.0
+offset_top = 33.0
+offset_right = 2.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxFlat_6f04i")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lpg6r")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_017sx")
-text = "Ctrls"
-script = ExtResource("3_auoow")
+text = "Quit"
+script = ExtResource("7_ctukg")
 
+[connection signal="pressed" from="Expanded/QuitOptions/MainMenuButton" to="QuitTab" method="OnMainMenuButtonPressed"]
+[connection signal="pressed" from="Expanded/QuitOptions/CloseGameButton" to="QuitTab" method="OnCloseGameButtonPressed"]
+[connection signal="pressed" from="ControlsTab" to="ControlsTab" method="OnButtonPressed"]
 [connection signal="pressed" from="InventoryTab" to="InventoryTab" method="OnButtonPressed"]
 [connection signal="pressed" from="QuestsTab" to="QuestsTab" method="OnButtonPressed"]
-[connection signal="pressed" from="ControlsTab" to="ControlsTab" method="OnButtonPressed"]
+[connection signal="pressed" from="QuitTab" to="QuitTab" method="OnButtonPressed"]

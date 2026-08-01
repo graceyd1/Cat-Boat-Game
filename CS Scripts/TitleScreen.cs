@@ -12,6 +12,10 @@ public partial class TitleScreen : Node2D
 		GetNode<CanvasLayer>("FilePicker").Hide();
 	}
 
+	private void OnQuitButtonPressed()
+	{
+		GetTree().Quit();
+	}
 
 	public async void OnPlayButtonPressed()
 	{
