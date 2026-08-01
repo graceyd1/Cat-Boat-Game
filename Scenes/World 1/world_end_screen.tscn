@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b4a2tpq26qeqg"]
 
+[ext_resource type="Script" uid="uid://c7fn607r6bqdx" path="res://Scenes/World 1/WorldEndScreen.cs" id="1_bepsy"]
+
 [node name="WorldEndScreen" type="Control" unique_id=1625653200]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_bepsy")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=994982858]
 layout_mode = 0
@@ -12,12 +15,35 @@ color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="Label" type="Label" parent="." unique_id=367449327]
 layout_mode = 0
-offset_top = 40.0
-offset_right = 320.0
-offset_bottom = 137.0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 321.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 10
 text = "Boba Cats!
 World 1
 
-Thank you for playing!
-More worlds coming... eventually"
+Thank you for playing the demo!
+New music and updates coming soon!"
 horizontal_alignment = 1
+
+[node name="KeepPlayingButton" type="Button" parent="." unique_id=1670159895]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 105.0
+offset_right = 207.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 10
+text = "Keep Playing"
+
+[node name="TitleScreenButton" type="Button" parent="." unique_id=809646347]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 139.0
+offset_right = 214.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 10
+text = "Return to Title Screen"
+
+[connection signal="pressed" from="KeepPlayingButton" to="." method="OnKeepPlayingButtonPressed"]
+[connection signal="pressed" from="TitleScreenButton" to="." method="OnTitleScreenButtonPressed"]

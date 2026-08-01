@@ -46,8 +46,7 @@ public partial class PlantShop : Node2D
 		await oText.ShowText("Okay, enough with the wise-talk. Now get out, you're holding up the line.");
 		await dText.ShowText("*quietly* I don't see a line...");
 	}
-	
-	
+		
 	private async void FirstShopDialogue(int VisitNum) {
 		classPlayer.InputEnabled = false;
 		classPlayer.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "sit_left";
@@ -156,17 +155,36 @@ public partial class PlantShop : Node2D
 				laser.Play();
 
 				var player = GetNode<Player>("GroundPlayer");
-				await ToSignal(player, Player.SignalName.Respawned);
-				var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-				await GlobalScene.ChangeRoom(new Vector2(40, 321), "underwater_town", true);
+				player.SetDisableRespawn(true);
+				await ToSignal(player, Player.SignalName.Died);
+				player.invulnerable = true;
+				laser.Hide();
+				laser.GetNode<Hitbox>("Hitbox").SetDisabled(true);
+				GD.Print("1");
+
+				var fader = GetNode<Fader>("/root/Fader");
+				await fader.FadeIn(.7f);
+				var diedScreen = GetNode<Control>("DiedScreen");
+				diedScreen.Show();
+				await fader.FadeOut(.7f);
+
+				var button = diedScreen.GetNode<Button>("RespawnButton");
+				await ToSignal(button, Button.SignalName.Pressed);
+				
+				await fader.FadeIn(.7f);
+				diedScreen.Hide();
+				await fader.FadeOut(.7f);
+				player.SetDisableRespawn(false);
+				player.invulnerable = false;
+
+				//var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
+				//await GlobalScene.ChangeRoom(new Vector2(40, 321), "underwater_town", true);
 				// laser.Hide();
 				// laserHitbox.SetDisabled(true);
 			}
 		}
 		classPlayer.InputEnabled = true;
 	}
-
-
 
 	private async void OnExitRoom() {
 		var FaderNode = GetNode<CanvasLayer>("/root/Fader");

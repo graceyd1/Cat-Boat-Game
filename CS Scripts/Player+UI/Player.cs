@@ -87,10 +87,6 @@ public partial class Player : CharacterBody2D
 	//player enteres hitbox
 	private void OnHurtboxAreaEntered(Node2D area)
 	{
-		if (GetNode<Godot.Timer>("HurtTimer").TimeLeft == 0) //bc OnTimerTimeout isn't working
-		{
-			invulnerable = false;
-		}
 		if (!invulnerable)
 		{
 			GetHit();
@@ -126,7 +122,6 @@ public partial class Player : CharacterBody2D
 	//I don't know why but this method doesn't ever run for me
 	public void OnHurtTimerTimeout()
 	{
-		GD.Print("Timeout");//
 		invulnerable = false;
 		Flash = false;
 
@@ -213,13 +208,18 @@ public partial class Player : CharacterBody2D
 	/// <summary>
 	/// Overrides the player's normal respawn to respawn at a specific point
 	/// </summary>
-	/// <param name="pos"></param>
+	/// <param name="pos">The position to respawn at
 	/// <returns></returns>
 	public async Task RespawnOverride(Vector2 pos)
 	{
 		respawnOverride = true;
 		await RespawnToPoint(pos);
 		respawnOverride = false;
+	}
+
+	public void SetDisableRespawn(bool disable)
+	{
+		respawnOverride = disable;
 	}
 
 	public async Task RespawnToPoint(Vector2 pos)

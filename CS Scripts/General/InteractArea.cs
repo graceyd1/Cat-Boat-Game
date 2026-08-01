@@ -78,6 +78,14 @@ public partial class InteractArea : Area2D
 				EmitSignal(SignalName.InteractReturnAreaName, Name);
 			}
 		}
+
+		// //=
+		// if (GetParent().Name == "IceCreamAreaSprite")
+		// {
+		// 	GD.Print("bodies : " + GetOverlappingBodies());
+		// 	GD.Print(allowInteraction);
+
+		// }
 	}
 
 	/// <summary>
@@ -86,7 +94,6 @@ public partial class InteractArea : Area2D
 	/// <param name="allowInteract"></param>
 	public void Interactable(Boolean allowInteract)
 	{
-		GD.Print("Interactable " + allowInteract);//=
 		allowInteraction = allowInteract;
 		if (!allowInteract && interactLabel != null)
 		{
@@ -120,22 +127,22 @@ public partial class InteractArea : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		GD.Print("Entered");//=
-		if (allowInteraction && interactLabel != null)
+		if (allowInteraction)
 		{
-			interactLabel.Position = new Vector2(GlobalPosition.X, GlobalPosition.Y - LabelHeight);
-			interactLabel.Show();
+			if (interactLabel != null)
+			{
+				interactLabel.Position = new Vector2(GlobalPosition.X, GlobalPosition.Y - LabelHeight);
+				interactLabel.Show();
+			}
 		}
 		playerNear = true;
 	}
 
 	private void OnBodyExited(Node2D body)
 	{
-		GD.Print("HIDE");//=
-		GD.Print(body);//=
-		if (interactLabel != null)
+		if (allowInteraction)
 		{
-			interactLabel.Hide();
+			interactLabel?.Hide(); //if interact label not null
 		}
 		playerNear = false;
 	}	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d08ckxavg5wbt"
-path="res://.godot/imported/opening_animation.png-58d6cf67eb2a007b7e82e0946bf42bd2.ctex"
+uid="uid://dge2msshkv4ln"
+path="res://.godot/imported/sugar.png-1aecaa148882bbcebfe151d1db0b2143.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/opening_animation.png"
-dest_files=["res://.godot/imported/opening_animation.png-58d6cf67eb2a007b7e82e0946bf42bd2.ctex"]
+source_file="res://assets/background_items/sugar.png"
+dest_files=["res://.godot/imported/sugar.png-1aecaa148882bbcebfe151d1db0b2143.ctex"]
 
 [params]
 

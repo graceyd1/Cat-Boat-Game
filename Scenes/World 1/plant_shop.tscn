@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dxgrd8fkvpx6l" path="res://Scenes/General/hitbox.tscn" id="10_616w5"]
 [ext_resource type="PackedScene" uid="uid://cajcbse43dl4y" path="res://Scenes/General/interact_area.tscn" id="10_kf4ch"]
 [ext_resource type="PackedScene" uid="uid://ygrr56bstc00" path="res://Scenes/General/interact_label.tscn" id="11_7yypv"]
+[ext_resource type="Material" uid="uid://cuxgp8trfyrih" path="res://assets/themes+materials/unshaded_material.tres" id="14_jqoie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxqno"]
 size = Vector2(131, 62)
@@ -54,7 +55,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ufvgu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"laser",
 "speed": 10.0
 }, {
@@ -80,81 +81,118 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ufvgu")
 }],
-"loop": false,
+"loop": 0,
 "name": &"start_laser",
 "speed": 10.0
 }]
 
-[node name="PlantShop" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_peka7"]
+light_mode = 1
+
+[node name="PlantShop" type="Node2D" unique_id=1391533612]
 script = ExtResource("1_xuphg")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1687683670]
 texture = ExtResource("1_q5n3t")
 centered = false
 
-[node name="LeftWall" parent="." instance=ExtResource("2_oosj0")]
+[node name="LeftWall" parent="." unique_id=1455545539 instance=ExtResource("2_oosj0")]
 position = Vector2(-18, 0)
 scale = Vector2(1, 9)
 
-[node name="RightWall" parent="." instance=ExtResource("2_oosj0")]
+[node name="RightWall" parent="." unique_id=278243353 instance=ExtResource("2_oosj0")]
 position = Vector2(320, 0)
 scale = Vector2(1, 9)
 
-[node name="Floor" parent="." instance=ExtResource("2_oosj0")]
+[node name="Floor" parent="." unique_id=1093710311 instance=ExtResource("2_oosj0")]
 position = Vector2(-60, 140)
 scale = Vector2(22, 1)
 
-[node name="Door" parent="." instance=ExtResource("9_ee1pn")]
+[node name="Door" parent="." unique_id=556237886 instance=ExtResource("9_ee1pn")]
 offset_left = 299.0
 offset_top = 119.0
 offset_right = 320.0
 offset_bottom = 140.0
 
-[node name="ShopExit" parent="Door" instance=ExtResource("10_kf4ch")]
+[node name="ShopExit" parent="Door" unique_id=16539113 instance=ExtResource("10_kf4ch")]
 position = Vector2(10, 23)
 scale = Vector2(0.5, 0.5)
 
-[node name="Olive" type="Sprite2D" parent="."]
+[node name="Olive" type="Sprite2D" parent="." unique_id=1788353105]
 position = Vector2(76, 114)
 texture = ExtResource("3_kkkae")
 
-[node name="TextBox" parent="Olive" instance=ExtResource("4_to25d")]
+[node name="TextBox" parent="Olive" unique_id=725524112 instance=ExtResource("4_to25d")]
 
-[node name="Flashlight" type="PointLight2D" parent="Olive"]
+[node name="Flashlight" type="PointLight2D" parent="Olive" unique_id=1299779264]
 visible = false
 position = Vector2(33, -51)
 rotation = -1.02974
 texture = ExtResource("5_byer3")
 
-[node name="Area2D" type="Area2D" parent="Olive/Flashlight"]
+[node name="Area2D" type="Area2D" parent="Olive/Flashlight" unique_id=1982246034]
 visible = false
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Olive/Flashlight/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Olive/Flashlight/Area2D" unique_id=965120970]
 visible = false
 position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_pxqno")
 debug_color = Color(0.579823, 0.546776, 0.218768, 0.42)
 
-[node name="Laser" type="AnimatedSprite2D" parent="Olive"]
+[node name="Laser" type="AnimatedSprite2D" parent="Olive" unique_id=821079213]
 visible = false
 z_index = 1
 position = Vector2(157, 4)
 sprite_frames = SubResource("SpriteFrames_mj7jb")
 animation = &"laser"
 
-[node name="Hitbox" parent="Olive/Laser" instance=ExtResource("10_616w5")]
+[node name="Hitbox" parent="Olive/Laser" unique_id=49334058 instance=ExtResource("10_616w5")]
 scale = Vector2(15, 1.5)
 
-[node name="GrowableVine" parent="." instance=ExtResource("4_6dfnw")]
+[node name="GrowableVine" parent="." unique_id=193615321 instance=ExtResource("4_6dfnw")]
 position = Vector2(132.5, 61.97)
 
-[node name="GroundPlayer" parent="." instance=ExtResource("6_4f8ty")]
+[node name="GroundPlayer" parent="." unique_id=1009551293 instance=ExtResource("6_4f8ty")]
+material = SubResource("CanvasItemMaterial_peka7")
 position = Vector2(258, 132)
 
-[node name="TextBox" parent="GroundPlayer" instance=ExtResource("4_to25d")]
+[node name="TextBox" parent="GroundPlayer" unique_id=962212472 instance=ExtResource("4_to25d")]
 
-[node name="InteractLabel" parent="." instance=ExtResource("11_7yypv")]
+[node name="InteractLabel" parent="." unique_id=1570284231 instance=ExtResource("11_7yypv")]
+
+[node name="DiedScreen" type="ColorRect" parent="." unique_id=804552349]
+material = ExtResource("14_jqoie")
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Label" type="Label" parent="DiedScreen" unique_id=548892780]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 37.0
+offset_right = 143.0
+offset_bottom = 54.0
+text = "GAME OVER!!!! :("
+
+[node name="RespawnButton" type="Button" parent="DiedScreen" unique_id=1602932969]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 118.0
+offset_right = 160.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 10
+text = "Respawn"
+
+[node name="SadButton" type="Button" parent="DiedScreen" unique_id=1069888979]
+visible = false
+layout_mode = 0
+offset_left = 151.0
+offset_top = 74.0
+offset_right = 169.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 10
+text = ":("
 
 [connection signal="Interact" from="Door/ShopExit" to="." method="OnExitRoom"]

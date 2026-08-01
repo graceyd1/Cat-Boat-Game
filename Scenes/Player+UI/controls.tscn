@@ -81,6 +81,7 @@ position = Vector2(0, 13)
 texture = ExtResource("3_l32e4")
 
 [node name="Expanded" type="Panel" parent="." unique_id=389428939]
+visible = false
 use_parent_material = true
 offset_left = -107.0
 offset_top = 30.0
@@ -211,7 +212,7 @@ offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_3s0oq")
-text = "Return to Main Menu"
+text = "Return to Title Screen"
 
 [node name="CloseGameButton" type="Button" parent="Expanded/QuitOptions" unique_id=517177661]
 offset_left = 30.33334

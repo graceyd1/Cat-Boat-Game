@@ -239,7 +239,8 @@ position = Vector2(44, 87)
 position = Vector2(220, 112)
 
 [node name="FishEnemy3" parent="RegularFish" unique_id=944381476 instance=ExtResource("12_on3ij")]
-position = Vector2(120, 46)
+position = Vector2(200, 53)
+MoveLeftFirst = true
 
 [node name="FishEnemy4" parent="RegularFish" unique_id=228300894 instance=ExtResource("12_on3ij")]
 position = Vector2(298, 50)
@@ -255,8 +256,9 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish2" parent="CollectableFish" unique_id=869879951 instance=ExtResource("12_on3ij")]
-position = Vector2(408, 56)
+position = Vector2(461, 71)
 isOrange = false
+MoveLeftFirst = true
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish2" unique_id=863318760 instance=ExtResource("8_xnsu6")]
 position = Vector2(0, 18)
@@ -279,7 +281,7 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish5" parent="CollectableFish" unique_id=2130325794 instance=ExtResource("12_on3ij")]
-position = Vector2(357, 17)
+position = Vector2(348, 17)
 isOrange = false
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish5" unique_id=1457044102 instance=ExtResource("8_xnsu6")]
@@ -287,8 +289,9 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish6" parent="CollectableFish" unique_id=180084222 instance=ExtResource("12_on3ij")]
-position = Vector2(224, 82)
+position = Vector2(270, 82)
 isOrange = false
+MoveLeftFirst = true
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish6" unique_id=238758787 instance=ExtResource("8_xnsu6")]
 position = Vector2(0, 18)
@@ -319,8 +322,9 @@ position = Vector2(0, 18)
 scale = Vector2(1, 0.6)
 
 [node name="CollectableFish10" parent="CollectableFish" unique_id=2077174884 instance=ExtResource("12_on3ij")]
-position = Vector2(61, 118)
+position = Vector2(89, 115)
 isOrange = false
+MoveLeftFirst = true
 
 [node name="InteractArea" parent="CollectableFish/CollectableFish10" unique_id=1603832241 instance=ExtResource("8_xnsu6")]
 position = Vector2(0, 18)

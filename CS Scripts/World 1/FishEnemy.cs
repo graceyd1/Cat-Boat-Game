@@ -9,6 +9,9 @@ public partial class FishEnemy : Node2D
 	[Export]
 	public Boolean isOrange {get; set;} = true;
 
+	[Export]
+	public bool MoveLeftFirst {get; set;} = false;
+
 	private static int[] Velocities = {1, 0, -1, 0};
 
 	private int idx;
@@ -22,7 +25,12 @@ public partial class FishEnemy : Node2D
 	{
 		StartPos = Position;
 		Visible = true;
-		idx = 0;
+		if (MoveLeftFirst) {
+			idx = 2;
+		}
+		else {
+			idx = 0;
+		}
 		InteractArea = GetNodeOrNull<InteractArea>("InteractArea");
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animatedSprite2D.Play();
@@ -100,7 +108,7 @@ public partial class FishEnemy : Node2D
 
 	public void Enable()
 	{
-		idx = 0;
+		if (MoveLeftFirst) idx = 2; else idx = 0;
 		Position = StartPos;
 		Visible = true;
 		GetNode<Timer>("Timer").Start();

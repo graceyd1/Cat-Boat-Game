@@ -175,7 +175,6 @@ public partial class FishRoom : Node2D
 	private void OnFishInteract()
 	{
 		fishCollected ++;
-		GD.Print(fishCollected);///
 		//end game early if all fish collected
 		if (fishCollected >= numCollectableFish)
 		{
@@ -211,30 +210,24 @@ public partial class FishRoom : Node2D
 	}
 	
 	private async Task NextRoomCheck() {
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
+		var fader = GetNode<Fader>("/root/Fader");
 		Vector2 pos = GetNode<CharacterBody2D>("UnderwaterPlayer").Position;
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		if (pos.X < 5) {
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
+			await fader.FadeIn(.7f);
 			await GlobalSceneChange.ChangeRoom(new Vector2(480, 140), "box_room", false);
 		}
 		else if (pos.Y < 5)
 		{
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
+			await fader.FadeIn(.7f);
 			await GlobalSceneChange.ChangeRoom(new Vector2(290, 135), "long_tube_coral_room", false);
 		}
 		else if (pos.X > 635)
 		{
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
+			await fader.FadeIn(.7f);
 			await GlobalSceneChange.ChangeRoom(new Vector2(20, 863), "geyser_room", true);
 		}
 	}

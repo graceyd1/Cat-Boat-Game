@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://f6ld5xg0egu8" path="res://CS Scripts/World 1/Seabunny.cs" id="1_lxr8e"]
 [ext_resource type="Texture2D" uid="uid://ce156lj6x7xs7" path="res://assets/enemy_sprites/seabunny/seabunny_climb.png" id="2_02u55"]
+[ext_resource type="Material" uid="uid://cuxgp8trfyrih" path="res://assets/themes+materials/unshaded_material.tres" id="2_o63nk"]
 [ext_resource type="Texture2D" uid="uid://cm6mvwp1omus0" path="res://assets/enemy_sprites/seabunny/seabunny_dash.png" id="3_at4wh"]
 [ext_resource type="Texture2D" uid="uid://c715yvcvxnfvb" path="res://assets/enemy_sprites/seabunny/seabunny_idle_sleep.png" id="4_tsrxl"]
 [ext_resource type="Texture2D" uid="uid://dan2r0wddtkbd" path="res://assets/enemy_sprites/seabunny/seabunny_spin.png" id="5_buh3w"]
@@ -169,7 +170,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jj2q5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"climbing",
 "speed": 5.0
 }, {
@@ -180,7 +181,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lf710")
 }],
-"loop": true,
+"loop": 1,
 "name": &"dashing",
 "speed": 5.0
 }, {
@@ -197,7 +198,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nc0n4")
 }],
-"loop": false,
+"loop": 0,
 "name": &"end_climb",
 "speed": 5.0
 }, {
@@ -214,7 +215,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5rmnl")
 }],
-"loop": false,
+"loop": 0,
 "name": &"end_dash",
 "speed": 5.0
 }, {
@@ -225,7 +226,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sdlku")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -236,7 +237,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ruujj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"sleep",
 "speed": 1.0
 }, {
@@ -277,7 +278,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7c10n")
 }],
-"loop": false,
+"loop": 0,
 "name": &"spin",
 "speed": 5.0
 }, {
@@ -294,7 +295,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_onkh1")
 }],
-"loop": false,
+"loop": 0,
 "name": &"start_climb",
 "speed": 5.0
 }, {
@@ -317,7 +318,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jos34")
 }],
-"loop": false,
+"loop": 0,
 "name": &"start_dash",
 "speed": 5.0
 }]
@@ -360,43 +361,42 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d0esg"]
 _data = {
-"RESET": SubResource("Animation_t0fw4"),
-"arrow_move": SubResource("Animation_ef28p")
+&"RESET": SubResource("Animation_t0fw4"),
+&"arrow_move": SubResource("Animation_ef28p")
 }
 
-[node name="Seabunny" type="CharacterBody2D"]
+[node name="Seabunny" type="CharacterBody2D" unique_id=1257427764]
 position = Vector2(14, 10)
 scale = Vector2(0.9, 0.9)
 motion_mode = 1
 script = ExtResource("1_lxr8e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=270530088]
 texture_filter = 1
+material = ExtResource("2_o63nk")
 position = Vector2(18, 10)
 scale = Vector2(0.691667, 0.725)
 sprite_frames = SubResource("SpriteFrames_8usnm")
 animation = &"start_climb"
 
-[node name="Hitbox" parent="." instance=ExtResource("36_pik4a")]
+[node name="Hitbox" parent="." unique_id=1098609354 instance=ExtResource("36_pik4a")]
 position = Vector2(19, 21.111)
 scale = Vector2(3.4, 1.725)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=469148610]
 position = Vector2(18.8889, 20)
 rotation = 4.71239
 shape = SubResource("CapsuleShape2D_884g2")
 
-[node name="IdleTimer" type="Timer" parent="."]
+[node name="IdleTimer" type="Timer" parent="." unique_id=1600660160]
 one_shot = true
 
-[node name="BounceIcon" type="Sprite2D" parent="."]
+[node name="BounceIcon" type="Sprite2D" parent="." unique_id=138641852]
 position = Vector2(21, -5)
 scale = Vector2(2, 2)
 texture = ExtResource("7_vk0ja")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_d0esg")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1240144051]
+libraries/ = SubResource("AnimationLibrary_d0esg")
 
 [connection signal="timeout" from="IdleTimer" to="." method="OnIdleTimerTimeout"]

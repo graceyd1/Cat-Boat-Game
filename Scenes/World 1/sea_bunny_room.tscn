@@ -429,7 +429,7 @@ texture = ExtResource("9_5y8xs")
 position = Vector2(485, 205)
 
 [node name="GroundPlayer" parent="." unique_id=1093688023 instance=ExtResource("11_pu183")]
-position = Vector2(107, 225)
+position = Vector2(400, 232)
 
 [node name="TextBox" parent="GroundPlayer" unique_id=1450740861 instance=ExtResource("8_7j8h3")]
 
