@@ -13,6 +13,7 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 
 	public static List<string> NoPlayerRooms = new List<string>
 	{
+		"TitleScreen",
 		"WorldEndScreen"
 	};
 	
@@ -65,8 +66,14 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 
 	
 	public async Task ChangeRoom(Vector2 pos, String room, bool right) {
-		GetTree().ChangeSceneToFile(
+		if (room == "title_screen")
+		{
+			GetTree().ChangeSceneToFile("res://Scenes/title_screen.tscn");
+		}
+		else {
+			GetTree().ChangeSceneToFile(
 			"res://Scenes/World " + GlobalScript.WorldNum + "/" + room + ".tscn");
+		}
 		GlobalScript.CurrentRoom = room;
 		await ToSignal(this, GlobalSceneChange.SignalName.SceneReady);
 		string roomName = GetTree().CurrentScene.Name;

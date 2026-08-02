@@ -307,7 +307,7 @@ script = ExtResource("1_vix8s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406709693]
 sprite_frames = SubResource("SpriteFrames_817w4")
-animation = &"opening"
+animation = &"title_screen"
 autoplay = "title_screen"
 centered = false
 
@@ -322,14 +322,26 @@ offset_bottom = 180.0
 [node name="PlayButton" type="Button" parent="Buttons" unique_id=1141223872]
 layout_mode = 0
 offset_left = 39.0
-offset_top = 11.0
+offset_top = 8.0
 offset_right = 99.0
-offset_bottom = 36.0
+offset_bottom = 29.0
 theme_override_colors/font_color = Color(0.643137, 0.494118, 0.172549, 1)
 theme_override_colors/font_hover_color = Color(0.2, 0.149333, 0.04, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1y4fl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ua1qk")
 text = "Play"
+
+[node name="QuitButton" type="Button" parent="Buttons" unique_id=610690585]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 38.0
+offset_right = 99.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0.643137, 0.494118, 0.172549, 1)
+theme_override_colors/font_hover_color = Color(0.2, 0.149333, 0.04, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4fl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ua1qk")
+text = "Quit"
 
 [node name="FilePicker" type="CanvasLayer" parent="." unique_id=1424512890]
 visible = false
@@ -385,5 +397,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4ykt3")
 text = "Don't Save"
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="OnPlayButtonPressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="OnQuitButtonPressed"]
 [connection signal="pressed" from="FilePicker/X" to="." method="OnExitFilePicker"]
 [connection signal="pressed" from="FilePicker/Don\'tSave" to="." method="ShipCrashCutscene"]
