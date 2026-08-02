@@ -14,6 +14,7 @@ public partial class SecretRoom1 : Node2D
 	{
 		anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		gText = GetNode<TextBox>("Green2/RightInteractArea/TextBox");
+		gText.Known(false);
 		textIdx = 0;
 	}
 
