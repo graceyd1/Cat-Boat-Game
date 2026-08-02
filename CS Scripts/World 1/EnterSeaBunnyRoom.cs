@@ -14,6 +14,11 @@ public partial class EnterSeaBunnyRoom : Node2D
 	{
 		dashT = GetNode<TextBox>("GroundPlayer/TextBox");
 		parvaT = GetNode<TextBox>("Parva/TextBox");
+		
+		dashT.SetLabel("Dash");
+		parvaT.SetLabel("Parva");
+		dashT.Known(true);
+		parvaT.Known(true);
 
 		if (GlobalScript.QuestNum <= GlobalScript.MainQuests.IndexOf("ReturnBoba")) //number
 		{
@@ -67,10 +72,9 @@ public partial class EnterSeaBunnyRoom : Node2D
 				await dashT.ShowText("...");
 				choice = await dashT.Ask("1. Dig deeper\n2. Back off");
 				if (choice == "1") {
-					await dashT.ShowText("Parva, I can't help if you don't tell me the truth.");
+					await dashT.ShowText("Parva, I won't help you if you don't tell me the truth.");
 					await parvaT.ShowText("YOU CAN HELP ME BY STEALING MORE BOBA FOR ME!");
 					await parvaT.ShowText("BUT IT SEEMS YOU'D RATHER DECEIVE ME INTO BECOMING WEAK!");
-					//await dashT.ShowText("No, you're hurting and you can't heal until you accept what happened-");
 					await parvaT.ShowText("I'M LEAVING. YOU CAN ROT HERE FOR ALL I CARE.");
 				}
 				else {

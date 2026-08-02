@@ -15,6 +15,7 @@ public partial class TextBox : Node2D
 	
 	[Signal]
 	public delegate void PromptUserEventHandler(TextBox box);
+	
 
 	private Boolean showingText;
 	private RichTextLabel label;
@@ -22,15 +23,26 @@ public partial class TextBox : Node2D
 	private Boolean asking;
 	private bool inactive;
 	public static int dialogueNum = 0;
+	public string LabelName;
+	private bool Unknown;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		dialogueNum = 0;
 		showingText = false;
-		label = GetNode<RichTextLabel>("PanelContainer/MarginContainer/RichTextLabel");
+		label = GetNode<RichTextLabel>("%RichTextLabel");
 		timer = GetNode<Godot.Timer>("Timer");
 		Hide();
+	}
+	
+	public override void _Process(double delta) {
+		if (Unknown) {
+			GetNode<Label>("%Label").Text = "???";
+		}
+		else {
+			GetNode<Label>("%Label").Text = LabelName;
+		}
 	}
 
 	public override void _Input(InputEvent @event)
@@ -126,4 +138,13 @@ public partial class TextBox : Node2D
 			area.DelayEnable();
 		}
 	}
+	
+	public void Known(bool val) {
+		Unknown = !val;
+	}
+	
+	public void SetLabel(string name) {
+		LabelName = name;
+	}
+
 }

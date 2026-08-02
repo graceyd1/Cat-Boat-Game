@@ -23,6 +23,8 @@ public partial class JellyfishRoom : Node2D
 	{
 		var bArea = GetNode<Node2D>("BlueCat/InteractArea");
 		var bText = bArea.GetNode<TextBox>("TextBox");
+		bText.SetLabel("blue cat");
+		bText.Known(true);
 		bText.DisableInteractArea();
 		await bText.ShowText("I'm blue cat");
 		bText.EnableInteractArea();

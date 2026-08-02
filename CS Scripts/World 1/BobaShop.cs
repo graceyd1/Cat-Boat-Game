@@ -11,6 +11,7 @@ public partial class BobaShop : Node2D
 	private AnimationPlayer AniPlayer;
 	private Sprite2D Pearl;
 	private const int MAX_STORY_NUM = 2;
+	private bool DialogueTimeout;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -22,7 +23,22 @@ public partial class BobaShop : Node2D
 		Pearl = GetNode<Sprite2D>("Pearl");
 		Pearl.Hide();
 		csAnimation.FlipH = true;
+		dashT.SetLabel("Dash");
+		catssavaT.SetLabel("Catssava");
+		dashT.Known(true);
+		catssavaT.Known(true); 
 		StartDialogue();
+	}
+	
+	public override void _Input(InputEvent @event) {
+		var exit = GetNode<Area2D>("BobaExit/InteractArea");
+		if (@event.IsActionPressed("enter")) {
+			if (!exit.OverlapsBody(player)) {
+				if (DialogueTimeout) {
+					StartDialogue();
+				}
+			}
+		}
 	}
 	
 	private async void OnExitRoom() {
@@ -38,6 +54,7 @@ public partial class BobaShop : Node2D
 	public async void StartDialogue() {
 		csAnimation.Animation = "sit";
 		player.InputEnabled = false;
+		DialogueTimeout = false;
 		//Quest == Visit the boba shop and ask for brown sugar boba
 		if (GlobalScript.CQ("short") == "MeetCatssava") {
 			await catssavaT.ShowText("Oh hi there, I’m Catssava, the shopkeeper here. What can I help you with?");
@@ -72,7 +89,7 @@ public partial class BobaShop : Node2D
 		}
 		//already finished quest 1: Visit the boba shop and ask for brown sugar boba
 		else if (GlobalScript.CatssavaStoryNum == 0 && GlobalScript.NumPearls > 0) {
-			var choice = await dashT.Ask("Should I present a pearl to Catssava? 1. Yes 2. No");
+			var choice = await dashT.Ask("Should I present a pearl to Catssava?\n1. Yes\n2. No");
 			if (choice == "1") {
 				GlobalScript.NumPearls--;
 				if (GlobalScript.NumPearls == 0) {
@@ -90,7 +107,7 @@ public partial class BobaShop : Node2D
 				await catssavaT.ShowText("I feel like I've thanked you so many times recently.");
 				if (GlobalScript.IsAfterQuest("GetBoat")) {
 					await catssavaT.ShowText("You really are a true hero.");
-					choice = await dashT.Ask("1. The townspeople are the true heroes 2. I should accept the praise");
+					choice = await dashT.Ask("1. The townspeople are the true heroes\n2. I should accept the praise");
 					if (choice == "1") {
 						await dashT.ShowText("You and the other cats of Bubbly Town are the true heroes.");
 						await dashT.ShowText("I would never have gotten my new boat if not for you and Azucat.");
@@ -118,7 +135,7 @@ public partial class BobaShop : Node2D
 		}
 		else if (GlobalScript.CatssavaStoryNum > 0 && GlobalScript.CatssavaStoryNum % 1 == 0 && GlobalScript.IsAfterQuest("GetBoat")) {
 			if (GlobalScript.CatssavaStoryNum <= MAX_STORY_NUM) {
-				var choice = await catssavaT.Ask("Would you like to hear a story? 1. Yes 2. No");
+				var choice = await catssavaT.Ask("Would you like to hear a story?\n1. Yes\n2. No");
 				if (choice == "1") {
 					await dashT.ShowText("Sure!");
 					await TellStory();
@@ -128,12 +145,17 @@ public partial class BobaShop : Node2D
 				}
 			}	
 		}
-		else if (GlobalScript.IsAfterQuest("MeetCatssava"))
+		else if (GlobalScript.IsAfterQuest("MeetCatssava") && GlobalScript.IsBeforeQuest("GetBoat"))
 		{
 			//maybe we can have a list of dialogue and pick a random one
 			await catssavaT.ShowText("Oh, thank you so very much for helping me, Dash!");
 		}
+		else if (GlobalScript.IsAfterQuest("GetBoat")) {
+			await catssavaT.ShowText("Dash, you were amazing! I can't believe you actually got my boba back!");
+		}
 		player.InputEnabled = true;
+		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+		DialogueTimeout = true;
 	}
 	
 	public async Task TellStory() {
@@ -158,7 +180,7 @@ public partial class BobaShop : Node2D
 		await dashT.ShowText("She must have loved you for that!");
 		await catssavaT.ShowText("Well, she was pleased at first...until her customers blamed her when the plants molded and rotted away.");
 		await catssavaT.ShowText("She still thinks I purposely tried to ruin her business so I could steal her customers.");
-		var choice = await dashT.Ask("1. I should try and fix the misunderstanding 2. Olive is Olive. She won't ever change.");
+		var choice = await dashT.Ask("1. I should try and fix the misunderstanding\n2. Olive is Olive. She won't ever change.");
 		if (choice == "1") {
 			await dashT.ShowText("That's unfair. Olive never knew you were actually trying to help her.");
 			await dashT.ShowText("I'll talk to her for you.");

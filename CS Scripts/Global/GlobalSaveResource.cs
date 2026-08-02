@@ -22,7 +22,7 @@ public partial class GlobalSaveResource : Resource
 	public Godot.Collections.Array<String> Inventory {get; set;} = new Array<String>(); 
 
 	[Export]
-	public int QuestNum{get; set;} = 9; //0;
+	public int QuestNum{get; set;} = 0; //0;
 
 	[Export]
 	public string CurrentRoom{get; set;} = "first_room";
@@ -58,7 +58,9 @@ public partial class GlobalSaveResource : Resource
 	
 	[Export]
 	public double AzucatStoryNum = 0;
-	// [Export]
+	
+	[Export]
+	public int CarEncNum = 0;
 	// [Export]
 	// [Export]
 }

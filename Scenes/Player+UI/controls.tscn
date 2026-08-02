@@ -105,7 +105,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Expanded/MarginContainer/VBoxContainer" unique_id=1925746656]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.643137, 0.45098, 0.172549, 1)
+theme_override_colors/font_color = Color(0.47058824, 0.4, 0.23921569, 1)
 theme_override_font_sizes/font_size = 8
 autowrap_mode = 3
 
