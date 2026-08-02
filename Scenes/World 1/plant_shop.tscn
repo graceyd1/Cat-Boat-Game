@@ -159,6 +159,7 @@ position = Vector2(258, 132)
 [node name="InteractLabel" parent="." unique_id=1570284231 instance=ExtResource("11_7yypv")]
 
 [node name="DiedScreen" type="ColorRect" parent="." unique_id=804552349]
+visible = false
 material = ExtResource("14_jqoie")
 offset_right = 320.0
 offset_bottom = 180.0

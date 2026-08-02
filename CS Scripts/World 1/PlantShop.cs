@@ -17,7 +17,7 @@ public partial class PlantShop : Node2D
 		oText.SetLabel("Olive");
 		dText.Known(true);
 		oText.Known(GlobalScript.OliveVisitNum > 0);
-
+		GetNode<Control>("DiedScreen").Hide();
 		GetNode<Hitbox>("Olive/Laser/Hitbox").SetDisabled(true);
 		GetNode<CollisionShape2D>("Olive/Flashlight/Area2D/CollisionShape2D").Disabled = true;
 		
