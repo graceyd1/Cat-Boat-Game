@@ -20,9 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cf4276i8ovba8" path="res://Scenes/General/clam.tscn" id="16_evaiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywtf6"]
-size = Vector2(20, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g0ps"]
+size = Vector2(330, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w8jo"]
 size = Vector2(64, 7)
@@ -110,19 +108,8 @@ collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveCameraTrigger" unique_id=1588427850]
-position = Vector2(401, 132.5)
+position = Vector2(533, 155.5)
 shape = SubResource("RectangleShape2D_ywtf6")
-debug_color = Color(1, 1, 0, 0.41960785)
-
-[node name="CaveCameraTrigger2" type="Area2D" parent="." unique_id=1083019787]
-position = Vector2(503, 124)
-scale = Vector2(0.5, 2.5)
-collision_layer = 0
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CaveCameraTrigger2" unique_id=760084291]
-shape = SubResource("RectangleShape2D_7g0ps")
 debug_color = Color(1, 1, 0, 0.41960785)
 
 [node name="BlueCat" type="Sprite2D" parent="." unique_id=132823741]
@@ -255,7 +242,7 @@ scale = Vector2(2, 1.2)
 [node name="InteractLabel" parent="." unique_id=1583186606 instance=ExtResource("16_2u7sr")]
 
 [connection signal="body_entered" from="CaveCameraTrigger" to="." method="OnCaveCameraTriggerEntered"]
-[connection signal="body_entered" from="CaveCameraTrigger2" to="." method="OnCaveCameraTrigger2Entered"]
+[connection signal="body_exited" from="CaveCameraTrigger" to="." method="OnCaveCameraTriggerExited"]
 [connection signal="Interact" from="BlueCat/InteractArea" to="." method="OnBlueCatInteract"]
 [connection signal="body_entered" from="BreakableRock/BreakAOE" to="." method="OnBreakAOEEntered"]
 [connection signal="body_entered" from="SecretWall/SecretWallTrigger" to="." method="OnSecretWallTriggerBodyEntered"]

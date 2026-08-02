@@ -328,6 +328,27 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twnyg"]
+bg_color = Color(0.776365, 0.6709, 0.568389, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55kwv"]
+bg_color = Color(0.776471, 0.670588, 0.568627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.423986, 0.387577, 0.217136, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_12m1t"]
+
 [node name="TitleScreen" type="Node2D" unique_id=708045175]
 script = ExtResource("1_vix8s")
 
@@ -357,12 +378,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1y4fl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ua1qk")
 text = "Play"
 
+[node name="CreditsButton" type="Button" parent="Buttons" unique_id=917015135]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 42.0
+offset_right = 65.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.643137, 0.494118, 0.172549, 1)
+theme_override_colors/font_hover_color = Color(0.2, 0.149333, 0.04, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y4fl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ua1qk")
+text = "Credits"
+
 [node name="QuitButton" type="Button" parent="Buttons" unique_id=610690585]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 38.0
-offset_right = 99.0
-offset_bottom = 59.0
+offset_left = 75.0
+offset_top = 42.0
+offset_right = 135.0
+offset_bottom = 63.0
 theme_override_colors/font_color = Color(0.643137, 0.494118, 0.172549, 1)
 theme_override_colors/font_hover_color = Color(0.2, 0.149333, 0.04, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1y4fl")
@@ -422,7 +455,53 @@ theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_4ykt3")
 text = "Don't Save"
 
+[node name="Credits" type="Panel" parent="." unique_id=1087857288]
+visible = false
+offset_left = 52.0
+offset_top = 2.0
+offset_right = 265.0
+offset_bottom = 172.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4krqg")
+
+[node name="Label" type="Label" parent="Credits" unique_id=1496045938]
+layout_mode = 0
+offset_right = 213.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0.47058824, 0.4, 0.23921569, 1)
+theme_override_font_sizes/font_size = 10
+text = "A game by:
+Jewelia (Julia Jeng)
+Kimeowsu
+grassinabox
+
+Made using:
+Godot
+Pixel Studio
+
+Inspired by: Super Cat Tales 2
+Special Thanks: Hack Club
+Note: do not give bubble tea to cats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseCreditsButton" type="Button" parent="Credits" unique_id=464140772]
+use_parent_material = true
+layout_mode = 0
+offset_left = 175.0
+offset_top = 5.0
+offset_right = 208.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.23, 0.17533667, 0.124199994, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_twnyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_55kwv")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_12m1t")
+text = "Close"
+
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="OnPlayButtonPressed"]
+[connection signal="pressed" from="Buttons/CreditsButton" to="." method="OnCreditsButtonPressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="OnQuitButtonPressed"]
 [connection signal="pressed" from="FilePicker/X" to="." method="OnExitFilePicker"]
 [connection signal="pressed" from="FilePicker/Don\'tSave" to="." method="ShipCrashCutscene"]
+[connection signal="pressed" from="Credits/CloseCreditsButton" to="." method="OnCloseCreditsButtonPressed"]

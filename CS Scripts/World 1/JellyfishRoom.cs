@@ -43,6 +43,13 @@ public partial class JellyfishRoom : Node2D
 		}
 	}
 
+	private void OnCaveCameraTriggerExited(Node2D player)
+	{
+		var camera = player.GetNode<Camera2D>("Camera2D");
+		camera.SetLimit(Side.Bottom, 180);
+	}
+
+	/*
 	private void OnCaveCameraTrigger2Entered(Node2D player)
 	{
 		var camera = player.GetNode<Camera2D>("Camera2D");
@@ -50,7 +57,7 @@ public partial class JellyfishRoom : Node2D
 		{
 			camera.SetLimit(Side.Bottom, 180);
 		}
-	}
+	} */
 
 	private void OnSecretWallTriggerBodyEntered(Node2D player)
 	{

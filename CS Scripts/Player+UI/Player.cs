@@ -94,13 +94,17 @@ public partial class Player : CharacterBody2D
 	}
 
 	//get hit
-	private void GetHit()
+	private async void GetHit()
 	{
 		hp --;
 		Flash = true;
 		globalSound.PlaySound("hurt");
+		EmitSignal(SignalName.Hit, hp);
+		
+		//i-frames
 		var hurtTimer = GetNode<Godot.Timer>("HurtTimer");
 		hurtTimer.Start();
+		invulnerable = true;
 
 		if (hp <= 0 || 
 		GetParent().Name == "CaveRoom" ||
@@ -109,28 +113,27 @@ public partial class Player : CharacterBody2D
 		{
 			respawning = true;
 			EmitSignal(SignalName.Died);
-			Respawn();
-			hp = 2;
+			await Respawn();
+			SetHP(2);
 		}
-
-		//i-frames	
-		invulnerable = true;
-		EmitSignal(SignalName.Hit, hp);
 	}
 	
 	//when invulnerablility ends
 	//I don't know why but this method doesn't ever run for me
 	public void OnHurtTimerTimeout()
 	{
-		invulnerable = false;
-		Flash = false;
-
-		var insideHurtbox =  GetNode<Area2D>("Hurtbox").GetOverlappingAreas();
-
-		//if player is in hitbox when invulnerability ends
-		if (insideHurtbox.Count > 0)
+		if (!respawning)
 		{
-			GetHit();
+			invulnerable = false;
+			Flash = false;
+
+			var insideHurtbox =  GetNode<Area2D>("Hurtbox").GetOverlappingAreas();
+
+			//if player is in hitbox when invulnerability ends
+			if (insideHurtbox.Count > 0)
+			{
+				GetHit();
+			}
 		}
 	}
 	
@@ -197,12 +200,13 @@ public partial class Player : CharacterBody2D
 	}
 
 	//Todo - do a scene change instead if the spawn point is in another room
-	public async void Respawn() 
+	public async Task Respawn() 
 	{
 		if (!respawnOverride)
 		{
 			await RespawnToPoint(GetSpawnPoint());
 		}
+		invulnerable = false;
 	}
 
 	/// <summary>

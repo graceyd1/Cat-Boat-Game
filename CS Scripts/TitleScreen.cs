@@ -17,6 +17,16 @@ public partial class TitleScreen : Node2D
 		GetTree().Quit();
 	}
 
+	private void OnCreditsButtonPressed()
+	{
+		GetNode<Control>("Credits").Show();
+	}
+
+	private void OnCloseCreditsButtonPressed()
+	{
+		GetNode<Control>("Credits").Hide();
+	}
+
 	public async void OnPlayButtonPressed()
 	{
 		GetNode<CanvasLayer>("FilePicker").Show();
