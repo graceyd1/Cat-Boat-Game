@@ -64,8 +64,26 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 		}
 	}
 
+	/* returns true or false if player successfully found */
+	private bool GetPlayer(string roomName) {
+		if (UnderwaterRooms.Contains(roomName)) {
+			currPlayer = GetTree().CurrentScene.GetNode<Player>("UnderwaterPlayer");
+		}
+		else if (GroundRooms.Contains(roomName)) {
+			currPlayer = GetTree().CurrentScene.GetNode<Player>("GroundPlayer");
+		}
+		else {
+			return false;
+		}
+		return (currPlayer != null);
+	}
 	
 	public async Task ChangeRoom(Vector2 pos, String room, bool right) {
+		if (GetPlayer(GetTree().CurrentScene.Name)) {
+			currPlayer.SetDisableMovement(true);
+		}
+		var Fade = GetNode<Fader>("/root/Fader");
+		await Fade.FadeIn(.7f);
 		if (room == "title_screen")
 		{
 			GetTree().ChangeSceneToFile("res://Scenes/title_screen.tscn");
@@ -77,22 +95,8 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 		GlobalScript.CurrentRoom = room;
 		await ToSignal(this, GlobalSceneChange.SignalName.SceneReady);
 		string roomName = GetTree().CurrentScene.Name;
-		GD.Print("HELLO");
-		GD.Print(NoPlayerRooms.Contains(roomName));
-		if (!NoPlayerRooms.Contains(roomName))
+		if (GetPlayer(roomName))
 		{
-			if (UnderwaterRooms.Contains(roomName)) {
-				currPlayer = GetTree().CurrentScene.GetNode<Player>("UnderwaterPlayer");
-			}
-			else if (GroundRooms.Contains(roomName)) {
-				currPlayer = GetTree().CurrentScene.GetNode<Player>("GroundPlayer");
-			}
-			else {
-				GD.Print("Room not found in list");
-			}
-			if (currPlayer == null) {
-				GD.Print("ERROR getting player at GlobalSceneChange");
-			}
 			//there's probably a better fix, but if you put (0, 0) in parameter it spawns player in defualt pos
 			if (pos != Vector2.Zero) {
 				currPlayer.Position = pos;
@@ -104,12 +108,10 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 				currPlayer.FacingRight = false;
 			}
 			currPlayer.SetCameraDrag(roomName);
+			currPlayer.SetDisableMovement(false);
 		}
 		
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
-		if (FaderNode is Fader fade) {
-			await fade.FadeOut(1.5f);
-		}
+		await Fade.FadeOut(1.5f);
 	}
 	
 }

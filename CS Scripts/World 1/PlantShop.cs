@@ -208,11 +208,7 @@ public partial class PlantShop : Node2D
 	}
 
 	private async void OnExitRoom() {
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-		if (FaderNode is Fader fader) {
-			await fader.FadeIn(.7f);
-		}
 		
 		await GlobalScene.ChangeRoom(new Vector2(40, 321), "underwater_town", true);
 	}

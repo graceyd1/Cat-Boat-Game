@@ -34,15 +34,10 @@ public partial class GeyserRoom : Node2D
 
 	private async Task NextRoomCheck() {
 		var player = GetNode<CharacterBody2D>("UnderwaterPlayer");
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		Vector2 pos = player.Position;
-		if (pos.X < 5) {
+		if (pos.X < -8) {
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
-
 			if (pos.Y < 100)
 			{
 				await GlobalSceneChange.ChangeRoom(new Vector2(300, 72), "tall_tube_coral_room", false);

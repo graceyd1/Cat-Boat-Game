@@ -145,21 +145,14 @@ public partial class UnderwaterTown : Node2D
 
 	private async Task NextRoomCheck() {
 		var player = GetNode<CharacterBody2D>("UnderwaterPlayer");
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		Vector2 pos = player.Position;
-		if (pos.X > 495) {
+		if (pos.X > 508) {
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(10, 140), "box_room", true);
 		}
-		if (pos.X < 5) {
+		if (pos.X < -8) {
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(490, 520), "first_room", false);
 		
 		}
@@ -169,12 +162,8 @@ public partial class UnderwaterTown : Node2D
 	public async void OnEnterRoom(String roomName)
 	{
 		var player = GetNode<CharacterBody2D>("UnderwaterPlayer");
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		transitioning = true;
-		if (FaderNode is Fader fader) {
-			await fader.FadeIn(.7f);
-		}
 		
 		if (roomName == "SubShopDoor")
 		{

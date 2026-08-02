@@ -54,11 +54,7 @@ public partial class ParvaHouse : Node2D
 	}
 	
 	private async void OnExitRoom() {
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-		if (FaderNode is Fader fader) {
-			await fader.FadeIn(.7f);
-		}
 		
 		await GlobalScene.ChangeRoom(new Vector2(400, 100), "cave_room", true);
 	}
@@ -125,15 +121,11 @@ public partial class ParvaHouse : Node2D
 
 	private async Task NextRoomCheck() {
 		var player = GetNode<CharacterBody2D>("GroundPlayer");
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		Vector2 pos = player.Position;
-		if (pos.Y > 175)
+		if (pos.Y > 188)
 		{
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(138, 125), "enter_sea_bunny_room", true);
 		}
 

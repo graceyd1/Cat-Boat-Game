@@ -65,7 +65,7 @@ position = Vector2(0, -9)
 scale = Vector2(17, 1)
 
 [node name="Right" parent="." unique_id=477152014 instance=ExtResource("6_urne7")]
-position = Vector2(335, 0)
+position = Vector2(350, 0)
 scale = Vector2(1, 10)
 
 [node name="Left" parent="." unique_id=615918319 instance=ExtResource("6_urne7")]

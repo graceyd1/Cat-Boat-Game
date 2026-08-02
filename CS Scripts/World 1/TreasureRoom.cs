@@ -34,6 +34,12 @@ public partial class TreasureRoom : Node2D
 		var dashT = player.GetNode<TextBox>("TextBox");
 		var catssavaT = catssava.GetNode<TextBox>("TextBox");
 		var azucatT = GetNode<TextBox>("Azucat/TextBox");
+		dashT.SetLabel("Dash");
+		catssavaT.SetLabel("Catssava");
+		azucatT.SetLabel("Azucat");
+		dashT.Known(true);
+		catssavaT.Known(true);
+		azucatT.Known(true);
 
 		if (player is Player p)
 		{
@@ -87,14 +93,10 @@ public partial class TreasureRoom : Node2D
 
 	private async Task NextRoomCheck() {
 		var player = GetNode<CharacterBody2D>("GroundPlayer");
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		Vector2 pos = player.Position;
-		if (pos.X < 5) {
+		if (pos.X < -8) {
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(620, 126), "sea_bunny_room", false);
 		}
 

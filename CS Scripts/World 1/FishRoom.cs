@@ -21,6 +21,10 @@ public partial class FishRoom : Node2D
 		GetNode<Label>("UnderwaterPlayer/MinigameTime").Visible = false;
 		pText = GetNode<TextBox>("UnderwaterPlayer/TextBox");
 		iText = GetNode<TextBox>("IceCreamAreaSprite/InteractArea/TextBox");
+		pText.SetLabel("Dash");
+		iText.SetLabel("Ice Cream");
+		pText.Known(true);
+		iText.Known(true);
 		CollectableFish = GetNode<Node2D>("CollectableFish").GetChildren();
 		fishCollected = 0;
 
@@ -210,24 +214,20 @@ public partial class FishRoom : Node2D
 	}
 	
 	private async Task NextRoomCheck() {
-		var fader = GetNode<Fader>("/root/Fader");
 		Vector2 pos = GetNode<CharacterBody2D>("UnderwaterPlayer").Position;
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-		if (pos.X < 5) {
+		if (pos.X < -7) {
 			transitioning = true;
-			await fader.FadeIn(.7f);
 			await GlobalSceneChange.ChangeRoom(new Vector2(480, 140), "box_room", false);
 		}
-		else if (pos.Y < 5)
+		else if (pos.Y < -8)
 		{
 			transitioning = true;
-			await fader.FadeIn(.7f);
 			await GlobalSceneChange.ChangeRoom(new Vector2(290, 135), "long_tube_coral_room", false);
 		}
-		else if (pos.X > 635)
+		else if (pos.X > 648)
 		{
 			transitioning = true;
-			await fader.FadeIn(.7f);
 			await GlobalSceneChange.ChangeRoom(new Vector2(20, 863), "geyser_room", true);
 		}
 	}

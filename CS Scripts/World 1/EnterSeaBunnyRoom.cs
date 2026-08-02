@@ -149,31 +149,18 @@ public partial class EnterSeaBunnyRoom : Node2D
 
 	private async Task NextRoomCheck() {
 		var player = GetNode<CharacterBody2D>("GroundPlayer");
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		Vector2 pos = player.Position;
 		
-		
-		/*if ((GlobalScript.CQ("short") == "ParvaCave" || GlobalScript.CQ("short") == "Seabunny") && pos.Y < 100) 
-		{
-			var dashT = GetNode<TextBox>("GroundPlayer/TextBox");
-			await dashT.ShowText("It's too high up! I can't escape!");
-		}*/
-		if (pos.Y < 5 && GlobalScript.IsAfterQuest("GetBoat"))
+		if (pos.Y < -8 && GlobalScript.IsAfterQuest("GetBoat"))
 		{
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(270, 140), "parva_house", false);
 		}
 		
-		if (pos.X > 315)
+		if (pos.X > 328)
 		{
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(20, 231), "sea_bunny_room", true);
 		}
 

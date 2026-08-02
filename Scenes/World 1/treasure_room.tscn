@@ -210,78 +210,76 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d08xj"]
 _data = {
-"RESET": SubResource("Animation_qfv5m"),
-"azucat_takes_the_boba": SubResource("Animation_1a5qb"),
-"cats_enter": SubResource("Animation_8qxpt"),
-"cats_leave": SubResource("Animation_fjx3n"),
-"dash_enters": SubResource("Animation_80oct")
+&"RESET": SubResource("Animation_qfv5m"),
+&"azucat_takes_the_boba": SubResource("Animation_1a5qb"),
+&"cats_enter": SubResource("Animation_8qxpt"),
+&"cats_leave": SubResource("Animation_fjx3n"),
+&"dash_enters": SubResource("Animation_80oct")
 }
 
-[node name="TreasureRoom" type="Node2D"]
+[node name="TreasureRoom" type="Node2D" unique_id=1469661117]
 script = ExtResource("1_r76jw")
 
-[node name="Background0" type="Sprite2D" parent="."]
+[node name="Background0" type="Sprite2D" parent="." unique_id=1934128582]
 texture = ExtResource("1_q40f7")
 centered = false
 
-[node name="BOBA" type="Sprite2D" parent="."]
+[node name="BOBA" type="Sprite2D" parent="." unique_id=629631628]
 texture = ExtResource("2_vmi6y")
 centered = false
 
-[node name="GroundPlayer" parent="." instance=ExtResource("3_jieat")]
+[node name="GroundPlayer" parent="." unique_id=382222815 instance=ExtResource("3_jieat")]
 material = null
 position = Vector2(131, 141)
 
-[node name="TextBox" parent="GroundPlayer" instance=ExtResource("8_ue6gb")]
+[node name="TextBox" parent="GroundPlayer" unique_id=1955953899 instance=ExtResource("8_ue6gb")]
 
-[node name="Frontground" type="Sprite2D" parent="."]
+[node name="Frontground" type="Sprite2D" parent="." unique_id=1721047243]
 texture = ExtResource("3_2065w")
 centered = false
 
-[node name="Walls" type="Node" parent="."]
+[node name="Walls" type="Node" parent="." unique_id=1874938630]
 
-[node name="Ceiling" parent="Walls" instance=ExtResource("4_mthqj")]
+[node name="Ceiling" parent="Walls" unique_id=2145555427 instance=ExtResource("4_mthqj")]
 scale = Vector2(16, 1.1)
 
-[node name="LeftTop" parent="Walls" instance=ExtResource("4_mthqj")]
+[node name="LeftTop" parent="Walls" unique_id=1366229523 instance=ExtResource("4_mthqj")]
 position = Vector2(28, 79)
 rotation = -0.785398
 scale = Vector2(6, 1.1)
 
-[node name="LeftTop2" parent="Walls" instance=ExtResource("4_mthqj")]
+[node name="LeftTop2" parent="Walls" unique_id=1945137625 instance=ExtResource("4_mthqj")]
 position = Vector2(0, 78)
 scale = Vector2(2.5, 1.1)
 
-[node name="Right" parent="Walls" instance=ExtResource("4_mthqj")]
+[node name="Right" parent="Walls" unique_id=131160721 instance=ExtResource("4_mthqj")]
 position = Vector2(282, -2)
 scale = Vector2(1, 7.7)
 
-[node name="Ground" parent="Walls" instance=ExtResource("4_mthqj")]
+[node name="Ground" parent="Walls" unique_id=1518805054 instance=ExtResource("4_mthqj")]
 position = Vector2(-99, 152)
 scale = Vector2(20, 1)
 
-[node name="Azucat" type="Sprite2D" parent="."]
+[node name="Azucat" type="Sprite2D" parent="." unique_id=1509407849]
 position = Vector2(-10, 141)
 texture = ExtResource("7_th2h6")
 
-[node name="TextBox" parent="Azucat" instance=ExtResource("8_ue6gb")]
+[node name="TextBox" parent="Azucat" unique_id=2051441706 instance=ExtResource("8_ue6gb")]
 
-[node name="Catssava" type="Sprite2D" parent="."]
+[node name="Catssava" type="Sprite2D" parent="." unique_id=1525110355]
 position = Vector2(-36, 141)
 texture = ExtResource("8_64te3")
 
-[node name="TextBox" parent="Catssava" instance=ExtResource("8_ue6gb")]
+[node name="TextBox" parent="Catssava" unique_id=1525063618 instance=ExtResource("8_ue6gb")]
 
-[node name="CutsceneTrigger" type="Area2D" parent="."]
+[node name="CutsceneTrigger" type="Area2D" parent="." unique_id=2085218720]
 position = Vector2(100, 0)
 scale = Vector2(1, 10)
 collision_layer = 0
 collision_mask = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_d08xj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=619616504]
+libraries/ = SubResource("AnimationLibrary_d08xj")
 
 [connection signal="PromptUser" from="GroundPlayer/TextBox" to="GroundPlayer" method="OnPromptUser"]
 [connection signal="PromptUser" from="Azucat/TextBox" to="GroundPlayer" method="OnPromptUser"]

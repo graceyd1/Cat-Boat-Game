@@ -136,6 +136,11 @@ public partial class SeaBunnyRoom : Node2D
 		var azucatBoba = GetNode<Sprite2D>("BOBA");
 		azucatBoba.Position = new Vector2(218, 75);
 		var aText = GetNode<TextBox>("BOBA/Azucat/TextBox");
+		var dText = GetNode<TextBox>("GroundPlayer/TextBox");
+		dText.SetLabel("Dash");
+		aText.SetLabel("Azucat");
+		aText.Known(true);
+		dText.Known(true);
 		var anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		Player.Position = new Vector2(573, 232);
 		Player.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "sit_left";
@@ -145,7 +150,7 @@ public partial class SeaBunnyRoom : Node2D
 		anim.Play("ship_deployed");
 		await ToSignal(anim, AnimationPlayer.SignalName.AnimationFinished);
 
-		await GetNode<TextBox>("GroundPlayer/TextBox").ShowText("...");
+		await dText.ShowText("...");
 		await aText.ShowText("...Well, I better get going! See ya!");
 
 		anim.Play("azucat_leaves");
@@ -155,25 +160,20 @@ public partial class SeaBunnyRoom : Node2D
 
 	private async Task NextRoomCheck() {
 		var player = GetNode<CharacterBody2D>("GroundPlayer");
-		var fader = GetNode<Fader>("/root/Fader");
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		Vector2 pos = player.Position;
-		if (pos.X < 5) {
+		if (pos.X < -8) {
 			transitioning = true;
-			await fader.FadeIn(.7f);
 			await GlobalSceneChange.ChangeRoom(new Vector2(300, 142), "enter_sea_bunny_room", false);
 		}
-		else if (pos.X > 635)
+		else if (pos.X > 648)
 		{
 			transitioning = true;
-			await fader.FadeIn(.7f);
 			await GlobalSceneChange.ChangeRoom(new Vector2(20, 140), "treasure_room", true);
 		}
-		else if (pos.Y < 5)
+		else if (pos.Y < -8)
 		{
 			transitioning = true;
-			await fader.FadeIn(.7f);
-			GD.Print("scene change");
 			await GlobalSceneChange.ChangeRoom(Vector2.Zero, "world_end_screen", true);
 		}
 

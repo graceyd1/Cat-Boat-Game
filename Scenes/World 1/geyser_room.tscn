@@ -260,13 +260,13 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i1xsj"]
 _data = {
-"RESET": SubResource("Animation_u0m5h"),
-"down": SubResource("Animation_qj26a"),
-"down_with_player": SubResource("Animation_rhmwy"),
-"idle_top": SubResource("Animation_yji51"),
-"open_bottom_gate": SubResource("Animation_hxjas"),
-"up": SubResource("Animation_17203"),
-"up_with_player": SubResource("Animation_p5ec2")
+&"RESET": SubResource("Animation_u0m5h"),
+&"down": SubResource("Animation_qj26a"),
+&"down_with_player": SubResource("Animation_rhmwy"),
+&"idle_top": SubResource("Animation_yji51"),
+&"open_bottom_gate": SubResource("Animation_hxjas"),
+&"up": SubResource("Animation_17203"),
+&"up_with_player": SubResource("Animation_p5ec2")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqfiv"]
@@ -275,95 +275,93 @@ size = Vector2(48, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8wvc"]
 size = Vector2(32, 31)
 
-[node name="GeyserRoom" type="Node2D"]
+[node name="GeyserRoom" type="Node2D" unique_id=2090059203]
 script = ExtResource("1_x6ts7")
 
-[node name="Background0" type="Sprite2D" parent="."]
+[node name="Background0" type="Sprite2D" parent="." unique_id=1000250784]
 texture = ExtResource("1_qhlgr")
 offset = Vector2(160, 450)
 
-[node name="TopGate" parent="." instance=ExtResource("3_peheh")]
+[node name="TopGate" parent="." unique_id=1460420461 instance=ExtResource("3_peheh")]
 position = Vector2(70, 62)
 
-[node name="BottomGate" type="Node2D" parent="."]
+[node name="BottomGate" type="Node2D" parent="." unique_id=416197469]
 position = Vector2(70, 855)
 metadata/_edit_group_ = true
 
-[node name="Bottom" type="Sprite2D" parent="BottomGate"]
+[node name="Bottom" type="Sprite2D" parent="BottomGate" unique_id=761833464]
 position = Vector2(0, 45)
 texture = ExtResource("4_wb0bg")
 metadata/_edit_group_ = true
 
-[node name="Wall" parent="BottomGate/Bottom" instance=ExtResource("3_moit1")]
+[node name="Wall" parent="BottomGate/Bottom" unique_id=417613130 instance=ExtResource("3_moit1")]
 position = Vector2(-9, -45)
 scale = Vector2(0.9, 4.5)
 
-[node name="Top" type="Sprite2D" parent="BottomGate"]
+[node name="Top" type="Sprite2D" parent="BottomGate" unique_id=1474872999]
 position = Vector2(0, -45)
 rotation = 3.14159
 texture = ExtResource("4_wb0bg")
 
-[node name="Wall" parent="BottomGate/Top" instance=ExtResource("3_moit1")]
+[node name="Wall" parent="BottomGate/Top" unique_id=130280849 instance=ExtResource("3_moit1")]
 position = Vector2(9, 45)
 rotation = 3.14159
 scale = Vector2(0.9, 4.5)
 
-[node name="Geyser" type="Sprite2D" parent="."]
+[node name="Geyser" type="Sprite2D" parent="." unique_id=1301472733]
 position = Vector2(161, 421)
 texture = ExtResource("3_fqqoe")
 hframes = 6
 script = ExtResource("4_mqqq2")
 
-[node name="Wall" parent="Geyser" instance=ExtResource("3_moit1")]
+[node name="Wall" parent="Geyser" unique_id=567280693 instance=ExtResource("3_moit1")]
 position = Vector2(-26, 435)
 scale = Vector2(2.4, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Geyser"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Geyser" unique_id=521027310]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_i1xsj")
-}
+libraries/ = SubResource("AnimationLibrary_i1xsj")
 
-[node name="PullDownAOE" type="Area2D" parent="Geyser"]
+[node name="PullDownAOE" type="Area2D" parent="Geyser" unique_id=478609662]
 position = Vector2(-161, -421)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Geyser/PullDownAOE"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geyser/PullDownAOE" unique_id=892026667]
 position = Vector2(159, 163)
 shape = SubResource("RectangleShape2D_qqfiv")
 
-[node name="PullUpAOE" type="Area2D" parent="Geyser"]
+[node name="PullUpAOE" type="Area2D" parent="Geyser" unique_id=1237940430]
 position = Vector2(0, 400)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Geyser/PullUpAOE"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geyser/PullUpAOE" unique_id=1524162808]
 position = Vector2(-3, 38.5)
 shape = SubResource("RectangleShape2D_b8wvc")
 
-[node name="UnderwaterPlayer" parent="." instance=ExtResource("2_clkrb")]
+[node name="UnderwaterPlayer" parent="." unique_id=477310907 instance=ExtResource("2_clkrb")]
 position = Vector2(117, 85)
 
-[node name="Background1" type="Sprite2D" parent="."]
+[node name="Background1" type="Sprite2D" parent="." unique_id=1788502146]
 texture = ExtResource("2_ho7my")
 offset = Vector2(160, 450)
 
-[node name="WallsFolder" type="Node" parent="."]
+[node name="WallsFolder" type="Node" parent="." unique_id=1438049802]
 
-[node name="Left" parent="WallsFolder" instance=ExtResource("3_moit1")]
+[node name="Left" parent="WallsFolder" unique_id=1148693427 instance=ExtResource("3_moit1")]
 position = Vector2(-150, 93)
 scale = Vector2(14.2, 37.15)
 
-[node name="Right" parent="WallsFolder" instance=ExtResource("3_moit1")]
+[node name="Right" parent="WallsFolder" unique_id=104749674 instance=ExtResource("3_moit1")]
 position = Vector2(186, 0)
 scale = Vector2(2, 45)
 
-[node name="Top" parent="WallsFolder" instance=ExtResource("3_moit1")]
+[node name="Top" parent="WallsFolder" unique_id=1675111153 instance=ExtResource("3_moit1")]
 position = Vector2(0, 8)
 scale = Vector2(12, 1)
 
-[node name="Bottom" parent="WallsFolder" instance=ExtResource("3_moit1")]
+[node name="Bottom" parent="WallsFolder" unique_id=2131197817 instance=ExtResource("3_moit1")]
 position = Vector2(0, 871)
 scale = Vector2(10, 1)
 

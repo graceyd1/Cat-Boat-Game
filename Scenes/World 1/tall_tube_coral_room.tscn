@@ -10,80 +10,80 @@
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="6_r36hx"]
 [ext_resource type="PackedScene" uid="uid://bp4jat81a6c5d" path="res://Scenes/World 1/tube_coral.tscn" id="7_38iee"]
 
-[node name="TallTubeCoralRoom" type="Node2D"]
+[node name="TallTubeCoralRoom" type="Node2D" unique_id=1110077392]
 script = ExtResource("1_8u050")
 
-[node name="Parallax2D0" type="Parallax2D" parent="."]
+[node name="Parallax2D0" type="Parallax2D" parent="." unique_id=1835833435]
 scroll_scale = Vector2(1, 0.5)
 
-[node name="Background0" type="Sprite2D" parent="Parallax2D0"]
+[node name="Background0" type="Sprite2D" parent="Parallax2D0" unique_id=1112965589]
 texture_filter = 1
 texture = ExtResource("1_bh2g0")
 centered = false
 
-[node name="Parallax2D1" type="Parallax2D" parent="."]
+[node name="Parallax2D1" type="Parallax2D" parent="." unique_id=157483624]
 scroll_scale = Vector2(1, 0.7)
 
-[node name="Background1" type="Sprite2D" parent="Parallax2D1"]
+[node name="Background1" type="Sprite2D" parent="Parallax2D1" unique_id=961998946]
 texture_filter = 1
 texture = ExtResource("2_l4ftt")
 centered = false
 
-[node name="Background2" type="Sprite2D" parent="."]
+[node name="Background2" type="Sprite2D" parent="." unique_id=1837840549]
 texture_filter = 1
 texture = ExtResource("3_g5kwh")
 centered = false
 
-[node name="UnderwaterPlayer" parent="." instance=ExtResource("4_nyxsb")]
+[node name="UnderwaterPlayer" parent="." unique_id=1272161534 instance=ExtResource("4_nyxsb")]
 position = Vector2(40, 558)
 metadata/_edit_group_ = true
 
-[node name="Middleground" type="Sprite2D" parent="."]
+[node name="Middleground" type="Sprite2D" parent="." unique_id=1443066023]
 texture_filter = 1
 texture = ExtResource("4_0exos")
 centered = false
 
-[node name="Foreground" type="Sprite2D" parent="."]
+[node name="Foreground" type="Sprite2D" parent="." unique_id=1613815139]
 texture_filter = 1
 texture = ExtResource("5_dpdiw")
 centered = false
 
-[node name="WallsFolder" type="Node" parent="."]
+[node name="WallsFolder" type="Node" parent="." unique_id=15414428]
 
-[node name="Left" parent="WallsFolder" instance=ExtResource("6_r36hx")]
+[node name="Left" parent="WallsFolder" unique_id=1161986206 instance=ExtResource("6_r36hx")]
 position = Vector2(11, 0)
 scale = Vector2(1, 25)
 
-[node name="Ground" parent="WallsFolder" instance=ExtResource("6_r36hx")]
+[node name="Ground" parent="WallsFolder" unique_id=30574824 instance=ExtResource("6_r36hx")]
 position = Vector2(-8, 566)
 scale = Vector2(17, 1)
 
-[node name="Right" parent="WallsFolder" instance=ExtResource("6_r36hx")]
+[node name="Right" parent="WallsFolder" unique_id=898171897 instance=ExtResource("6_r36hx")]
 position = Vector2(288, 80)
 scale = Vector2(5, 25)
 
-[node name="RightTop" parent="WallsFolder" instance=ExtResource("6_r36hx")]
+[node name="RightTop" parent="WallsFolder" unique_id=1789200345 instance=ExtResource("6_r36hx")]
 position = Vector2(263, 0)
 scale = Vector2(5, 0.7)
 
-[node name="TubeCoralFolder" type="Node" parent="."]
+[node name="TubeCoralFolder" type="Node" parent="." unique_id=1832110835]
 
-[node name="LeftWallTubeCoral" parent="TubeCoralFolder" instance=ExtResource("7_38iee")]
+[node name="LeftWallTubeCoral" parent="TubeCoralFolder" unique_id=1088816250 instance=ExtResource("7_38iee")]
 position = Vector2(35, 250)
 rotation = 1.5708
 PullDirection = 2
 
-[node name="LeftWallTubeCoral2" parent="TubeCoralFolder" instance=ExtResource("7_38iee")]
+[node name="LeftWallTubeCoral2" parent="TubeCoralFolder" unique_id=76355873 instance=ExtResource("7_38iee")]
 position = Vector2(35, 449)
 rotation = 1.5708
 PullDirection = 2
 
-[node name="RightWallTubeCoral" parent="TubeCoralFolder" instance=ExtResource("7_38iee")]
+[node name="RightWallTubeCoral" parent="TubeCoralFolder" unique_id=2092369087 instance=ExtResource("7_38iee")]
 position = Vector2(282, 150)
 rotation = -1.5708
 PullDirection = 3
 
-[node name="RightWallTubeCoral2" parent="TubeCoralFolder" instance=ExtResource("7_38iee")]
+[node name="RightWallTubeCoral2" parent="TubeCoralFolder" unique_id=575697071 instance=ExtResource("7_38iee")]
 position = Vector2(282, 350)
 rotation = -1.5708
 PullDirection = 3

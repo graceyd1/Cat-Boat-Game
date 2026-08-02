@@ -19,21 +19,14 @@ public partial class LongTubeCoralRoom : Node2D
 	}
 	
 	private async Task NextRoomCheck() {
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		Vector2 pos = GetNode<CharacterBody2D>("UnderwaterPlayer").Position;
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-		if (pos.Y > 175) {
+		if (pos.Y > 188) {
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(595, 20), "fish_room", false);
 		}
-		if (pos.X < 5) {
+		if (pos.X < -8) {
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(720, 135), "jellyfish_room", false);
 		}
 	}

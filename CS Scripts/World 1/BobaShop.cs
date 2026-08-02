@@ -42,12 +42,7 @@ public partial class BobaShop : Node2D
 	}
 	
 	private async void OnExitRoom() {
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-		if (FaderNode is Fader fader) {
-			await fader.FadeIn(.7f);
-		}
-		
 		await GlobalScene.ChangeRoom(new Vector2(460, 170), "underwater_town", true);
 	}
 	
