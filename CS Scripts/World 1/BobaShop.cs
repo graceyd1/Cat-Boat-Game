@@ -11,6 +11,7 @@ public partial class BobaShop : Node2D
 	private AnimationPlayer AniPlayer;
 	private Sprite2D Pearl;
 	private const int MAX_STORY_NUM = 2;
+	private bool DialogueTimeout;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -29,6 +30,17 @@ public partial class BobaShop : Node2D
 		StartDialogue();
 	}
 	
+	public override void _Input(InputEvent @event) {
+		var exit = GetNode<Area2D>("BobaExit/InteractArea");
+		if (@event.IsActionPressed("enter")) {
+			if (!exit.OverlapsBody(player)) {
+				if (DialogueTimeout) {
+					StartDialogue();
+				}
+			}
+		}
+	}
+	
 	private async void OnExitRoom() {
 		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
@@ -42,6 +54,7 @@ public partial class BobaShop : Node2D
 	public async void StartDialogue() {
 		csAnimation.Animation = "sit";
 		player.InputEnabled = false;
+		DialogueTimeout = false;
 		//Quest == Visit the boba shop and ask for brown sugar boba
 		if (GlobalScript.CQ("short") == "MeetCatssava") {
 			await catssavaT.ShowText("Oh hi there, I’m Catssava, the shopkeeper here. What can I help you with?");
@@ -132,12 +145,17 @@ public partial class BobaShop : Node2D
 				}
 			}	
 		}
-		else if (GlobalScript.IsAfterQuest("MeetCatssava"))
+		else if (GlobalScript.IsAfterQuest("MeetCatssava") && GlobalScript.IsBeforeQuest("GetBoat"))
 		{
 			//maybe we can have a list of dialogue and pick a random one
 			await catssavaT.ShowText("Oh, thank you so very much for helping me, Dash!");
 		}
+		else if (GlobalScript.IsAfterQuest("GetBoat")) {
+			await catssavaT.ShowText("Dash, you were amazing! I can't believe you actually got my boba back!");
+		}
 		player.InputEnabled = true;
+		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+		DialogueTimeout = true;
 	}
 	
 	public async Task TellStory() {

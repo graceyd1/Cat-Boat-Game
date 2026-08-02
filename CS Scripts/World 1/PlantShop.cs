@@ -7,23 +7,12 @@ public partial class PlantShop : Node2D
 	private TextBox dText;
 	private TextBox oText;
 	private GroundPlayer classPlayer;
+	private bool DialogueTimeout;
 	public override void _Ready()
 	{
 		dText = GetNode<TextBox>("GroundPlayer/TextBox");
 		oText = GetNode<TextBox>("Olive/TextBox");
 		classPlayer = GetNode<GroundPlayer>("GroundPlayer");
-		
-		if (!GlobalScript.Inventory.Contains("Flashlight"))
-		{
-			FirstShopDialogue(GlobalScript.OliveVisitNum);
-		}
-		else
-		{
-			if (GlobalScript.CatssavaStoryNum == 2.5) {
-				ClearMisunderstanding();
-				GlobalScript.CatssavaStoryNum += 0.5;
-			}
-		}
 		dText.SetLabel("Dash");
 		oText.SetLabel("Olive");
 		dText.Known(true);
@@ -31,9 +20,40 @@ public partial class PlantShop : Node2D
 
 		GetNode<Hitbox>("Olive/Laser/Hitbox").SetDisabled(true);
 		GetNode<CollisionShape2D>("Olive/Flashlight/Area2D/CollisionShape2D").Disabled = true;
+		
+		StartDialogue();
 	}
 	
-	private async void ClearMisunderstanding() {
+	private async void StartDialogue() {
+		DialogueTimeout = false;
+		classPlayer.InputEnabled = false;
+		classPlayer.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "sit_left";
+		if (!GlobalScript.Inventory.Contains("Flashlight"))
+		{
+			await FirstShopDialogue(GlobalScript.OliveVisitNum);
+		}
+		else if (GlobalScript.CatssavaStoryNum == 2.5)
+		{
+			await ClearMisunderstanding();
+			GlobalScript.CatssavaStoryNum += 0.5;
+		}
+		classPlayer.InputEnabled = true;
+		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+		DialogueTimeout = true;
+	}
+	
+	public override void _Input(InputEvent @event) {
+		var exit = GetNode<Area2D>("Door/ShopExit");
+		if (@event.IsActionPressed("enter")) {
+			if (!exit.OverlapsBody(classPlayer)) {
+				if (DialogueTimeout) {
+					StartDialogue();
+				}
+			}
+		}
+	}
+	
+	private async Task ClearMisunderstanding() {
 		await dText.ShowText("Olive -");
 		await oText.ShowText("What is it? I will say you seem to be making good use of your flashlight.");
 		await oText.ShowText("Now that's not saying much since it's a [i]flashlight[/i]. So I don't think you're quite ready for a plant yet.");
@@ -52,11 +72,7 @@ public partial class PlantShop : Node2D
 	}
 	
 	
-	private async void FirstShopDialogue(int VisitNum) {
-		classPlayer.InputEnabled = false;
-		classPlayer.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "sit_left";
-		//delete the placeholder stuff and write the dialogue
-		//who are you? you're new here? welcome to my shop?
+	private async Task FirstShopDialogue(int VisitNum) {
 		if (VisitNum == 0) {
 			await oText.ShowText("My oh my, a visitor. The last one tried to return their succulents after they withered.");
 			await oText.ShowText("SUCCULENTS! No one ever appreciates the careful art of growing plants.");
@@ -78,13 +94,13 @@ public partial class PlantShop : Node2D
 			GetNode<Node2D>("Olive/Flashlight").Hide();
 
 			await oText.ShowText("You'd better not be pot-headed enough to mess that up.");
-			FlashlightShop();
+			await FlashlightShop();
 		}
 		else if (VisitNum == 1) {
 			await oText.ShowText("Well, well, well. Look who decided to come back.");
 			await oText.ShowText("Since you've already wasted my time, I won't bother giving you a second demonstration.");
 			await oText.ShowText("If you didn't pay attention the first time, that's on you!");
-			FlashlightShop();
+			await FlashlightShop();
 		}
 		else {
 			switch (VisitNum) {
@@ -102,12 +118,12 @@ public partial class PlantShop : Node2D
 				default: await oText.ShowText("It's your " + VisitNum + "th time here! Jeez, what do you want?!");
 						break;
 			}
-			FlashlightShop();
+			await FlashlightShop();
 		}
 		GlobalScript.OliveVisitNum++;
 	}
 
-	private async void FlashlightShop()
+	private async Task FlashlightShop()
 	{
 		await oText.ShowText("Do you want to buy the flashlight? It's 10 coins.");
 		string choice = await dText.Ask("1. Buy the flashlight\n2. No thanks\n3. Steal the flashlight");
@@ -168,7 +184,6 @@ public partial class PlantShop : Node2D
 				// laserHitbox.SetDisabled(true);
 			}
 		}
-		classPlayer.InputEnabled = true;
 	}
 
 

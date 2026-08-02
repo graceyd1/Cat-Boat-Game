@@ -54,7 +54,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ufvgu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"laser",
 "speed": 10.0
 }, {
@@ -80,81 +80,81 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ufvgu")
 }],
-"loop": false,
+"loop": 0,
 "name": &"start_laser",
 "speed": 10.0
 }]
 
-[node name="PlantShop" type="Node2D"]
+[node name="PlantShop" type="Node2D" unique_id=1385339510]
 script = ExtResource("1_xuphg")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=215818617]
 texture = ExtResource("1_q5n3t")
 centered = false
 
-[node name="LeftWall" parent="." instance=ExtResource("2_oosj0")]
+[node name="LeftWall" parent="." unique_id=279549706 instance=ExtResource("2_oosj0")]
 position = Vector2(-18, 0)
 scale = Vector2(1, 9)
 
-[node name="RightWall" parent="." instance=ExtResource("2_oosj0")]
+[node name="RightWall" parent="." unique_id=1986087750 instance=ExtResource("2_oosj0")]
 position = Vector2(320, 0)
 scale = Vector2(1, 9)
 
-[node name="Floor" parent="." instance=ExtResource("2_oosj0")]
+[node name="Floor" parent="." unique_id=488053895 instance=ExtResource("2_oosj0")]
 position = Vector2(-60, 140)
 scale = Vector2(22, 1)
 
-[node name="Door" parent="." instance=ExtResource("9_ee1pn")]
+[node name="Door" parent="." unique_id=1140787439 instance=ExtResource("9_ee1pn")]
 offset_left = 299.0
 offset_top = 119.0
 offset_right = 320.0
 offset_bottom = 140.0
 
-[node name="ShopExit" parent="Door" instance=ExtResource("10_kf4ch")]
+[node name="ShopExit" parent="Door" unique_id=276605442 instance=ExtResource("10_kf4ch")]
 position = Vector2(10, 23)
 scale = Vector2(0.5, 0.5)
 
-[node name="Olive" type="Sprite2D" parent="."]
+[node name="Olive" type="Sprite2D" parent="." unique_id=566580899]
 position = Vector2(76, 114)
 texture = ExtResource("3_kkkae")
 
-[node name="TextBox" parent="Olive" instance=ExtResource("4_to25d")]
+[node name="TextBox" parent="Olive" unique_id=2043455156 instance=ExtResource("4_to25d")]
 
-[node name="Flashlight" type="PointLight2D" parent="Olive"]
+[node name="Flashlight" type="PointLight2D" parent="Olive" unique_id=543211376]
 visible = false
 position = Vector2(33, -51)
 rotation = -1.02974
 texture = ExtResource("5_byer3")
 
-[node name="Area2D" type="Area2D" parent="Olive/Flashlight"]
+[node name="Area2D" type="Area2D" parent="Olive/Flashlight" unique_id=1377851029]
 visible = false
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Olive/Flashlight/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Olive/Flashlight/Area2D" unique_id=1313999745]
 visible = false
 position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_pxqno")
 debug_color = Color(0.579823, 0.546776, 0.218768, 0.42)
 
-[node name="Laser" type="AnimatedSprite2D" parent="Olive"]
+[node name="Laser" type="AnimatedSprite2D" parent="Olive" unique_id=1204963476]
 visible = false
 z_index = 1
 position = Vector2(157, 4)
 sprite_frames = SubResource("SpriteFrames_mj7jb")
 animation = &"laser"
 
-[node name="Hitbox" parent="Olive/Laser" instance=ExtResource("10_616w5")]
+[node name="Hitbox" parent="Olive/Laser" unique_id=1237841 instance=ExtResource("10_616w5")]
 scale = Vector2(15, 1.5)
 
-[node name="GrowableVine" parent="." instance=ExtResource("4_6dfnw")]
+[node name="GrowableVine" parent="." unique_id=2127809973 instance=ExtResource("4_6dfnw")]
 position = Vector2(132.5, 61.97)
 
-[node name="GroundPlayer" parent="." instance=ExtResource("6_4f8ty")]
+[node name="GroundPlayer" parent="." unique_id=448119967 instance=ExtResource("6_4f8ty")]
 position = Vector2(258, 132)
 
-[node name="TextBox" parent="GroundPlayer" instance=ExtResource("4_to25d")]
+[node name="TextBox" parent="GroundPlayer" unique_id=1295625498 instance=ExtResource("4_to25d")]
 
-[node name="InteractLabel" parent="." instance=ExtResource("11_7yypv")]
+[node name="InteractLabel" parent="." unique_id=1841924416 instance=ExtResource("11_7yypv")]
 
 [connection signal="Interact" from="Door/ShopExit" to="." method="OnExitRoom"]

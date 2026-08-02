@@ -12,6 +12,7 @@ public partial class SubmarineShop : Node2D
 	private const int MAX_STORY_NUM = 2;
 	private int EnterNum; //since upwall, enters Area2D twice when jump
 	private Sprite2D Pearl;
+	private bool DialogueTimeout;
 
 	private bool Secret1;
 	// Called when the node enters the scene tree for the first time.
@@ -49,6 +50,16 @@ public partial class SubmarineShop : Node2D
 			await NextRoomCheck();
 		}
 	}
+	public override void _Input(InputEvent @event) {
+		var exit = GetNode<Area2D>("Door/ShopExit");
+		if (@event.IsActionPressed("enter")) {
+			if (!exit.OverlapsBody(p)) {
+				if (DialogueTimeout) {
+					StartDialogue();
+				}
+			}
+		}
+	}
 	public async void OnEnterWorkLedge(Node2D body) {
 		if (body is Player dash) {
 				if (dash.Position.Y < 120) { //prevents glitch where it triggers when entering room
@@ -67,6 +78,7 @@ public partial class SubmarineShop : Node2D
 	}
 	
 	public async void StartDialogue() {
+		DialogueTimeout = false;
 		p.SetDisableMovement(true);
 		//Quest 0: find mechanic to fix ship
 		if (GlobalScript.CQ("short") == "MeetAzucat") {
@@ -146,10 +158,17 @@ public partial class SubmarineShop : Node2D
 				await pText.ShowText("Maybe another time!");
 			}
 		}
-		else if (GlobalScript.IsAfterQuest("MeetAzucat")) {
+		else if (GlobalScript.IsAfterQuest("MeetAzucat") && GlobalScript.IsBeforeQuest("GetBoat")) {
 			await aText.ShowText("I trust that you're working on getting that boba for me?");
 		}
+		else if (GlobalScript.IsAfterQuest("GetBoat")) {
+			await aText.ShowText("How's that new boat of yours holding up?");
+			await pText.ShowText("Just fine, thanks!");
+			await aText.ShowText("Impressive, that stand-off of yours with the seabunny.");
+		}
 		p.SetDisableMovement(false);
+		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+		DialogueTimeout = true;
 	}
 	
 	private async Task TellStory() {
