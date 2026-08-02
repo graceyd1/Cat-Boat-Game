@@ -18,6 +18,11 @@ public partial class ParvaHouse : Node2D
 
 		dT = GetNode<TextBox>("GroundPlayer/TextBox");
 		pT = GetNode<TextBox>("Parva/TextBox");
+		
+		dT.SetLabel("Dash");
+		pT.SetLabel("Parva");
+		dT.Known(true);
+		pT.Known(GlobalScript.IsAfterQuest("ExploreOcean"));
 
 		if (GlobalScript.CQ("short") != "ExploreOcean")
 		{
@@ -92,6 +97,7 @@ public partial class ParvaHouse : Node2D
 
 			await pT.ShowText("That's more like it. My name is Parva. Now, what have you come all this way for, brown cat?");
 
+			pT.Known(true);
 			await dT.ShowText("I'm Dash. I've been on a quest to find the fabled brown sugar boba.");
 			await dT.ShowText("Unfortunately, my ship crashed and I ended up underwater.");
 			//await dT.showText("It seems like this place has every kind of boba except for that. I've looked everywhere.");
@@ -109,8 +115,6 @@ public partial class ParvaHouse : Node2D
 
 			//player goes down
 			GlobalScript.QuestNum++;
-			// GD.Print(GlobalScript.CQ("short")); //=
-			// GD.Print("WHY");
 			if (dash is Player playerr)
 			{
 				playerr.SetDisableMovement(false);

@@ -22,6 +22,10 @@ public partial class BobaShop : Node2D
 		Pearl = GetNode<Sprite2D>("Pearl");
 		Pearl.Hide();
 		csAnimation.FlipH = true;
+		dashT.SetLabel("Dash");
+		catssavaT.SetLabel("Catssava");
+		dashT.Known(true);
+		catssavaT.Known(true); 
 		StartDialogue();
 	}
 	
@@ -72,7 +76,7 @@ public partial class BobaShop : Node2D
 		}
 		//already finished quest 1: Visit the boba shop and ask for brown sugar boba
 		else if (GlobalScript.CatssavaStoryNum == 0 && GlobalScript.NumPearls > 0) {
-			var choice = await dashT.Ask("Should I present a pearl to Catssava? 1. Yes 2. No");
+			var choice = await dashT.Ask("Should I present a pearl to Catssava?\n1. Yes\n2. No");
 			if (choice == "1") {
 				GlobalScript.NumPearls--;
 				if (GlobalScript.NumPearls == 0) {
@@ -118,7 +122,7 @@ public partial class BobaShop : Node2D
 		}
 		else if (GlobalScript.CatssavaStoryNum > 0 && GlobalScript.CatssavaStoryNum % 1 == 0 && GlobalScript.IsAfterQuest("GetBoat")) {
 			if (GlobalScript.CatssavaStoryNum <= MAX_STORY_NUM) {
-				var choice = await catssavaT.Ask("Would you like to hear a story? 1. Yes 2. No");
+				var choice = await catssavaT.Ask("Would you like to hear a story?\n1. Yes\n2. No");
 				if (choice == "1") {
 					await dashT.ShowText("Sure!");
 					await TellStory();

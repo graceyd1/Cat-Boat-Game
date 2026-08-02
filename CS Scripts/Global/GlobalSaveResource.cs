@@ -58,7 +58,9 @@ public partial class GlobalSaveResource : Resource
 	
 	[Export]
 	public double AzucatStoryNum = 0;
-	// [Export]
+	
+	[Export]
+	public int CarEncNum = 0;
 	// [Export]
 	// [Export]
 }

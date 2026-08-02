@@ -1,31 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://b28lwwf0dhiu6"]
+[gd_scene format=3 uid="uid://b28lwwf0dhiu6"]
 
-[ext_resource type="Script" path="res://CS Scripts/General/TextBox.cs" id="1_l67vn"]
+[ext_resource type="Script" uid="uid://tdptr3e5wguu" path="res://CS Scripts/General/TextBox.cs" id="1_l67vn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smhyf"]
+bg_color = Color(0.9843137, 0.9647059, 0.89411765, 0.8392157)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3u124"]
 bg_color = Color(0.1, 0.1, 0.1, 0.980392)
-corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="TextBox" type="Node2D"]
-visible = false
+[node name="TextBox" type="Node2D" unique_id=1326538900]
 z_index = 4000
-position = Vector2(0, -10)
 script = ExtResource("1_l67vn")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1094799844]
+wait_time = 0.2
+one_shot = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1878946196]
+offset_left = -56.0
+offset_top = -164.0
+offset_right = 57.0
+offset_bottom = -9.0
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=776082256]
+custom_minimum_size = Vector2(5, 10)
+custom_maximum_size = Vector2(50, -1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smhyf")
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel" unique_id=755599218]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.47058824, 0.4, 0.23921569, 1)
+text = "Catssava"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1051445124]
 texture_filter = 1
-offset_left = -60.0
-offset_top = -50.0
-offset_right = 60.0
-grow_vertical = 0
+layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_3u124")
 metadata/_edit_group_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=14221366]
 texture_filter = 1
 layout_mode = 2
 theme_override_constants/margin_left = 2
@@ -33,7 +61,8 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=1706023130]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -41,7 +70,3 @@ bbcode_enabled = true
 text = " [font_size=10]This is a text box.[/font_size] "
 fit_content = true
 scroll_active = false
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true

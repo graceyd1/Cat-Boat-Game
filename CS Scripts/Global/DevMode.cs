@@ -24,7 +24,9 @@ public partial class DevMode : CanvasLayer
 			{"sethp", SetHP},
 			{"setquest", SetQuest},
 			{"print", DebugPrint},
-			{"files", ManageFiles}
+			{"files", ManageFiles},
+			{"setcoins", SetCoins},
+			{"addpearl", AddPearl}
 		};
 	}
 
@@ -115,6 +117,21 @@ public partial class DevMode : CanvasLayer
 		}
 		else {
 			GlobalScript.SaveGame();
+		}
+	}
+	
+	private void SetCoins(string input) {
+		if (int.TryParse(input, out int result)) {
+			GlobalScript.Coins = result;
+		}
+	}
+	
+	private void AddPearl(string input) {
+		if (int.TryParse(input, out int result)) {
+			GlobalScript.NumPearls = result;
+			if (!GlobalScript.Inventory.Contains("Pearl")) {
+				GlobalScript.Inventory.Add("Pearl");
+			}
 		}
 	}
 }

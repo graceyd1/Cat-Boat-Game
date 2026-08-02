@@ -84,6 +84,14 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 			SaveGame();
 		}
 	}
+	
+	public static int CarEncNum {
+		get => GameData.CarEncNum;
+		set {
+			GameData.CarEncNum = value;
+			SaveGame();
+		}
+	}
 	public static bool GeyserOpened {
 		get => GameData.GeyserOpened;
 		set {

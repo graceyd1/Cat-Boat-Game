@@ -24,6 +24,10 @@ public partial class PlantShop : Node2D
 				GlobalScript.CatssavaStoryNum += 0.5;
 			}
 		}
+		dText.SetLabel("Dash");
+		oText.SetLabel("Olive");
+		dText.Known(true);
+		oText.Known(GlobalScript.OliveVisitNum > 0);
 
 		GetNode<Hitbox>("Olive/Laser/Hitbox").SetDisabled(true);
 		GetNode<CollisionShape2D>("Olive/Flashlight/Area2D/CollisionShape2D").Disabled = true;
@@ -59,6 +63,7 @@ public partial class PlantShop : Node2D
 			await oText.ShowText("They don't ever have the patience, and I doubt you'll be any different.");
 			await oText.ShowText("So I won't be selling you any plants.");
 			await oText.ShowText("Oh, I've forgotten to introduce myself. My name is 100% italian organic extra virgin olive oil.");
+			oText.Known(true);
 			await oText.ShowText("You may call me Olive.");
 			await dText.ShowText("What can I buy then, if you won't sell me plants?");
 			await oText.ShowText("I've got just the thing for you. A flashlight!");

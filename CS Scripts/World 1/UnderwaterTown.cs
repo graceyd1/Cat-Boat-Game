@@ -7,7 +7,6 @@ public partial class UnderwaterTown : Node2D
 	private bool transitioning = false;
 	private TextBox carT;
 	private TextBox dashT;
-	private static int encounterNum = 0; 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,6 +14,10 @@ public partial class UnderwaterTown : Node2D
 		dashT = GetNode<TextBox>("UnderwaterPlayer/TextBox");
 		GetNode<Walls>("RightExitWall").Enable();
 		GetNode<AnimatedSprite2D>("Carsava").Animation = "red";
+		carT.SetLabel("Carsava");
+		dashT.SetLabel("Dash");
+		dashT.Known(true);
+		carT.Known(true); //introduces himself first dialogue
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -77,24 +80,24 @@ public partial class UnderwaterTown : Node2D
 	
 	private async Task CarsavaDialogue() {
 		if (GlobalScript.Inventory.Contains("Town Pass")) {
-			if (encounterNum == 1) {
+			if (GlobalScript.CarEncNum == 1) {
 				await carT.ShowText("You again - I told you -");
 				await carT.ShowText("Wait, you got a pass? That's my sister, Catssava's!");
 				await carT.ShowText("She must really have faith in you. The ocean's dangers are no joke!");
 				await carT.ShowText("Well, go ahead then. And good luck.");
-				encounterNum++;
+				GlobalScript.CarEncNum++;
 			}
-			else if (encounterNum == 0) {
+			else if (GlobalScript.CarEncNum == 0) {
 				await carT.ShowText("I'm Carsava, the town guard. And you must be the new stranger in town.");
 				await carT.ShowText("Gotten a pass already, have you? I'm warning you, the waters beyond are dangerous.");
 				await carT.ShowText("I'm assuming you're trying to get boba for my sister.");
 				await carT.ShowText("Saying you miraculously succeed somehow...she would be very grateful.");
 				await carT.ShowText("She's been down ever since her boba supply vanished.");
-				encounterNum = 2;
+				GlobalScript.CarEncNum = 2;
 			}
 			else {
 				int path; 
-				int max = (encounterNum > 6) ? 6 : encounterNum;
+				int max = (GlobalScript.CarEncNum > 6) ? 6 : GlobalScript.CarEncNum;
 				if (GlobalScript.Inventory.Contains("flashlight")) {
 					path = Rand(0, max);
 				}
@@ -121,17 +124,17 @@ public partial class UnderwaterTown : Node2D
 					case 6: await carT.ShowText("I know you can handle the toughest waves that come your way.");
 							break;
 				}
-				encounterNum++;
+				GlobalScript.CarEncNum++;
 			}
 			GetNode<AnimatedSprite2D>("Carsava").Animation = "blue";
 			GetNode<Walls>("RightExitWall").Disable();
 		}
 		else {
-			if (encounterNum == 0) {
+			if (GlobalScript.CarEncNum == 0) {
 				await carT.ShowText("I'm Carsava, the town guard. And you must be the new stranger in town.");
 				await carT.ShowText("Unfortunately, I can't let you leave town without a pass.");
 				await carT.ShowText("It's too dangerous out there for a normal cat. No reason to leave if you don't have to.");
-				encounterNum++;
+				GlobalScript.CarEncNum++;
 			}
 			else {
 				await carT.ShowText("Stranger, I don't know why you insist on leaving.");
