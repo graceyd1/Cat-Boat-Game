@@ -130,6 +130,7 @@ public partial class FishRoom : Node2D
 		
 		if (fishCollected > GlobalScript.FishGameHighScore)
 		{
+			GetNode<GlobalSound>("/root/GlobalSound").PlaySound("high_score");
 			await iText.ShowText("that's a new high score!");
 			GlobalScript.FishGameHighScore = fishCollected;
 			UpdateHighScore();

@@ -97,7 +97,7 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 		string roomName = GetTree().CurrentScene.Name;
 		if (GetPlayer(roomName))
 		{
-			//there's probably a better fix, but if you put (0, 0) in parameter it spawns player in defualt pos
+			//there's probably a better fix, but if you put (0, 0) in parameter it spawns player in default pos
 			if (pos != Vector2.Zero) {
 				currPlayer.Position = pos;
 			}

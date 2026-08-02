@@ -105,6 +105,10 @@ scale = Vector2(1, 9)
 position = Vector2(-60, 140)
 scale = Vector2(22, 1)
 
+[node name="Floor2" parent="." unique_id=275837928 instance=ExtResource("2_oosj0")]
+position = Vector2(88, 0)
+scale = Vector2(1, 7)
+
 [node name="Door" parent="." unique_id=1140787439 instance=ExtResource("9_ee1pn")]
 offset_left = 299.0
 offset_top = 119.0
@@ -112,14 +116,15 @@ offset_right = 320.0
 offset_bottom = 140.0
 
 [node name="ShopExit" parent="Door" unique_id=276605442 instance=ExtResource("10_kf4ch")]
-position = Vector2(10, 23)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, 21)
+scale = Vector2(0.7, 0.5)
 
 [node name="Olive" type="Sprite2D" parent="." unique_id=566580899]
 position = Vector2(76, 114)
 texture = ExtResource("3_kkkae")
 
 [node name="TextBox" parent="Olive" unique_id=2043455156 instance=ExtResource("4_to25d")]
+visible = false
 
 [node name="Flashlight" type="PointLight2D" parent="Olive" unique_id=543211376]
 visible = false
@@ -155,8 +160,13 @@ position = Vector2(132.5, 61.97)
 position = Vector2(258, 132)
 
 [node name="TextBox" parent="GroundPlayer" unique_id=1295625498 instance=ExtResource("4_to25d")]
+visible = false
 
 [node name="InteractLabel" parent="." unique_id=1570284231 instance=ExtResource("11_7yypv")]
+offset_left = 77.99999
+offset_top = 101.99999
+offset_right = 77.99999
+offset_bottom = 101.99999
 
 [node name="DiedScreen" type="ColorRect" parent="." unique_id=804552349]
 visible = false
@@ -193,3 +203,4 @@ theme_override_font_sizes/font_size = 10
 text = ":("
 
 [connection signal="Interact" from="Door/ShopExit" to="." method="OnExitRoom"]
+[connection signal="body_exited" from="Door/ShopExit" to="." method="OnDoorAreaExited"]

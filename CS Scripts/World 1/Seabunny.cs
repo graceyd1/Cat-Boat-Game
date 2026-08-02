@@ -132,7 +132,6 @@ public partial class Seabunny : CharacterBody2D
 		{
 			facingLeft = false;
 			animatedSprite.FlipH = true;
-			//GD.Print(facingLeft);///
 			await Dash(3);
 		}
 		Position = new Vector2(555, 205);
@@ -200,7 +199,6 @@ public partial class Seabunny : CharacterBody2D
 		animatedSprite.Animation = "dashing";
 		animatedSprite.Play();
 		
-		//GD.Print(facingLeft);///
 		if (facingLeft)
 		{
 			Velocity = new Vector2(-dashSpeed, 0); //set velocity.x to -dashSpeed

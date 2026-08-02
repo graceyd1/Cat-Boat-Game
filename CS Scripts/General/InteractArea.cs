@@ -57,12 +57,12 @@ public partial class InteractArea : Area2D
 		if (interactLabel != null)
 		{
 			interactLabel.Hide();
-			if (ExitRooms.Contains(Owner.Name)) {
-				interactLabel.Scale = new Vector2(0.5f, 0.5f);
-			}
-			else {
-				interactLabel.Scale = new Vector2(0.8f, 0.8f);
-			}
+			// if (ExitRooms.Contains(Owner.Name)) {
+			// 	interactLabel.Scale = new Vector2(0.5f, 0.5f);
+			// }
+			// else {
+			// 	interactLabel.Scale = new Vector2(0.8f, 0.8f);
+			// }
 		}
 	}
 
@@ -78,14 +78,6 @@ public partial class InteractArea : Area2D
 				EmitSignal(SignalName.InteractReturnAreaName, Name);
 			}
 		}
-
-		// //=
-		// if (GetParent().Name == "IceCreamAreaSprite")
-		// {
-		// 	GD.Print("bodies : " + GetOverlappingBodies());
-		// 	GD.Print(allowInteraction);
-
-		// }
 	}
 
 	/// <summary>

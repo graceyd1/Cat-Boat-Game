@@ -8,6 +8,7 @@ public partial class PlantShop : Node2D
 	private TextBox oText;
 	private GroundPlayer classPlayer;
 	private bool DialogueTimeout;
+	private Control interactLabel;
 	public override void _Ready()
 	{
 		dText = GetNode<TextBox>("GroundPlayer/TextBox");
@@ -20,24 +21,29 @@ public partial class PlantShop : Node2D
 		GetNode<Control>("DiedScreen").Hide();
 		GetNode<Hitbox>("Olive/Laser/Hitbox").SetDisabled(true);
 		GetNode<CollisionShape2D>("Olive/Flashlight/Area2D/CollisionShape2D").Disabled = true;
+		interactLabel = GetNode<Control>("InteractLabel");
+		interactLabel.Show();
 		
 		StartDialogue();
 	}
 	
 	private async void StartDialogue() {
 		DialogueTimeout = false;
-		classPlayer.InputEnabled = false;
+		classPlayer.SetDisableMovement(true);
+		interactLabel.Hide();
 		classPlayer.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "sit_left";
 		if (!GlobalScript.Inventory.Contains("Flashlight"))
 		{
 			await FirstShopDialogue(GlobalScript.OliveVisitNum);
+			interactLabel.Show();
 		}
 		else if (GlobalScript.CatssavaStoryNum == 2.5)
 		{
 			await ClearMisunderstanding();
 			GlobalScript.CatssavaStoryNum += 0.5;
+			interactLabel.Show();
 		}
-		classPlayer.InputEnabled = true;
+		classPlayer.SetDisableMovement(false);
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		DialogueTimeout = true;
 	}
@@ -51,6 +57,13 @@ public partial class PlantShop : Node2D
 				}
 			}
 		}
+	}
+
+	//display interact label above shopkeeper
+	private void OnDoorAreaExited(Node2D player)
+	{
+		interactLabel.Position = new Vector2(78, 102);
+		interactLabel.Show();
 	}
 	
 	private async Task ClearMisunderstanding() {
@@ -141,8 +154,6 @@ public partial class PlantShop : Node2D
 			}
 			else
 			{
-				//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-				///edit this one too?
 				await oText.ShowText("You don't even have [i]ten[/i] measly coins? What even are you doing in my shop to begin with?");
 				await oText.ShowText("Tut-tut, wasting my time I see. What an awful customer, just like the rest of them.");
 			}
@@ -170,7 +181,6 @@ public partial class PlantShop : Node2D
 				laser.Show();
 				laser.Animation = "start_laser";
 				laser.Play();
-				classPlayer.InputEnabled = true;
 				await ToSignal(laser, AnimatedSprite2D.SignalName.AnimationFinished);
 
 				laser.Animation = "laser";
@@ -182,7 +192,6 @@ public partial class PlantShop : Node2D
 				player.invulnerable = true;
 				laser.Hide();
 				laser.GetNode<Hitbox>("Hitbox").SetDisabled(true);
-				GD.Print("1");
 
 				var fader = GetNode<Fader>("/root/Fader");
 				await fader.FadeIn(.7f);
@@ -198,11 +207,6 @@ public partial class PlantShop : Node2D
 				await fader.FadeOut(.7f);
 				player.SetDisableRespawn(false);
 				player.invulnerable = false;
-
-				//var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-				//await GlobalScene.ChangeRoom(new Vector2(40, 321), "underwater_town", true);
-				// laser.Hide();
-				// laserHitbox.SetDisabled(true);
 			}
 		}
 	}

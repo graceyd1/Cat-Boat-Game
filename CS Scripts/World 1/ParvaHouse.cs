@@ -60,9 +60,6 @@ public partial class ParvaHouse : Node2D
 	}
 	
 	public async void startDialogue(Node2D player) {
-		// GD.Print("HELP");
-		// GD.Print(player.Name); ///=
-
 		if (GlobalScript.CQ("short") == "ExploreOcean") {
 
 			//lock player movement?

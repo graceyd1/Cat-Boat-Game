@@ -464,9 +464,11 @@ offset_bottom = 172.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4krqg")
 
 [node name="Label" type="Label" parent="Credits" unique_id=1496045938]
+custom_minimum_size = Vector2(85, 0)
 layout_mode = 0
-offset_right = 213.0
-offset_bottom = 170.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 186.0
 theme_override_colors/font_color = Color(0.47058824, 0.4, 0.23921569, 1)
 theme_override_font_sizes/font_size = 10
 text = "A game by:
@@ -474,23 +476,49 @@ Jewelia (Julia Jeng)
 Kimeowsu
 grassinabox
 
-Made using:
+Soundtracking by: 
+Third Take Studios"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Credits" unique_id=1302880796]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 0
+offset_left = 101.0
+offset_top = 6.0
+offset_right = 213.0
+offset_bottom = 186.0
+theme_override_colors/font_color = Color(0.47058824, 0.4, 0.23921569, 1)
+theme_override_font_sizes/font_size = 10
+text = "Made using:
 Godot
 Pixel Studio
 
-Inspired by: Super Cat Tales 2
+Features sound effects from DOTVOICE by daniwell (aidn.jp/dotvoice)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Credits" unique_id=195311561]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 109.0
+offset_right = 212.0
+offset_bottom = 145.625
+theme_override_colors/font_color = Color(0.47058824, 0.4, 0.23921569, 1)
+theme_override_font_sizes/font_size = 10
+text = "Inspired by: Super Cat Tales 2
 Special Thanks: Hack Club
-Note: do not give bubble tea to cats"
+Note: do not give bubble tea to cats in real life"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloseCreditsButton" type="Button" parent="Credits" unique_id=464140772]
 use_parent_material = true
 layout_mode = 0
-offset_left = 175.0
-offset_top = 5.0
-offset_right = 208.0
-offset_bottom = 18.0
+offset_left = 89.0
+offset_top = 151.0
+offset_right = 122.0
+offset_bottom = 164.0
 theme_override_colors/font_color = Color(0.23, 0.17533667, 0.124199994, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_twnyg")

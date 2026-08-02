@@ -51,7 +51,6 @@ public partial class SeaBunnyRoom : Node2D
 
 	private void OnVineTimerTimeout()
 	{
-		GD.Print("APPEAR");
 		GetNode<AnimatedSprite2D>("Sparkle").Show();
 		var anim = GetNode<AnimationPlayer>("AnimationPlayer");
 		anim.Play("vine_appear");	

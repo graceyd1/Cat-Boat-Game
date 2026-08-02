@@ -266,7 +266,6 @@ public partial class Player : CharacterBody2D
 		if (disable)
 		{
 			Velocity = Vector2.Zero;
-
 		}
 	}
 	public bool MovementIsDisabled()

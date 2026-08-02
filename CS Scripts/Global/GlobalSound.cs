@@ -6,7 +6,7 @@ public partial class GlobalSound : Node
 	private AudioStreamPlayer SoundPlayer;
 	private AudioStreamPlayer MusicPlayer;
 
-	private AudioStream hurt, collect_coin, bounce;
+	private AudioStream hurt, collect_coin, bounce, high_score;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -17,6 +17,7 @@ public partial class GlobalSound : Node
 		hurt = ResourceLoader.Load<AudioStream>("res://assets/sound_effects/hurt.wav");
 		collect_coin = ResourceLoader.Load<AudioStream>("res://assets/sound_effects/collect_coin.wav");
 		bounce = ResourceLoader.Load<AudioStream>("res://assets/sound_effects/bounce.wav");
+		high_score = ResourceLoader.Load<AudioStream>("res://assets/sound_effects/high_score.wav");
 
 	}
 

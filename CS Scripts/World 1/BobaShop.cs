@@ -48,7 +48,7 @@ public partial class BobaShop : Node2D
 	
 	public async void StartDialogue() {
 		csAnimation.Animation = "sit";
-		player.InputEnabled = false;
+		player.SetDisableMovement(true);
 		DialogueTimeout = false;
 		//Quest == Visit the boba shop and ask for brown sugar boba
 		if (GlobalScript.CQ("short") == "MeetCatssava") {
@@ -148,7 +148,7 @@ public partial class BobaShop : Node2D
 		else if (GlobalScript.IsAfterQuest("GetBoat")) {
 			await catssavaT.ShowText("Dash, you were amazing! I can't believe you actually got my boba back!");
 		}
-		player.InputEnabled = true;
+		player.SetDisableMovement(false);
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		DialogueTimeout = true;
 	}
