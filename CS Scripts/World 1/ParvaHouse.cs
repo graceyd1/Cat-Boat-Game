@@ -67,7 +67,7 @@ public partial class ParvaHouse : Node2D
 			var dash = player;
 			if (dash is Player p)
 			{
-				p.SetDisableControl(true);
+				p.SetDisableMovement(true);
 			}
 			player.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "sit_right";	
 			player.Position = new Vector2(78, 132);
@@ -108,9 +108,10 @@ public partial class ParvaHouse : Node2D
 
 			//player goes down
 			GlobalScript.QuestNum++;
+			GlobalScript.QuestNum = 4; //= manual set
 			if (dash is Player playerr)
 			{
-				playerr.SetDisableControl(false);
+				playerr.SetDisableMovement(false);
 				playerr.InputEnabled = true;
 			}
 		}

@@ -98,7 +98,7 @@ public partial class UnderwaterTown : Node2D
 			else {
 				int path; 
 				int max = (GlobalScript.CarEncNum > 6) ? 6 : GlobalScript.CarEncNum;
-				if (GlobalScript.Inventory.Contains("flashlight")) {
+				if (GlobalScript.Inventory.Contains("Flashlight")) {
 					path = Rand(0, max);
 				}
 				else {

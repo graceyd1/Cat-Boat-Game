@@ -50,7 +50,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 		parvaAni.Animation = "default";
 		var player = GetNode<GroundPlayer>("GroundPlayer");
 		//this way still affected by gravity
-		player.SetDisableControlBounce(true);
+		player.SetDisableControl(true);
 		await dashT.ShowText("How'd you get an entire stash of boba?");
 		await parvaT.ShowText("Ah, just stole them from the town's boba shop.");
 		await dashT.ShowText("...");
@@ -142,7 +142,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 		var parva = GetNode<AnimatedSprite2D>("Parva");
 		parva.Hide();
 		await dashT.ShowText("Where did he go? Seems like I'm stuck here...");
-		player.SetDisableControlBounce(false);
+		player.SetDisableControl(false);
 		//Next quest: investigate the cave
 		GlobalScript.QuestNum++;
 	}
