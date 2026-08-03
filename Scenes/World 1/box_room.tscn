@@ -75,6 +75,14 @@ texture_filter = 1
 texture = ExtResource("5_pp303")
 centered = false
 
+[node name="Parallax2D4" type="Parallax2D" parent="BackgroundStuff" unique_id=2038546387]
+scroll_scale = Vector2(0.8, 1)
+
+[node name="Background4" type="Sprite2D" parent="BackgroundStuff/Parallax2D4" unique_id=113955208]
+texture_filter = 1
+texture = ExtResource("9_4mvhg")
+centered = false
+
 [node name="BigJellyfishBottom" type="AnimatedSprite2D" parent="BackgroundStuff" unique_id=941811669]
 texture_filter = 1
 position = Vector2(0, -15)
@@ -85,14 +93,6 @@ centered = false
 [node name="Hitbox" parent="BackgroundStuff/BigJellyfishBottom" unique_id=155716531 instance=ExtResource("8_vuk6g")]
 position = Vector2(245, 45)
 scale = Vector2(3.5, 2.5)
-
-[node name="Parallax2D4" type="Parallax2D" parent="BackgroundStuff" unique_id=2038546387]
-scroll_scale = Vector2(0.8, 1)
-
-[node name="Background4" type="Sprite2D" parent="BackgroundStuff/Parallax2D4" unique_id=113955208]
-texture_filter = 1
-texture = ExtResource("9_4mvhg")
-centered = false
 
 [node name="FakeBoxesFolder" type="Node2D" parent="BackgroundStuff" unique_id=1309586881]
 position = Vector2(174, 136)

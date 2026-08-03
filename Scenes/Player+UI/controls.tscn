@@ -92,7 +92,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_a8ss1")
 [node name="MarginContainer" type="MarginContainer" parent="Expanded" unique_id=248711261]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 87.0
+offset_right = 113.66667
 offset_bottom = 90.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -205,9 +205,9 @@ offset_bottom = 86.66699
 unique_name_in_owner = true
 
 [node name="MainMenuButton" type="Button" parent="Expanded/QuitOptions" unique_id=2051606613]
-offset_left = 13.666672
+offset_left = 10.333336
 offset_top = 26.666666
-offset_right = 103.666664
+offset_right = 107.00001
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0.18039216, 0.13725491, 0.09803922, 1)
 theme_override_font_sizes/font_size = 10

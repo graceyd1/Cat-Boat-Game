@@ -79,7 +79,7 @@ public partial class SubmarineShop : Node2D
 	
 	public async void StartDialogue() {
 		DialogueTimeout = false;
-		p.SetDisableMovement(true);
+		p.SetDisableControl(true);
 		//Quest 0: find mechanic to fix ship
 		if (GlobalScript.CQ("short") == "MeetAzucat") {
 			await aText.ShowText("Hello there! Welcome to Bubbly Town, our lively little town under the ocean!");
@@ -166,7 +166,7 @@ public partial class SubmarineShop : Node2D
 			await pText.ShowText("Just fine, thanks!");
 			await aText.ShowText("Impressive, that stand-off of yours with the seabunny.");
 		}
-		p.SetDisableMovement(false);
+		p.SetDisableControl(false);
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		DialogueTimeout = true;
 	}

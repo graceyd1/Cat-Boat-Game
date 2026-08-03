@@ -73,6 +73,12 @@ public partial class SeaBunnyRoom : Node2D
 				AnimationP.Play("gate_close");
 				GetNode<AnimatedSprite2D>("Sparkle").Show();
 				//camera.SetLimit(Side.Left, 320);
+				//reset second vine timer
+				if (SeaBunny.Hp == 1
+					&& !(GetNode<AnimatedSprite2D>("Sparkle").Visible))
+				{
+					GetNode<Timer>("VineTimer").Start();
+				}
 					
 				SeaBunny.StartFight();
 			}
@@ -100,7 +106,7 @@ public partial class SeaBunnyRoom : Node2D
 		if (SeaBunny.Hp == 2)
 		{
 			await SeaBunny.EatLeftVine();
-			GetNode<Godot.Timer>("VineTimer").Start();
+			GetNode<Timer>("VineTimer").Start();
 		}
 	}
 	public async void EndFight(Node2D player)
@@ -148,12 +154,16 @@ public partial class SeaBunnyRoom : Node2D
 		
 		anim.Play("ship_deployed");
 		await ToSignal(anim, AnimationPlayer.SignalName.AnimationFinished);
+		GetNode<GlobalSound>("/root/GlobalSound").PlaySound("bounce");
+		anim.Play("ship_bounce");
+		await ToSignal(anim, AnimationPlayer.SignalName.AnimationFinished);
 
 		await dText.ShowText("...");
 		await aText.ShowText("...Well, I better get going! See ya!");
 
 		anim.Play("azucat_leaves");
 		await ToSignal(anim, AnimationPlayer.SignalName.AnimationFinished);
+		GlobalScript.QuestNum ++;
 		Player.SetDisableMovement(false);
 	}
 
@@ -170,7 +180,7 @@ public partial class SeaBunnyRoom : Node2D
 			transitioning = true;
 			await GlobalSceneChange.ChangeRoom(new Vector2(20, 140), "treasure_room", true);
 		}
-		else if (pos.Y < -8)
+		else if (pos.Y < -20)
 		{
 			transitioning = true;
 			await GlobalSceneChange.ChangeRoom(Vector2.Zero, "world_end_screen", true);

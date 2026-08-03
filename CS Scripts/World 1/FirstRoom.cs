@@ -28,14 +28,10 @@ public partial class FirstRoom : Node2D
 	}
 	
 	private async Task NextRoomCheck() {
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 		Vector2 pos = GetNode<CharacterBody2D>("UnderwaterPlayer").Position;
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		if (pos.X > 495) {
 			transitioning = true;
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(50, 518), "underwater_town", true);
 		}
 	}

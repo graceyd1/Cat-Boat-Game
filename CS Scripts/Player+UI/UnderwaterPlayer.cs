@@ -143,7 +143,7 @@ public partial class UnderwaterPlayer : Player
 					animatedSprite.Animation = "swim-left";
 				}
 				animatedSprite.Play();
-				SetDisableControl(true);
+				SetDisableControlBounce(true);
 				StunTimer();
 			}
 		}
@@ -151,7 +151,7 @@ public partial class UnderwaterPlayer : Player
 	
 	private async void StunTimer() {
 		await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
-		SetDisableControl(false);
+		SetDisableControlBounce(false);
 	}
 
 	//change player back to normal after flashing animation

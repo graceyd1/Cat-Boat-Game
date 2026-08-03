@@ -354,7 +354,7 @@ script = ExtResource("1_vix8s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=406709693]
 sprite_frames = SubResource("SpriteFrames_817w4")
-animation = &"title_screen"
+animation = &"opening"
 autoplay = "title_screen"
 centered = false
 

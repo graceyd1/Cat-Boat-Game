@@ -31,6 +31,7 @@ public partial class Player : CharacterBody2D
 
 	//used in cutscenes (implemented in the GroundPlayer and UnderwaterPlayer classes)
 	private bool disableMovement;
+	public bool InputEnabled{get;set;} = true;
 
 	//true if respawnOverride is taking over respawning
 	private bool respawnOverride;
@@ -44,12 +45,12 @@ public partial class Player : CharacterBody2D
 	//stores velocity modifiers such as wind/tube coral pull
 	public Vector2 VelocityModifier{get; set;}
 	
-	public bool InputEnabled{get;set;} = true;
 	public GlobalSound globalSound;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		disableMovement = false;
 		respawning = false;
 		respawnOverride = false;
 		//ScreenSize = GetViewportRect().Size;
@@ -253,14 +254,30 @@ public partial class Player : CharacterBody2D
 		VelocityModifier = vel;
 	}
 
-	//removes player movement control without setting velocity to zero (for bouncing)
-	public void SetDisableControl(Boolean disable)
+	/// <summary>
+	/// Removes player movement control and disables gravity if true (for bouncing)
+	/// </summary>
+	/// <param name="disable"></param>
+	public void SetDisableControlBounce(bool disable)
 	{
 		disableMovement = disable;
 	}
 
-	//removes player movement control and sets velocity to zero (for cutscenes)
-	public void SetDisableMovement(Boolean disable)
+	/// <summary>
+	/// Removes player movement control and sets horizontal velocity to zero if true. Does not disable gravity
+	/// </summary>
+	/// <param name="disable"></param>
+	public void SetDisableControl(bool disable)
+	{
+		Velocity = new Vector2(0, Velocity.Y);
+		InputEnabled = !disable;
+	}
+
+	/// <summary>
+	/// Removes player movement control and disables movement if true
+	/// </summary>
+	/// <param name="disable"></param>
+	public void SetDisableMovement(bool disable)
 	{
 		disableMovement = disable;
 		if (disable)
@@ -271,6 +288,11 @@ public partial class Player : CharacterBody2D
 	public bool MovementIsDisabled()
 	{
 		return disableMovement;
+	}
+
+	public bool InputIsDisabled()
+	{
+		return !InputEnabled;
 	}
 	
 	public void GetItem(string item)

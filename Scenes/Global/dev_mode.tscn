@@ -7,7 +7,7 @@ script = ExtResource("1_4gh8d")
 
 [node name="Popup" type="ConfirmationDialog" parent="." unique_id=1363397368]
 oversampling_override = 1.0
-title = "Devs Only"
+title = "Dev Mode"
 position = Vector2i(0, 36)
 visible = true
 

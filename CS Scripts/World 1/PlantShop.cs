@@ -29,23 +29,26 @@ public partial class PlantShop : Node2D
 	
 	private async void StartDialogue() {
 		DialogueTimeout = false;
-		classPlayer.SetDisableMovement(true);
+		classPlayer.SetDisableControl(true);
 		interactLabel.Hide();
 		classPlayer.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "sit_left";
 		if (!GlobalScript.Inventory.Contains("Flashlight"))
 		{
 			await FirstShopDialogue(GlobalScript.OliveVisitNum);
-			interactLabel.Show();
 		}
 		else if (GlobalScript.CatssavaStoryNum == 2.5)
 		{
 			await ClearMisunderstanding();
 			GlobalScript.CatssavaStoryNum += 0.5;
-			interactLabel.Show();
 		}
-		classPlayer.SetDisableMovement(false);
+		else
+		{
+			await oText.ShowText("I have nothing more to sell to you.");
+		}
+		classPlayer.SetDisableControl(false);
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		DialogueTimeout = true;
+		interactLabel.Show();
 	}
 	
 	public override void _Input(InputEvent @event) {

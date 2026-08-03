@@ -114,7 +114,7 @@ public partial class GroundPlayer : Player
 				
 				Velocity = dir;
 			}
-		} //end of if movement disabled
+		} //end of if movement not disabled
 
 		//flashing when hurt
 		if (Flash)
@@ -142,7 +142,7 @@ public partial class GroundPlayer : Player
 					Velocity = new Vector2(0, -400);
 					//how high up it can go
 					//Position += new Vector2(0, -70);
-					SetDisableControl(true);
+					SetDisableControlBounce(true);
 					globalSound.PlaySound("bounce");
 					TimeBounce();
 					break;

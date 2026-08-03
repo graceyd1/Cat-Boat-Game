@@ -23,9 +23,7 @@ public partial class WorldEndScreen : Control
 
 	private async void OnTitleScreenButtonPressed()
 	{
-		var fader = GetNode<Fader>("/root/Fader");
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-		await fader.FadeIn(.7f);
 		await GlobalSceneChange.ChangeRoom(Vector2.Zero, "title_screen", false);
 	}
 }

@@ -48,7 +48,7 @@ public partial class BobaShop : Node2D
 	
 	public async void StartDialogue() {
 		csAnimation.Animation = "sit";
-		player.SetDisableMovement(true);
+		player.SetDisableControl(true);
 		DialogueTimeout = false;
 		//Quest == Visit the boba shop and ask for brown sugar boba
 		if (GlobalScript.CQ("short") == "MeetCatssava") {
@@ -148,7 +148,7 @@ public partial class BobaShop : Node2D
 		else if (GlobalScript.IsAfterQuest("GetBoat")) {
 			await catssavaT.ShowText("Dash, you were amazing! I can't believe you actually got my boba back!");
 		}
-		player.SetDisableMovement(false);
+		player.SetDisableControl(false);
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		DialogueTimeout = true;
 	}
@@ -161,7 +161,7 @@ public partial class BobaShop : Node2D
 	}
 	
 	private async Task CatnipStory() {
-		await catssavaT.ShowText("It was a nice day. Sunlight filtered through the waters. No one should by crying behind their shop counter, but there I was.");
+		await catssavaT.ShowText("It was a nice day. Sunlight filtered through the waters. No one should be crying behind their shop counter, but there I was.");
 		await catssavaT.ShowText("It was because of Olive. She was bitter towards me that day because a customer asked why she wasn't as nice as I was.");
 		await catssavaT.ShowText("I decided I didn't want to mope on such a fine day. I would go and fix things.");
 		await dashT.ShowText("Woah. You went to talk things out with Olive?");

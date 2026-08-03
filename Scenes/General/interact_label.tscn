@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ygrr56bstc00"]
 
 [ext_resource type="FontFile" uid="uid://cpdnqe1jl0cys" path="res://assets/Geo_Font/Geo-Regular.ttf" id="1_4f6lq"]
+[ext_resource type="Material" uid="uid://cuxgp8trfyrih" path="res://assets/themes+materials/unshaded_material.tres" id="1_asea6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60dgh"]
 bg_color = Color(1, 0.964706, 0.894118, 1)
@@ -11,11 +12,13 @@ corner_radius_bottom_left = 4
 
 [node name="InteractLabel" type="Control" unique_id=410198121]
 z_index = 4000
+material = ExtResource("1_asea6")
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(0.7, 0.7)
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=929706652]
+use_parent_material = true
 custom_minimum_size = Vector2(60, 20)
 layout_mode = 0
 offset_left = -30.0
@@ -25,6 +28,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_60dgh")
 
 [node name="Label" type="Label" parent="PanelContainer" unique_id=745704034]
 z_index = 4000
+use_parent_material = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.643137, 0.494118, 0.172549, 1)
 theme_override_fonts/font = ExtResource("1_4f6lq")

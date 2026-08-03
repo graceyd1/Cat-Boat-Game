@@ -115,6 +115,7 @@ public partial class Seabunny : CharacterBody2D
 
 		Hp --;
 		GetNode<Hitbox>("Hitbox").SetDisabled(false);
+		facingLeft = false;
 		InFight = true;
 		InCutscene = false;
 		OnIdleTimerTimeout();

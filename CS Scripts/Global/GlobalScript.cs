@@ -189,7 +189,7 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 
 		ClamsCollected.Resize(6);
 		ClamsCollected.Fill(false);
-	}
+	}	
 	
 	public static void LoadGame() {
 		if (ResourceLoader.Exists(savePath)) {

@@ -14,6 +14,7 @@ public partial class FishRoom : Node2D
 	private Godot.Collections.Array<Node> CollectableFish;
 	private Node2D Clam;
 	private int originalHp;
+	private bool playerDied;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -63,7 +64,7 @@ public partial class FishRoom : Node2D
 	private async void StartDialogue()
 	{
 		var player = GetNode<Player>("UnderwaterPlayer");
-		player.SetDisableMovement(true);
+		player.SetDisableControl(true);
 		iText.DisableInteractArea();
 		await iText.ShowText("yo! do you want to play a minigame for coins?");
 		
@@ -79,11 +80,12 @@ public partial class FishRoom : Node2D
 			await iText.ShowText("the fish hurt you if you get too close, so be careful!");
 			StartMinigame();
 		}
-		player.SetDisableMovement(false);
+		player.SetDisableControl(false);
 	}
 
 	private void StartMinigame()
 	{
+		playerDied = false;
 		playingMinigame = true;
 		fishCollected = 0;
 		var player = GetNode<Player>("UnderwaterPlayer");
@@ -121,9 +123,16 @@ public partial class FishRoom : Node2D
 	{
 		var player = GetNode<Player>("UnderwaterPlayer");
 		player.Position = new Vector2(535, 172);
-		player.SetDisableMovement(true);
+		player.SetDisableControl(true);
 		GetNode<Control>("InteractLabel").Hide();
-		await iText.ShowText("game over!");
+		if (fishCollected >= CollectableFish.Count)
+		{
+			await iText.ShowText("game over! you got all the fish!");
+		}
+		else
+		{
+			await iText.ShowText("game over!");
+		}
 		await iText.ShowText("you got : " + fishCollected + " fish");
 		await iText.ShowText("you get: " + fishCollected + " coins");
 		GlobalScript.Coins += fishCollected;
@@ -138,7 +147,7 @@ public partial class FishRoom : Node2D
 
 		if (fishCollected >= CollectableFish.Count 
 			&& !GlobalScript.ClamsCollected[0]
-			&& player.hp > 1)
+			&& player.hp > 1 && !playerDied)
 		{
 			await iText.ShowText("perfect game! congratulations! you unlocked an extra prize!");
 			Clam.Show();
@@ -149,7 +158,7 @@ public partial class FishRoom : Node2D
 		iText.EnableInteractArea();
 		playingMinigame = false;
 		player.SetHP(originalHp);
-		player.SetDisableMovement(false);
+		player.SetDisableControl(false);
 
 		//enable regular fish
 		var regularFish = GetNode<Node2D>("RegularFish").GetChildren();
@@ -203,6 +212,7 @@ public partial class FishRoom : Node2D
 			// }
 			var timer = GetNode<MinigameTime>("UnderwaterPlayer/MinigameTime");
 			timer.EndGame();
+			playerDied = true;
 			var player = GetNode<Player>("UnderwaterPlayer");
 			await player.RespawnOverride(new Vector2(535, 172));
 			EndMinigame();

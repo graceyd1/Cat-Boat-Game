@@ -113,6 +113,5 @@ position = Vector2(500, 0)
 scale = Vector2(1, 15)
 
 [node name="InteractLabel" parent="." unique_id=586725025 instance=ExtResource("12_fssa8")]
-visible = false
 
 [connection signal="InteractReturnAreaName" from="ParvaDoor" to="." method="OnEnterRoom"]
