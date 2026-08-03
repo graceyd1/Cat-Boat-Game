@@ -9,6 +9,7 @@ public partial class PlantShop : Node2D
 	private GroundPlayer classPlayer;
 	private bool DialogueTimeout;
 	private Control interactLabel;
+	private bool NoMoreDialogue;
 	public override void _Ready()
 	{
 		dText = GetNode<TextBox>("GroundPlayer/TextBox");
@@ -35,12 +36,14 @@ public partial class PlantShop : Node2D
 		if (!GlobalScript.Inventory.Contains("Flashlight"))
 		{
 			await FirstShopDialogue(GlobalScript.OliveVisitNum);
-			interactLabel.Show();
 		}
 		else if (GlobalScript.CatssavaStoryNum == 2.5)
 		{
 			await ClearMisunderstanding();
 			GlobalScript.CatssavaStoryNum += 0.5;
+		}
+		NoMoreDialogue = (GlobalScript.Inventory.Contains("Flashlight") && GlobalScript.CatssavaStoryNum != 2.5);
+		if (!NoMoreDialogue) {
 			interactLabel.Show();
 		}
 		classPlayer.SetDisableMovement(false);
@@ -63,7 +66,9 @@ public partial class PlantShop : Node2D
 	private void OnDoorAreaExited(Node2D player)
 	{
 		interactLabel.Position = new Vector2(78, 102);
-		interactLabel.Show();
+		if (!NoMoreDialogue) {
+			interactLabel.Show();
+		}
 	}
 	
 	private async Task ClearMisunderstanding() {
@@ -128,7 +133,7 @@ public partial class PlantShop : Node2D
 						break;
 				case 6: await oText.ShowText("How very rude of you to ignore me that last encounter. Now I can't put up that sign.");
 						break;
-				default: await oText.ShowText("It's your " + VisitNum + "th time here! Jeez, what do you want?!");
+				default: await oText.ShowText("You've been here " + VisitNum + " times! Jeez, what do you want?!");
 						break;
 			}
 			await FlashlightShop();
