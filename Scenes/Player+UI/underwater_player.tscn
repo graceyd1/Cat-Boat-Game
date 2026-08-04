@@ -2,19 +2,41 @@
 
 [ext_resource type="PackedScene" uid="uid://djy0cxmipcbm6" path="res://Scenes/Player+UI/player.tscn" id="1_12ot0"]
 [ext_resource type="Script" uid="uid://ct0oyjrf452bx" path="res://CS Scripts/Player+UI/UnderwaterPlayer.cs" id="2_yid0k"]
-[ext_resource type="Texture2D" uid="uid://djsmeqlk64jeo" path="res://assets/player/helmet_player_dead.png" id="3_h4u2s"]
-[ext_resource type="Texture2D" uid="uid://olhbc16xn3b0" path="res://assets/player/player_left_sit.png" id="3_m66xq"]
-[ext_resource type="Texture2D" uid="uid://bgw8wor80bqch" path="res://assets/player/player_sit_helmet.png" id="4_kurkv"]
-[ext_resource type="Texture2D" uid="uid://b6jyn37imgoa8" path="res://assets/player/player_swim_left1.png" id="5_x2ilh"]
-[ext_resource type="Texture2D" uid="uid://ce6rt5bjbyxej" path="res://assets/player/player_swim_left2.png" id="6_jiapf"]
-[ext_resource type="Texture2D" uid="uid://bpeok7pnapo65" path="res://assets/player/player_swim_right1.png" id="7_2j33e"]
-[ext_resource type="Texture2D" uid="uid://dr4xlluyikbwx" path="res://assets/player/player_swim_right2.png" id="8_2uq65"]
+[ext_resource type="Texture2D" uid="uid://bi5dvbtmwj04w" path="res://assets/player/player_sprite_sheet.png" id="8_lc380"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtvgk"]
+atlas = ExtResource("8_lc380")
+region = Rect2(96, 42, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etugq"]
+atlas = ExtResource("8_lc380")
+region = Rect2(16, 42, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4eic"]
+atlas = ExtResource("8_lc380")
+region = Rect2(0, 42, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q24te"]
+atlas = ExtResource("8_lc380")
+region = Rect2(64, 42, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpl6k"]
+atlas = ExtResource("8_lc380")
+region = Rect2(80, 42, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmjd1"]
+atlas = ExtResource("8_lc380")
+region = Rect2(32, 42, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nni8m"]
+atlas = ExtResource("8_lc380")
+region = Rect2(48, 42, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i8vcf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_h4u2s")
+"texture": SubResource("AtlasTexture_jtvgk")
 }],
 "loop": 1,
 "name": &"died",
@@ -22,7 +44,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_m66xq")
+"texture": SubResource("AtlasTexture_etugq")
 }],
 "loop": 0,
 "name": &"left_sit",
@@ -30,7 +52,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_kurkv")
+"texture": SubResource("AtlasTexture_j4eic")
 }],
 "loop": 0,
 "name": &"sit-helmet",
@@ -38,10 +60,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_x2ilh")
+"texture": SubResource("AtlasTexture_q24te")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_jiapf")
+"texture": SubResource("AtlasTexture_hpl6k")
 }],
 "loop": 1,
 "name": &"swim-left",
@@ -49,10 +71,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_2j33e")
+"texture": SubResource("AtlasTexture_bmjd1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_2uq65")
+"texture": SubResource("AtlasTexture_nni8m")
 }],
 "loop": 1,
 "name": &"swim-right",
@@ -60,13 +82,13 @@ animations = [{
 }]
 
 [node name="UnderwaterPlayer" unique_id=241887213 instance=ExtResource("1_12ot0")]
-position = Vector2(84, 36)
+position = Vector2(0, 0)
 script = ExtResource("2_yid0k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4" unique_id=316087153]
 light_mask = 0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_i8vcf")
-animation = &"swim-right"
+animation = &"died"
 
 [connection signal="Died" from="." to="." method="OnPlayerDied"]

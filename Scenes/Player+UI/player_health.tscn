@@ -1,17 +1,37 @@
 [gd_scene format=3 uid="uid://7106o3opoex1"]
 
-[ext_resource type="Texture2D" uid="uid://dma51o25mr3o5" path="res://assets/player/player_health_frames/full_health.png" id="1_7nchu"]
-[ext_resource type="Texture2D" uid="uid://b1v40jxemtv6s" path="res://assets/player/player_health_frames/first_hit.png" id="2_kk37x"]
-[ext_resource type="Texture2D" uid="uid://dgewu1mrc4b08" path="res://assets/player/player_health_frames/one_health.png" id="3_gpatv"]
-[ext_resource type="Texture2D" uid="uid://qo2t7opelx8f" path="res://assets/player/player_health_frames/second_hit.png" id="4_nddjw"]
-[ext_resource type="Texture2D" uid="uid://cd7q3hqww53m7" path="res://assets/player/player_health_frames/no_health.png" id="5_wumgj"]
+[ext_resource type="Texture2D" uid="uid://lnhned80baiv" path="res://assets/player/player_health.png" id="1_aen34"]
 [ext_resource type="Script" uid="uid://gk5fdwy5c7c3" path="res://CS Scripts/Player+UI/PlayerHealth.cs" id="6_lrmhr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nosy4"]
+atlas = ExtResource("1_aen34")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frbfe"]
+atlas = ExtResource("1_aen34")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yd07"]
+atlas = ExtResource("1_aen34")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_way54"]
+atlas = ExtResource("1_aen34")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry005"]
+atlas = ExtResource("1_aen34")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhrnd"]
+atlas = ExtResource("1_aen34")
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dv6w5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_7nchu")
+"texture": SubResource("AtlasTexture_nosy4")
 }],
 "loop": 0,
 "name": &"full_hp",
@@ -19,10 +39,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kk37x")
+"texture": SubResource("AtlasTexture_frbfe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_gpatv")
+"texture": SubResource("AtlasTexture_0yd07")
 }],
 "loop": 0,
 "name": &"full_hp_hit",
@@ -30,7 +50,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gpatv")
+"texture": SubResource("AtlasTexture_way54")
 }],
 "loop": 0,
 "name": &"one_hp",
@@ -38,10 +58,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_nddjw")
+"texture": SubResource("AtlasTexture_ry005")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_wumgj")
+"texture": SubResource("AtlasTexture_dhrnd")
 }],
 "loop": 0,
 "name": &"one_hp_hit",
@@ -51,5 +71,5 @@ animations = [{
 [node name="Player_Health" type="AnimatedSprite2D" unique_id=596566438]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dv6w5")
-animation = &"full_hp"
+animation = &"one_hp_hit"
 script = ExtResource("6_lrmhr")
