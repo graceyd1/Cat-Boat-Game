@@ -141,6 +141,46 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 		}
 	}
 	
+	public static int Wisdom {
+		get => GameData.Wisdom;
+		set {
+			GameData.Wisdom = value;
+			SaveGame();
+		}
+	}
+	
+	public static int Courage {
+		get => GameData.Courage;
+		set {
+			GameData.Courage = value;
+			SaveGame();
+		}
+	}
+	
+	public static int Loyalty {
+		get => GameData.Loyalty;
+		set {
+			GameData.Loyalty = value;
+			SaveGame();
+		}
+	}
+	
+	public static int Compassion {
+		get => GameData.Compassion;
+		set {
+			GameData.Compassion = value;
+			SaveGame();
+		}
+	}
+	
+	public static int Stupid {
+		get => GameData.Stupid;
+		set {
+			GameData.Stupid = value;
+			SaveGame();
+		}
+	}
+	
 	//set because maybe we can change name of quest based on player choices
 	public static List<string> MainQuests{get; set;} = new List<string> {
 		"GoToTown", //0

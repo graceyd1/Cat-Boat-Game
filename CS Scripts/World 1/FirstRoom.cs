@@ -30,7 +30,7 @@ public partial class FirstRoom : Node2D
 	private async Task NextRoomCheck() {
 		Vector2 pos = GetNode<CharacterBody2D>("UnderwaterPlayer").Position;
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
-		if (pos.X > 495) {
+		if (pos.X > 508) {
 			transitioning = true;
 			await GlobalSceneChange.ChangeRoom(new Vector2(50, 518), "underwater_town", true);
 		}

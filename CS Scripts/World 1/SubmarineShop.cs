@@ -85,7 +85,7 @@ public partial class SubmarineShop : Node2D
 			await aText.ShowText("Hello there! Welcome to Bubbly Town, our lively little town under the ocean!");
 			await aText.ShowText("I'm the mechanic here. Name's Azucat. What's your name?");
 			aText.Known(true);
-			var choice = await pText.Ask("1. Let's skip the formalities and cut to the point\n2. Better to make a good impression!");
+			var choice = await pText.Ask("1. Let's skip the formalities and cut to the point\n2. Better to make a good impression!", op2stat: "com");
 			if (choice == "1") {
 				await pText.ShowText("Dash. But more importantly, what is my ship doing on top of your roof??"); //fumi misty edit this stuff pls if you want
 				await aText.ShowText("Oh sorry. I thought it looked cool, so I patched it up and put it there."); 
@@ -105,7 +105,7 @@ public partial class SubmarineShop : Node2D
 			await aText.ShowText("How ‘bout let’s make a deal. You get some boba milk tea for me, and I’ll see what I can do ‘bout getting you a new boat.");
 			await aText.ShowText("And make sure to get it with tapioca pearls! You can't go without the tapioca!");
 			await aText.ShowText("Don’t worry, there's a boba shop nearby. This is the best deal you’ll get ‘round here.");
-			choice = await pText.Ask("Accept deal?\n1. Yes \n2. No");
+			choice = await pText.Ask("Accept deal?\n1. Yes \n2. No", "s", "w");
 			if (choice == "2") {
 				await pText.ShowText("I don't know if I can trust you.");
 				await aText.ShowText("I’m the only one who can make boats around here, so it’s not like you have a choice.");

@@ -102,7 +102,7 @@ public partial class TextBox : Node2D
 		}
 	}
 	
-	public async Task<string> Ask(String text) {
+	public async Task<string> Ask(String text, String op1stat = "", String op2stat = "", String op3stat = "") {
 		label.Clear();
 		label.AppendText("[font_size=10]" + text + "[/font_size]");
 		asking = true;
@@ -110,6 +110,23 @@ public partial class TextBox : Node2D
 		InactiveCountdown(dialogueNum, "Number Keys");
 		timer.Start();
 		var result =  await ToSignal(this, TextBox.SignalName.ChoiceMade);
+		string stat;
+		if ((string)result[0] == "1") {
+			stat = op1stat;
+		}
+		else if ((string)result[0] == "2") {
+			stat = op2stat;
+		}
+		else {
+			stat = op3stat;
+		}
+		switch (stat) {
+			case "w": GlobalScript.Wisdom += 10; break;
+			case "cou": GlobalScript.Courage += 10; break;
+			case "l": GlobalScript.Loyalty += 10; break;
+			case "com": GlobalScript.Compassion += 10; break;
+			case "s": GlobalScript.Stupid += 10; break;
+		}
 		return (string)result[0];
 	}
 	

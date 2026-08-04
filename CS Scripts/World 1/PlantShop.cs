@@ -149,7 +149,13 @@ public partial class PlantShop : Node2D
 	private async Task FlashlightShop()
 	{
 		await oText.ShowText("Do you want to buy the flashlight? It's 10 coins.");
-		string choice = await dText.Ask("1. Buy the flashlight\n2. No thanks\n3. Steal the flashlight");
+		string choice;
+		if (GlobalScript.OliveVisitNum == 0) {
+			choice = await dText.Ask("1. Buy the flashlight\n2. No thanks\n3. Steal the flashlight", "w", "cou", "s");
+		}
+		else {
+			choice = await dText.Ask("1. Buy the flashlight\n2. No thanks\n3. Steal the flashlight");
+		}
 		if (choice == "1")
 		{
 			if (GlobalScript.Coins >= 10)

@@ -39,11 +39,7 @@ public partial class TitleScreen : Node2D
 			animatedSprite.Play();
 			await ToSignal(animatedSprite, AnimatedSprite2D.SignalName.AnimationFinished);
 
-			var FaderNode = GetNode<CanvasLayer>("/root/Fader");
 			var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange"); ///is this ok after I rearranged everything?
-			if (FaderNode is Fader fader) {
-				await fader.FadeIn(.7f);
-			}
 			await GlobalSceneChange.ChangeRoom(new Vector2(35, 138), "first_room", true);
 	}
 	public void OnExitFilePicker() {

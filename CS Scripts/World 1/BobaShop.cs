@@ -66,7 +66,7 @@ public partial class BobaShop : Node2D
 			await catssavaT.ShowText("I get monthly shipments from the surface, but it's only the second of the month and it's all vanished!");
 			await catssavaT.ShowText("Oh, if only I knew where it all went...");
 
-			var choice = await dashT.Ask("1. I should help Catssava!\n2. Well, I need my boat fixed...");
+			var choice = await dashT.Ask("1. I should help Catssava!\n2. Well, I need my boat fixed...", "com", "w");
 
 			await dashT.ShowText("Catssava, let me help you find the tapioca pearls.");
 			csAnimation.Animation = "sit";
@@ -102,7 +102,7 @@ public partial class BobaShop : Node2D
 				await catssavaT.ShowText("I feel like I've thanked you so many times recently.");
 				if (GlobalScript.IsAfterQuest("GetBoat")) {
 					await catssavaT.ShowText("You really are a true hero.");
-					choice = await dashT.Ask("1. The townspeople are the true heroes\n2. I should accept the praise");
+					choice = await dashT.Ask("1. The townspeople are the true heroes\n2. I should accept the praise", "com");
 					if (choice == "1") {
 						await dashT.ShowText("You and the other cats of Bubbly Town are the true heroes.");
 						await dashT.ShowText("I would never have gotten my new boat if not for you and Azucat.");
@@ -175,7 +175,7 @@ public partial class BobaShop : Node2D
 		await dashT.ShowText("She must have loved you for that!");
 		await catssavaT.ShowText("Well, she was pleased at first...until her customers blamed her when the plants molded and rotted away.");
 		await catssavaT.ShowText("She still thinks I purposely tried to ruin her business so I could steal her customers.");
-		var choice = await dashT.Ask("1. I should try and fix the misunderstanding\n2. Olive is Olive. She won't ever change.");
+		var choice = await dashT.Ask("1. I should try and fix the misunderstanding\n2. Olive is Olive. She won't ever change.", "com", "w");
 		if (choice == "1") {
 			await dashT.ShowText("That's unfair. Olive never knew you were actually trying to help her.");
 			await dashT.ShowText("I'll talk to her for you.");

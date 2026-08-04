@@ -56,13 +56,13 @@ public partial class EnterSeaBunnyRoom : Node2D
 		await dashT.ShowText("...");
 		await parvaT.ShowText("No need to stare like that, it wasn't that hard. They keep their doors open at night, pfft.");
 		
-		var choice = await dashT.Ask("1. Why steal? It's selfish.\n2. Parva is impressive!");
+		var choice = await dashT.Ask("1. Why steal? It's selfish.\n2. Parva is impressive!", "cou", "w");
 		if (choice == "1") {
 			await dashT.ShowText("I don't understand. What about the townscats who need boba and gold? Why not just buy it from the shop?");
 			await parvaT.ShowText("Why should I care what happens to those town cats?");
 			await parvaT.ShowText("But you... you're looking for brown sugar boba too, right? You could help me steal boba each month for my experiments.");
 			await parvaT.ShowText("I'll even share some with you in return. What do you say?");
-			choice = await dashT.Ask("1. There's something you're hiding.\n2. I'm loyal to the cats of Bubbly Town!");
+			choice = await dashT.Ask("1. There's something you're hiding.\n2. I'm loyal to the cats of Bubbly Town!", "w", "l");
 			if (choice == "1") {
 				await dashT.ShowText("It doesn't make sense. There must be something you're not telling me.");
 				await dashT.ShowText("You have something against the cats of Bubbly Town, don't you...");
@@ -70,7 +70,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 				await parvaT.ShowText("What would YOU know! There's NOTHING, you hear, NOTHING! You think you can waltz in and try and dig up my past -");
 				await parvaT.ShowText("It's NOT HAPPENING! NOT HAPPENING!");
 				await dashT.ShowText("...");
-				choice = await dashT.Ask("1. Dig deeper\n2. Back off");
+				choice = await dashT.Ask("1. Dig deeper\n2. Back off", "s", "w");
 				if (choice == "1") {
 					await dashT.ShowText("Parva, I won't help you if you don't tell me the truth.");
 					await parvaT.ShowText("YOU CAN HELP ME BY STEALING MORE BOBA FOR ME!");
@@ -88,7 +88,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 				await dashT.ShowText("A sailor never goes back on his word.");
 				parvaAni.Animation = "mad";
 				await parvaT.ShowText("Those cats never cared about you! They were USING YOU!");
-				choice = await dashT.Ask("1. They would never do that\n2. It is an exchange");
+				choice = await dashT.Ask("1. They would never do that\n2. It is an exchange", "l", "w");
 				if (choice == "1") {
 					await dashT.ShowText("I've met them and the cats of Bubbly Town aren't like that.");
 					await dashT.ShowText("It was my own choice to help them, and I will stand by it.");
@@ -110,7 +110,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 			await dashT.ShowText("After my journey through the ocean, I know from experience it's not easy!");
 			await parvaT.ShowText("I'm pleased you think so. I have something to propose.");
 			await parvaT.ShowText("If you help me steal boba from the town each month, I'll let you share some of my stash!");
-			choice = await dashT.Ask("1. Can I also get a new boat?\n2. I've already agreed to help the cats of Bubbly Town");
+			choice = await dashT.Ask("1. Can I also get a new boat?\n2. I've already agreed to help the cats of Bubbly Town", "w", "l");
 			if (choice == "1") {
 				await dashT.ShowText("Was that a submarine diagram I saw in your house? Perhaps you could make me a new boat as well?");
 				await parvaT.ShowText("My offer was generous enough. I won't let you take advantage of me.");
@@ -122,7 +122,7 @@ public partial class EnterSeaBunnyRoom : Node2D
 				await dashT.ShowText("What I need is a new boat. The cats of Bubbly Town have promised me one given I find their boba.");
 				parvaAni.Animation = "mad";
 				await parvaT.ShowText("So you're their lackey? You disgust me.");
-				choice = await dashT.Ask("1. I like them.\n2. I'm independent.");
+				choice = await dashT.Ask("1. I like them.\n2. I'm independent.", "l", "cou");
 				if (choice == "1") {
 					await dashT.ShowText("I like the cats of Bubbly Town, and decided to help them on my own accord.");
 					await dashT.ShowText("I can't say the same about you.");

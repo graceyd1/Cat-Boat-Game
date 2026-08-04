@@ -108,6 +108,13 @@ public partial class DevMode : CanvasLayer
 				}
 			}
 		}
+		if (input == "stats") {
+			GD.Print("Wisdom:" + GlobalScript.Wisdom);
+			GD.Print("Courage: " + GlobalScript.Courage);
+			GD.Print("Loyalty: " + GlobalScript.Loyalty);
+			GD.Print("Compassion: " + GlobalScript.Compassion);
+			GD.Print("Stupid: " + GlobalScript.Stupid);
+		}
 	}
 	
 	private void ManageFiles(string input) {

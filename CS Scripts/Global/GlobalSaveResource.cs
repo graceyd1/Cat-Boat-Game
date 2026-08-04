@@ -61,6 +61,19 @@ public partial class GlobalSaveResource : Resource
 	
 	[Export]
 	public int CarEncNum = 0;
-	// [Export]
-	// [Export]
+	
+	[Export]
+	public int Wisdom = 0;
+	
+	[Export]
+	public int Courage = 0;
+	
+	[Export]
+	public int Loyalty = 0;
+	
+	[Export]
+	public int Compassion = 0;
+	
+	[Export]
+	public int Stupid = 0;
 }
