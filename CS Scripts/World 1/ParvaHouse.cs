@@ -35,6 +35,8 @@ public partial class ParvaHouse : Node2D
 			GetNode<Sprite2D>("BOBA").Position = new Vector2(-20, -25);
 			GetNode<AnimatedSprite2D>("Parva").Animation = "mad";
 			var aT = GetNode<TextBox>("BOBA/Azucat/TextBox");
+			aT.SetLabel("Azucat");
+			aT.Known(true);
 			await aT.ShowText("Thanks for the boba, Parva!!");
 			animationPlayer.Play("Azucat_Catssava_run");
 			await ToSignal(animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
