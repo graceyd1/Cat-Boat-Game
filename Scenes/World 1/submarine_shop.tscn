@@ -242,11 +242,13 @@ position = Vector2(210, 132)
 texture = ExtResource("4_ud6u5")
 
 [node name="TextBox" parent="Azucat" unique_id=715176187 instance=ExtResource("5_chh4g")]
+visible = false
 
 [node name="GroundPlayer" parent="." unique_id=1633967999 instance=ExtResource("3_lavss")]
 position = Vector2(231, 103)
 
 [node name="TextBox" parent="GroundPlayer" unique_id=1280716596 instance=ExtResource("5_chh4g")]
+visible = false
 
 [node name="Door" parent="." unique_id=35656251 instance=ExtResource("7_u403n")]
 z_index = -1
@@ -264,6 +266,10 @@ position = Vector2(-20, 0)
 scale = Vector2(1, 10)
 
 [node name="InteractLabel" parent="." unique_id=871675147 instance=ExtResource("10_crlcy")]
+offset_left = 209.0
+offset_top = 120.0
+offset_right = 209.0
+offset_bottom = 120.0
 
 [node name="Secret" type="Node" parent="." unique_id=1574950588]
 
@@ -329,6 +335,7 @@ texture = ExtResource("14_ieiq1")
 [connection signal="PromptUser" from="Azucat/TextBox" to="GroundPlayer" method="OnPromptUser"]
 [connection signal="PromptUser" from="GroundPlayer/TextBox" to="GroundPlayer" method="OnPromptUser"]
 [connection signal="InteractReturnAreaName" from="Door/ShopExit" to="." method="OnExitRoom"]
+[connection signal="body_exited" from="Door/ShopExit" to="." method="OnDoorAreaExited"]
 [connection signal="pressed" from="Secret/Secret/SecretButton1" to="." method="OnSecretButton1Pressed"]
 [connection signal="pressed" from="Secret/Secret/SecretButton2" to="." method="OnSecretButton2Pressed"]
 [connection signal="body_entered" from="WorkLedge/Area2D" to="." method="OnEnterWorkLedge"]

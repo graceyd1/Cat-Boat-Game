@@ -10,6 +10,7 @@ public partial class BobaShop : Node2D
 	private GroundPlayer player;
 	private AnimationPlayer AniPlayer;
 	private Sprite2D Pearl;
+	private Control interactLabel;
 	private const int MAX_STORY_NUM = 2;
 	private bool DialogueTimeout;
 	// Called when the node enters the scene tree for the first time.
@@ -20,6 +21,7 @@ public partial class BobaShop : Node2D
 		csAnimation = GetNode<AnimatedSprite2D>("Catssava");
 		AniPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		player = GetNode<GroundPlayer>("GroundPlayer");
+		interactLabel = GetNode<Control>("InteractLabel");
 		Pearl = GetNode<Sprite2D>("Pearl");
 		Pearl.Hide();
 		csAnimation.FlipH = true;
@@ -45,13 +47,26 @@ public partial class BobaShop : Node2D
 		var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		await GlobalScene.ChangeRoom(new Vector2(460, 170), "underwater_town", true);
 	}
+
+	private void OnDoorAreaExited(Node2D player)
+	{
+		interactLabel.Position = new Vector2(211, 121);
+		interactLabel.Show();
+	}
 	
 	public async void StartDialogue() {
+		interactLabel.Hide();
 		csAnimation.Animation = "sit";
 		player.SetDisableControl(true);
 		DialogueTimeout = false;
+		//before Azucat
+		if (GlobalScript.CQ("short") == "MeetAzucat")
+		{
+			await catssavaT.ShowText("Oh hi there, I’m Catssava, the shopkeeper here. What can I help you with?");
+			await dashT.ShowText("I'm just looking around.");
+		}
 		//Quest == Visit the boba shop and ask for brown sugar boba
-		if (GlobalScript.CQ("short") == "MeetCatssava") {
+		else if (GlobalScript.CQ("short") == "MeetCatssava") {
 			await catssavaT.ShowText("Oh hi there, I’m Catssava, the shopkeeper here. What can I help you with?");
 			await dashT.ShowText("I need some milk tea with tapioca boba, that’s all!");
 			await catssavaT.ShowText("Oh dear, t-tapioca boba?!");
@@ -78,7 +93,7 @@ public partial class BobaShop : Node2D
 			else {
 				await dashT.ShowText("My name is Dash. Azucat won't give me a new boat until I get him tapioca, so it's only right for me to do this.");
 			}
-			await catssavaT.ShowText("In that case, you'll need a pass to leave town. I'll give you mine.");
+			await catssavaT.ShowText("In that case, you'll need a pass to leave town. I'll give you mine. Don't worry, I have extra.");
 			player.GetItem("Town Pass");
 			GlobalScript.QuestNum++;
 		}
@@ -151,6 +166,7 @@ public partial class BobaShop : Node2D
 		player.SetDisableControl(false);
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		DialogueTimeout = true;
+		interactLabel.Show();
 	}
 	
 	public async Task TellStory() {
@@ -196,7 +212,7 @@ public partial class BobaShop : Node2D
 		await catssavaT.ShowText("There is something I'm concerned about, though.");
 		await catssavaT.ShowText("Once when I went to the surface to pick up my boba shipment, I was suddenly knocked out!");
 		await catssavaT.ShowText("All I saw was a bright flashing sword.");
-		await catssavaT.ShowText("When I came too, I'd been robbed of all my lychee popping boba!");
+		await catssavaT.ShowText("When I came to, I'd been robbed of all my lychee popping boba!");
 		await catssavaT.ShowText("There are strange dangers on the surface, Dash. Just make sure to be careful, ok?");
 		await catssavaT.ShowText("Some of the cats might not be as nice as the cats here at Bubbly Town.");
 		await dashT.ShowText("Don't worry, Catssava! I've faced Parva. I can handle lychee popping boba thieves!");

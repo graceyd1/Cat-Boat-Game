@@ -43,6 +43,11 @@ public partial class ParvaHouse : Node2D
 			await pT.ShowText("NOOOOO MY BOBA THAT DARN CAT");
 			animationPlayer.Play("Parva_chase");
 			await ToSignal(animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
+			GlobalScript.ViewedDarnCutscene = true;
+		}
+		else if (GlobalScript.ViewedDarnCutscene)
+		{
+			GetNode<Node2D>("Parva").Hide();
 		}
 	}
 
@@ -58,7 +63,7 @@ public partial class ParvaHouse : Node2D
 	private async void OnExitRoom() {
 		var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		
-		await GlobalScene.ChangeRoom(new Vector2(400, 100), "cave_room", true);
+		await GlobalScene.ChangeRoom(new Vector2(440, 197), "cave_room", false);
 	}
 	
 	public async void startDialogue(Node2D player) {

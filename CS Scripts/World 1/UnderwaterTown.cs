@@ -153,7 +153,7 @@ public partial class UnderwaterTown : Node2D
 		}
 		if (pos.X < -8) {
 			transitioning = true;
-			await GlobalSceneChange.ChangeRoom(new Vector2(490, 520), "first_room", false);
+			await GlobalSceneChange.ChangeRoom(new Vector2(447, 140), "first_room", false);
 		
 		}
 	}
@@ -167,17 +167,17 @@ public partial class UnderwaterTown : Node2D
 		
 		if (roomName == "SubShopDoor")
 		{
-			await GlobalScene.ChangeRoom(new Vector2(66, 133), "submarine_shop", true);
+			await GlobalScene.ChangeRoom(new Vector2(66, 132), "submarine_shop", true);
 		}
 		else if (roomName == "SubShopDoor2")
 		{
-			await GlobalScene.ChangeRoom(new Vector2(252, 133), "submarine_shop", false);
+			await GlobalScene.ChangeRoom(new Vector2(252, 132), "submarine_shop", false);
 		}
 		else if (roomName == "BobaShopDoor") {
-			await GlobalScene.ChangeRoom(new Vector2(65, 133), "boba_shop", true);
+			await GlobalScene.ChangeRoom(new Vector2(65, 132), "boba_shop", true);
 		}
 		else if (roomName == "PlantShopDoor") {
-			await GlobalScene.ChangeRoom(new Vector2(258, 133), "plant_shop", false);
+			await GlobalScene.ChangeRoom(new Vector2(258, 132), "plant_shop", false);
 		}
 	}
 	

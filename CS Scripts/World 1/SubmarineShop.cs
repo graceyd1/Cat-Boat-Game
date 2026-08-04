@@ -13,11 +13,13 @@ public partial class SubmarineShop : Node2D
 	private int EnterNum; //since upwall, enters Area2D twice when jump
 	private Sprite2D Pearl;
 	private bool DialogueTimeout;
+	private Control interactLabel;
 
 	private bool Secret1;
 	// Called when the node enters the scene tree for the first time.
 	public override async void _Ready()
 	{
+		interactLabel = GetNode<Control>("InteractLabel");
 		Secret1 = false;
 		pText = GetNode<TextBox>("GroundPlayer/TextBox");
 		aText = GetNode<TextBox>("Azucat/TextBox");
@@ -60,6 +62,14 @@ public partial class SubmarineShop : Node2D
 			}
 		}
 	}
+
+	//display interact label above shopkeeper
+	private void OnDoorAreaExited(Node2D player)
+	{
+		interactLabel.Position = new Vector2(209, 120);
+		interactLabel.Show();
+	}
+
 	public async void OnEnterWorkLedge(Node2D body) {
 		if (body is Player dash) {
 				if (dash.Position.Y < 120) { //prevents glitch where it triggers when entering room
@@ -68,9 +78,14 @@ public partial class SubmarineShop : Node2D
 					}
 					else {
 						dash.InputEnabled = false;
+						interactLabel.Hide();
+						DialogueTimeout = false;
 						await aText.ShowText("HEY! Get down from there! Mechanics only!");
 						dash.Position = new Vector2(dash.Position.X, 132);
 						dash.InputEnabled = true;
+						await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+						interactLabel.Show();
+						DialogueTimeout = true;
 						EnterNum = 0;
 					}
 				}
@@ -78,6 +93,7 @@ public partial class SubmarineShop : Node2D
 	}
 	
 	public async void StartDialogue() {
+		interactLabel.Hide();
 		DialogueTimeout = false;
 		p.SetDisableControl(true);
 		//Quest 0: find mechanic to fix ship
@@ -169,6 +185,7 @@ public partial class SubmarineShop : Node2D
 		p.SetDisableControl(false);
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		DialogueTimeout = true;
+		interactLabel.Show();
 	}
 	
 	private async Task TellStory() {

@@ -154,8 +154,8 @@ position = Vector2(2, 329)
 scale = Vector2(10, 1)
 
 [node name="RightRockUpWall" parent="Walls" unique_id=125102439 instance=ExtResource("12_f8bqc")]
-position = Vector2(324, 181)
-scale = Vector2(9, 1)
+position = Vector2(340, 181)
+scale = Vector2(8, 1)
 
 [node name="PlantShopRoof1" parent="Walls" unique_id=2145784826 instance=ExtResource("12_f8bqc")]
 position = Vector2(5, 222)

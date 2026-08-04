@@ -118,11 +118,13 @@ sprite_frames = SubResource("SpriteFrames_5ccxq")
 animation = &"sit"
 
 [node name="TextBox" parent="Catssava" unique_id=1765665250 instance=ExtResource("4_yaba5")]
+visible = false
 
 [node name="GroundPlayer" parent="." unique_id=1593996778 instance=ExtResource("3_rwi30")]
 position = Vector2(60, 133)
 
 [node name="TextBox" parent="GroundPlayer" unique_id=1681529238 instance=ExtResource("4_yaba5")]
+visible = false
 
 [node name="BobaExit" parent="." unique_id=1699754132 instance=ExtResource("8_pqxkn")]
 z_index = -1
@@ -136,6 +138,10 @@ position = Vector2(22, 25)
 scale = Vector2(0.7, 0.5)
 
 [node name="InteractLabel" parent="." unique_id=834466870 instance=ExtResource("11_ha6rx")]
+offset_left = 211.0
+offset_top = 121.0
+offset_right = 211.0
+offset_bottom = 121.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=706341460]
 libraries/ = SubResource("AnimationLibrary_al07m")

@@ -23,7 +23,6 @@ public partial class PlantShop : Node2D
 		GetNode<Hitbox>("Olive/Laser/Hitbox").SetDisabled(true);
 		GetNode<CollisionShape2D>("Olive/Flashlight/Area2D/CollisionShape2D").Disabled = true;
 		interactLabel = GetNode<Control>("InteractLabel");
-		interactLabel.Show();
 		
 		StartDialogue();
 	}

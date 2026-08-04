@@ -32,7 +32,7 @@ public partial class FirstRoom : Node2D
 		var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		if (pos.X > 508) {
 			transitioning = true;
-			await GlobalSceneChange.ChangeRoom(new Vector2(50, 518), "underwater_town", true);
+			await GlobalSceneChange.ChangeRoom(new Vector2(90, 518), "underwater_town", true);
 		}
 	}
 }

@@ -1,22 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://qgqaega0h2io"]
+[gd_scene format=3 uid="uid://qgqaega0h2io"]
 
 [ext_resource type="Texture2D" uid="uid://cxpd4iiksamsx" path="res://assets/lights/flashlight.png" id="1_3icum"]
-[ext_resource type="Script" path="res://CS Scripts/Player+UI/Flashlight.cs" id="2_bnjar"]
+[ext_resource type="Script" uid="uid://dme3o0udl51h" path="res://CS Scripts/Player+UI/Flashlight.cs" id="2_bnjar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1hrt"]
 size = Vector2(131, 62)
 
-[node name="Flashlight" type="PointLight2D"]
+[node name="Flashlight" type="PointLight2D" unique_id=237208525]
+visible = false
 texture_filter = 1
 texture = ExtResource("1_3icum")
 offset = Vector2(70, 0)
 script = ExtResource("2_bnjar")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1674133545]
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1956064227]
 position = Vector2(74.5, 0)
 shape = SubResource("RectangleShape2D_f1hrt")
 debug_color = Color(0.579823, 0.546776, 0.218768, 0.42)
