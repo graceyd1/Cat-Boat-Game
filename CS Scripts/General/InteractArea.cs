@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public partial class InteractArea : Area2D
 {
 	[Export]
-	public int LabelHeight {get; set;} = 20;
+	public int LabelHeight {get; set;} = 25;
 	
 	[Export]
 	public int DoorType {get; set;} //1 = enter, 0 = exit

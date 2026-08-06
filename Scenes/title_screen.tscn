@@ -403,7 +403,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ua1qk")
 text = "Quit"
 
 [node name="FilePicker" type="CanvasLayer" parent="." unique_id=1424512890]
-visible = false
 
 [node name="Panel" type="Panel" parent="FilePicker" unique_id=1390332825]
 offset_left = 52.0

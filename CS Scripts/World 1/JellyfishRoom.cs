@@ -62,14 +62,13 @@ public partial class JellyfishRoom : Node2D
 	private void OnSecretWallTriggerBodyEntered(Node2D player)
 	{
 		var wall = GetNode<Sprite2D>("SecretWall");
-		if (wall.Visible)
-		{
-			wall.Hide();
-		}
-		else
-		{
-			wall.Show();
-		}
+		wall.Hide();
+	}
+
+	private void OnSecretWallTriggerBodyExited(Node2D player)
+	{
+		var wall = GetNode<Sprite2D>("SecretWall");
+		wall.Show();
 	}
 	
 	private void OnBreakAOEEntered(Node2D player)

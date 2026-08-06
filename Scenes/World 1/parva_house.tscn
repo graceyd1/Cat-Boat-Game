@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bonv74n3d6s3y" path="res://assets/npcs/parva.png" id="6_6j6vd"]
 [ext_resource type="Texture2D" uid="uid://bujj7eiir4aio" path="res://assets/npcs/parva_mad.png" id="7_wd4c4"]
 [ext_resource type="PackedScene" uid="uid://b28lwwf0dhiu6" path="res://Scenes/General/text_box.tscn" id="8_ou3kr"]
-[ext_resource type="Texture2D" uid="uid://bgfgvqg5j4fed" path="res://assets/npcs/catssava_sit.png" id="8_xbc5g"]
+[ext_resource type="Texture2D" uid="uid://cqavi1dsbatba" path="res://assets/npcs/catssava.png" id="8_xbc5g"]
 [ext_resource type="PackedScene" uid="uid://bmlobwxb1vvug" path="res://Scenes/General/door.tscn" id="9_8nfr4"]
 [ext_resource type="PackedScene" uid="uid://cajcbse43dl4y" path="res://Scenes/General/interact_area.tscn" id="10_kgtfd"]
 [ext_resource type="PackedScene" uid="uid://ygrr56bstc00" path="res://Scenes/General/interact_label.tscn" id="11_2rh7x"]
@@ -392,6 +392,7 @@ flip_h = true
 [node name="Catssava" type="Sprite2D" parent="BOBA" unique_id=68810121]
 position = Vector2(132, 157)
 texture = ExtResource("8_xbc5g")
+hframes = 2
 
 [node name="GroundPlayer" parent="." unique_id=1878109273 instance=ExtResource("2_rt8xu")]
 position = Vector2(77, 132)

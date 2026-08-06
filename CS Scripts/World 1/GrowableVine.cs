@@ -32,6 +32,13 @@ public partial class GrowableVine : Area2D
 		GetNode<AnimatedSprite2D>("AnimatedSprite2D").Animation = "eaten";
 	}
 
+	public void Grown()
+	{
+		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		animatedSprite2D.Animation = "grown";
+		grownCollisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
+	}
+
 	public async void OnAreaEntered(Area2D flashlight) {
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		if (animatedSprite2D.Animation == "ungrown") {

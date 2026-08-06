@@ -68,12 +68,12 @@ public partial class UnderwaterTown : Node2D
 
 	private async void PlayerMeetCarsava(Node2D body) {
 		if (body is Player p) {
-			p.InputEnabled = false;
+			p.SetDisableControl(true);
 			body.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Stop();
 
 			await CarsavaDialogue();
 
-			p.InputEnabled = true;
+			p.SetDisableControl(false);
 			body.GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play();
 		}
 	}

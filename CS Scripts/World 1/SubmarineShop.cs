@@ -77,12 +77,12 @@ public partial class SubmarineShop : Node2D
 						EnterNum++;
 					}
 					else {
-						dash.InputEnabled = false;
+						dash.SetDisableControl(true);
 						interactLabel.Hide();
 						DialogueTimeout = false;
 						await aText.ShowText("HEY! Get down from there! Mechanics only!");
 						dash.Position = new Vector2(dash.Position.X, 132);
-						dash.InputEnabled = true;
+						dash.SetDisableControl(false);
 						await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 						interactLabel.Show();
 						DialogueTimeout = true;

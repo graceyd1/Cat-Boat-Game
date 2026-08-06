@@ -26,7 +26,7 @@ size = Vector2(330, 47)
 size = Vector2(64, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jif1a"]
-size = Vector2(1, 20)
+size = Vector2(132, 23)
 
 [node name="JellyfishRoom" type="Node2D" unique_id=1267353195]
 script = ExtResource("1_geocv")
@@ -173,7 +173,7 @@ collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecretWall/SecretWallTrigger" unique_id=1084610267]
-position = Vector2(-9.5, 0)
+position = Vector2(56, -0.5)
 shape = SubResource("RectangleShape2D_jif1a")
 debug_color = Color(1, 1, 0, 0.41960785)
 
@@ -246,3 +246,4 @@ scale = Vector2(2, 1.2)
 [connection signal="Interact" from="BlueCat/InteractArea" to="." method="OnBlueCatInteract"]
 [connection signal="body_entered" from="BreakableRock/BreakAOE" to="." method="OnBreakAOEEntered"]
 [connection signal="body_entered" from="SecretWall/SecretWallTrigger" to="." method="OnSecretWallTriggerBodyEntered"]
+[connection signal="body_exited" from="SecretWall/SecretWallTrigger" to="." method="OnSecretWallTriggerBodyExited"]

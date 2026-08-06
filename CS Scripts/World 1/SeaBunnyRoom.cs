@@ -24,6 +24,11 @@ public partial class SeaBunnyRoom : Node2D
 		{
 			GetBoatCutscene();	
 		}
+		if (GlobalScript.IsAfterQuest("Seabunny"))
+		{
+			GetNode<GrowableVine>("GrowableVine").Grown();
+			GetNode<GrowableVine>("GrowableVineLeft").Eaten();
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -4,32 +4,12 @@
 [ext_resource type="Script" uid="uid://dgv2wvdg8imm5" path="res://CS Scripts/World 1/BobaShop.cs" id="1_euq4v"]
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="2_j6akr"]
 [ext_resource type="PackedScene" uid="uid://b2eu1rt08rowb" path="res://Scenes/Player+UI/ground_player.tscn" id="3_rwi30"]
+[ext_resource type="Texture2D" uid="uid://cqavi1dsbatba" path="res://assets/npcs/catssava.png" id="4_81eno"]
 [ext_resource type="PackedScene" uid="uid://b28lwwf0dhiu6" path="res://Scenes/General/text_box.tscn" id="4_yaba5"]
-[ext_resource type="Texture2D" uid="uid://bonybpyufqd0y" path="res://assets/npcs/catssava_cry.png" id="5_2yvht"]
-[ext_resource type="Texture2D" uid="uid://bgfgvqg5j4fed" path="res://assets/npcs/catssava_sit.png" id="6_n2t4t"]
 [ext_resource type="PackedScene" uid="uid://bmlobwxb1vvug" path="res://Scenes/General/door.tscn" id="8_pqxkn"]
 [ext_resource type="PackedScene" uid="uid://cajcbse43dl4y" path="res://Scenes/General/interact_area.tscn" id="9_8ubu4"]
 [ext_resource type="PackedScene" uid="uid://ygrr56bstc00" path="res://Scenes/General/interact_label.tscn" id="11_ha6rx"]
 [ext_resource type="Texture2D" uid="uid://c4ejgx1g6cy25" path="res://assets/icons/pearl.png" id="11_k3r6u"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5ccxq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_2yvht")
-}],
-"loop": 1,
-"name": &"cry",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_n2t4t")
-}],
-"loop": 1,
-"name": &"sit",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_fdcow"]
 length = 0.001
@@ -112,10 +92,10 @@ scale = Vector2(1, 9)
 position = Vector2(0, 140)
 scale = Vector2(17, 1)
 
-[node name="Catssava" type="AnimatedSprite2D" parent="." unique_id=1674603880]
+[node name="Catssava" type="Sprite2D" parent="." unique_id=1699826107]
 position = Vector2(209, 132)
-sprite_frames = SubResource("SpriteFrames_5ccxq")
-animation = &"sit"
+texture = ExtResource("4_81eno")
+hframes = 2
 
 [node name="TextBox" parent="Catssava" unique_id=1765665250 instance=ExtResource("4_yaba5")]
 visible = false

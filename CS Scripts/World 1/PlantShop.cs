@@ -203,8 +203,12 @@ public partial class PlantShop : Node2D
 
 				var player = GetNode<Player>("GroundPlayer");
 				player.SetDisableRespawn(true);
+
+				player.invulnerable = false;
+
 				await ToSignal(player, Player.SignalName.Died);
 				player.invulnerable = true;
+				
 				laser.Hide();
 				laser.GetNode<Hitbox>("Hitbox").SetDisabled(true);
 
@@ -222,6 +226,7 @@ public partial class PlantShop : Node2D
 				await fader.FadeOut(.7f);
 				player.SetDisableRespawn(false);
 				player.invulnerable = false;
+				player.SetHP(2);
 			}
 		}
 	}

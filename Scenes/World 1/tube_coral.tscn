@@ -1,12 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://bp4jat81a6c5d"]
+[gd_scene format=3 uid="uid://bp4jat81a6c5d"]
 
-[ext_resource type="Script" path="res://CS Scripts/World 1/TubeCoral.cs" id="1_nq8l8"]
+[ext_resource type="Script" uid="uid://c0858o52fmepw" path="res://CS Scripts/World 1/TubeCoral.cs" id="1_nq8l8"]
 [ext_resource type="Texture2D" uid="uid://b4dckhsgl4257" path="res://assets/objects/tube_coral_sprites/tube_coral_off.png" id="2_20xim"]
 [ext_resource type="Texture2D" uid="uid://c72fvykbilbkx" path="res://assets/objects/tube_coral_sprites/tube_coral.png" id="3_r8nnh"]
 [ext_resource type="Texture2D" uid="uid://cqgkvgcx2lifd" path="res://assets/objects/tube_coral_sprites/tube_coral_short.png" id="4_tqchx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsuqx"]
-size = Vector2(10, 270.5)
+size = Vector2(6, 270.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1ba7"]
 size = Vector2(14, 12)
@@ -113,7 +113,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_20xim")
 }],
-"loop": true,
+"loop": 1,
 "name": &"off",
 "speed": 5.0
 }, {
@@ -154,7 +154,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vovt2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"on",
 "speed": 5.0
 }, {
@@ -195,37 +195,37 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ckh0n")
 }],
-"loop": true,
+"loop": 1,
 "name": &"on_short",
 "speed": 5.0
 }]
 
-[node name="TubeCoral" type="Node2D"]
+[node name="TubeCoral" type="Node2D" unique_id=2123263962]
 script = ExtResource("1_nq8l8")
 Strength = 1.5
 
-[node name="AOE" type="Area2D" parent="."]
+[node name="AOE" type="Area2D" parent="." unique_id=325146308]
 collision_layer = 256
 collision_mask = 2
 
-[node name="AOEShape" type="CollisionShape2D" parent="AOE"]
+[node name="AOEShape" type="CollisionShape2D" parent="AOE" unique_id=984281861]
 position = Vector2(0, -131.75)
 shape = SubResource("RectangleShape2D_rsuqx")
 debug_color = Color(0.627451, 0.12549, 0.941176, 0.419608)
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1864763118]
 collision_layer = 4
 collision_mask = 2
 
-[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox" unique_id=1454486894]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_r1ba7")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="TubeSwitchTimer" type="Timer" parent="."]
+[node name="TubeSwitchTimer" type="Timer" parent="." unique_id=1333942332]
 wait_time = 2.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=874759845]
 texture_filter = 1
 position = Vector2(0, -135)
 sprite_frames = SubResource("SpriteFrames_w5l88")

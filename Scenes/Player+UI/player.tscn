@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cuxgp8trfyrih" path="res://assets/themes+materials/unshaded_material.tres" id="1_g0rqn"]
 [ext_resource type="Script" uid="uid://b3p34uvhqj7mq" path="res://CS Scripts/Player+UI/Player.cs" id="1_vr4g2"]
+[ext_resource type="Texture2D" uid="uid://bcvdbhbrqjkwo" path="res://assets/lamplight/lamplight0.png" id="3_ss633"]
 [ext_resource type="PackedScene" uid="uid://dif3m6ljwdlny" path="res://Scenes/Player+UI/controls.tscn" id="4_o0s2x"]
 [ext_resource type="PackedScene" uid="uid://qgqaega0h2io" path="res://Scenes/Player+UI/flashlight.tscn" id="4_u4d4c"]
 [ext_resource type="PackedScene" uid="uid://dacucl1yyxuex" path="res://Scenes/General/text_enter_label.tscn" id="5_sg0de"]
@@ -101,10 +102,14 @@ corner_radius_bottom_left = 20
 
 [node name="Player" type="CharacterBody2D" unique_id=2021568226]
 material = ExtResource("1_g0rqn")
-position = Vector2(160, 90)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_vr4g2")
+
+[node name="PlayerGlow" type="PointLight2D" parent="." unique_id=862844225]
+visible = false
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ss633")
 
 [node name="CollisionCapsule" type="CollisionShape2D" parent="." unique_id=570828746]
 rotation = 4.71239
@@ -120,6 +125,7 @@ shape = SubResource("RectangleShape2D_1jxqw")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="HurtTimer" type="Timer" parent="." unique_id=756891535]
+wait_time = 1.4
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1272989560]
@@ -195,6 +201,7 @@ theme_override_colors/font_color = Color(0.501114, 0.440111, 0.233039, 1)
 horizontal_alignment = 1
 
 [node name="Flashlight" parent="." unique_id=1225167653 instance=ExtResource("4_u4d4c")]
+visible = false
 
 [connection signal="Hit" from="." to="Camera2D/PlayerHealth" method="OnPlayerHit"]
 [connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]

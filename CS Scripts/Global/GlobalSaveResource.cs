@@ -19,10 +19,13 @@ public partial class GlobalSaveResource : Resource
 	public int numCoins = 0;
 
 	[Export]
+	public int HealthHP = 2; //yes I know this stands for "HealthHealthPoints"
+
+	[Export]
 	public Godot.Collections.Array<String> Inventory {get; set;} = new Array<String>(); 
 
 	[Export]
-	public int QuestNum{get; set;} = 0; //0;
+	public int QuestNum{get; set;} = 5; //0;
 
 	[Export]
 	public string CurrentRoom{get; set;} = "first_room";

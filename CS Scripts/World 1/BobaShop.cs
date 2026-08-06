@@ -6,7 +6,7 @@ public partial class BobaShop : Node2D
 {
 	private TextBox dashT;
 	private TextBox catssavaT;
-	private AnimatedSprite2D csAnimation;
+	private Sprite2D csSprite;
 	private GroundPlayer player;
 	private AnimationPlayer AniPlayer;
 	private Sprite2D Pearl;
@@ -18,13 +18,13 @@ public partial class BobaShop : Node2D
 	{
 		dashT = GetNode<TextBox>("GroundPlayer/TextBox");
 		catssavaT = GetNode<TextBox>("Catssava/TextBox");
-		csAnimation = GetNode<AnimatedSprite2D>("Catssava");
+		csSprite = GetNode<Sprite2D>("Catssava");
 		AniPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		player = GetNode<GroundPlayer>("GroundPlayer");
 		interactLabel = GetNode<Control>("InteractLabel");
 		Pearl = GetNode<Sprite2D>("Pearl");
 		Pearl.Hide();
-		csAnimation.FlipH = true;
+		csSprite.FlipH = true;
 		dashT.SetLabel("Dash");
 		catssavaT.SetLabel("Catssava");
 		dashT.Known(true);
@@ -56,7 +56,7 @@ public partial class BobaShop : Node2D
 	
 	public async void StartDialogue() {
 		interactLabel.Hide();
-		csAnimation.Animation = "sit";
+		csSprite.Frame = 0; //sit
 		player.SetDisableControl(true);
 		DialogueTimeout = false;
 		//before Azucat
@@ -72,7 +72,7 @@ public partial class BobaShop : Node2D
 			await catssavaT.ShowText("Oh dear, t-tapioca boba?!");
 			await dashT.ShowText("That's right, Azucat told me it was fairly easy to get.");
 			await catssavaT.ShowText("I-I-I'm really sorry, dear, but -");
-			csAnimation.Animation = "cry";
+			csSprite.Frame = 1; //cry
 			await catssavaT.ShowText("*[i]cries[/i]*");
 			await dashT.ShowText("What's the matter? Is it something I said?");
 			await catssavaT.ShowText("Well — this is embarrassing to say, since this is a boba shop…");
@@ -84,7 +84,7 @@ public partial class BobaShop : Node2D
 			var choice = await dashT.Ask("1. I should help Catssava!\n2. Well, I need my boat fixed...", "com", "w");
 
 			await dashT.ShowText("Catssava, let me help you find the tapioca pearls.");
-			csAnimation.Animation = "sit";
+			csSprite.Frame = 0;
 			await catssavaT.ShowText("Really?! You'd do that for me? I'd be soo grateful- what's your name?");
 
 			if (choice == "1") {

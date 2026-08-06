@@ -119,7 +119,7 @@ public partial class ParvaHouse : Node2D
 			if (dash is Player playerr)
 			{
 				playerr.SetDisableMovement(false);
-				playerr.InputEnabled = true;
+				playerr.SetDisableControl(false);
 			}
 		}
 	}

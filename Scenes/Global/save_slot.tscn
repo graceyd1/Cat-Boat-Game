@@ -23,10 +23,10 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="SaveSlot" type="Node2D"]
+[node name="SaveSlot" type="Node2D" unique_id=744280120]
 script = ExtResource("1_gddfp")
 
-[node name="EmptySlotButton" type="Button" parent="."]
+[node name="EmptySlotButton" type="Button" parent="." unique_id=142347635]
 z_index = 1
 offset_right = 226.0
 offset_bottom = 43.0
@@ -34,12 +34,12 @@ theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_kmkc6")
 text = "New Game"
 
-[node name="FilledSlot" type="Panel" parent="."]
+[node name="FilledSlot" type="Panel" parent="." unique_id=1568786702]
 offset_right = 226.0
 offset_bottom = 43.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aqhg8")
 
-[node name="Load" type="Button" parent="FilledSlot"]
+[node name="Load" type="Button" parent="FilledSlot" unique_id=497022680]
 layout_mode = 0
 offset_left = 183.0
 offset_top = 5.0
@@ -50,7 +50,7 @@ theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_8lwmn")
 text = "Load"
 
-[node name="Delete" type="Button" parent="FilledSlot"]
+[node name="Delete" type="Button" parent="FilledSlot" unique_id=201872963]
 layout_mode = 0
 offset_left = 184.0
 offset_top = 24.0
@@ -61,7 +61,7 @@ theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_8lwmn")
 text = "Delete"
 
-[node name="SlotName" type="Label" parent="FilledSlot"]
+[node name="SlotName" type="Label" parent="FilledSlot" unique_id=1453355723]
 layout_mode = 0
 offset_left = 3.0
 offset_right = 317.0
@@ -71,7 +71,7 @@ theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 text = "Save Slot "
 horizontal_alignment = 1
 
-[node name="Time" type="Label" parent="FilledSlot"]
+[node name="Time" type="Label" parent="FilledSlot" unique_id=2135225808]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 12.0
@@ -81,7 +81,8 @@ scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.470588, 0.4, 0.239216, 1)
 text = "Date: "
 
-[node name="Quest" type="Label" parent="FilledSlot"]
+[node name="Quest" type="Label" parent="FilledSlot" unique_id=66768691]
+custom_maximum_size = Vector2(316, -1)
 layout_mode = 0
 offset_left = 8.0
 offset_top = 22.0

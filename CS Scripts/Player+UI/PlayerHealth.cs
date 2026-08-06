@@ -47,9 +47,13 @@ public partial class PlayerHealth : AnimatedSprite2D
 		{
 			Animation = "full_hp";
 		}
-		else
+		else if (hp == 1)
 		{
 			Animation = "one_hp";
+		}
+		else
+		{
+			Animation = "no_hp";
 		}
 	}
 }

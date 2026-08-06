@@ -39,7 +39,7 @@ public partial class TitleScreen : Node2D
 			animatedSprite.Play();
 			await ToSignal(animatedSprite, AnimatedSprite2D.SignalName.AnimationFinished);
 
-			var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange"); ///is this ok after I rearranged everything?
+			var GlobalSceneChange = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 			await GlobalSceneChange.ChangeRoom(new Vector2(35, 138), "first_room", true);
 	}
 	public void OnExitFilePicker() {

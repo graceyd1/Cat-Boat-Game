@@ -41,6 +41,11 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 		"SeaBunnyRoom",
 		"TreasureRoom"
 	};
+
+	public static List<string> DarkRooms = new List<string> { //for setting player glow
+		"EnterCaveRoom",
+		"CaveRoom"
+	};
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -91,8 +96,9 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 		else {
 			GetTree().ChangeSceneToFile(
 			"res://Scenes/World " + GlobalScript.WorldNum + "/" + room + ".tscn");
+			GlobalScript.CurrentRoom = room; //don't set this if the room is title_screen
 		}
-		GlobalScript.CurrentRoom = room;
+		
 		await ToSignal(this, GlobalSceneChange.SignalName.SceneReady);
 		string roomName = GetTree().CurrentScene.Name;
 		if (GetPlayer(roomName))
@@ -109,6 +115,15 @@ public partial class GlobalSceneChange : Node //=changed this to a node from nod
 			}
 			currPlayer.SetCameraDrag(roomName);
 			currPlayer.SetDisableMovement(false);
+
+			if (DarkRooms.Contains(roomName))
+			{
+				currPlayer.SetGlow(true);
+			}
+			else
+			{
+				currPlayer.SetGlow(false);
+			}
 		}
 		
 		await Fade.FadeOut(1.5f);

@@ -89,7 +89,7 @@ public partial class FishRoom : Node2D
 		playingMinigame = true;
 		fishCollected = 0;
 		var player = GetNode<Player>("UnderwaterPlayer");
-		originalHp = player.hp;
+		originalHp = player.GetHP();
 		player.SetHP(2);
 
 		//disable regular fish
@@ -147,7 +147,7 @@ public partial class FishRoom : Node2D
 
 		if (fishCollected >= CollectableFish.Count 
 			&& !GlobalScript.ClamsCollected[0]
-			&& player.hp > 1 && !playerDied)
+			&& player.GetHP() > 1 && !playerDied)
 		{
 			await iText.ShowText("perfect game! congratulations! you unlocked an extra prize!");
 			Clam.Show();

@@ -20,7 +20,7 @@ public partial class Player : CharacterBody2D
 	
 	public float Mass = 4.54f; //in kg
 
-	public int hp;
+	private int hp;
 
 	public bool respawning;
 	
@@ -55,7 +55,7 @@ public partial class Player : CharacterBody2D
 		respawnOverride = false;
 		//ScreenSize = GetViewportRect().Size;
 		VelocityModifier = Vector2.Zero;
-		hp = 2; //2;
+		SetHP(GlobalScript.HealthHP);
 		invulnerable = false;
 		Flash = false;
 		
@@ -72,17 +72,34 @@ public partial class Player : CharacterBody2D
 		GetNode<TextEnterLabel>("Camera2D/TextEnterLabel").FadeIn(box, prompt);
 	}
 	
-	//= hey julia if you somehow see this can you get rid of this method and use the one below
 	//= i didn't want to get rid of it because idk how to fix the signal
+	//= but this is almost the same as SetHP
 	private void DevChangeHP(int newHP) {
-		hp = newHP;
+		SetHP(newHP);
 		GD.Print(hp);
 		GD.Print(newHP);
 	}
 
 	public void SetHP(int newHP) {
 		hp = newHP;
+		GlobalScript.HealthHP = hp;
 		GetNode<PlayerHealth>("%PlayerHealth").ResetHPSprite(hp);
+	}
+
+	/// <summary>
+	/// Changes hp by the amount given. Probably works with negative numbers
+	/// </summary>
+	/// <param name="add"></param>
+	public void ChangeHP(int add)
+	{
+		hp += add;
+		GlobalScript.HealthHP = hp;
+		GetNode<PlayerHealth>("%PlayerHealth").ResetHPSprite(hp);
+	}
+
+	public int GetHP()
+	{
+		return hp;
 	}
 	
 	//player enteres hitbox
@@ -97,7 +114,7 @@ public partial class Player : CharacterBody2D
 	//get hit
 	private async void GetHit()
 	{
-		hp --;
+		ChangeHP(-1);
 		Flash = true;
 		globalSound.PlaySound("hurt");
 		EmitSignal(SignalName.Hit, hp);
@@ -129,7 +146,6 @@ public partial class Player : CharacterBody2D
 			Flash = false;
 
 			var insideHurtbox =  GetNode<Area2D>("Hurtbox").GetOverlappingAreas();
-
 			//if player is in hitbox when invulnerability ends
 			if (insideHurtbox.Count > 0)
 			{
@@ -149,9 +165,13 @@ public partial class Player : CharacterBody2D
 			//coorinates might change if room coordinates change
 			respawnPoint = new Vector2(113, 122);
 		}
-		else if (room == "TubesArea") {
-			respawnPoint = new Vector2(45, 123);
-		} 
+		else if (room == "PlantShop")
+		{
+			respawnPoint = new Vector2(258, 132);
+		}
+		//= else if (room == "TubesArea") {
+		// 	respawnPoint = new Vector2(45, 123);
+		// } 
 		else if (room == "FirstRoom" || room == "BoxRoom") {
 			respawnPoint = new Vector2(10, 140);
 		}
@@ -207,6 +227,7 @@ public partial class Player : CharacterBody2D
 		{
 			await RespawnToPoint(GetSpawnPoint());
 		}
+		respawning = false;
 		invulnerable = false;
 	}
 
@@ -222,6 +243,10 @@ public partial class Player : CharacterBody2D
 		respawnOverride = false;
 	}
 
+	/// <summary>
+	/// Disables respawn. The player will not gain invulnerability or receive hp.
+	/// </summary>
+	/// <param name="disable"></param>
 	public void SetDisableRespawn(bool disable)
 	{
 		respawnOverride = disable;
@@ -238,6 +263,7 @@ public partial class Player : CharacterBody2D
 		await transition.FadeIn(1.0f);
 
 		GlobalPosition = pos;
+		SetHP(2);
 		
 		respawnFadingIn = false;
 		FacingRight = true;
@@ -317,5 +343,10 @@ public partial class Player : CharacterBody2D
 			cam.SetDragMargin(Side.Bottom, 0);
 			cam.SetDragMargin(Side.Right, 0);
 		}
+	}
+
+	public void SetGlow(bool glow)
+	{
+		GetNode<Node2D>("PlayerGlow").Visible = glow;
 	}
 }

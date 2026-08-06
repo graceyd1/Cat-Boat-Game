@@ -40,12 +40,10 @@ public partial class SaveSlot : Node2D
 	public async void OnLoad() {
 		GlobalScript.savePath = path;
 		GlobalScript.LoadGame();
-		var FaderNode = GetNode<CanvasLayer>("/root/Fader");
+		var fader = GetNode<Fader>("/root/Fader");
 		var GlobalScene = GetNode<GlobalSceneChange>("/root/GlobalSceneChange");
 		GetNode<CanvasLayer>("..").Hide();
-		if (FaderNode is Fader fader) {
-			await fader.FadeIn(.7f);
-		}
+		await fader.FadeIn(.7f);
 		
 		await GlobalScene.ChangeRoom(new Vector2(0, 0), GlobalScript.CurrentRoom, true);
 	}

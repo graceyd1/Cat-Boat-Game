@@ -33,7 +33,7 @@ public partial class Seabunny : CharacterBody2D
 		InFight = false;
 		InCutscene = false;
 
-		if (GlobalScript.QuestNum >= GlobalScript.MainQuests.IndexOf("GetBoat")) //number
+		if (GlobalScript.IsAfterQuest("ReturnBoba")) //number
 		{
 			Position = new Vector2(460, 205);
 			GetNode<Hitbox>("Hitbox").SetDisabled(true);
@@ -115,7 +115,7 @@ public partial class Seabunny : CharacterBody2D
 
 		Hp --;
 		GetNode<Hitbox>("Hitbox").SetDisabled(false);
-		facingLeft = false;
+		facingLeft = true;
 		InFight = true;
 		InCutscene = false;
 		OnIdleTimerTimeout();

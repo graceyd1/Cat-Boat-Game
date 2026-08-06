@@ -15,6 +15,16 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 			SaveGame();
 		}
 	}
+
+	public static int HealthHP
+	{
+		get => GameData.HealthHP;
+		set {
+			GameData.HealthHP = value;
+			SaveGame();
+		}
+	}
+
 	public static Godot.Collections.Array<string> Inventory {
 		get => GameData.Inventory;
 		set {
@@ -46,6 +56,8 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 			SaveGame();
 		}
 	}
+
+	
 
 	/// <summary>
 	/// Stores whether each coin has been collected. True if collected.
@@ -104,7 +116,7 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 	{
 		get => GameData.ViewedDarnCutscene;
 		set {
-			GameData.GeyserOpened = value;
+			GameData.ViewedDarnCutscene = value;
 			SaveGame();
 		}
 	}
@@ -213,11 +225,7 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 		{"Pearl", () => GameData.NumPearls}
 	};
 	
-
-
 	public static String savePath{get; set;} //= "user://save_data/tres";
-
-
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -234,6 +242,7 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 	public static void LoadGame() {
 		if (ResourceLoader.Exists(savePath)) {
 			GameData = ResourceLoader.Load<GlobalSaveResource>(savePath);
+			GD.Print(CurrentRoom);//=
 		}
 	}
 	
@@ -243,9 +252,16 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 		}
 	}
 	
+	/// <summary>
+	/// Exclusive (>)
+	/// </summary>
 	public static bool IsAfterQuest(string shortName) {
 		return MainQuests.IndexOf(CQ("short")) > MainQuests.IndexOf(shortName);
 	}
+
+	/// <summary>
+	/// Exclusive (<)
+	/// </summary>
 	public static bool IsBeforeQuest(string shortName) {
 		return MainQuests.IndexOf(CQ("short")) < MainQuests.IndexOf(shortName);
 	}

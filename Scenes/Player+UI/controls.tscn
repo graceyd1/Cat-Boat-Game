@@ -237,6 +237,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3s0oq")
 text = "Close Game"
 
 [node name="ControlsTab" type="Button" parent="." unique_id=1492932275]
+visible = false
 use_parent_material = true
 offset_left = -102.0
 offset_top = 33.0
@@ -252,6 +253,7 @@ text = "Ctrls"
 script = ExtResource("3_auoow")
 
 [node name="InventoryTab" type="Button" parent="." unique_id=546525511]
+visible = false
 use_parent_material = true
 offset_left = -75.0
 offset_top = 33.0
@@ -267,6 +269,7 @@ text = "Items"
 script = ExtResource("4_cjqpt")
 
 [node name="QuestsTab" type="Button" parent="." unique_id=1210510889]
+visible = false
 use_parent_material = true
 offset_left = -48.0
 offset_top = 33.0
@@ -283,6 +286,7 @@ text = "Quests
 script = ExtResource("4_s05c4")
 
 [node name="QuitTab" type="Button" parent="." unique_id=86379206]
+visible = false
 use_parent_material = true
 offset_left = -21.0
 offset_top = 33.0

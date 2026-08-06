@@ -13,6 +13,10 @@ public partial class TreasureRoom : Node2D
 		{
 			GetBobaCutscene(GetNode<Node2D>("GroundPlayer"));
 		}
+		else
+		{
+			GetNode<Node2D>("BOBA").Hide();
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,6 +32,7 @@ public partial class TreasureRoom : Node2D
 	{
 		var azucat = GetNode<Sprite2D>("Azucat");
 		var catssava = GetNode<Sprite2D>("Catssava");
+		catssava.Frame = 0;
 		azucat.FlipH = true;
 		var anim = GetNode<AnimationPlayer>("AnimationPlayer");
 
@@ -69,7 +74,7 @@ public partial class TreasureRoom : Node2D
 		await dashT.ShowText("Yes - huff - the cat that took me down here admitted to stealing it from your shop.");
 		await azucatT.ShowText("How dare that pesky cat steal our town's boba!!");
 		await catssavaT.ShowText("What matters is that it's rightfully in our hands now.");
-		await dashT.ShowText("Can I buy some for Azucat to exchange for my boat?");
+		await dashT.ShowText("Can I give some for Azucat to exchange for my boat?");
 		await catssavaT.ShowText("Are you kidding? I would've never gotten it back if not for you. Take as much as you'd like.");
 		await azucatT.ShowText("Perfect timing! I've got a brand new boat waiting for you in the other room, Dash!");
 		await catssavaT.ShowText("Thank you so much, Dash!");

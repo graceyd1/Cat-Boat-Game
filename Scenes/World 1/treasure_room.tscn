@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b2eu1rt08rowb" path="res://Scenes/Player+UI/ground_player.tscn" id="3_jieat"]
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="4_mthqj"]
 [ext_resource type="Texture2D" uid="uid://c6sjgcysf8i6y" path="res://assets/npcs/azucat.png" id="7_th2h6"]
-[ext_resource type="Texture2D" uid="uid://bgfgvqg5j4fed" path="res://assets/npcs/catssava_sit.png" id="8_64te3"]
 [ext_resource type="PackedScene" uid="uid://b28lwwf0dhiu6" path="res://Scenes/General/text_box.tscn" id="8_ue6gb"]
+[ext_resource type="Texture2D" uid="uid://cqavi1dsbatba" path="res://assets/npcs/catssava.png" id="9_gvmae"]
 
 [sub_resource type="Animation" id="Animation_qfv5m"]
 length = 0.001
@@ -268,7 +268,8 @@ texture = ExtResource("7_th2h6")
 
 [node name="Catssava" type="Sprite2D" parent="." unique_id=1525110355]
 position = Vector2(-36, 141)
-texture = ExtResource("8_64te3")
+texture = ExtResource("9_gvmae")
+hframes = 2
 
 [node name="TextBox" parent="Catssava" unique_id=1525063618 instance=ExtResource("8_ue6gb")]
 

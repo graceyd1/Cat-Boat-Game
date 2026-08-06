@@ -15,6 +15,10 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("1_aen34")
 region = Rect2(32, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_aen34"]
+atlas = ExtResource("1_aen34")
+region = Rect2(64, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_way54"]
 atlas = ExtResource("1_aen34")
 region = Rect2(32, 0, 16, 16)
@@ -50,6 +54,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_aen34")
+}],
+"loop": 1,
+"name": &"no_hp",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_way54")
 }],
 "loop": 0,
@@ -71,5 +83,5 @@ animations = [{
 [node name="Player_Health" type="AnimatedSprite2D" unique_id=596566438]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dv6w5")
-animation = &"one_hp_hit"
+animation = &"no_hp"
 script = ExtResource("6_lrmhr")
