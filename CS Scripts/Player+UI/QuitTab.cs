@@ -17,6 +17,7 @@ public partial class QuitTab : Button
 	public void OnButtonPressed() {
 		GetNode<MarginContainer>("%MarginContainer").Show();
 		GetNode<Node2D>("%QuitOptions").Show();
+		GetNode<Node2D>("%ItemsUI").Hide();
 		GetNode<Label>("../Expanded/MarginContainer/VBoxContainer/Label").Text = "";
 	}
 

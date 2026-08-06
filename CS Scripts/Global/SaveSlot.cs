@@ -58,6 +58,7 @@ public partial class SaveSlot : Node2D
 		DateTime time = DateTime.Now;
 		GlobalScript.GameData.DateSaved = time.ToString("yyy-MM-dd"); 
 		GlobalScript.savePath = path;
+		GlobalScript.GameData = new GlobalSaveResource();
 		GlobalScript.SaveGame(); //saves the GlobalSaveResource object with new game configurations
 		if (Owner is TitleScreen title) {
 			title.ShipCrashCutscene();
