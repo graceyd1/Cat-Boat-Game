@@ -164,8 +164,14 @@ public partial class SubmarineShop : Node2D
 				GlobalScript.AzucatStoryNum++;
 			}
 		}
-		else if (GlobalScript.IsAfterQuest("GetBoat") && GlobalScript.AzucatStoryNum > 0 && GlobalScript.AzucatStoryNum <= MAX_STORY_NUM && GlobalScript.AzucatStoryNum % 1 == 0) {
-			var choice = await aText.Ask("Would you like to hear a story?\n1. Yes\n2. No");
+		else if (GlobalScript.IsAfterQuest("GetBoat") && GlobalScript.AzucatStoryNum > 0 && GlobalScript.AzucatStoryNum % 1 == 0) {
+			string choice;
+			if (GlobalScript.AzucatStoryNum <= MAX_STORY_NUM) {
+				choice = await aText.Ask("Would you like to hear a story?\n1. Yes\n2. No");
+			}
+			else {
+				choice = await aText.Ask("That's all the stories I've got for now! Want to hear them again?\n1. Yes\n2. No");
+			}
 			if (choice == "1") {
 				await pText.ShowText("Sure!");
 				await TellStory();
@@ -189,9 +195,9 @@ public partial class SubmarineShop : Node2D
 	}
 	
 	private async Task TellStory() {
-		switch (GlobalScript.AzucatStoryNum) {
+		switch (GlobalScript.AzucatStoryNum % 2) {
 			case 1: await MeetingStory(); break;
-			case 2: await OtterStory(); break;
+			case 0: await OtterStory(); break;
 		}
 	}
 	

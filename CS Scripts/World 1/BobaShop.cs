@@ -144,16 +144,20 @@ public partial class BobaShop : Node2D
 			}
 		}
 		else if (GlobalScript.CatssavaStoryNum > 0 && GlobalScript.CatssavaStoryNum % 1 == 0 && GlobalScript.IsAfterQuest("GetBoat")) {
+			string choice;
 			if (GlobalScript.CatssavaStoryNum <= MAX_STORY_NUM) {
-				var choice = await catssavaT.Ask("Would you like to hear a story?\n1. Yes\n2. No");
-				if (choice == "1") {
-					await dashT.ShowText("Sure!");
-					await TellStory();
-				}
-				else {
-					await dashT.ShowText("Maybe another time!");
-				}
-			}	
+				choice = await catssavaT.Ask("Would you like to hear a story?\n1. Yes\n2. No");
+			}
+			else {
+				choice = await catssavaT.Ask("You've heard all my stories for now. Do you want to hear them again?\n1. Yes\n2. No");
+			}
+			if (choice == "1") {
+				await dashT.ShowText("Sure!");
+				await TellStory();
+			}
+			else {
+				await dashT.ShowText("Maybe another time!");
+			}
 		}
 		else if (GlobalScript.IsAfterQuest("MeetCatssava") && GlobalScript.IsBeforeQuest("GetBoat"))
 		{
@@ -170,9 +174,9 @@ public partial class BobaShop : Node2D
 	}
 	
 	public async Task TellStory() {
-		switch (GlobalScript.CatssavaStoryNum) {
-			case 1: await PirateStory(); break;
-			case 2: await CatnipStory(); break;
+		switch (GlobalScript.CatssavaStoryNum % 2) {
+			case 0: await CatnipStory(); break; //even num
+			case 1: await PirateStory(); break; //odd num, comes first
 		}
 	}
 	
