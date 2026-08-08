@@ -114,7 +114,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-10, 142), Vector2(180, 142)]
+"values": [Vector2(-10, 143), Vector2(180, 143)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -126,7 +126,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.233333, 0.466667, 0.75, 1, 1.25, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-10, 142), Vector2(7.167, 142), Vector2(24.333, 137), Vector2(39.838, 142), Vector2(59.774, 137), Vector2(75.279, 142), Vector2(93, 142)]
+"values": [Vector2(-10, 143), Vector2(7.167, 143), Vector2(24.333, 137), Vector2(39.838, 143), Vector2(59.774, 137), Vector2(75.279, 143), Vector2(93, 143)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -154,7 +154,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5, 1.65, 1.8, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(93, 142), Vector2(93, 142), Vector2(93, 133), Vector2(93, 142), Vector2(-20, 142)]
+"values": [Vector2(93, 143), Vector2(93, 143), Vector2(93, 133), Vector2(93, 143), Vector2(-20, 143)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -166,7 +166,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(180, 142), Vector2(-30, 142)]
+"values": [Vector2(180, 143), Vector2(-87, 143)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -175,10 +175,10 @@ tracks/2/path = NodePath("BOBA:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.5, 3.8),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -15), Vector2(-210, -15), Vector2(-320, -15)]
+"values": [Vector2(0, -15), Vector2(-320, -15)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -234,6 +234,19 @@ position = Vector2(131, 141)
 
 [node name="TextBox" parent="GroundPlayer" unique_id=1955953899 instance=ExtResource("8_ue6gb")]
 
+[node name="Azucat" type="Sprite2D" parent="." unique_id=1509407849]
+position = Vector2(-10, 141)
+texture = ExtResource("7_th2h6")
+
+[node name="TextBox" parent="Azucat" unique_id=2051441706 instance=ExtResource("8_ue6gb")]
+
+[node name="Catssava" type="Sprite2D" parent="." unique_id=1525110355]
+position = Vector2(-36, 141)
+texture = ExtResource("9_gvmae")
+hframes = 2
+
+[node name="TextBox" parent="Catssava" unique_id=1525063618 instance=ExtResource("8_ue6gb")]
+
 [node name="Frontground" type="Sprite2D" parent="." unique_id=1721047243]
 texture = ExtResource("3_2065w")
 centered = false
@@ -259,19 +272,6 @@ scale = Vector2(1, 7.7)
 [node name="Ground" parent="Walls" unique_id=1518805054 instance=ExtResource("4_mthqj")]
 position = Vector2(-99, 152)
 scale = Vector2(20, 1)
-
-[node name="Azucat" type="Sprite2D" parent="." unique_id=1509407849]
-position = Vector2(-10, 141)
-texture = ExtResource("7_th2h6")
-
-[node name="TextBox" parent="Azucat" unique_id=2051441706 instance=ExtResource("8_ue6gb")]
-
-[node name="Catssava" type="Sprite2D" parent="." unique_id=1525110355]
-position = Vector2(-36, 141)
-texture = ExtResource("9_gvmae")
-hframes = 2
-
-[node name="TextBox" parent="Catssava" unique_id=1525063618 instance=ExtResource("8_ue6gb")]
 
 [node name="CutsceneTrigger" type="Area2D" parent="." unique_id=2085218720]
 position = Vector2(100, 0)

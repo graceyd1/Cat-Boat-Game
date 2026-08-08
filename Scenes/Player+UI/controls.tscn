@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dif3m6ljwdlny"]
 
+[ext_resource type="Material" uid="uid://cuxgp8trfyrih" path="res://assets/themes+materials/unshaded_material.tres" id="1_rmgjv"]
 [ext_resource type="Script" uid="uid://c3sysoc8lublw" path="res://CS Scripts/Player+UI/Controls.cs" id="1_weoqj"]
 [ext_resource type="Script" uid="uid://ro164ip8nv3y" path="res://CS Scripts/Player+UI/ControlsTab.cs" id="3_auoow"]
 [ext_resource type="PackedScene" uid="uid://dlmh7jpc3ln7j" path="res://Scenes/Player+UI/item_icons.tscn" id="3_h2a03"]
@@ -7,9 +8,6 @@
 [ext_resource type="Script" uid="uid://cj4ueacns40py" path="res://CS Scripts/Player+UI/InventoryTab.cs" id="4_cjqpt"]
 [ext_resource type="Script" uid="uid://drshf6dbosa44" path="res://CS Scripts/Player+UI/QuestsTab.cs" id="4_s05c4"]
 [ext_resource type="Script" uid="uid://cqfisidg7l7t7" path="res://CS Scripts/Player+UI/QuitTab.cs" id="7_ctukg"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ah2n4"]
-light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8ss1"]
 bg_color = Color(0.984314, 0.964706, 0.894118, 0.839216)
@@ -71,7 +69,7 @@ corner_radius_bottom_left = 2
 [sub_resource type="ButtonGroup" id="ButtonGroup_017sx"]
 
 [node name="Controls" type="Node2D" unique_id=1796098707]
-material = SubResource("CanvasItemMaterial_ah2n4")
+material = ExtResource("1_rmgjv")
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_weoqj")
 

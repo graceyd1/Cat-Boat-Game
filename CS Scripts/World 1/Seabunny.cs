@@ -89,13 +89,9 @@ public partial class Seabunny : CharacterBody2D
 		var anim = GetParent().GetNode<AnimationPlayer>("AnimationPlayer");
 		Velocity = Vector2.Zero;
 		
-		while (Position.X > 370)
-		{
-			facingLeft = true;
-			animatedSprite.FlipH = false;
-			await Dash(3);
-		}
-		Position = new Vector2(366, 205);
+		await CutsceneDash(true);
+
+		Position = new Vector2(386, 205);
 		animatedSprite.FlipH = false;
 		animatedSprite.Animation = "start_climb";
 		animatedSprite.Play();
@@ -116,6 +112,7 @@ public partial class Seabunny : CharacterBody2D
 		Hp --;
 		GetNode<Hitbox>("Hitbox").SetDisabled(false);
 		facingLeft = true;
+		animatedSprite.FlipH = false;
 		InFight = true;
 		InCutscene = false;
 		OnIdleTimerTimeout();
@@ -129,12 +126,8 @@ public partial class Seabunny : CharacterBody2D
 		var anim = GetParent().GetNode<AnimationPlayer>("AnimationPlayer");
 		Velocity = Vector2.Zero;
 		
-		while (Position.X < 540)
-		{
-			facingLeft = false;
-			animatedSprite.FlipH = true;
-			await Dash(3);
-		}
+		await CutsceneDash(false);
+
 		Position = new Vector2(555, 205);
 		animatedSprite.FlipH = false;
 		animatedSprite.Animation = "start_climb";
@@ -179,7 +172,7 @@ public partial class Seabunny : CharacterBody2D
 		}
 		else if (attack == 1)
 		{
-			await Dash(3);
+			await DashAttack(3);
 		}
 		else
 		{
@@ -188,6 +181,43 @@ public partial class Seabunny : CharacterBody2D
 
 		animatedSprite.Animation = "idle";
 		idleTimer.Start();
+	}
+
+	private async Task CutsceneDash(bool left)
+	{
+		if (left)
+		{
+			facingLeft = true;
+			animatedSprite.FlipH = false;
+			await Dash(2);
+		}
+		else
+		{
+			facingLeft = false;
+			animatedSprite.FlipH = true;
+			await Dash(3);
+		}
+	}
+
+	private async Task DashAttack(int loops)
+	{
+		if (InFight)
+		{
+			await Dash(loops);
+		}
+		//turn around
+		if (facingLeft)
+		{
+			//turn to right
+			facingLeft = false;
+			animatedSprite.FlipH = true;
+		}
+		else
+		{
+			//turn to left
+			facingLeft = true;
+			animatedSprite.FlipH = false;
+		}
 	}
 
 	//loops: how many times to loop the dashing animation
@@ -208,12 +238,16 @@ public partial class Seabunny : CharacterBody2D
 		{
 			Velocity = new Vector2(dashSpeed, 0);
 		}
-
+		
 		//wait for dashing animation to loop a certain number of times
 		for (int i = 0; i < loops; i ++)
 		{
 			await ToSignal(animatedSprite, AnimatedSprite2D.SignalName.AnimationLooped);
 			if (!facingLeft && Position.X > 555)
+			{
+				break;
+			}
+			if (!InFight && facingLeft && Position.X < 395)
 			{
 				break;
 			}
@@ -223,20 +257,6 @@ public partial class Seabunny : CharacterBody2D
 		animatedSprite.Animation = "end_dash";
 		animatedSprite.Play();
 		await ToSignal(animatedSprite, AnimatedSprite2D.SignalName.AnimationFinished);
-
-		//turn around
-		if (facingLeft)
-		{
-			//turn to right
-			facingLeft = false;
-			animatedSprite.FlipH = true;
-		}
-		else
-		{
-			//turn to left
-			facingLeft = true;
-			animatedSprite.FlipH = false;
-		}
 	}
 
 	private async Task Spin()

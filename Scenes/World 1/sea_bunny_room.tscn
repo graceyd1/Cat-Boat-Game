@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycnjo"]
-size = Vector2(20, 45.5)
+size = Vector2(20, 38.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqlvw"]
 size = Vector2(90, 34.2266)
@@ -187,7 +187,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(366, 205), Vector2(366, 183)]
+"values": [Vector2(386, 205), Vector2(386, 183)]
 }
 
 [sub_resource type="Animation" id="Animation_xe6ti"]
@@ -208,7 +208,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_lao03"]
 resource_name = "fall"
-length = 0.7
+length = 0.6
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -217,7 +217,7 @@ tracks/0/path = NodePath("Seabunny:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.7),
+"times": PackedFloat32Array(0, 0.2, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(550, 183), Vector2(550, 183), Vector2(460, 207)]
@@ -237,7 +237,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_mysty"]
 resource_name = "fall_left_vine"
-length = 0.7
+length = 0.6
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -246,10 +246,10 @@ tracks/0/path = NodePath("Seabunny:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.7),
+"times": PackedFloat32Array(0, 0.2, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(366, 183), Vector2(366, 183), Vector2(460, 207)]
+"values": [Vector2(386, 183), Vector2(386, 183), Vector2(460, 207)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -416,11 +416,11 @@ offset = Vector2(0, 1)
 position = Vector2(572, 0)
 
 [node name="GrowableVineLeft" parent="." unique_id=936320858 instance=ExtResource("5_n7so6")]
-position = Vector2(380, 144)
+position = Vector2(400, 144)
 
 [node name="Sparkle" type="AnimatedSprite2D" parent="." unique_id=1450418953]
 visible = false
-position = Vector2(380, 130)
+position = Vector2(400, 130)
 sprite_frames = SubResource("SpriteFrames_jif1a")
 autoplay = "default"
 frame_progress = 0.8933795
@@ -450,6 +450,7 @@ position = Vector2(485, 205)
 position = Vector2(40, 232)
 
 [node name="TextBox" parent="GroundPlayer" unique_id=1450740861 instance=ExtResource("8_7j8h3")]
+visible = false
 
 [node name="ArenaGate" type="Node2D" parent="." unique_id=461697444]
 position = Vector2(324, 212)
@@ -508,13 +509,13 @@ position = Vector2(588, 134)
 scale = Vector2(3, 0.5)
 
 [node name="LeftVineTrigger" type="Area2D" parent="." unique_id=1247712180]
-position = Vector2(380, 126)
+position = Vector2(400, 126)
 collision_layer = 0
 collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftVineTrigger" unique_id=1172765020]
-position = Vector2(0, -4.75)
+position = Vector2(0, -8.25)
 shape = SubResource("RectangleShape2D_ycnjo")
 debug_color = Color(1, 1, 0, 0.419608)
 
@@ -539,6 +540,16 @@ metadata/_edit_group_ = true
 position = Vector2(366, 205)
 shape = SubResource("RectangleShape2D_bs0lb")
 
+[node name="CameraTrigger" type="Area2D" parent="." unique_id=965503559]
+position = Vector2(-39, -7)
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraTrigger" unique_id=1050558752]
+position = Vector2(366, 205)
+shape = SubResource("RectangleShape2D_bs0lb")
+
 [node name="VineTimer" type="Timer" parent="." unique_id=592068107]
 wait_time = 5.0
 one_shot = true
@@ -551,4 +562,5 @@ libraries/ = SubResource("AnimationLibrary_v2uxj")
 [connection signal="body_entered" from="LeftVineTrigger" to="." method="OnLeftVineTriggerEntered"]
 [connection signal="body_entered" from="CutsceneTrigger" to="." method="EndFight"]
 [connection signal="body_entered" from="BossTrigger" to="." method="OnBossTriggerEntered"]
+[connection signal="body_entered" from="CameraTrigger" to="." method="OnCameraTriggerEntered"]
 [connection signal="timeout" from="VineTimer" to="." method="OnVineTimerTimeout"]

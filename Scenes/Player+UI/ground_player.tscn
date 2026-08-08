@@ -163,7 +163,6 @@ animations = [{
 }]
 
 [node name="GroundPlayer" unique_id=701188336 instance=ExtResource("1_sasn5")]
-position = Vector2(0, 0)
 script = ExtResource("2_dj4o3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4" unique_id=573490652]

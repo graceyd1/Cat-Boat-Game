@@ -197,6 +197,7 @@ scale = Vector2(1.4, 1)
 LabelHeight = 50
 
 [node name="TextBox" parent="IceCreamAreaSprite/InteractArea" unique_id=739966688 instance=ExtResource("9_gclb7")]
+visible = false
 position = Vector2(-14.6667, -60)
 scale = Vector2(0.666667, 1)
 
@@ -220,15 +221,17 @@ collision_mask = 5
 
 [node name="MinigameTime" type="Label" parent="UnderwaterPlayer" unique_id=1933116858]
 offset_left = -52.0
-offset_top = -32.0
+offset_top = -21.0
 offset_right = 52.0
-offset_bottom = -9.66666
+offset_bottom = 3.0
 theme_override_fonts/font = ExtResource("11_y2cam")
 theme_override_font_sizes/font_size = 10
+text = "Time: 0 s"
 horizontal_alignment = 1
 script = ExtResource("11_hplhg")
 
 [node name="TextBox" parent="UnderwaterPlayer" unique_id=2081548245 instance=ExtResource("9_gclb7")]
+visible = false
 
 [node name="RegularFish" type="Node2D" parent="." unique_id=429022547]
 

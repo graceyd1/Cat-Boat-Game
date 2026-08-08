@@ -245,6 +245,11 @@ public partial class SubmarineShop : Node2D
 		if (Secret1)
 		{
 			GetNode<AnimationPlayer>("Secret/AnimationPlayer").Play("laser");
+			if (GetNode<Sprite2D>("Azucat").FlipH)
+			{
+				GetNode<Sprite2D>("Secret/Azulcat").FlipH = true;
+			}
+			aText.SetLabel("Azulcat");
 			GlobalScript.Azulcat = true;
 			Secret1 = false;
 		}

@@ -181,7 +181,8 @@ offset_left = 59.0
 offset_top = 37.0
 offset_right = 143.0
 offset_bottom = 54.0
-text = "GAME OVER!!!! :("
+text = "GAME OVER!!!! :(
+you died to 100% italian organic extra virgin olive oil"
 
 [node name="RespawnButton" type="Button" parent="DiedScreen" unique_id=1602932969]
 layout_mode = 0

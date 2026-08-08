@@ -26,8 +26,10 @@ public partial class SeaBunnyRoom : Node2D
 		}
 		if (GlobalScript.IsAfterQuest("Seabunny"))
 		{
-			GetNode<GrowableVine>("GrowableVine").Grown();
 			GetNode<GrowableVine>("GrowableVineLeft").Eaten();
+			var rightVine = GetNode<GrowableVine>("GrowableVine");
+			rightVine.Grown();
+			rightVine.Position = new Vector2(572, 143);
 		}
 	}
 
@@ -69,12 +71,7 @@ public partial class SeaBunnyRoom : Node2D
 		}
 		if (GlobalScript.CQ("short") == "Seabunny")
 		{
-			if (!SeaBunny.InFight && !SeaBunny.InCutscene) {
-				var camera = player.GetNode<Camera2D>("Camera2D");
-				camera.PositionSmoothingEnabled = true;
-				camera.PositionSmoothingSpeed = 5.0f;
-				cameraGliding = true;
-				camera.GlobalPosition = new Vector2(470, camera.GlobalPosition.Y);
+			if (!SeaBunny.InFight /*&& !SeaBunny.InCutscene*/) {
 				AnimationP.Play("gate_close");
 				GetNode<AnimatedSprite2D>("Sparkle").Show();
 				//camera.SetLimit(Side.Left, 320);
@@ -88,19 +85,38 @@ public partial class SeaBunnyRoom : Node2D
 				SeaBunny.StartFight();
 			}
 		}
+	}
 
+	private void OnCameraTriggerEntered(Node2D player)
+	{
+		var camera = player.GetNode<Camera2D>("Camera2D");
+		camera.PositionSmoothingEnabled = true;
+		camera.PositionSmoothingSpeed = 5.0f;
+		cameraGliding = true;
+		camera.GlobalPosition = new Vector2(470, camera.GlobalPosition.Y);
 	}
 
 	private void OnPlayerDied()
 	{
 		SeaBunny.InFight = false;
 	}
-	private void OnPlayerRespawn()
+
+	private async void OnPlayerRespawn()
 	{
 		SeaBunny.Position = SeaBunny.StartPos;
 		var camera1 = Player.GetNode<Camera2D>("Camera2D");
 		camera1.Position = Vector2.Zero;
 		AnimationP.Play("gate_open");
+		await ToSignal(AnimationP, AnimationPlayer.SignalName.AnimationFinished);
+
+		//reset fight
+		//=maybe revert the save file instead? would that be better? idk
+		SeaBunny.Hp = 2;
+		GetNode<Node2D>("Sparkle").Position = new Vector2(400, 130);
+		var rightVine = GetNode<GrowableVine>("GrowableVine");
+		rightVine.Ungrown();
+		rightVine.Position = new Vector2(572, 0);
+		GetNode<GrowableVine>("GrowableVineLeft").Ungrown();
 	}
 
 	public async void OnLeftVineTriggerEntered(Node2D player)
@@ -110,8 +126,15 @@ public partial class SeaBunnyRoom : Node2D
 		sparkle.Position = new Vector2(572, 130);
 		if (SeaBunny.Hp == 2)
 		{
-			await SeaBunny.EatLeftVine();
-			GetNode<Timer>("VineTimer").Start();
+			if (player is Player p)
+			{
+				p.SetDisableMovement(true);
+				p.invulnerable = true;
+				await SeaBunny.EatLeftVine();
+				GetNode<Timer>("VineTimer").Start();
+				p.SetDisableMovement(false);
+				p.invulnerable = false;
+			}
 		}
 	}
 	public async void EndFight(Node2D player)

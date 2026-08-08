@@ -13,11 +13,11 @@
 [ext_resource type="SpriteFrames" uid="uid://bh8v1wbk2fneh" path="res://assets/icons/item_icons.tres" id="9_vajrb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i86wa"]
-radius = 8.0
-height = 16.0
+radius = 7.0
+height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
-size = Vector2(12, 13)
+size = Vector2(10, 10.5)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1tsuk"]
 
@@ -112,6 +112,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_ss633")
 
 [node name="CollisionCapsule" type="CollisionShape2D" parent="." unique_id=570828746]
+position = Vector2(0, 1)
 rotation = 4.71239
 shape = SubResource("CapsuleShape2D_i86wa")
 
@@ -120,7 +121,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1408688461]
-position = Vector2(0, -0.5)
+position = Vector2(0, 1.75)
 shape = SubResource("RectangleShape2D_1jxqw")
 debug_color = Color(1, 0, 0, 0.419608)
 

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class GrowableVine : Area2D
 {
@@ -37,15 +38,27 @@ public partial class GrowableVine : Area2D
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		animatedSprite2D.Animation = "grown";
 		grownCollisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
+		var light = GetNode<PointLight2D>("PointLight2D");
+		light.Position = new Vector2(0, 46);
+		light.Show();
+	}
+
+	public void Ungrown()
+	{
+		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		animatedSprite2D.Animation = "ungrown";
+		GetNode<AnimationPlayer>("AnimationPlayer").Play("RESET");
+		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
+		grownCollisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+		GetNode<PointLight2D>("PointLight2D").Position = new Vector2(0, -39);
 	}
 
 	public async void OnAreaEntered(Area2D flashlight) {
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		if (animatedSprite2D.Animation == "ungrown") {
-			//the collision shape now enables before it fully grows (in case you want to speedrun) (It's not working)
+			//the collision shape now enables before it fully grows (in case you want to speedrun)
 			GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
 			grownCollisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, false);
-	
 			animatedSprite2D.Animation = "growing";
 			animatedSprite2D.Play();
 
@@ -55,12 +68,10 @@ public partial class GrowableVine : Area2D
 			animatedSprite2D.Animation = "grown";
 		}
 	}
+
 	public void OnBodyEntered(Node2D player) {
 		if (player is GroundPlayer groundPlayer) {
-			var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-			if (animatedSprite2D.Animation == "grown") {
-				groundPlayer.Climbing = true;
-			}
+			groundPlayer.Climbing = true;
 		}
 	}
 	public void OnBodyExited(Node2D player) {
