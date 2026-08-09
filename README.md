@@ -1,5 +1,5 @@
 # Boba Cats!
-Boba Cats! is a 2D RPG platformer game for lovers of *cats and adventure*!
+Boba Cats! is a 2D adventure platformer game for lovers of *cats and adventure*!
 
 ![Boba Cats! Title Screen](https://github.com/grassybox/Boba-Cats/blob/master/assets/cover_art.png)
 
@@ -44,9 +44,9 @@ Programming by: Jewelia, grassinabox
 
 Soundtracking by: Third Take Studios
 
-Made using Godot
-
-Art made in Pixel Studio
+Made using:
+- Godot (Game engine)
+- Pixel Studio (Art)
 
 Features sound effects from DOTVOICE by daniwell (aidn.jp/dotvoice)
 
@@ -55,5 +55,6 @@ Inspired by Super Cat Tales 2
 Special Thanks: Hack Club
 
 Note: do not give bubble tea to cats in real life
+
 
 A game by humans about cats and boba! Thanks for reading :)
