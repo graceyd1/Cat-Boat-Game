@@ -40,7 +40,7 @@ position = Vector2(280, 54)
 texture = ExtResource("4_rv7gv")
 
 [node name="BackgroundVine3" type="Sprite2D" parent="Parallax2D2/BakgroundVines" unique_id=1070594142]
-position = Vector2(241, 51)
+position = Vector2(210, 51)
 texture = ExtResource("4_rv7gv")
 
 [node name="BackgroundVine4" type="Sprite2D" parent="Parallax2D2/BakgroundVines" unique_id=1098552906]
@@ -97,7 +97,7 @@ position = Vector2(380, 0)
 scale = Vector2(1, 10)
 
 [node name="TubeCoral" parent="." unique_id=1154713772 instance=ExtResource("9_5affo")]
-position = Vector2(218, 142)
+position = Vector2(233, 142)
 
 [node name="TubeCoral2" parent="." unique_id=193744596 instance=ExtResource("9_5affo")]
 position = Vector2(100, 142)
