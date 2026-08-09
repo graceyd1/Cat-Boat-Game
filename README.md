@@ -22,15 +22,31 @@ Music and extra touches will be added in the future!
 3. Click "Install"
 4. Click "Launch" to play the game!
  
-If you don't want to get the app and are a Windows user, you can follow these instructions below:
+If you don't want to get the app and are a Windows or Mac user, you can follow these instructions below:
 
 ## Windows
 1. Download the Windows zip file at https://grassinabox.itch.io/boba-cats
 2. Right click the zip file and choose "Extract All"
 3. Go into the new folder and double-click "Boba_Cats!.exe" to run it!
 
-## Other Platforms
-To play the game on Mac or Linux, use the [itch.io app](https://itch.io/app). We currently do not have other platform-specific releases.
+## MacOS
+1. Download the MacOS zip file at https://grassinabox.itch.io/boba-cats
+2. Move the file to your /Applications folder
+3. Double click the .zip to extract files
+
+### Bypassing unknown developer warning
+1. Right click the extracted .app file and select Open from the menu
+2. Choose Open from the confirmation dialogue
+   
+If your Mac doesn't have this option:
+1. Go to the Apple menu > System Settings, then Privacy & Security
+2. Go to Security, then click open
+3. Click open anyway (button available for an hour after you try to open the app)
+4. Enter your login password, then click OK
+   
+From https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac
+
+For additional help, look under **App is signed (including ad-hoc signatures) but not notarized** in https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#doc-running-on-macos
 
 # Credits
 A game by:
