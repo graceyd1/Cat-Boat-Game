@@ -77,9 +77,9 @@ public partial class SubmarineShop : Node2D
 						EnterNum++;
 					}
 					else {
+						DialogueTimeout = false;
 						dash.SetDisableControl(true);
 						interactLabel.Hide();
-						DialogueTimeout = false;
 						await aText.ShowText("HEY! Get down from there! Mechanics only!");
 						dash.Position = new Vector2(dash.Position.X, 132);
 						dash.SetDisableControl(false);

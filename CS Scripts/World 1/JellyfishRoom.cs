@@ -14,6 +14,11 @@ public partial class JellyfishRoom : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override async void _Process(double delta)
 	{
+		if (GlobalScript.JellyfishRockBroken)
+		{
+			var rock = GetNode<Sprite2D>("BreakableRock");
+			rock.Position = new Vector2(rock.Position.X, rock.Position.Y - 100);
+		}
 		if (!transitioning) {
 			await NextRoomCheck();
 		}
@@ -73,12 +78,13 @@ public partial class JellyfishRoom : Node2D
 	
 	private void OnBreakAOEEntered(Node2D player)
 	{
-		if (player is Player p)
+		if (!GlobalScript.JellyfishRockBroken && player is Player p)
 		{
 			if (p.MovementIsDisabled())
 			{
 				var rock = GetNode<Sprite2D>("BreakableRock");
 				rock.Position = new Vector2(rock.Position.X, rock.Position.Y - 100);
+				GlobalScript.JellyfishRockBroken = true;
 			}
 		}	
 	}

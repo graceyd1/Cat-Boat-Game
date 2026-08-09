@@ -172,6 +172,7 @@ position = Vector2(10, -2)
 script = ExtResource("6_vqqmd")
 
 [node name="CoinDisplay" type="Panel" parent="Camera2D/CoinDisplayNode" unique_id=1841870376]
+material = ExtResource("1_g0rqn")
 offset_left = -130.0
 offset_top = -75.0
 offset_right = -38.0
@@ -180,11 +181,13 @@ scale = Vector2(0.3, 0.3)
 theme_override_styles/panel = SubResource("StyleBoxFlat_o3rue")
 
 [node name="Coin" type="Sprite2D" parent="Camera2D/CoinDisplayNode/CoinDisplay" unique_id=1388245250]
+use_parent_material = true
 position = Vector2(0, 15)
 scale = Vector2(4, 4)
 texture = ExtResource("6_armfy")
 
 [node name="InnerPanel" type="Panel" parent="Camera2D/CoinDisplayNode/CoinDisplay" unique_id=1827813310]
+use_parent_material = true
 layout_mode = 0
 offset_left = 16.0
 offset_top = 7.0
@@ -195,6 +198,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_agoso")
 
 [node name="CoinCount" type="Label" parent="Camera2D/CoinDisplayNode/CoinDisplay/InnerPanel" unique_id=801855571]
 unique_name_in_owner = true
+use_parent_material = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 16.3333

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://nck8mm6r3ac2" path="res://assets/backgrounds/fish_room/fish_room0.png" id="1_g8guc"]
 [ext_resource type="Script" uid="uid://bntmi7yrdcr6w" path="res://CS Scripts/World 1/FishRoom.cs" id="1_wpdrc"]
-[ext_resource type="Texture2D" uid="uid://dxpjfw2i36bwi" path="res://assets/backgrounds/fish_room/fish_room1.png" id="2_dbuyh"]
+[ext_resource type="Texture2D" uid="uid://bwiqnhv7xs2xs" path="res://assets/backgrounds/fish_room/fish_room1.png" id="2_dbuyh"]
 [ext_resource type="Texture2D" uid="uid://b1itb3n2e3a34" path="res://assets/backgrounds/fish_room/fish_room2.png" id="3_v0c04"]
 [ext_resource type="Texture2D" uid="uid://be6ds2edpmttm" path="res://assets/backgrounds/fish_room/fish_room_3.1.png" id="4_r66pw"]
 [ext_resource type="Texture2D" uid="uid://dotoarb5btxvp" path="res://assets/backgrounds/fish_room/fish_room_3.2.png" id="5_wbxys"]
@@ -88,7 +88,7 @@ position = Vector2(357, 28)
 texture = ExtResource("7_rx2ad")
 
 [node name="BackgroundVine11" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines" unique_id=131236212]
-position = Vector2(430, 40)
+position = Vector2(430, 20)
 texture = ExtResource("7_rx2ad")
 
 [node name="BackgroundVine12" type="Sprite2D" parent="Backgrounds/Parallax2D1/BackgroundVines" unique_id=1302537587]

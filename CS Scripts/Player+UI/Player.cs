@@ -132,7 +132,6 @@ public partial class Player : CharacterBody2D
 			respawning = true;
 			EmitSignal(SignalName.Died);
 			await Respawn();
-			SetHP(2);
 		}
 	}
 	
@@ -169,9 +168,6 @@ public partial class Player : CharacterBody2D
 		{
 			respawnPoint = new Vector2(258, 132);
 		}
-		//= else if (room == "TubesArea") {
-		// 	respawnPoint = new Vector2(45, 123);
-		// } 
 		else if (room == "FirstRoom" || room == "BoxRoom") {
 			respawnPoint = new Vector2(10, 140);
 		}
@@ -226,6 +222,7 @@ public partial class Player : CharacterBody2D
 		if (!respawnOverride)
 		{
 			await RespawnToPoint(GetSpawnPoint());
+			SetHP(2);
 		}
 		respawning = false;
 		invulnerable = false;

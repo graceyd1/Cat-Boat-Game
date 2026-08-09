@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dxoik5vb5ive3" path="res://assets/backgrounds/jellyfish_room/jellyfish_room1.png" id="3_fpgpe"]
 [ext_resource type="Texture2D" uid="uid://cjjrwo4fwt4hp" path="res://assets/backgrounds/jellyfish_room/jellyfish_room2.png" id="4_dih5l"]
 [ext_resource type="Texture2D" uid="uid://v1adb3yc3dot" path="res://assets/backgrounds/jellyfish_room/jellyfish_room3.png" id="5_lpsdy"]
+[ext_resource type="Texture2D" uid="uid://b2q5ie1c6ypvu" path="res://assets/background_items/background_vine.png" id="6_k8cch"]
 [ext_resource type="PackedScene" uid="uid://i5wpk3ynqacf" path="res://Scenes/General/coin.tscn" id="6_vcj1j"]
 [ext_resource type="Texture2D" uid="uid://dqnpmyax7glde" path="res://assets/npcs/blue.png" id="7_amssy"]
 [ext_resource type="PackedScene" uid="uid://cajcbse43dl4y" path="res://Scenes/General/interact_area.tscn" id="8_8w4sh"]
@@ -12,15 +13,19 @@
 [ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="10_0fdjf"]
 [ext_resource type="Texture2D" uid="uid://banst1obngkel" path="res://assets/backgrounds/jellyfish_room/jellyfish_room_breakable_rock.png" id="11_76hbb"]
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="12_q5v5y"]
+[ext_resource type="Texture2D" uid="uid://3whn4ji4p7m0" path="res://assets/background_items/evil_vine.png" id="12_r0d75"]
+[ext_resource type="PackedScene" uid="uid://dxgrd8fkvpx6l" path="res://Scenes/General/hitbox.tscn" id="13_cifro"]
 [ext_resource type="PackedScene" uid="uid://c2paeopskk52q" path="res://Scenes/World 1/big_jellyfish.tscn" id="13_mmv0g"]
+[ext_resource type="Texture2D" uid="uid://bekphjfbgb21g" path="res://assets/background_items/pure_vine.png" id="14_cifro"]
 [ext_resource type="Texture2D" uid="uid://cngd0i0j1e4xu" path="res://assets/backgrounds/jellyfish_room/jellyfish_room4.png" id="14_qsleg"]
 [ext_resource type="Texture2D" uid="uid://bwukki0i2gpup" path="res://assets/backgrounds/jellyfish_room/jellyfish_room_secret_wall.png" id="15_1pu46"]
 [ext_resource type="PackedScene" uid="uid://dewawah7lpsl6" path="res://Scenes/World 1/bouncy_jellyfish.tscn" id="15_b6tet"]
 [ext_resource type="PackedScene" uid="uid://ygrr56bstc00" path="res://Scenes/General/interact_label.tscn" id="16_2u7sr"]
+[ext_resource type="Texture2D" uid="uid://c0xu6ei7nj4a0" path="res://assets/background_items/cute_vine.png" id="16_4wjme"]
 [ext_resource type="PackedScene" uid="uid://cf4276i8ovba8" path="res://Scenes/General/clam.tscn" id="16_evaiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywtf6"]
-size = Vector2(330, 47)
+size = Vector2(335, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w8jo"]
 size = Vector2(64, 7)
@@ -58,10 +63,49 @@ texture_filter = 1
 texture = ExtResource("4_dih5l")
 centered = false
 
+[node name="BackgroundVines" type="Node2D" parent="BackgroundFolder" unique_id=2075942773]
+
+[node name="BackgroundVine" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=685378562]
+position = Vector2(624, 40)
+texture = ExtResource("6_k8cch")
+
+[node name="BackgroundVine2" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=471088022]
+position = Vector2(539, 16)
+texture = ExtResource("6_k8cch")
+
+[node name="BackgroundVine3" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=248290130]
+position = Vector2(520, 23)
+texture = ExtResource("6_k8cch")
+
+[node name="BackgroundVine4" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=1277204914]
+position = Vector2(716, 31)
+texture = ExtResource("6_k8cch")
+
+[node name="BackgroundVine5" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=126561435]
+position = Vector2(383, 25)
+texture = ExtResource("6_k8cch")
+
+[node name="BackgroundVine6" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=1658786868]
+position = Vector2(277, 33)
+texture = ExtResource("6_k8cch")
+
+[node name="BackgroundVine7" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=649069969]
+position = Vector2(159, 31)
+texture = ExtResource("6_k8cch")
+
+[node name="BackgroundVine8" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=153721287]
+position = Vector2(208, 69)
+texture = ExtResource("6_k8cch")
+
+[node name="BackgroundVine9" type="Sprite2D" parent="BackgroundFolder/BackgroundVines" unique_id=208508972]
+position = Vector2(56, 49)
+texture = ExtResource("6_k8cch")
+
 [node name="Background3" type="Sprite2D" parent="BackgroundFolder" unique_id=1713459322]
 texture_filter = 1
 texture = ExtResource("5_lpsdy")
 centered = false
+metadata/_edit_group_ = true
 
 [node name="Coins" type="Node" parent="." unique_id=1679680434]
 
@@ -108,7 +152,7 @@ collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveCameraTrigger" unique_id=1588427850]
-position = Vector2(533, 155.5)
+position = Vector2(530.5, 163.5)
 shape = SubResource("RectangleShape2D_ywtf6")
 debug_color = Color(1, 1, 0, 0.41960785)
 
@@ -121,6 +165,7 @@ position = Vector2(0, 12)
 scale = Vector2(1, 0.3)
 
 [node name="TextBox" parent="BlueCat/InteractArea" unique_id=1301904286 instance=ExtResource("9_4ljap")]
+visible = false
 position = Vector2(0, -73.3334)
 scale = Vector2(1, 3.33333)
 
@@ -129,6 +174,105 @@ position = Vector2(675, 198)
 
 [node name="UnderwaterPlayer" parent="." unique_id=356920852 instance=ExtResource("10_0fdjf")]
 position = Vector2(690, 139)
+
+[node name="Vines" type="Node2D" parent="." unique_id=53430428]
+
+[node name="EvilVine3" type="Sprite2D" parent="Vines" unique_id=240905399]
+position = Vector2(414, 104)
+texture = ExtResource("12_r0d75")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine3" unique_id=887166041 instance=ExtResource("13_cifro")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine" type="Sprite2D" parent="Vines" unique_id=1216566060]
+position = Vector2(466, 104)
+texture = ExtResource("12_r0d75")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine" unique_id=1651483930 instance=ExtResource("13_cifro")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine5" type="Sprite2D" parent="Vines" unique_id=1663680674]
+position = Vector2(325, 35)
+texture = ExtResource("12_r0d75")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine5" unique_id=1582486523 instance=ExtResource("13_cifro")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine6" type="Sprite2D" parent="Vines" unique_id=1932749742]
+position = Vector2(17, 51)
+texture = ExtResource("12_r0d75")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine6" unique_id=1003239115 instance=ExtResource("13_cifro")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine7" type="Sprite2D" parent="Vines" unique_id=1004580247]
+position = Vector2(36, 35)
+texture = ExtResource("12_r0d75")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine7" unique_id=906089705 instance=ExtResource("13_cifro")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine8" type="Sprite2D" parent="Vines" unique_id=903672848]
+position = Vector2(189, 42)
+texture = ExtResource("12_r0d75")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine8" unique_id=755255265 instance=ExtResource("13_cifro")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine9" type="Sprite2D" parent="Vines" unique_id=66466155]
+position = Vector2(255, 52)
+texture = ExtResource("12_r0d75")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine9" unique_id=1537623151 instance=ExtResource("13_cifro")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine2" type="Sprite2D" parent="Vines" unique_id=1468859333]
+position = Vector2(440, 145)
+rotation = 3.1415927
+texture = ExtResource("12_r0d75")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine2" unique_id=183115860 instance=ExtResource("13_cifro")]
+scale = Vector2(0.3, 2)
+
+[node name="PureVine2" type="Sprite2D" parent="Vines" unique_id=720282840]
+position = Vector2(342, 11)
+texture = ExtResource("14_cifro")
+
+[node name="PureVine3" type="Sprite2D" parent="Vines" unique_id=1322839638]
+position = Vector2(370, 38)
+texture = ExtResource("14_cifro")
+
+[node name="PureVine4" type="Sprite2D" parent="Vines" unique_id=832287192]
+position = Vector2(435, 19)
+texture = ExtResource("14_cifro")
+
+[node name="PureVine5" type="Sprite2D" parent="Vines" unique_id=1598482550]
+position = Vector2(457, 41)
+texture = ExtResource("14_cifro")
+
+[node name="PureVine6" type="Sprite2D" parent="Vines" unique_id=1844941939]
+position = Vector2(594, 35)
+texture = ExtResource("14_cifro")
+
+[node name="PureVine7" type="Sprite2D" parent="Vines" unique_id=374898622]
+position = Vector2(581, 24)
+texture = ExtResource("14_cifro")
+
+[node name="PureVine8" type="Sprite2D" parent="Vines" unique_id=1057324127]
+position = Vector2(637, 51)
+texture = ExtResource("14_cifro")
+
+[node name="CuteVine" type="Sprite2D" parent="Vines" unique_id=567981712]
+position = Vector2(467, 27)
+texture = ExtResource("16_4wjme")
 
 [node name="BreakableRock" type="Sprite2D" parent="." unique_id=952172925]
 texture_filter = 1

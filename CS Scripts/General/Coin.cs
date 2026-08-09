@@ -45,14 +45,14 @@ public partial class Coin : Node2D
 			globalSound.PlaySound("collect_coin");
 			GlobalScript.Coins ++;
 			GlobalScript.CoinsCollected[CoinIdx] = true;
-			Disabled = true;
+			Disable();
 		}
 	}
 
-	// private void Disable()
-	// {
-	// 	// var sh	ape = GetNode<CollisionShape2D>("AnimatedCoin/Area2D/CollisionShape2D");
-	// 	// shape.SetDeferred("Disabled", true);
-	// 	Disabled = true;
-	// }
+	private void Disable()
+	{
+		var shape = GetNode<CollisionShape2D>("AnimatedCoin/Area2D/CollisionShape2D");
+		shape.SetDeferred("Disabled", true);
+		Disabled = true;
+	}
 }

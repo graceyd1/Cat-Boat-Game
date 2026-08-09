@@ -54,6 +54,9 @@ public partial class GlobalSaveResource : Resource
 	public bool Azulcat{get; set;} = false;
 
 	[Export]
+	public bool JellyfishRockBroken{get; set;} = false;
+
+	[Export]
 	public bool ViewedDarnCutscene{get; set;} = false;
 	
 	[Export]

@@ -162,7 +162,7 @@ public partial class BobaShop : Node2D
 		else if (GlobalScript.IsAfterQuest("MeetCatssava") && GlobalScript.IsBeforeQuest("GetBoat"))
 		{
 			//maybe we can have a list of dialogue and pick a random one
-			await catssavaT.ShowText("Oh, thank you so very much for helping me, Dash!");
+			await catssavaT.ShowText("Oh, thank you so very much for offering to help me, Dash!");
 		}
 		else if (GlobalScript.IsAfterQuest("GetBoat")) {
 			await catssavaT.ShowText("Dash, you were amazing! I can't believe you actually got my boba back!");

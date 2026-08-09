@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bbwdb6a0fq2l3" path="res://assets/backgrounds/vine_room/vine_room1.png" id="2_tgunx"]
 [ext_resource type="Texture2D" uid="uid://p517i2ejxmlc" path="res://assets/backgrounds/vine_room/vine_room2.png" id="3_7q7yd"]
 [ext_resource type="Texture2D" uid="uid://7ur7wyeb52ix" path="res://assets/backgrounds/vine_room/vine_room3.png" id="4_057pk"]
+[ext_resource type="Texture2D" uid="uid://b2q5ie1c6ypvu" path="res://assets/background_items/background_vine.png" id="4_dc3fb"]
 [ext_resource type="Texture2D" uid="uid://v7mme846qn06" path="res://assets/backgrounds/vine_room/vine_room4.png" id="5_mp620"]
 [ext_resource type="PackedScene" uid="uid://qj5ya1dmxy7r" path="res://Scenes/Player+UI/underwater_player.tscn" id="5_ms63o"]
 [ext_resource type="PackedScene" uid="uid://bjbcf5mwtvcgo" path="res://Scenes/General/walls.tscn" id="7_4jsbx"]
+[ext_resource type="PackedScene" uid="uid://i5wpk3ynqacf" path="res://Scenes/General/coin.tscn" id="7_js3g6"]
 [ext_resource type="Texture2D" uid="uid://bekphjfbgb21g" path="res://assets/background_items/pure_vine.png" id="9_crn45"]
 [ext_resource type="Texture2D" uid="uid://3whn4ji4p7m0" path="res://assets/background_items/evil_vine.png" id="9_cx53t"]
 [ext_resource type="Texture2D" uid="uid://c0xu6ei7nj4a0" path="res://assets/background_items/cute_vine.png" id="10_3ce3x"]
@@ -41,7 +43,6 @@ animations = [{
 script = ExtResource("1_kati2")
 
 [node name="Backgrounds" type="Node2D" parent="." unique_id=1522146466]
-metadata/_edit_group_ = true
 
 [node name="Parallax2D" type="Parallax2D" parent="Backgrounds" unique_id=1687440239]
 scroll_scale = Vector2(0.5, 1)
@@ -64,6 +65,24 @@ centered = false
 [node name="Parallax2D2" type="Parallax2D" parent="Backgrounds" unique_id=1493754054]
 scroll_scale = Vector2(0.8, 1)
 
+[node name="BackgroundVines" type="Node2D" parent="Backgrounds/Parallax2D2" unique_id=1712765302]
+
+[node name="BackgroundVine" type="Sprite2D" parent="Backgrounds/Parallax2D2/BackgroundVines" unique_id=1782182764]
+position = Vector2(92, 75)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine2" type="Sprite2D" parent="Backgrounds/Parallax2D2/BackgroundVines" unique_id=7239554]
+position = Vector2(359, 60)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine4" type="Sprite2D" parent="Backgrounds/Parallax2D2/BackgroundVines" unique_id=1042177526]
+position = Vector2(454, 85)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine3" type="Sprite2D" parent="Backgrounds/Parallax2D2/BackgroundVines" unique_id=1841938157]
+position = Vector2(245, 47)
+texture = ExtResource("4_dc3fb")
+
 [node name="Background2" type="Sprite2D" parent="Backgrounds/Parallax2D2" unique_id=688885484]
 texture_filter = 1
 texture = ExtResource("3_7q7yd")
@@ -72,11 +91,75 @@ centered = false
 [node name="Parallax2D3" type="Parallax2D" parent="Backgrounds" unique_id=1206933019]
 scroll_scale = Vector2(0.9, 1)
 
+[node name="BackgroundVines" type="Node2D" parent="Backgrounds/Parallax2D3" unique_id=1793670176]
+
+[node name="BackgroundVine" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=1242397995]
+position = Vector2(129, 44)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine2" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=855277711]
+position = Vector2(78, 55)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine3" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=1769021109]
+position = Vector2(33, 80)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine4" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=1577937335]
+position = Vector2(46, 69)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine5" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=400722159]
+position = Vector2(144, 38)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine6" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=1411623886]
+position = Vector2(234, 38)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine7" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=424479613]
+position = Vector2(252, 28)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine9" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=435809333]
+position = Vector2(310, 39)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine10" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=713979218]
+position = Vector2(390, 25)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine11" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=1300999827]
+position = Vector2(474, 65)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine8" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=279017090]
+position = Vector2(211, 33)
+texture = ExtResource("4_dc3fb")
+
+[node name="BackgroundVine12" type="Sprite2D" parent="Backgrounds/Parallax2D3/BackgroundVines" unique_id=365536118]
+position = Vector2(276, 26)
+texture = ExtResource("4_dc3fb")
+
 [node name="Background3" type="Sprite2D" parent="Backgrounds/Parallax2D3" unique_id=407781333]
 texture_filter = 1
 texture = ExtResource("4_057pk")
 centered = false
 metadata/_edit_group_ = true
+
+[node name="Coins" type="Node2D" parent="." unique_id=1137963404]
+
+[node name="Coin19" parent="Coins" unique_id=228555115 instance=ExtResource("7_js3g6")]
+position = Vector2(104, 37)
+
+[node name="Coin20" parent="Coins" unique_id=1824416111 instance=ExtResource("7_js3g6")]
+position = Vector2(116, 37)
+
+[node name="Coin21" parent="Coins" unique_id=1701001861 instance=ExtResource("7_js3g6")]
+position = Vector2(234, 82)
+
+[node name="Coin22" parent="Coins" unique_id=812117153 instance=ExtResource("7_js3g6")]
+position = Vector2(246, 82)
 
 [node name="UnderwaterPlayer" parent="." unique_id=1026098735 instance=ExtResource("5_ms63o")]
 position = Vector2(163, 126)
@@ -89,6 +172,14 @@ texture = ExtResource("9_cx53t")
 metadata/_edit_group_ = true
 
 [node name="Hitbox" parent="Vines/EvilVine" unique_id=268669385 instance=ExtResource("10_t07xr")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine6" type="Sprite2D" parent="Vines" unique_id=739699761]
+position = Vector2(135, 24)
+texture = ExtResource("9_cx53t")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine6" unique_id=1508370798 instance=ExtResource("10_t07xr")]
 scale = Vector2(0.3, 2)
 
 [node name="EvilVine2" type="Sprite2D" parent="Vines" unique_id=1423939530]
@@ -105,6 +196,22 @@ texture = ExtResource("9_cx53t")
 metadata/_edit_group_ = true
 
 [node name="Hitbox" parent="Vines/EvilVine3" unique_id=875796380 instance=ExtResource("10_t07xr")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine4" type="Sprite2D" parent="Vines" unique_id=1421757447]
+position = Vector2(191, 34)
+texture = ExtResource("9_cx53t")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine4" unique_id=244509099 instance=ExtResource("10_t07xr")]
+scale = Vector2(0.3, 2)
+
+[node name="EvilVine5" type="Sprite2D" parent="Vines" unique_id=176482815]
+position = Vector2(287, 48)
+texture = ExtResource("9_cx53t")
+metadata/_edit_group_ = true
+
+[node name="Hitbox" parent="Vines/EvilVine5" unique_id=1281098439 instance=ExtResource("10_t07xr")]
 scale = Vector2(0.3, 2)
 
 [node name="PureVine" type="Sprite2D" parent="Vines" unique_id=625693922]

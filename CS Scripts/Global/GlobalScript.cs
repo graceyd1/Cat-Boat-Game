@@ -112,6 +112,14 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 		}
 	}
 
+	public static bool JellyfishRockBroken {
+		get => GameData.JellyfishRockBroken;
+		set {
+			GameData.JellyfishRockBroken = value;
+			SaveGame();
+		}
+	}
+
 	public static bool ViewedDarnCutscene
 	{
 		get => GameData.ViewedDarnCutscene;
@@ -242,7 +250,6 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 	public static void LoadGame() {
 		if (ResourceLoader.Exists(savePath)) {
 			GameData = ResourceLoader.Load<GlobalSaveResource>(savePath);
-			GD.Print(CurrentRoom);//=
 		}
 	}
 	
