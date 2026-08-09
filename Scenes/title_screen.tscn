@@ -530,5 +530,5 @@ text = "Close"
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="OnCreditsButtonPressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="OnQuitButtonPressed"]
 [connection signal="pressed" from="FilePicker/X" to="." method="OnExitFilePicker"]
-[connection signal="pressed" from="FilePicker/Don\'tSave" to="." method="ShipCrashCutscene"]
+[connection signal="pressed" from="FilePicker/Don\'tSave" to="." method="StartUnsavedGame"]
 [connection signal="pressed" from="Credits/CloseCreditsButton" to="." method="OnCloseCreditsButtonPressed"]

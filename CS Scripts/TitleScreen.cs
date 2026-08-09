@@ -31,6 +31,11 @@ public partial class TitleScreen : Node2D
 	{
 		GetNode<CanvasLayer>("FilePicker").Show();
 	}
+	
+	public void StartUnsavedGame() {
+		GlobalScript.GameData = new GlobalSaveResource();
+		ShipCrashCutscene();
+	}
 	public async void ShipCrashCutscene() {
 		GetNode<Control>("Buttons").Hide();
 		GetNode<CanvasLayer>("FilePicker").Hide();
