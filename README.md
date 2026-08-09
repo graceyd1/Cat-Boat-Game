@@ -38,6 +38,10 @@ A game by:
 - Kimeowsu
 - grassinabox
 
+Art by: Kimeowsu
+
+Programming by: Jewelia, grassinabox
+
 Soundtracking by: Third Take Studios
 
 Made using Godot
