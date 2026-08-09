@@ -5,3 +5,4 @@
 # https://docs.godotengine.org/en/stable/tutorials/best_practices/version_control_systems.html
 # I added
 *.translation
+*.zip
