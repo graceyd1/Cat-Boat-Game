@@ -71,7 +71,7 @@ public partial class SeaBunnyRoom : Node2D
 		}
 		if (GlobalScript.CQ("short") == "Seabunny")
 		{
-			if (!SeaBunny.InFight /*&& !SeaBunny.InCutscene*/) {
+			if (!SeaBunny.InFight && !Player.respawning /*&& !SeaBunny.InCutscene*/) {
 				AnimationP.Play("gate_close");
 				GetNode<AnimatedSprite2D>("Sparkle").Show();
 				//camera.SetLimit(Side.Left, 320);
@@ -104,6 +104,7 @@ public partial class SeaBunnyRoom : Node2D
 	private async void OnPlayerRespawn()
 	{
 		SeaBunny.Position = SeaBunny.StartPos;
+		SeaBunny.InFight = false;
 		var camera1 = Player.GetNode<Camera2D>("Camera2D");
 		camera1.Position = Vector2.Zero;
 		AnimationP.Play("gate_open");

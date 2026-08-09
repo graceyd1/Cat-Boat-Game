@@ -21,9 +21,9 @@ config/icon="uid://dvvimneworgny"
 
 [autoload]
 
+GlobalScript="*res://Scenes/Global/global_script.tscn"
 Fader="*res://Scenes/Global/fader.tscn"
 GlobalSceneChange="*res://Scenes/Global/global_scene_change.tscn"
-GlobalScript="*res://Scenes/Global/global_script.tscn"
 DevMode="*res://Scenes/Global/dev_mode.tscn"
 GlobalSound="*uid://d30wucdnfmmn"
 

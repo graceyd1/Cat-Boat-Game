@@ -144,7 +144,6 @@ public partial class FishRoom : Node2D
 			GlobalScript.FishGameHighScore = fishCollected;
 			UpdateHighScore();
 		}
-
 		if (fishCollected >= CollectableFish.Count 
 			&& !GlobalScript.ClamsCollected[0]
 			&& player.GetHP() > 1 && !playerDied)

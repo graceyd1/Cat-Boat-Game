@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Godot.Collections;
 
-public partial class GlobalScript : Node //=changed this to a node from node2d hope that's ok
+public partial class GlobalScript : Node
 {
 	
 	public static GlobalSaveResource GameData{get; set;} = new GlobalSaveResource();
@@ -76,6 +76,11 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 		get => GameData.ClamsCollected;
 		set {
 			GameData.ClamsCollected = value;
+			if (value.Count == 0)
+			{
+				value.Resize(6);
+				value.Fill(false);
+			}
 			SaveGame();
 		}
 	}
@@ -235,16 +240,21 @@ public partial class GlobalScript : Node //=changed this to a node from node2d h
 	
 	public static String savePath{get; set;} //= "user://save_data/tres";
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	public void InitializeArrays()
 	{
 		//todo - change size?
 		//did I do this in the right spot
-		CoinsCollected.Resize(100);
+		CoinsCollected.Resize(99);
 		CoinsCollected.Fill(false);
 
 		ClamsCollected.Resize(6);
 		ClamsCollected.Fill(false);
+	}
+
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+		InitializeArrays();
 	}	
 	
 	public static void LoadGame() {

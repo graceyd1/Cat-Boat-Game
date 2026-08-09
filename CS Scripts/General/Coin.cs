@@ -17,6 +17,12 @@ public partial class Coin : Node2D
 		Disabled = false;
 		var name = Name.ToString();
 		CoinIdx = name[^1] - '0'; //get the last char of the name as a number
+		var prevDigit = name[^2] - '0';
+		if (prevDigit >= 0 && prevDigit <= 9)
+		{
+			CoinIdx += (prevDigit * 10);
+		}
+
 		globalSound = GetNode<GlobalSound>("/root/GlobalSound");
 
 		if (GlobalScript.CoinsCollected[CoinIdx])
