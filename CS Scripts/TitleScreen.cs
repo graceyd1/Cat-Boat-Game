@@ -34,6 +34,8 @@ public partial class TitleScreen : Node2D
 	
 	public void StartUnsavedGame() {
 		GlobalScript.GameData = new GlobalSaveResource();
+		var GS = GetNode<GlobalScript>("/root/GlobalScript");
+		GS.InitializeArrays();
 		ShipCrashCutscene();
 	}
 	public async void ShipCrashCutscene() {
