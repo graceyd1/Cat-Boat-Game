@@ -11,7 +11,7 @@ public partial class BobaShop : Node2D
 	private AnimationPlayer AniPlayer;
 	private Sprite2D Pearl;
 	private Control interactLabel;
-	private const int MAX_STORY_NUM = 2;
+	private const int MAX_STORY_NUM = 3;
 	private bool DialogueTimeout;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -174,9 +174,10 @@ public partial class BobaShop : Node2D
 	}
 	
 	public async Task TellStory() {
-		switch (GlobalScript.CatssavaStoryNum % 2) {
-			case 0: await CatnipStory(); break; //even num
-			case 1: await PirateStory(); break; //odd num, comes first
+		switch (GlobalScript.CatssavaStoryNum % 3) {
+			case 0: await CatnipStory(); break; 
+			case 1: await PirateStory(); break; 
+			case 2: await CarsavaStory(); break;
 		}
 	}
 	
@@ -220,6 +221,16 @@ public partial class BobaShop : Node2D
 		await catssavaT.ShowText("There are strange dangers on the surface, Dash. Just make sure to be careful, ok?");
 		await catssavaT.ShowText("Some of the cats might not be as nice as the cats here at Bubbly Town.");
 		await dashT.ShowText("Don't worry, Catssava! I've faced Parva. I can handle lychee popping boba thieves!");
+		GlobalScript.CatssavaStoryNum++;
+	}
+	
+	private async Task CarsavaStory() {
+		await catssavaT.ShowText("My brother might seem tough, but he has a good heart.");
+		await catssavaT.ShowText("He once wanted to run the boba shop with me. Loved seeing all the happy cats that came.");
+		await catssavaT.ShowText("But one day, there was a kitten that strayed from town. The entire town was frantic looking for him all day.");
+		await catssavaT.ShowText("Carsava found him bouncing on a large jellyfish. He wasn't able to stop bouncing!");
+		await catssavaT.ShowText("After rescuing the kitten, Carsava decided he would become the town guard.");
+		await catssavaT.ShowText("Even if it meant not being able to see happy cats around him all day, he believed it was important to keep everyone safe.");
 		GlobalScript.CatssavaStoryNum++;
 	}
 }
